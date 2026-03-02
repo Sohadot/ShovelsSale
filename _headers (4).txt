@@ -1,0 +1,49 @@
+/*
+  # ============================================================
+  # SECURITY HEADERS — ShovelsSale.com
+  # Works on: GitHub Pages (via Cloudflare proxy) + Cloudflare Pages
+  # ============================================================
+
+  # Prevent clickjacking
+  X-Frame-Options: DENY
+
+  # Prevent MIME type sniffing
+  X-Content-Type-Options: nosniff
+
+  # XSS Protection (legacy browsers)
+  X-XSS-Protection: 1; mode=block
+
+  # Force HTTPS for 1 year (includeSubDomains)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Referrer policy — don't leak URL to third parties
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Permissions Policy — disable unused browser features
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+
+  # Content Security Policy — strict whitelist
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://plausible.io https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://analytics.google.com https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://app.beehiiv.com https://assets.mailerlite.com https://emailoctopus.com;
+
+  # Cross-Origin Policies
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Resource-Policy: same-origin
+
+/
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+
+/robots.txt
+  Cache-Control: public, max-age=86400

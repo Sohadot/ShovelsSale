@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
+  <channel>
+    <title>ShovelsSale.com — The Shovels Chronicles</title>
+    <link>https://shovelssale.com</link>
+    <description>Pick-and-shovel strategy for the AI era. Weekly insights for those who sell shovels while the world mines for gold.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Feb 2026 08:00:00 GMT</lastBuildDate>
+    <managingEditor>hello@shovelssale.com</managingEditor>
+    <webMaster>hello@shovelssale.com</webMaster>
+    <ttl>10080</ttl>
+    <image>
+      <url>https://shovelssale.com/assets/icons/icon-512.png</url>
+      <title>ShovelsSale.com</title>
+      <link>https://shovelssale.com</link>
+    </image>
+
+    <atom:link href="https://shovelssale.com/feed.xml"
+               rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Why Pick-and-Shovel Wins in 2026</title>
+      <link>https://shovelssale.com/blog/pick-and-shovel-wins-2026/</link>
+      <guid isPermaLink="true">https://shovelssale.com/blog/pick-and-shovel-wins-2026/</guid>
+      <pubDate>Sat, 22 Feb 2026 08:00:00 GMT</pubDate>
+      <dc:creator>ShovelsSale.com</dc:creator>
+      <category>Strategy</category>
+      <description>Every gold rush has two kinds of players. Here is why the shovel sellers always win — and what that means for AI in 2026.</description>
+      <content:encoded><![CDATA[
+        <p>In every gold rush in history, the vast majority of miners walked away with nothing.</p>
+        <p>The ones who built lasting wealth were those who supplied the rush — not joined it.</p>
+        <p>The pick-and-shovel strategy says: don't bet on which model wins. Build the infrastructure every model needs.</p>
+        <p><a href="https://shovelssale.com/blog/pick-and-shovel-wins-2026/">Read the full article →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Top AI Infrastructure Plays Right Now</title>
+      <link>https://shovelssale.com/blog/top-ai-infrastructure-plays/</link>
+      <guid isPermaLink="true">https://shovelssale.com/blog/top-ai-infrastructure-plays/</guid>
+      <pubDate>Sat, 22 Feb 2026 08:00:00 GMT</pubDate>
+      <dc:creator>ShovelsSale.com</dc:creator>
+      <category>Investing</category>
+      <description>The undervalued picks and shovels of the AI boom that most people are ignoring while chasing flashy model names.</description>
+      <content:encoded><![CDATA[
+        <p>Everyone is watching the AI models. Nobody is watching the companies that make them possible.</p>
+        <p>That is the opportunity.</p>
+        <p><a href="https://shovelssale.com/blog/top-ai-infrastructure-plays/">Read the full article →</a></p>
+      ]]></content:encoded>
+    </item>
+
+  </channel>
+</rss>

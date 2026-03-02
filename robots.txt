@@ -1,0 +1,101 @@
+# ============================================================
+# robots.txt — ShovelsSale.com
+# Last updated: 2026-02-22
+# ============================================================
+
+# === ALLOW ALL GOOD BOTS ===
+User-agent: *
+Allow: /
+Allow: /manifesto/
+Allow: /about/
+Allow: /guide/
+Allow: /blog/
+
+# Block sensitive directories and files
+Disallow: /.github/
+Disallow: /scripts/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.yml$
+Disallow: /*.py$
+Disallow: /security_report.json
+
+# Block URL parameters (avoid duplicate content)
+Disallow: /*?*
+
+# Crawl delay
+Crawl-delay: 10
+
+# === GOOGLE ===
+User-agent: Googlebot
+Allow: /
+Disallow: /.github/
+Disallow: /scripts/
+Crawl-delay: 5
+
+User-agent: Googlebot-Image
+Allow: /assets/
+Disallow: /
+
+# === BING ===
+User-agent: Bingbot
+Allow: /
+Disallow: /.github/
+Disallow: /scripts/
+Crawl-delay: 10
+
+# === AI SCRAPERS — BLOCK ===
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# === SEO CRAWLERS — BLOCK ===
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+# === SITEMAP ===
+Sitemap: https://shovelssale.com/sitemap.xml
