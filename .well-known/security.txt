@@ -1,0 +1,4 @@
+Contact: mailto:security@shovelssale.com
+Expires: 2027-02-22T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://shovelssale.com/.well-known/security.txt
