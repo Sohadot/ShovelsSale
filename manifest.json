@@ -1,0 +1,39 @@
+{
+  "name": "ShovelsSale.com",
+  "short_name": "ShovelsSale",
+  "description": "The philosophy of winning without gambling. Pick-and-shovel strategy for the AI era.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#C9A84C",
+  "lang": "en",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["finance", "business", "education"],
+  "shortcuts": [
+    {
+      "name": "The Manifesto",
+      "url": "/manifesto/",
+      "description": "Read the founding document"
+    },
+    {
+      "name": "Shovels Guide",
+      "url": "/guide/",
+      "description": "Explore the best AI infrastructure plays"
+    }
+  ]
+}

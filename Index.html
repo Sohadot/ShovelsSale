@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShovelsSale.com — The Philosophy of Winning Without Gambling</title>
+  <meta name="description" content="While the world races to strike gold, the smartest ones sell shovels. The pick-and-shovel strategy for the AI era.">
+  <meta name="keywords" content="pick and shovel strategy, AI infrastructure, shovel sellers, gold rush AI, smart investing, AI tools">
+  <meta property="og:title" content="ShovelsSale.com — Sell Shovels. Not Mine for Gold.">
+  <meta property="og:description" content="The philosophy of winning without gambling. The pick-and-shovel strategy for the AI era.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shovelssale.com">
+  <link rel="canonical" href="https://shovelssale.com">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+  <!--
+    ANALYTICS — Choose ONE and uncomment:
+
+    OPTION A: Google Analytics 4 (GA4) — Most comprehensive
+    Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com
+  -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
+  <!--
+    OPTION B: Plausible (privacy-friendly, no cookies, GDPR compliant)
+    Replace yourdomain.com with: shovelssale.com
+    Sign up free at plausible.io
+  -->
+  <!--
+  <script defer data-domain="shovelssale.com" src="https://plausible.io/js/script.js"></script>
+  -->
+
+  <!--
+    OPTION C: Cloudflare Web Analytics (100% free if using Cloudflare DNS)
+    Replace TOKEN with your token from Cloudflare dashboard → Web Analytics
+  -->
+  <!--
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+    data-cf-beacon='{"token": "YOUR-TOKEN"}'></script>
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dim: #7A5F2A;
+      --black: #080808;
+      --dark: #0E0E0E;
+      --dark-2: #141414;
+      --dark-3: #1A1A1A;
+      --white: #F5F0E8;
+      --white-dim: #9A9080;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Cormorant Garamond', serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* GRAIN OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--white-dim);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 70vw;
+      height: 70vw;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+    }
+
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.3s;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 12vw, 11rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.5s;
+    }
+
+    .hero-title span {
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-style: italic;
+      color: var(--white-dim);
+      max-width: 500px;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.7s;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.9s;
+    }
+
+    .btn-primary {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold-light);
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+    }
+
+    .btn-primary:hover::after { transform: translateX(0); }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    .btn-secondary {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary:hover { color: var(--gold); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 1.2s;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    .scroll-text {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+    }
+
+    /* STORY SECTION */
+    .story {
+      padding: 8rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold-dim);
+      opacity: 0.3;
+    }
+
+    .story-text {
+      font-family: var(--font-body);
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      line-height: 1.8;
+      color: var(--white);
+    }
+
+    .story-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .story-text .highlight {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .story-text .big {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--white);
+    }
+
+    .story-text .dim {
+      color: var(--white-dim);
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+      opacity: 0.3;
+      margin: 2rem 0;
+    }
+
+    /* MANIFESTO */
+    .manifesto {
+      background: var(--dark-2);
+      padding: 8rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .manifesto::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+    }
+
+    .manifesto-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .manifesto-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 0.9;
+      color: var(--white);
+      margin-bottom: 4rem;
+    }
+
+    .manifesto-title span { color: var(--gold); }
+
+    .manifesto-points {
+      display: grid;
+      gap: 3rem;
+    }
+
+    .manifesto-point {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .point-number {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      padding-top: 0.4rem;
+    }
+
+    .point-content h3 {
+      font-family: var(--font-body);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .point-content p {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: var(--white-dim);
+      line-height: 1.7;
+    }
+
+    /* GUIDE SECTION */
+    .guide {
+      padding: 8rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+      margin-top: 4rem;
+    }
+
+    .guide-card {
+      background: var(--dark-2);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .guide-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--gold);
+      transition: height 0.4s ease;
+    }
+
+    .guide-card:hover { background: var(--dark-3); }
+    .guide-card:hover::before { height: 100%; }
+
+    .card-category {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-family: var(--font-body);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-desc {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--white-dim);
+      line-height: 1.6;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      background: var(--dark-2);
+      padding: 8rem 3rem;
+      position: relative;
+    }
+
+    .newsletter::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+    }
+
+    .newsletter-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .newsletter-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-title span { color: var(--gold); }
+
+    .newsletter-sub {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--white-dim);
+      margin-bottom: 3rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      background: var(--dark-3);
+      border: 1px solid var(--gold-dim);
+      border-right: none;
+      color: var(--white);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 1rem 1.5rem;
+      outline: none;
+      letter-spacing: 0.05em;
+      transition: border-color 0.3s;
+    }
+
+    .newsletter-input:focus { border-color: var(--gold); }
+    .newsletter-input::placeholder { color: var(--white-dim); opacity: 0.5; }
+
+    .newsletter-btn {
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .newsletter-btn:hover { background: var(--gold-light); }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      opacity: 0.6;
+    }
+
+    .footer-text {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--white-dim);
+      letter-spacing: 0.1em;
+      opacity: 0.4;
+    }
+
+    /* QUOTE BREAK */
+    .quote-break {
+      padding: 6rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .quote-break::before,
+    .quote-break::after {
+      content: '';
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+      opacity: 0.2;
+    }
+
+    .quote-break::before { top: 0; }
+    .quote-break::after { bottom: 0; }
+
+    .big-quote {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 5.5rem);
+      line-height: 1.1;
+      color: var(--white);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .big-quote span { color: var(--gold); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .story, .guide, .manifesto-inner, .newsletter-inner { padding-left: 0; padding-right: 0; }
+      .manifesto, .newsletter, .story, .guide, .quote-break { padding: 5rem 1.5rem; }
+      .manifesto-point { grid-template-columns: 2rem 1fr; gap: 1rem; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-input { border-right: 1px solid var(--gold-dim); border-bottom: none; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">ShovelsSale.com</a>
+    <ul class="nav-links">
+      <li><a href="#story">The Story</a></li>
+      <li><a href="#manifesto">Manifesto</a></li>
+      <li><a href="#guide">The Guide</a></li>
+      <li><a href="/blog/">Chronicles</a></li>
+      <li><a href="/about/">Our Mission</a></li>
+      <li><a href="#newsletter">Join</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-label">Est. 2026 — The AI Infrastructure Era</p>
+    <h1 class="hero-title">
+      Sell<br>
+      <span>Shovels.</span>
+    </h1>
+    <p class="hero-subtitle">While the world races to strike gold, the smartest ones own the tools the miners need.</p>
+    <div class="hero-cta">
+      <a href="/blog/" class="btn-primary"><span>Enter the Chronicles</span></a>
+      <a href="#manifesto" class="btn-secondary">Read the Manifesto →</a>
+    </div>
+    <div class="hero-scroll">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="section-label reveal">The Story</div>
+    <div class="story-text">
+      <p class="reveal">Most people spend their whole life chasing gold.</p>
+      <p class="reveal dim">They work harder. They risk more. They chase the next big thing... crypto, AI, real estate, startups.</p>
+      <p class="reveal dim">And most of them? They end up exhausted. Empty-handed. Wondering what went wrong.</p>
+      <div class="divider reveal"></div>
+      <p class="reveal">But there's always that <span class="highlight">one person</span> in the room. Quiet. Calm. Unbothered.</p>
+      <p class="reveal">Not chasing anything.</p>
+      <p class="reveal">Because while everyone else is digging...</p>
+      <p class="big reveal"><span class="highlight">they're the one selling the shovels.</span></p>
+      <div class="divider reveal"></div>
+      <p class="reveal dim">That person doesn't gamble on which gold rush will win. They win regardless.</p>
+      <p class="reveal dim">Today the gold rush is AI. Tomorrow it'll be something else.</p>
+      <p class="reveal">But the shovel seller? <span class="highlight">Always there. Always winning.</span></p>
+    </div>
+  </section>
+
+  <!-- QUOTE BREAK -->
+  <div class="quote-break">
+    <p class="big-quote reveal">
+      "The question isn't<br>where the gold is.<br>
+      <span>The question is: who's selling the shovels?"</span>
+    </p>
+  </div>
+
+    <!-- MANIFESTO -->
+  <section class="manifesto" id="manifesto">
+    <div class="manifesto-inner">
+      <div class="section-label reveal">The Manifesto</div>
+      <h2 class="manifesto-title reveal">
+        The Philosophy<br>
+        of <span>Winning</span><br>
+        Without Gambling.
+      </h2>
+      <div class="manifesto-points">
+
+        <div class="manifesto-point reveal">
+          <span class="point-number">01</span>
+          <div class="point-content">
+            <h3>The Miners Gamble. The Shovel Sellers Win.</h3>
+            <p>In every gold rush in history, the vast majority of miners walked away with nothing. The ones who built lasting wealth were those who supplied the rush — not joined it.</p>
+          </div>
+        </div>
+
+        <div class="manifesto-point reveal">
+          <span class="point-number">02</span>
+          <div class="point-content">
+            <h3>The AI Rush Is Happening Right Now.</h3>
+            <p>Billions are pouring into AI startups. Everyone wants to build the next ChatGPT. But the ones who will quietly win are those who build the infrastructure, the tools, the shovels that every AI project desperately needs.</p>
+          </div>
+        </div>
+
+        <div class="manifesto-point reveal">
+          <span class="point-number">03</span>
+          <div class="point-content">
+            <h3>You Don't Need to Pick the Winner.</h3>
+            <p>The shovel seller doesn't care which startup becomes the next NVIDIA. They sell to all of them. That's the power of the pick-and-shovel strategy — you win regardless of who strikes gold.</p>
+          </div>
+        </div>
+
+        <div class="manifesto-point reveal">
+          <span class="point-number">04</span>
+          <div class="point-content">
+            <h3>This Is Not a Website. It's a Worldview.</h3>
+            <p>ShovelsSale.com exists to be the home of this philosophy. A resource, a community, a compass for those who choose to build infrastructure rather than chase trends.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section class="guide" id="guide">
+    <div class="section-label reveal">Shovels Guide 2026</div>
+    <h2 class="manifesto-title reveal" style="font-size: clamp(2rem, 6vw, 5rem); margin-bottom: 1rem;">
+      The Best <span style="color: var(--gold)">Shovels</span><br>for the AI Era.
+    </h2>
+    <p class="reveal" style="color: var(--white-dim); font-style: italic; max-width: 600px;">
+      Not the miners. The tools that every miner needs. Curated, updated, and honest.
+    </p>
+
+    <div class="guide-grid">
+      <div class="guide-card reveal">
+        <p class="card-category">Hardware</p>
+        <h3 class="card-title">GPU Infrastructure</h3>
+        <p class="card-desc">The pickaxes of the AI era. NVIDIA, AMD, and the new interconnect players powering every model that gets trained.</p>
+      </div>
+      <div class="guide-card reveal">
+        <p class="card-category">Cloud</p>
+        <h3 class="card-title">Cheap Compute Access</h3>
+        <p class="card-desc">Vast.ai, RunPod, Lambda Labs. Rent the shovels without buying the mine. The smartest way to start without burning capital.</p>
+      </div>
+      <div class="guide-card reveal">
+        <p class="card-category">Software</p>
+        <h3 class="card-title">Open-Source AI Pipelines</h3>
+        <p class="card-desc">LangChain, Hugging Face, Ollama. The free shovels that are quietly powering a hundred thousand AI projects right now.</p>
+      </div>
+      <div class="guide-card reveal">
+        <p class="card-category">Infrastructure</p>
+        <h3 class="card-title">Data Center REITs</h3>
+        <p class="card-desc">You don't need to build the data center. You can own a piece of it. The most overlooked pick-and-shovel play of 2026.</p>
+      </div>
+      <div class="guide-card reveal">
+        <p class="card-category">Energy</p>
+        <h3 class="card-title">Power & Cooling</h3>
+        <p class="card-desc">AI runs on electricity. The companies solving the energy and thermal problem are building the most essential shovels of all.</p>
+      </div>
+      <div class="guide-card reveal">
+        <p class="card-category">Domains</p>
+        <h3 class="card-title">Digital Real Estate</h3>
+        <p class="card-desc">Premium domain names are the land of the internet era. Scarce, permanent, and increasingly valuable as AI brands emerge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHRONICLES GATEWAY -->
+  <section style="padding: 0; background: var(--black); position: relative;">
+    <div style="
+      max-width: 1100px; margin: 0 auto; padding: 8rem 3rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      position: relative;
+    ">
+      <!-- LEFT: PHILOSOPHY -->
+      <div style="
+        padding: 4rem; background: var(--dark-2);
+        display: flex; flex-direction: column; justify-content: center; gap: 2rem;
+        border-top: 2px solid var(--gold);
+      " class="reveal">
+        <p style="font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.3em; text-transform: uppercase;">The Chronicles</p>
+        <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 4rem); line-height: 1; color: var(--white);">
+          Every week.<br>One shovel.<br><span style="color: var(--gold);">Infinite edge.</span>
+        </h2>
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--white-dim); line-height: 1.75;">
+          While the miners scroll for tips and chase headlines,
+          the shovel sellers read something different.
+          Deep analysis. Real infrastructure. The picks that matter.
+        </p>
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--white); line-height: 1.75;">
+          Not news. Not noise.<br>
+          <strong style="color: var(--gold);">The philosophy of winning without gambling — applied weekly.</strong>
+        </p>
+        <a href="/blog/" style="
+          font-family: 'DM Mono', monospace; font-size: 0.75rem;
+          letter-spacing: 0.2em; text-transform: uppercase;
+          color: var(--black); background: var(--gold);
+          padding: 1.1rem 2.5rem; text-decoration: none;
+          display: inline-block; width: fit-content;
+          transition: background 0.3s;
+          margin-top: 1rem;
+        " onmouseover="this.style.background='#E8C97A'" onmouseout="this.style.background='#C9A84C'">
+          Enter the Chronicles →
+        </a>
+      </div>
+
+      <!-- RIGHT: LATEST ISSUE PREVIEW -->
+      <div style="
+        background: var(--dark-3); padding: 4rem;
+        display: flex; flex-direction: column; gap: 2rem;
+        border-top: 2px solid rgba(201,168,76,0.2);
+        position: relative; overflow: hidden;
+      " class="reveal">
+        <div style="
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 10rem; color: rgba(201,168,76,0.04);
+          line-height: 1; position: absolute; bottom: -1rem; right: 1rem;
+          pointer-events: none; user-select: none;
+        ">001</div>
+        <div style="position: relative; z-index: 1;">
+          <p style="font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem;">Latest Issue — Feb 22, 2026</p>
+          <h3 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 600; color: var(--white); line-height: 1.4; margin-bottom: 1rem;">
+            Why Pick-and-Shovel Always Wins.
+          </h3>
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--white-dim); line-height: 1.7; margin-bottom: 2rem;">
+            Every gold rush in history produced the same result. The miners gambled. The shovel sellers built empires. In 2026, the pattern is repeating — with perfect fidelity.
+          </p>
+          <a href="/blog/pick-and-shovel-wins-2026/" style="
+            font-family: 'DM Mono', monospace; font-size: 0.6rem;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--white-dim); text-decoration: none;
+            transition: color 0.3s;
+          " onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#9A9080'">
+            Read Issue 001 →
+          </a>
+        </div>
+        <div style="
+          border-top: 1px solid rgba(201,168,76,0.1);
+          padding-top: 1.5rem; position: relative; z-index: 1;
+        ">
+          <p style="font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--white-dim); letter-spacing: 0.1em; opacity: 0.5;">
+            NEXT ISSUE → How to Start an AI Project Without Millions in Funding.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESPONSIVE FIX -->
+    <style>
+      @media (max-width: 768px) {
+        .chronicles-grid { grid-template-columns: 1fr !important; }
+      }
+    </style>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter" id="newsletter">
+    <div class="newsletter-inner">
+      <div class="section-label reveal" style="justify-content: center;">Join the Movement</div>
+      <h2 class="newsletter-title reveal">
+        Weekly<br><span>Shovels</span><br>Digest.
+      </h2>
+      <p class="newsletter-sub reveal">
+        The picks, the shovels, the strategies.<br>Every week. No noise.
+      </p>
+      <!--
+        NEWSLETTER INTEGRATION — Choose ONE:
+
+        OPTION A: Beehiiv (recommended)
+        Replace action URL with your Beehiiv embed URL from:
+        beehiiv.com → Publications → Forms → Embed
+
+        OPTION B: MailerLite
+        Replace action URL with your MailerLite form action from:
+        mailerlite.com → Forms → Embedded forms
+
+        OPTION C: EmailOctopus
+        Replace action URL from emailoctopus.com → Forms
+      -->
+      <form
+        class="newsletter-form reveal"
+        action="https://YOUR-NEWSLETTER-PROVIDER-FORM-URL"
+        method="POST"
+        target="_blank"
+        onsubmit="handleSubscribe(event)"
+      >
+        <input type="hidden" name="utm_source" value="shovelssale_website">
+        <input type="hidden" name="utm_medium" value="newsletter_signup">
+        <input
+          type="email"
+          name="email"
+          class="newsletter-input"
+          placeholder="your@email.com"
+          required
+          id="email-input"
+        >
+        <button type="submit" class="newsletter-btn">Join</button>
+      </form>
+      <p id="form-message" style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--gold); margin-top: 1rem; letter-spacing: 0.1em; min-height: 1rem;"></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">ShovelsSale.com</span>
+    <span class="footer-text">© 2026 — The Philosophy of Winning Without Gambling.</span>
+  </footer>
+
+  <script>
+    // SCROLL REVEAL
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // NEWSLETTER
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      const msg = document.getElementById('form-message');
+      msg.textContent = '✓ You\'re in. Welcome to the shovel sellers.';
+      document.getElementById('email-input').value = '';
+    }
+
+    // SMOOTH NAV
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>

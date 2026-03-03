@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Shovels Chronicles — ShovelsSale.com</title>
+  <meta name="description" content="Pick-and-shovel strategy for the AI era. Weekly articles on infrastructure, investing, and the philosophy of winning without gambling.">
+  <meta property="og:title" content="The Shovels Chronicles — ShovelsSale.com">
+  <meta property="og:description" content="Weekly articles on AI infrastructure strategy. Updated every Monday.">
+  <link rel="canonical" href="https://shovelssale.com/blog/">
+  <link rel="alternate" type="application/rss+xml" title="ShovelsSale.com" href="/feed.xml">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "The Shovels Chronicles",
+    "url": "https://shovelssale.com/blog/",
+    "description": "Pick-and-shovel strategy for the AI era.",
+    "publisher": { "@type": "Organization", "name": "ShovelsSale.com", "url": "https://shovelssale.com" }
+  }
+  </script>
+
+  <!-- Plausible Analytics -->
+  <!-- <script defer data-domain="shovelssale.com" src="https://plausible.io/js/script.js"></script> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #C9A84C; --gold-light: #E8C97A; --gold-dim: #7A5F2A;
+      --black: #080808; --dark-2: #141414; --dark-3: #1A1A1A;
+      --white: #F5F0E8; --white-dim: #9A9080;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999; opacity: 0.4;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center;
+      background: linear-gradient(to bottom, rgba(8,8,8,0.97), transparent);
+    }
+    .nav-logo { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--gold); letter-spacing: 0.15em; text-decoration: none; opacity: 0.8; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--white-dim); text-decoration: none; letter-spacing: 0.1em; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    /* HERO */
+    .blog-hero {
+      padding: 11rem 3rem 5rem; max-width: 1100px; margin: 0 auto;
+      position: relative;
+    }
+    .blog-hero::after {
+      content: ''; position: absolute; bottom: 0; left: 3rem; right: 3rem;
+      height: 1px; background: linear-gradient(to right, transparent, var(--gold-dim), transparent); opacity: 0.25;
+    }
+    .hero-label {
+      font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--gold);
+      letter-spacing: 0.35em; text-transform: uppercase; margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 1s ease forwards 0.2s;
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 10vw, 9rem);
+      line-height: 0.9; color: var(--white); margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 1s ease forwards 0.4s;
+    }
+    .hero-title span { color: var(--gold); }
+    .hero-sub {
+      font-style: italic; color: var(--white-dim); font-size: clamp(1rem, 2vw, 1.3rem);
+      max-width: 550px; opacity: 0; animation: fadeUp 1s ease forwards 0.6s;
+    }
+
+    /* RSS LINK */
+    .rss-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--gold-dim);
+      text-decoration: none; letter-spacing: 0.1em; margin-top: 1.5rem;
+      transition: color 0.3s;
+      opacity: 0; animation: fadeUp 1s ease forwards 0.8s;
+    }
+    .rss-link:hover { color: var(--gold); }
+    .rss-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+    /* FEATURED POST */
+    .featured-section {
+      max-width: 1100px; margin: 0 auto; padding: 4rem 3rem 0;
+    }
+    .section-tag {
+      font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--gold);
+      letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .section-tag::after { content: ''; flex: 1; height: 1px; background: var(--gold-dim); opacity: 0.2; }
+
+    .featured-card {
+      background: var(--dark-2); display: grid;
+      grid-template-columns: 1fr 1fr; gap: 0;
+      position: relative; overflow: hidden;
+      transition: background 0.3s; text-decoration: none;
+    }
+    .featured-card:hover { background: var(--dark-3); }
+    .featured-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, var(--gold-dim), var(--gold), var(--gold-dim));
+    }
+
+    .featured-content { padding: 3.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .featured-meta {
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+    }
+    .post-category {
+      font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--gold);
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .post-date {
+      font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--white-dim);
+      letter-spacing: 0.1em; opacity: 0.5;
+    }
+    .post-badge {
+      font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.2rem 0.6rem;
+      background: rgba(201,168,76,0.15); color: var(--gold);
+    }
+    .featured-title {
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.0; color: var(--white);
+    }
+    .featured-excerpt {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+      color: var(--white-dim); line-height: 1.7; flex: 1;
+    }
+    .read-more {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold); display: inline-flex;
+      align-items: center; gap: 0.5rem; transition: gap 0.3s;
+    }
+    .featured-card:hover .read-more { gap: 0.8rem; }
+
+    .featured-visual {
+      background: var(--dark-3); display: flex; align-items: center;
+      justify-content: center; padding: 3rem; min-height: 300px;
+      position: relative; overflow: hidden;
+    }
+    .featured-visual::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 70%);
+    }
+    .visual-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(6rem, 12vw, 10rem); color: rgba(201,168,76,0.08);
+      line-height: 1; user-select: none; position: relative; z-index: 1;
+    }
+    .visual-icon {
+      position: absolute; font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem; color: var(--gold); opacity: 0.4; letter-spacing: 0.1em;
+    }
+
+    /* POSTS GRID */
+    .posts-section {
+      max-width: 1100px; margin: 0 auto; padding: 4rem 3rem 6rem;
+    }
+    .posts-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2px;
+    }
+
+    .post-card {
+      background: var(--dark-2); padding: 2.5rem; text-decoration: none;
+      display: flex; flex-direction: column; gap: 1rem;
+      position: relative; overflow: hidden; transition: background 0.3s;
+      border-left: 3px solid transparent;
+    }
+    .post-card:hover { background: var(--dark-3); border-left-color: var(--gold); }
+    .post-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 0;
+      background: linear-gradient(to bottom, rgba(201,168,76,0.05), transparent);
+      transition: height 0.4s;
+    }
+    .post-card:hover::before { height: 100%; }
+
+    .post-card-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;
+      font-weight: 600; color: var(--white); line-height: 1.4; flex: 1;
+    }
+    .post-excerpt {
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+      color: var(--white-dim); line-height: 1.6;
+    }
+    .post-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 1rem; border-top: 1px solid rgba(201,168,76,0.08);
+    }
+    .post-read {
+      font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--white-dim);
+    }
+    .post-card:hover .post-read { color: var(--gold); }
+
+    /* COMING SOON CARD */
+    .post-card-soon {
+      background: var(--dark-2); padding: 2.5rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      opacity: 0.4; position: relative; overflow: hidden;
+    }
+    .soon-badge {
+      font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.15em;
+      text-transform: uppercase; padding: 0.2rem 0.6rem;
+      border: 1px solid rgba(201,168,76,0.2); color: var(--gold-dim); width: fit-content;
+    }
+
+    /* NEWSLETTER CTA */
+    .blog-newsletter {
+      background: var(--dark-2); padding: 5rem 3rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      text-align: center;
+    }
+    .blog-newsletter h2 {
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .blog-newsletter h2 span { color: var(--gold); }
+    .blog-newsletter p {
+      font-style: italic; color: var(--white-dim); font-size: 1.1rem; margin-bottom: 2.5rem;
+    }
+    .newsletter-form {
+      display: flex; max-width: 440px; margin: 0 auto;
+    }
+    .newsletter-input {
+      flex: 1; background: var(--dark-3); border: 1px solid var(--gold-dim);
+      border-right: none; color: var(--white); font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; padding: 0.9rem 1.2rem; outline: none; transition: border-color 0.3s;
+    }
+    .newsletter-input:focus { border-color: var(--gold); }
+    .newsletter-input::placeholder { color: var(--white-dim); opacity: 0.4; }
+    .newsletter-btn {
+      background: var(--gold); color: var(--black); border: none;
+      font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em;
+      text-transform: uppercase; padding: 0.9rem 1.5rem; cursor: pointer; transition: background 0.3s;
+    }
+    .newsletter-btn:hover { background: var(--gold-light); }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem; border-top: 1px solid rgba(201,168,76,0.08);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--gold); letter-spacing: 0.15em; opacity: 0.5; text-decoration: none; }
+    .footer-text { font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--white-dim); opacity: 0.3; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .blog-hero, .featured-section, .posts-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-visual { min-height: 150px; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .blog-newsletter { padding: 3.5rem 1.5rem; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-input { border-right: 1px solid var(--gold-dim); border-bottom: none; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">ShovelsSale.com</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/manifesto/">Manifesto</a></li>
+    <li><a href="/guide/">The Guide</a></li>
+    <li><a href="/blog/" class="active">Chronicles</a></li>
+    <li><a href="/about/">Mission</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <p class="hero-label">Published Weekly — Est. 2026</p>
+  <h1 class="hero-title">The <span>Shovels</span><br>Chronicles.</h1>
+  <p class="hero-sub">Not news. Not hype. Deep analysis of who is really winning the AI era — and why it is always the shovel sellers.</p>
+  <a href="/feed.xml" class="rss-link">
+    <span class="rss-dot"></span>
+    Subscribe via RSS
+  </a>
+</div>
+
+<!-- FEATURED -->
+<div class="featured-section">
+  <p class="section-tag reveal">Featured — Latest Issue</p>
+  <a href="/blog/pick-and-shovel-wins-2026/" class="featured-card reveal">
+    <div class="featured-content">
+      <div class="featured-meta">
+        <span class="post-category">Strategy</span>
+        <span class="post-date">Feb 22, 2026</span>
+        <span class="post-badge">Issue 001</span>
+      </div>
+      <h2 class="featured-title">Why Pick-and-Shovel Always Wins.</h2>
+      <p class="featured-excerpt">Every gold rush in history produced the same result: the miners gambled, the shovel sellers built empires. In 2026, the gold rush is AI — and the pattern is repeating with perfect fidelity. Here is the evidence.</p>
+      <span class="read-more">Read the full article →</span>
+    </div>
+    <div class="featured-visual">
+      <div class="visual-number">001</div>
+      <div class="visual-icon" style="top: 20%; right: 20%;">SHOVEL</div>
+      <div class="visual-icon" style="bottom: 25%; left: 15%; font-size: 1rem; opacity: 0.25;">SELLER</div>
+    </div>
+  </a>
+</div>
+
+<!-- POSTS GRID -->
+<div class="posts-section">
+  <p class="section-tag reveal">All Issues</p>
+  <div class="posts-grid">
+
+    <a href="/blog/pick-and-shovel-wins-2026/" class="post-card reveal">
+      <div class="featured-meta">
+        <span class="post-category">Strategy</span>
+        <span class="post-date">Feb 22, 2026</span>
+      </div>
+      <h3 class="post-card-title">Why Pick-and-Shovel Always Wins.</h3>
+      <p class="post-excerpt">The pattern that has repeated in every economic gold rush — and why 2026 is no different.</p>
+      <div class="post-footer">
+        <span class="post-date">Issue 001</span>
+        <span class="post-read">Read →</span>
+      </div>
+    </a>
+
+    <a href="/blog/top-ai-infrastructure-plays/" class="post-card reveal">
+      <div class="featured-meta">
+        <span class="post-category">Investing</span>
+        <span class="post-date">Feb 22, 2026</span>
+      </div>
+      <h3 class="post-card-title">Top AI Infrastructure Plays Right Now.</h3>
+      <p class="post-excerpt">The undervalued shovels of the AI boom that most investors are ignoring while chasing model names.</p>
+      <div class="post-footer">
+        <span class="post-date">Issue 002</span>
+        <span class="post-read">Read →</span>
+      </div>
+    </a>
+
+    <!-- COMING SOON CARDS -->
+    <div class="post-card-soon reveal">
+      <span class="soon-badge">Coming March 2026</span>
+      <h3 class="post-card-title" style="color: var(--white-dim);">How to Start an AI Project Without Millions in Funding.</h3>
+      <p class="post-excerpt" style="color: var(--white-dim); opacity: 0.5;">The free and cheap shovels that make serious AI accessible to anyone.</p>
+    </div>
+
+    <div class="post-card-soon reveal">
+      <span class="soon-badge">Coming March 2026</span>
+      <h3 class="post-card-title" style="color: var(--white-dim);">The Energy Paradox: Why Power is the Most Overlooked AI Shovel.</h3>
+      <p class="post-excerpt" style="color: var(--white-dim); opacity: 0.5;">AI runs on electricity. The companies solving the power problem are quietly becoming essential.</p>
+    </div>
+
+    <div class="post-card-soon reveal">
+      <span class="soon-badge">Coming April 2026</span>
+      <h3 class="post-card-title" style="color: var(--white-dim);">Digital Real Estate: Premium Domains as Pick-and-Shovel Assets.</h3>
+      <p class="post-excerpt" style="color: var(--white-dim); opacity: 0.5;">Why brandable domain names are the land of the AI era — scarce, appreciating, and permanent.</p>
+    </div>
+
+    <div class="post-card-soon reveal">
+      <span class="soon-badge">Coming April 2026</span>
+      <h3 class="post-card-title" style="color: var(--white-dim);">Open Source: The Free Shovels Powering a Hundred Thousand AI Projects.</h3>
+      <p class="post-excerpt" style="color: var(--white-dim); opacity: 0.5;">LangChain, Hugging Face, Ollama — the tools that democratized the gold rush.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="blog-newsletter reveal">
+  <h2>Never Miss a <span>Shovel.</span></h2>
+  <p>Every Monday. One article. Zero noise.</p>
+  <form class="newsletter-form"
+    action="https://YOUR-BEEHIIV-FORM-URL"
+    method="POST" target="_blank"
+    onsubmit="handleSubscribe(event)">
+    <input type="email" name="email" class="newsletter-input" placeholder="your@email.com" required>
+    <button type="submit" class="newsletter-btn">Subscribe</button>
+  </form>
+  <p id="form-msg" style="font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold);margin-top:1rem;letter-spacing:0.1em;min-height:1rem;"></p>
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">ShovelsSale.com</a>
+  <span class="footer-text">© 2026 — The Philosophy of Winning Without Gambling.</span>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.07 });
+  reveals.forEach(el => observer.observe(el));
+
+  function handleSubscribe(e) {
+    e.preventDefault();
+    document.getElementById('form-msg').textContent = '✓ You are in. First issue arrives Monday.';
+    e.target.reset();
+  }
+</script>
+</body>
+</html>
