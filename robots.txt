@@ -1,49 +1,88 @@
 # ============================================================
 # robots.txt — ShovelsSale.com
-# Optimized for SEO + Security
+# Production-grade: SEO + AI + Security balance
 # ============================================================
 
-# === GLOBAL ===
+# ============================================================
+# GLOBAL ACCESS (Open for indexing)
+# ============================================================
 User-agent: *
 Allow: /
 
-# Block sensitive infrastructure
+# ------------------------------------------------------------
+# Protect sensitive infrastructure (never meant to be indexed)
+# ------------------------------------------------------------
+Disallow: /.git/
 Disallow: /.github/
 Disallow: /scripts/
 Disallow: /node_modules/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /backup/
+Disallow: /internal/
 
-# === GOOGLE ===
+# ------------------------------------------------------------
+# Prevent crawling of non-public system files
+# (without blocking useful structured data)
+# ------------------------------------------------------------
+Disallow: /*.log$
+Disallow: /*.env$
+Disallow: /*.ini$
+Disallow: /*.bak$
+
+# ============================================================
+# GOOGLE (Full access for maximum indexing)
+# ============================================================
 User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
-Allow: /assets/
+Allow: /
 
-# === BING ===
+User-agent: Googlebot-News
+Allow: /
+
+# ============================================================
+# BING (Secondary search engine)
+# ============================================================
 User-agent: Bingbot
 Allow: /
 
-# === AI SCRAPERS — BLOCK (اختياري لكن مقبول) ===
+# ============================================================
+# AI SYSTEMS (Allowed for discovery & citation layer)
+# ============================================================
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: anthropic-ai
-Disallow: /
+Allow: /
 
 User-agent: Claude-Web
-Disallow: /
+Allow: /
 
 User-agent: cohere-ai
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
+Allow: /
 
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
 
-# === SITEMAP ===
+User-agent: Google-Extended
+Allow: /
+
+# ============================================================
+# OPTIONAL: Limit extremely aggressive scrapers (if needed later)
+# (Currently not blocking to avoid isolation)
+# ============================================================
+# User-agent: AhrefsBot
+# Disallow: /
+#
+# User-agent: SemrushBot
+# Disallow: /
+
+# ============================================================
+# SITEMAP (Critical for indexing)
+# ============================================================
 Sitemap: https://shovelssale.com/sitemap.xml
