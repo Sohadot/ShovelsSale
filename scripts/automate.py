@@ -23,7 +23,7 @@ import os
 import re
 import html
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, UTC
 from typing import Optional, Dict, List
 from bs4 import BeautifulSoup
 
@@ -150,6 +150,10 @@ def normalize_date(raw_date: Optional[str], file_path: Path) -> str:
     if raw_date:
         try:
             return datetime.fromisoformat(raw_date.replace("Z", "")).date().isoformat()
+        except ValueError:
+            pass
+
+    return datetime.fromtimestamp(file_path.stat().st_mtime, UTC).date().isoformat()
         except ValueError:
             pass
 
