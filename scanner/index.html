@@ -1,0 +1,1346 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shovel Scanner | ShovelsSale.com</title>
+  <meta name="description" content="The Shovel Scanner is the operational classification layer of ShovelsSale.com. Evaluate whether a company, product, or digital asset belongs to the Extraction Layer, the Infrastructure Layer, or the Control Layer.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://shovelssale.com/scanner/">  <meta property="og:title" content="Shovel Scanner | ShovelsSale.com">
+  <meta property="og:description" content="A sovereign-grade classification engine for identifying Miner, Shovel, and Gatekeeper positions inside gold-rush markets.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shovelssale.com/scanner/">
+  <meta property="og:site_name" content="ShovelsSale.com">  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shovel Scanner | ShovelsSale.com">
+  <meta name="twitter:description" content="Classify economic positions through the ShovelsSale structural model.">  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Shovel Scanner",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://shovelssale.com/scanner/",
+    "description": "A classification engine for evaluating whether an asset behaves as a Miner, Shovel, or Gatekeeper within the structural layers of a market.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "ShovelsSale.com",
+      "url": "https://shovelssale.com/"
+    }
+  }
+  </script>  <!-- Google Tag Manager -->  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K83NSPVC');</script>  <!-- End Google Tag Manager -->  <!-- Google Analytics 4 -->  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKVL5E97G3"></script>  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-VKVL5E97G3');
+  </script>  <!-- End Google Analytics 4 -->  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dim: #7A5F2A;
+      --black: #080808;
+      --dark: #0E0E0E;
+      --dark-2: #141414;
+      --dark-3: #1A1A1A;
+      --white: #F5F0E8;
+      --white-dim: #9A9080;
+      --panel: rgba(255,255,255,0.03);
+      --line: rgba(201,168,76,0.16);
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Cormorant Garamond', serif;
+      --font-mono: 'DM Mono', monospace;
+      --shadow: 0 22px 60px rgba(0,0,0,0.45);
+      --radius-xl: 30px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.35;
+      z-index: 1000;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(8,8,8,0.97), transparent);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-logo,
+    .nav-back {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-logo { color: var(--gold); }
+    .nav-back { color: var(--white-dim); transition: color .25s ease; }
+    .nav-back:hover { color: var(--gold); }
+
+    main {
+      width: min(1260px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 8rem 0 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      padding: 4rem 0 3rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -8%;
+      width: 46rem;
+      height: 46rem;
+      background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, rgba(201,168,76,0.04) 36%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 2.5rem;
+      height: 1px;
+      background: var(--gold-dim);
+    }
+
+    h1, h2, h3 {
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      line-height: 0.92;
+      margin-bottom: 1.4rem;
+      max-width: 12ch;
+    }
+
+    .hero-title span { color: var(--gold); }
+
+    .hero-subtitle {
+      max-width: 860px;
+      color: var(--white-dim);
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-style: italic;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .hero-grid,
+    .two-col,
+    .triple-grid,
+    .metrics-grid,
+    .class-grid,
+    .signals-grid,
+    .links-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .panel-inner {
+      padding: 2rem;
+    }
+
+    .panel-title {
+      font-family: var(--font-body);
+      font-size: 1.7rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .panel-desc {
+      color: var(--white-dim);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .metrics-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 2rem;
+    }
+
+    .metric-card {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      margin-bottom: 0.7rem;
+    }
+
+    .metric-value {
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 0.55rem;
+    }
+
+    .metric-copy {
+      color: var(--white-dim);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .form-card .panel-inner,
+    .result-card .panel-inner,
+    .chart-card .panel-inner,
+    .theory-card .panel-inner,
+    .uses-card .panel-inner,
+    .closing-card .panel-inner {
+      padding: 2rem;
+    }
+
+    .field {
+      margin-bottom: 1.15rem;
+    }
+
+    label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 0.95rem 1rem;
+      font: inherit;
+      outline: none;
+      transition: border-color .2s ease, background .2s ease;
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+    input:focus, textarea:focus, select:focus { border-color: rgba(201,168,76,0.55); background: rgba(255,255,255,0.05); }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.35rem;
+    }
+
+    .pill,
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all .25s ease;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.08);
+      color: var(--white);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 0.75rem 1rem;
+    }
+
+    .pill:hover,
+    .pill.active { border-color: rgba(201,168,76,0.35); color: var(--gold-light); background: rgba(201,168,76,0.10); }
+
+    section { margin-top: 2rem; }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .section-title span { color: var(--gold); }
+
+    .section-intro {
+      max-width: 900px;
+      color: var(--white-dim);
+      font-size: 1.08rem;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .dimension-card,
+    .mini-card,
+    .logic-card,
+    .use-card,
+    .class-card,
+    .link-card,
+    .signal-card {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+    }
+
+    .dimension-card {
+      padding: 1.3rem 1.35rem;
+    }
+
+    .dimension-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .dimension-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .dimension-copy {
+      color: var(--white-dim);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .value-badge {
+      min-width: 74px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(201,168,76,0.10);
+      border-radius: 999px;
+      padding: 0.55rem 0.75rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--gold);
+      margin: 1rem 0 0.65rem;
+      background: transparent;
+    }
+
+    .range-scale {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      opacity: 0.8;
+    }
+
+    .two-col {
+      grid-template-columns: 1.06fr 0.94fr;
+      align-items: start;
+    }
+
+    .result-banner {
+      border: 1px solid rgba(201,168,76,0.22);
+      background: rgba(201,168,76,0.10);
+      border-radius: 24px;
+      padding: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--white);
+    }
+
+    .tag.primary {
+      border-color: rgba(201,168,76,0.26);
+      background: rgba(201,168,76,0.14);
+      color: var(--gold-light);
+    }
+
+    .result-headline {
+      font-size: 1.9rem;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .result-copy {
+      color: var(--white-dim);
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .class-grid,
+    .signals-grid,
+    .links-grid,
+    .triple-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .class-card,
+    .signal-card,
+    .logic-card,
+    .use-card,
+    .link-card,
+    .mini-card {
+      padding: 1.2rem;
+    }
+
+    .class-name,
+    .signal-name,
+    .logic-title,
+    .use-title,
+    .link-title,
+    .mini-title {
+      font-size: 1.12rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+
+    .class-score {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .bar-track,
+    .signal-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      margin: 0.8rem 0 0.45rem;
+    }
+
+    .bar-fill,
+    .signal-fill {
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(to right, var(--gold-dim), var(--gold), var(--gold-light));
+      transition: width .35s ease;
+    }
+
+    .class-copy,
+    .signal-copy,
+    .logic-copy,
+    .use-copy,
+    .link-copy,
+    .mini-copy,
+    .chart-copy {
+      color: var(--white-dim);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    .chart-wrap {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .radar-grid {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .radar-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 52px;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .radar-label,
+    .radar-value {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+    }
+
+    .radar-bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .radar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(to right, rgba(201,168,76,0.35), var(--gold));
+      transition: width .35s ease;
+    }
+
+    .doctrine-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1.5rem;
+    }
+
+    .core-question {
+      border: 1px solid rgba(201,168,76,0.24);
+      background: rgba(201,168,76,0.10);
+      border-radius: 24px;
+      padding: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .core-question-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.55rem;
+    }
+
+    .core-question-text {
+      font-size: 1.35rem;
+      line-height: 1.55;
+    }
+
+    .closing-card {
+      border: 1px solid rgba(201,168,76,0.22);
+      background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(255,255,255,0.03));
+    }
+
+    .closing-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .closing-title {
+      font-size: 2rem;
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .closing-title span { color: var(--gold); }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.4rem;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      padding: 1rem 1.4rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .primary-btn {
+      color: var(--black);
+      background: var(--gold);
+    }
+
+    .primary-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .secondary-btn {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .secondary-btn:hover { border-color: rgba(201,168,76,0.22); color: var(--gold-light); }
+
+    footer {
+      padding: 2rem 0 1rem;
+      text-align: center;
+      color: var(--white-dim);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .two-col,
+      .doctrine-grid,
+      .closing-grid { grid-template-columns: 1fr; }
+      .metrics-grid,
+      .class-grid,
+      .signals-grid,
+      .links-grid,
+      .triple-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.25rem; }
+      .nav-back { font-size: 0.64rem; }
+      main { width: min(100% - 24px, 1260px); padding-top: 7rem; }
+      .hero { padding-top: 2rem; }
+      .panel-inner,
+      .form-card .panel-inner,
+      .result-card .panel-inner,
+      .chart-card .panel-inner,
+      .theory-card .panel-inner,
+      .uses-card .panel-inner,
+      .closing-card .panel-inner { padding: 1.35rem; }
+      .radar-row { grid-template-columns: 1fr; gap: 0.35rem; }
+    }
+  </style></head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K83NSPVC"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->  <nav>
+    <a href="/" class="nav-logo">ShovelsSale.com</a>
+    <a href="/framework/" class="nav-back">← Back to Framework</a>
+  </nav>  <main>
+    <section class="hero">
+      <div class="eyebrow">ShovelsSale Reference System</div>
+      <h1 class="hero-title">The <span>Shovel Scanner</span></h1>
+      <p class="hero-subtitle">
+        A sovereign-grade classification engine for evaluating whether any company, product,
+        platform, or digital asset belongs to the Extraction Layer, the Infrastructure Layer,
+        or the Control Layer. This is not content. It is a decision system.
+      </p><div class="hero-grid">
+    <div class="panel">
+      <div class="panel-inner">
+        <div class="panel-title">Operational Layer</div>
+        <p class="panel-desc">
+          The Scanner translates the Shovels framework into live classification. It does not ask
+          whether an asset is fashionable. It asks where the asset sits inside the market structure,
+          what kind of dependence it creates, and whether it behaves like a Miner, a Shovel, or a Gatekeeper.
+        </p>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">Primary Class</div>
+            <div class="metric-value" id="metricPrimary">Shovel</div>
+            <div class="metric-copy">Dominant economic behavior under the ShovelsSale model.</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Structural Layer</div>
+            <div class="metric-value" id="metricLayer">Infrastructure</div>
+            <div class="metric-copy">The layer where the asset captures most of its value.</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Composite Score</div>
+            <div class="metric-value" id="metricComposite">0/100</div>
+            <div class="metric-copy">Weighted structural strength across all scanner dimensions.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel form-card">
+      <div class="panel-inner">
+        <div class="panel-title">Scanner Input</div>
+        <p class="panel-desc">Evaluate a target asset through structural criteria rather than promotional language.</p>
+
+        <div class="field">
+          <label for="assetName">Asset / Company</label>
+          <input type="text" id="assetName" name="assetName" value="NVIDIA" maxlength="120" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <input type="text" id="category" name="category" value="Compute Infrastructure" maxlength="120" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="notes">Analyst Notes</label>
+          <textarea id="notes" name="notes" maxlength="1200">Dense infrastructure exposure, broad customer dependence, and recurring relevance across the whole AI market.</textarea>
+        </div>
+
+        <div class="field">
+          <label>Quick Presets</label>
+          <div class="preset-row" id="presetRow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Scanner Dimensions</div>
+  <h2 class="section-title">Structural <span>Input Model</span></h2>
+  <p class="section-intro">
+    Each dimension captures one part of the ShovelsSale doctrine: durable value tends to live where many participants depend on a layer regardless of who wins the visible race.
+  </p>
+  <div class="triple-grid" id="dimensionsGrid"></div>
+</section>
+
+<section class="two-col">
+  <div class="panel result-card">
+    <div class="panel-inner">
+      <div class="eyebrow">Classification Output</div>
+      <div class="result-banner">
+        <div class="result-tags">
+          <div class="tag primary" id="resultPrimaryTag">Shovel</div>
+          <div class="tag" id="resultLayerTag">Infrastructure Layer</div>
+          <div class="tag" id="resultConfidenceTag">High Confidence</div>
+        </div>
+        <h3 class="result-headline" id="resultHeadline">Shovel classification with high confidence</h3>
+        <p class="result-copy" id="resultBody"></p>
+      </div>
+
+      <div class="class-grid" id="classGrid"></div>
+
+      <div class="signals-grid" style="margin-top:1.5rem;">
+        <div class="signal-card">
+          <div class="signal-name">Top Signals</div>
+          <div class="signal-copy">The strongest dimensions supporting the classification.</div>
+          <div id="topSignals" style="margin-top:1rem;"></div>
+        </div>
+        <div class="signal-card">
+          <div class="signal-name">Weak Signals</div>
+          <div class="signal-copy">The dimensions that reduce classification strength or nuance the result.</div>
+          <div id="weakSignals" style="margin-top:1rem;"></div>
+        </div>
+        <div class="signal-card">
+          <div class="signal-name">Asset Notes</div>
+          <div class="signal-copy" id="liveAssetSummary"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel chart-card">
+    <div class="panel-inner">
+      <div class="eyebrow">Structural Profile</div>
+      <h3 class="panel-title">Dimension Radar</h3>
+      <p class="chart-copy">A compact, production-safe structural view of the asset across the ShovelsSale dimensions.</p>
+      <div class="chart-wrap">
+        <div class="radar-grid" id="radarGrid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="doctrine-grid">
+  <div class="panel theory-card">
+    <div class="panel-inner">
+      <div class="eyebrow">Reference Logic</div>
+      <h2 class="section-title">The Structural <span>Model</span></h2>
+      <p class="section-intro" style="margin-bottom: 1rem;">
+        Every market can be reduced to three structural layers. The goal is not to participate blindly. The goal is to position where structural value compounds.
+      </p>
+      <div class="logic-card" style="margin-bottom: 1rem;">
+        <div class="logic-title">Extraction Layer</div>
+        <div class="logic-copy">Where participants compete for visible outcomes. This is the noisiest layer, the most narratively attractive, and often the most fragile.</div>
+      </div>
+      <div class="logic-card" style="margin-bottom: 1rem;">
+        <div class="logic-title">Infrastructure Layer</div>
+        <div class="logic-copy">Where systems, tooling, logistics, compute, and utility enable the competition beneath the visible surface. This is where durable shovel value is built.</div>
+      </div>
+      <div class="logic-card">
+        <div class="logic-title">Control Layer</div>
+        <div class="logic-copy">Where standards, permissions, access, rails, and distribution rules are defined. This is where power outlasts narrative cycles.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel theory-card">
+    <div class="panel-inner">
+      <div class="eyebrow">Operational Doctrine</div>
+      <h2 class="section-title">Decision <span>Engine</span></h2>
+      <div class="core-question">
+        <div class="core-question-label">Core Question</div>
+        <div class="core-question-text">Does this asset serve one participant — or all participants?</div>
+      </div>
+      <div class="links-grid">
+        <div class="mini-card">
+          <div class="mini-title">Miner</div>
+          <div class="mini-copy">Competes directly for the outcome. High narrative visibility. Higher outcome fragility.</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-title">Shovel</div>
+          <div class="mini-copy">Enables many participants across the market. Utility compounds regardless of who wins.</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-title">Gatekeeper</div>
+          <div class="mini-copy">Defines access, permissions, distribution, rails, or standards inside the market structure.</div>
+        </div>
+      </div>
+      <div class="logic-card" style="margin-top: 1rem;">
+        <div class="logic-title">Interpretation Notes</div>
+        <div class="logic-copy">A scanner like this does not replace analysis. It disciplines analysis. It turns aesthetic intuition into structural judgment and converts loose market language into a repeatable classification method.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="panel uses-card">
+    <div class="panel-inner">
+      <div class="eyebrow">Strategic Use Cases</div>
+      <h2 class="section-title">Why This Strengthens <span>The Asset</span></h2>
+      <p class="section-intro">The Shovel Scanner does more than add interactivity. It converts ShovelsSale from a narrative property into intellectual infrastructure — a reference system that can be cited, reused, operationalized, and extended.</p>
+      <div class="links-grid">
+        <div class="use-card">
+          <div class="use-title">Reference Authority</div>
+          <div class="use-copy">It gives the site a native classification language. This moves ShovelsSale closer to a think-tank, research system, or market doctrine rather than a content site.</div>
+        </div>
+        <div class="use-card">
+          <div class="use-title">Conceptual Moat</div>
+          <div class="use-copy">A scanner built on your own framework reinforces the naming system: Miner, Shovel, Gatekeeper, Layer, Control. That language becomes proprietary mental territory.</div>
+        </div>
+        <div class="use-card">
+          <div class="use-title">Product Foundation</div>
+          <div class="use-copy">This can evolve into a real product: public scanner, premium reports, industry maps, scoring database, or sovereign-grade market intelligence layer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="panel closing-card">
+    <div class="panel-inner">
+      <div class="closing-grid">
+        <div>
+          <div class="eyebrow">ShovelsSale Doctrine</div>
+          <h2 class="closing-title">We do not chase hype. We classify the <span>layers that make hype possible.</span></h2>
+          <p class="section-intro" style="margin-bottom:0; max-width: none;">
+            The Shovel Scanner is not a gimmick. It is the first operational instrument in a larger sovereign-grade system for analyzing how value is created, captured, and controlled in gold-rush markets.
+          </p>
+        </div>
+        <div>
+          <div class="button-row">
+            <a href="/framework/" class="primary-btn">Open Full Framework</a>
+            <a href="/manifesto/" class="secondary-btn">Read the Manifesto</a>
+            <a href="/dispatch/" class="secondary-btn">View the Dispatch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  ShovelsSale.com — The operational layer of the shovel economy model.
+</footer>
+
+  </main>  <script>
+    (function () {
+      'use strict';
+
+      const dimensions = [
+        {
+          key: 'customerBreadth',
+          label: 'Customer Breadth',
+          description: 'Does this asset serve one participant, a narrow niche, or many participants across the market?',
+          left: 'One participant',
+          right: 'Many participants',
+          weight: 1.3
+        },
+        {
+          key: 'dependencyDepth',
+          label: 'Dependency Depth',
+          description: 'How deeply do customers depend on this asset inside workflows, operations, or supply chains?',
+          left: 'Optional',
+          right: 'Mission-critical',
+          weight: 1.25
+        },
+        {
+          key: 'recurrence',
+          label: 'Recurring Demand',
+          description: 'Is demand one-time, episodic, or structurally recurring?',
+          left: 'One-time',
+          right: 'Recurring',
+          weight: 1.15
+        },
+        {
+          key: 'hiddenUtility',
+          label: 'Hidden Utility',
+          description: 'Does value come from spectacle and visibility, or from quiet utility beneath the visible layer?',
+          left: 'Visible / hype',
+          right: 'Hidden / structural',
+          weight: 0.95
+        },
+        {
+          key: 'switchingCost',
+          label: 'Switching Cost',
+          description: 'Once integrated, how costly is it for customers to replace it?',
+          left: 'Easy to replace',
+          right: 'Hard to replace',
+          weight: 1.1
+        },
+        {
+          key: 'standardPower',
+          label: 'Access / Standard Power',
+          description: 'Does the asset influence standards, permissions, distribution, pricing rails, or access?',
+          left: 'No standard power',
+          right: 'Defines access',
+          weight: 1.5
+        },
+        {
+          key: 'outcomeExposure',
+          label: 'Outcome Dependence',
+          description: 'How dependent is the asset on winning one uncertain outcome versus serving many outcomes regardless of who wins?',
+          left: 'Depends on one winner',
+          right: 'Works regardless',
+          weight: 1.35
+        },
+        {
+          key: 'capitalIntensity',
+          label: 'Capital / Infrastructure Density',
+          description: 'Does the asset sit close to infrastructure, logistics, compute, energy, or heavy operational rails?',
+          left: 'Light layer',
+          right: 'Dense infrastructure',
+          weight: 1.0
+        }
+      ];
+
+      const presets = {
+        'OpenAI API': {
+          category: 'AI API Infrastructure',
+          notes: 'Serves many builders across use cases. Strong recurring demand and ecosystem leverage, though standard-setting power is meaningful rather than absolute.',
+          values: {
+            customerBreadth: 88,
+            dependencyDepth: 79,
+            recurrence: 90,
+            hiddenUtility: 72,
+            switchingCost: 58,
+            standardPower: 70,
+            outcomeExposure: 82,
+            capitalIntensity: 64
+          }
+        },
+        'NVIDIA': {
+          category: 'Compute Infrastructure',
+          notes: 'A classic shovel-layer asset: dense infrastructure relevance, deep dependency, and broad exposure to the whole rush rather than one narrow outcome.',
+          values: {
+            customerBreadth: 83,
+            dependencyDepth: 95,
+            recurrence: 84,
+            hiddenUtility: 87,
+            switchingCost: 80,
+            standardPower: 78,
+            outcomeExposure: 86,
+            capitalIntensity: 97
+          }
+        },
+        'Vertical AI App': {
+          category: 'Application Layer',
+          notes: 'Often an extraction-layer bet: visible, narrow, and heavily exposed to whether one use case wins commercially.',
+          values: {
+            customerBreadth: 34,
+            dependencyDepth: 41,
+            recurrence: 58,
+            hiddenUtility: 29,
+            switchingCost: 33,
+            standardPower: 18,
+            outcomeExposure: 25,
+            capitalIntensity: 21
+          }
+        },
+        'Stripe': {
+          category: 'Payments Infrastructure',
+          notes: 'Strong infrastructure and control-layer behavior: embedded, recurring, and close to access and flow rather than one visible outcome.',
+          values: {
+            customerBreadth: 86,
+            dependencyDepth: 88,
+            recurrence: 95,
+            hiddenUtility: 84,
+            switchingCost: 76,
+            standardPower: 82,
+            outcomeExposure: 91,
+            capitalIntensity: 67
+          }
+        }
+      };
+
+      const state = {
+        assetName: 'NVIDIA',
+        category: 'Compute Infrastructure',
+        notes: 'Dense infrastructure exposure, broad customer dependence, and recurring relevance across the whole AI market.',
+        values: Object.assign({}, presets['NVIDIA'].values)
+      };
+
+      const $ = (id) => document.getElementById(id);
+      const dimensionsGrid = $('dimensionsGrid');
+      const presetRow = $('presetRow');
+      const radarGrid = $('radarGrid');
+      const classGrid = $('classGrid');
+      const topSignals = $('topSignals');
+      const weakSignals = $('weakSignals');
+
+      function clamp(n, min, max) {
+        return Math.max(min, Math.min(max, n));
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function sanitizeText(str, maxLen) {
+        return String(str || '').replace(/[\u0000-\u001F\u007F]/g, '').trim().slice(0, maxLen);
+      }
+
+      function buildNarrative(data) {
+        const top = data.strengths.map((s) => s.label).join(', ');
+        const bottom = data.weaknesses.map((w) => w.label).join(', ');
+
+        const primaryTextMap = {
+          Extraction: 'This asset behaves primarily like an extraction-layer bet. It appears more dependent on winning a visible outcome than on quietly enabling the wider market.',
+          Shovel: 'This asset behaves primarily like a shovel. It captures value by serving many participants, embedding into operations, and benefiting from demand that persists regardless of who wins the visible race.',
+          Gatekeeper: 'This asset behaves primarily like a gatekeeper. Its strongest economic position comes from defining access, distribution, standards, or permissions rather than merely serving demand.'
+        };
+
+        const layerTextMap = {
+          'Extraction Layer': 'It sits closest to the layer where participants compete directly for outcomes.',
+          'Infrastructure Layer': 'It sits closest to the infrastructure layer where durable value is built beneath visible competition.',
+          'Control Layer': 'It sits closest to the control layer where durable power compounds through standards, access, and system leverage.'
+        };
+
+        return {
+          headline: data.primary + ' classification with ' + data.confidence.toLowerCase() + ' confidence',
+          body: primaryTextMap[data.primary] + ' ' + layerTextMap[data.layer] + ' Its composite structural score is ' + data.weightedAverage + '/100. The strongest signals are ' + top + '. The weakest signals are ' + bottom + '. In ShovelsSale terms: this is not merely a product profile — it is a position within the market structure.',
+          brief: [
+            { name: 'Extraction', value: data.extractionScore },
+            { name: 'Shovel', value: data.shovelScore },
+            { name: 'Gatekeeper', value: data.gatekeeperScore }
+          ]
+        };
+      }
+
+      function scoreModel(values) {
+        const totalWeight = dimensions.reduce((sum, d) => sum + d.weight, 0);
+        const weightedAverage = dimensions.reduce((sum, d) => sum + values[d.key] * d.weight, 0) / totalWeight;
+
+        const extractionScore = clamp(
+          (100 - values.customerBreadth) * 0.18 +
+          (100 - values.outcomeExposure) * 0.22 +
+          (100 - values.standardPower) * 0.12 +
+          (100 - values.hiddenUtility) * 0.14 +
+          (100 - values.dependencyDepth) * 0.16 +
+          (100 - values.switchingCost) * 0.08 +
+          (100 - values.capitalIntensity) * 0.10,
+          0,
+          100
+        );
+
+        const shovelScore = clamp(
+          values.customerBreadth * 0.17 +
+          values.dependencyDepth * 0.18 +
+          values.recurrence * 0.16 +
+          values.hiddenUtility * 0.10 +
+          values.switchingCost * 0.09 +
+          values.outcomeExposure * 0.18 +
+          values.capitalIntensity * 0.12,
+          0,
+          100
+        );
+
+        const gatekeeperScore = clamp(
+          values.standardPower * 0.30 +
+          values.switchingCost * 0.14 +
+          values.dependencyDepth * 0.14 +
+          values.customerBreadth * 0.12 +
+          values.recurrence * 0.10 +
+          values.hiddenUtility * 0.08 +
+          values.outcomeExposure * 0.12,
+          0,
+          100
+        );
+
+        const sorted = [
+          { key: 'Extraction', score: extractionScore },
+          { key: 'Shovel', score: shovelScore },
+          { key: 'Gatekeeper', score: gatekeeperScore }
+        ].sort((a, b) => b.score - a.score);
+
+        const primary = sorted[0].key;
+        const spread = sorted[0].score - sorted[1].score;
+
+        let confidence = 'Moderate';
+        if (spread >= 18) confidence = 'High';
+        if (spread >= 30) confidence = 'Very High';
+        if (spread <= 8) confidence = 'Mixed';
+
+        const layer = gatekeeperScore >= 74
+          ? 'Control Layer'
+          : shovelScore >= extractionScore
+            ? 'Infrastructure Layer'
+            : 'Extraction Layer';
+
+        const strengths = dimensions
+          .map((d) => ({ key: d.key, label: d.label, value: values[d.key] }))
+          .sort((a, b) => b.value - a.value)
+          .slice(0, 3);
+
+        const weaknesses = dimensions
+          .map((d) => ({ key: d.key, label: d.label, value: values[d.key] }))
+          .sort((a, b) => a.value - b.value)
+          .slice(0, 3);
+
+        const rounded = {
+          weightedAverage: Math.round(weightedAverage),
+          extractionScore: Math.round(extractionScore),
+          shovelScore: Math.round(shovelScore),
+          gatekeeperScore: Math.round(gatekeeperScore),
+          primary,
+          layer,
+          confidence,
+          strengths,
+          weaknesses
+        };
+
+        rounded.narrative = buildNarrative(rounded);
+        return rounded;
+      }
+
+      function createDimensionCard(dimension) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'dimension-card';
+
+        const value = state.values[dimension.key];
+        wrapper.innerHTML = [
+          '<div class="dimension-header">',
+            '<div>',
+              '<div class="dimension-name">' + escapeHtml(dimension.label) + '</div>',
+              '<div class="dimension-copy">' + escapeHtml(dimension.description) + '</div>',
+            '</div>',
+            '<div class="value-badge" id="badge-' + escapeHtml(dimension.key) + '">' + value + '/100</div>',
+          '</div>',
+          '<input type="range" min="0" max="100" step="1" value="' + value + '" aria-label="' + escapeHtml(dimension.label) + '" id="range-' + escapeHtml(dimension.key) + '">',
+          '<div class="range-scale">',
+            '<span>' + escapeHtml(dimension.left) + '</span>',
+            '<span>' + escapeHtml(dimension.right) + '</span>',
+          '</div>'
+        ].join('');
+
+        return wrapper;
+      }
+
+      function renderDimensions() {
+        dimensionsGrid.innerHTML = '';
+        dimensions.forEach((dimension) => {
+          const card = createDimensionCard(dimension);
+          dimensionsGrid.appendChild(card);
+          const range = card.querySelector('#range-' + CSS.escape(dimension.key));
+          range.addEventListener('input', function () {
+            state.values[dimension.key] = parseInt(this.value, 10);
+            const badge = card.querySelector('#badge-' + CSS.escape(dimension.key));
+            if (badge) badge.textContent = this.value + '/100';
+            renderResults();
+          });
+        });
+      }
+
+      function renderPresets() {
+        presetRow.innerHTML = '';
+        Object.keys(presets).forEach((name) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'pill' + (state.assetName === name ? ' active' : '');
+          button.textContent = name;
+          button.addEventListener('click', function () {
+            const preset = presets[name];
+            state.assetName = name;
+            state.category = preset.category;
+            state.notes = preset.notes;
+            state.values = Object.assign({}, preset.values);
+            $('assetName').value = state.assetName;
+            $('category').value = state.category;
+            $('notes').value = state.notes;
+            renderPresets();
+            renderDimensions();
+            renderResults();
+          });
+          presetRow.appendChild(button);
+        });
+      }
+
+      function createBarCard(name, score, copy) {
+        const card = document.createElement('div');
+        card.className = 'class-card';
+        card.innerHTML = [
+          '<div class="class-name">' + escapeHtml(name) + '</div>',
+          '<div class="class-score">Structural score: ' + score + '/100</div>',
+          '<div class="bar-track"><div class="bar-fill" style="width:' + score + '%"></div></div>',
+          '<div class="class-copy">' + escapeHtml(copy) + '</div>'
+        ].join('');
+        return card;
+      }
+
+      function createSignalBlock(item) {
+        const wrap = document.createElement('div');
+        wrap.style.marginBottom = '0.95rem';
+        wrap.innerHTML = [
+          '<div class="signal-name">' + escapeHtml(item.label) + '</div>',
+          '<div class="signal-track"><div class="signal-fill" style="width:' + item.value + '%"></div></div>',
+          '<div class="signal-copy">' + item.value + '/100</div>'
+        ].join('');
+        return wrap;
+      }
+
+      function renderRadar(values) {
+        radarGrid.innerHTML = '';
+        dimensions.forEach((d) => {
+          const row = document.createElement('div');
+          row.className = 'radar-row';
+          row.innerHTML = [
+            '<div class="radar-label">' + escapeHtml(d.label) + '</div>',
+            '<div class="radar-bar"><div class="radar-fill" style="width:' + values[d.key] + '%"></div></div>',
+            '<div class="radar-value">' + values[d.key] + '</div>'
+          ].join('');
+          radarGrid.appendChild(row);
+        });
+      }
+
+      function renderResults() {
+        state.assetName = sanitizeText($('assetName').value, 120) || 'Unnamed Asset';
+        state.category = sanitizeText($('category').value, 120) || 'Unclassified Category';
+        state.notes = sanitizeText($('notes').value, 1200) || 'No analyst notes provided.';
+
+        const scores = scoreModel(state.values);
+
+        $('metricPrimary').textContent = scores.primary;
+        $('metricLayer').textContent = scores.layer.replace(' Layer', '');
+        $('metricComposite').textContent = scores.weightedAverage + '/100';
+
+        $('resultPrimaryTag').textContent = scores.primary;
+        $('resultLayerTag').textContent = scores.layer;
+        $('resultConfidenceTag').textContent = scores.confidence + ' Confidence';
+        $('resultHeadline').textContent = scores.narrative.headline;
+        $('resultBody').textContent = scores.narrative.body;
+        $('liveAssetSummary').textContent = state.assetName + ' | ' + state.category + '. ' + state.notes;
+
+        classGrid.innerHTML = '';
+        classGrid.appendChild(createBarCard('Extraction', scores.extractionScore, 'Competes directly for a visible outcome. More narratively attractive, often more fragile.'));
+        classGrid.appendChild(createBarCard('Shovel', scores.shovelScore, 'Enables many participants across the market. Utility compounds regardless of who wins.'));
+        classGrid.appendChild(createBarCard('Gatekeeper', scores.gatekeeperScore, 'Defines access, permissions, standards, rails, or structural power.'));
+
+        topSignals.innerHTML = '';
+        scores.strengths.forEach((item) => topSignals.appendChild(createSignalBlock(item)));
+
+        weakSignals.innerHTML = '';
+        scores.weaknesses.forEach((item) => weakSignals.appendChild(createSignalBlock(item)));
+
+        renderRadar(state.values);
+      }
+
+      $('assetName').addEventListener('input', renderResults);
+      $('category').addEventListener('input', renderResults);
+      $('notes').addEventListener('input', renderResults);
+
+      renderPresets();
+      renderDimensions();
+      renderResults();
+    })();
+  </script></body>
+</html>
