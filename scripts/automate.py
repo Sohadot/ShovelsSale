@@ -154,10 +154,6 @@ def normalize_date(raw_date: Optional[str], file_path: Path) -> str:
             pass
 
     return datetime.fromtimestamp(file_path.stat().st_mtime, UTC).date().isoformat()
-        except ValueError:
-            pass
-
-    return datetime.utcfromtimestamp(file_path.stat().st_mtime).date().isoformat()
 
 
 def infer_category(soup: BeautifulSoup, slug: str) -> str:
