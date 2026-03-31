@@ -1,72 +1,135 @@
 <!--
-  ============================================================
-  STRUCTURED DATA — ShovelsSale.com
-  Add these JSON-LD blocks inside <head> of each page.
-  They help Google display rich results in search.
-  ============================================================
+  =====================================================================
+  SHOVELSSALE.COM — STRUCTURED DATA REFERENCE LIBRARY
+  =====================================================================
+
+  PURPOSE
+  ---------------------------------------------------------------------
+  This file serves as the semantic reference library for ShovelsSale.com.
+  It is not a page fragment to be indexed directly.
+  It documents the recommended JSON-LD blocks for the site's main content
+  types and system layers.
+
+  SYSTEM ROLE
+  ---------------------------------------------------------------------
+  ShovelsSale.com is not modeled as a generic blog. It is modeled as a
+  reference-grade analytical system with four primary layers:
+
+  1. Doctrine   → Manifesto
+  2. Method     → Framework
+  3. Instrument → Scanner
+  4. Archive    → Dispatch + Blog
+
+  This file contains production-ready schema patterns for:
+  - Website / Homepage
+  - About page
+  - Manifesto
+  - Framework
+  - Scanner
+  - Dispatch archive
+  - Dispatch issues
+  - Blog archive
+  - Blog posts
+
+  USAGE
+  ---------------------------------------------------------------------
+  - Do NOT expose this file as an indexed public page
+  - Do NOT treat this as the canonical source of truth for dates
+  - Prefer injecting or embedding schema directly into each real page
+  - Keep URLs, dates, and descriptions aligned with live content
+  - When possible, automate generation from Python pipeline
+
+  NOTES
+  ---------------------------------------------------------------------
+  - Replace placeholder values before production use
+  - Keep all URLs absolute
+  - Keep all dates in ISO-8601 format
+  - Prefer Organization as publisher across the system
+  - Prefer ItemList / CollectionPage for archive surfaces
+  - Prefer Article / BlogPosting for real publications
+
+  =====================================================================
 -->
 
-<!-- FOR: index.html (Home Page) -->
+
+
+<!-- ==================================================================
+     1) WEBSITE / HOMEPAGE
+     ================================================================== -->
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "ShovelsSale.com",
-  "url": "https://shovelssale.com",
-  "description": "The digital home of the pick-and-shovel philosophy. The strategy of winning without gambling in the AI era.",
+  "url": "https://shovelssale.com/",
+  "description": "ShovelsSale.com is a reference system for reading gold-rush markets through doctrine, framework, scanner-based classification, and analytical dispatches on infrastructure, dependency, and control.",
   "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  },
   "potentialAction": {
     "@type": "ReadAction",
-    "target": "https://shovelssale.com/manifesto/"
+    "target": "https://shovelssale.com/dispatch/"
   }
 }
 </script>
 
-<!-- FOR: manifesto/index.html -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ShovelsSale.com",
+  "url": "https://shovelssale.com/",
+  "description": "A reference property for classifying gold-rush markets through the shovel economy model.",
+  "sameAs": []
+}
+</script>
+
+
+
+<!-- ==================================================================
+     2) ABOUT PAGE
+     URL: /about/
+     ================================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About ShovelsSale.com",
+  "url": "https://shovelssale.com/about/",
+  "description": "About ShovelsSale.com, its mission, its system logic, and its role as a reference-grade analytical property.",
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  }
+}
+</script>
+
+
+
+<!-- ==================================================================
+     3) MANIFESTO
+     URL: /manifesto/
+     ROLE: Doctrine layer
+     ================================================================== -->
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "The Manifesto — ShovelsSale.com",
-  "description": "The founding document of ShovelsSale.com. A declaration for those who sell shovels while the world mines for gold.",
+  "description": "The founding doctrine of ShovelsSale.com: a structural argument for winning through infrastructure, dependence, and control rather than visible speculation.",
   "url": "https://shovelssale.com/manifesto/",
-  "publisher": {
-    "@type": "Organization",
-    "name": "ShovelsSale.com",
-    "url": "https://shovelssale.com"
-  },
   "datePublished": "2026-02-22",
   "dateModified": "2026-02-22",
   "inLanguage": "en",
-  "mainEntityOfPage": "https://shovelssale.com/manifesto/"
-}
-</script>
-
-<!-- FOR: about/index.html -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "name": "Our Mission — ShovelsSale.com",
-  "url": "https://shovelssale.com/about/",
-  "description": "ShovelsSale.com is the digital home of the pick-and-shovel philosophy in the AI era.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "ShovelsSale.com",
-    "url": "https://shovelssale.com"
-  }
-}
-</script>
-
-<!-- FOR: blog posts -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "POST TITLE HERE",
-  "url": "https://shovelssale.com/blog/POST-SLUG/",
-  "datePublished": "2026-02-22",
-  "dateModified": "2026-02-22",
+  "mainEntityOfPage": "https://shovelssale.com/manifesto/",
   "author": {
     "@type": "Organization",
     "name": "ShovelsSale.com"
@@ -74,9 +137,282 @@
   "publisher": {
     "@type": "Organization",
     "name": "ShovelsSale.com",
-    "url": "https://shovelssale.com"
+    "url": "https://shovelssale.com/"
+  }
+}
+</script>
+
+
+
+<!-- ==================================================================
+     4) FRAMEWORK
+     URL: /framework/
+     ROLE: Method layer
+     ================================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Framework — ShovelsSale.com",
+  "description": "The formal methodological layer of ShovelsSale.com, defining extraction, infrastructure, control, and the structural reading of shovel economy markets.",
+  "url": "https://shovelssale.com/framework/",
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-03-01",
+  "inLanguage": "en",
+  "mainEntityOfPage": "https://shovelssale.com/framework/",
+  "author": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com"
   },
-  "description": "POST DESCRIPTION HERE",
-  "inLanguage": "en"
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  }
+}
+</script>
+
+
+
+<!-- ==================================================================
+     5) SCANNER
+     URL: /scanner/
+     ROLE: Instrument layer
+     ================================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Shovel Scanner",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://shovelssale.com/scanner/",
+  "description": "A classification engine for evaluating whether a company, product, or digital asset behaves as an extraction-layer asset, shovel-layer asset, or control-layer asset.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  }
+}
+</script>
+
+
+
+<!-- ==================================================================
+     6) DISPATCH ARCHIVE
+     URL: /dispatch/
+     ROLE: Archive layer
+     ================================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "ShovelsSale Dispatch Archive",
+  "url": "https://shovelssale.com/dispatch/",
+  "description": "The analytical publication archive of ShovelsSale.com — structured releases on infrastructure, control, dependency, and the shovel economy model.",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Dispatch Archive",
+    "numberOfItems": 2,
+    "itemListOrder": "https://schema.org/ItemListOrderDescending",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "url": "https://shovelssale.com/dispatch/002.html",
+        "name": "ASML and the Infrastructure of Irreplaceability"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "url": "https://shovelssale.com/dispatch/001.html",
+        "name": "Why NVIDIA Is a Shovel Layer Asset"
+      }
+    ]
+  }
+}
+</script>
+
+
+
+<!-- ==================================================================
+     7) DISPATCH ISSUE TEMPLATE
+     URL: /dispatch/001.html or /dispatch/002.html
+     ROLE: Issued analytical publication
+     ==================================================================
+
+     Replace:
+     - ISSUE_TITLE
+     - ISSUE_URL
+     - ISSUE_DESCRIPTION
+     - ISSUE_DATE_PUBLISHED
+     - ISSUE_DATE_MODIFIED
+-->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ISSUE_TITLE",
+  "description": "ISSUE_DESCRIPTION",
+  "url": "ISSUE_URL",
+  "datePublished": "ISSUE_DATE_PUBLISHED",
+  "dateModified": "ISSUE_DATE_MODIFIED",
+  "inLanguage": "en",
+  "mainEntityOfPage": "ISSUE_URL",
+  "author": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  },
+  "isPartOf": {
+    "@type": "CreativeWorkSeries",
+    "name": "ShovelsSale Dispatch",
+    "url": "https://shovelssale.com/dispatch/"
+  }
+}
+</script>
+
+
+
+<!-- ==================================================================
+     8) BLOG ARCHIVE
+     URL: /blog/
+     ROLE: Secondary publication archive
+     ================================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "ShovelsSale Blog",
+  "url": "https://shovelssale.com/blog/",
+  "description": "A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.",
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  }
+}
+</script>
+
+
+
+<!-- ==================================================================
+     9) BLOG POST TEMPLATE
+     URL: /blog/POST-SLUG/
+     ==================================================================
+
+     Replace:
+     - POST_TITLE
+     - POST_URL
+     - POST_DATE_PUBLISHED
+     - POST_DATE_MODIFIED
+     - POST_DESCRIPTION
+-->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "POST_TITLE",
+  "url": "POST_URL",
+  "datePublished": "POST_DATE_PUBLISHED",
+  "dateModified": "POST_DATE_MODIFIED",
+  "description": "POST_DESCRIPTION",
+  "inLanguage": "en",
+  "mainEntityOfPage": "POST_URL",
+  "author": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  }
+}
+</script>
+
+
+
+<!-- ==================================================================
+     10) GUIDE PAGE
+     URL: /guide/
+     ================================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Guide — ShovelsSale.com",
+  "description": "A practical guidance layer for reading shovel economy markets, infrastructure positions, and structural opportunities.",
+  "url": "https://shovelssale.com/guide/",
+  "datePublished": "2026-03-01",
+  "dateModified": "2026-03-01",
+  "inLanguage": "en",
+  "mainEntityOfPage": "https://shovelssale.com/guide/",
+  "author": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  }
+}
+</script>
+
+
+
+<!-- ==================================================================
+     11) FALLBACK PAGE TEMPLATE
+     For standard non-article pages
+     ==================================================================
+
+     Replace:
+     - PAGE_TITLE
+     - PAGE_URL
+     - PAGE_DESCRIPTION
+-->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "PAGE_TITLE",
+  "url": "PAGE_URL",
+  "description": "PAGE_DESCRIPTION",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  }
 }
 </script>
