@@ -29,6 +29,8 @@ SKIP_DIRS = {
 SKIP_FILES = {
     "404.html",
     "google-verification.html",
+    "google28b5398e414f820.html",
+    "schema-templates.html",
 }
 
 PRIORITY_MAP = {
@@ -56,10 +58,20 @@ FREQ_MAP = {
 
 def should_skip(path: Path) -> bool:
     """Return True if the path should be excluded from sitemap discovery."""
+    
+    # Skip specific files
     if path.name in SKIP_FILES:
         return True
-    return any(part in SKIP_DIRS for part in path.parts)
 
+    # Skip system directories
+    if any(part in SKIP_DIRS for part in path.parts):
+        return True
+
+    # Skip assets completely (critical for SEO cleanliness)
+    if "assets" in path.parts:
+        return True
+
+    return False
 
 def path_to_url_path(path: Path) -> str:
     """
@@ -107,7 +119,7 @@ def discover_pages() -> list[dict]:
             freq = "monthly"
 
         pages.append({
-            "url": f"{SITE_URL}{url_path}",
+            "url": f"{SITE_URL.rstrip('/')}{url_path}",
             "lastmod": TODAY,
             "changefreq": freq,
             "priority": priority,
@@ -118,13 +130,21 @@ def discover_pages() -> list[dict]:
     # 1. homepage first
     # 2. then higher priority
     # 3. then URL path alphabetically
-    pages.sort(
-        key=lambda p: (
-            0 if p["url_path"] == "/" else 1,
-            -float(p["priority"]),
-            p["url_path"],
-        )
-    )
+    def sort_key(p):
+    if p["url_path"] == "/":
+        return (0, 0, "")
+
+    if p["url_path"].startswith("/dispatch/") and p["url_path"].endswith(".html"):
+        try:
+            num = int(p["url_path"].split("/")[-1].replace(".html", ""))
+            return (1, -num, "")
+        except ValueError:
+            pass
+
+    return (1, -float(p["priority"]), p["url_path"])
+
+
+pages.sort(key=sort_key)
 
     return pages
 
