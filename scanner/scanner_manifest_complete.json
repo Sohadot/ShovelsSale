@@ -1,0 +1,44 @@
+{
+  "name": "Shovel Scanner",
+  "short_name": "Scanner",
+  "description": "The operational classification layer of ShovelsSale.com. Classify Miner, Shovel, and Gatekeeper positions across gold-rush markets.",
+  "start_url": "/scanner/",
+  "scope": "/scanner/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#C9A84C",
+  "lang": "en",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["business", "finance", "education"],
+  "shortcuts": [
+    {
+      "name": "Open Framework",
+      "url": "/framework/",
+      "description": "Read the structural model behind the scanner"
+    },
+    {
+      "name": "Read Manifesto",
+      "url": "/manifesto/",
+      "description": "Read the doctrine behind the system"
+    },
+    {
+      "name": "View Dispatch",
+      "url": "/dispatch/",
+      "description": "Open the analytical publication layer"
+    }
+  ]
+}
