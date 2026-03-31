@@ -1,11 +1,20 @@
 import subprocess
+import sys
 
-print("\n=== ShovelsSale Publishing Pipeline ===\n")
+def run_step(name, command):
+    print(f"\n=== {name} ===\n")
+    result = subprocess.run(command)
 
-print("1. Updating sitemap...")
-subprocess.run(["python", "scripts/update_sitemap.py"])
+    if result.returncode != 0:
+        print(f"\n❌ Error in {name}")
+        sys.exit(1)
 
-print("\n2. Generating RSS feeds...")
-subprocess.run(["python", "scripts/generate_rss.py"])
+    print(f"\n✔ {name} completed")
 
-print("\n✔ Pipeline completed successfully\n")
+if __name__ == "__main__":
+    print("\n🚀 ShovelsSale Publishing Pipeline\n")
+
+    run_step("Updating Sitemap", ["python", "scripts/update_sitemap.py"])
+    run_step("Generating RSS", ["python", "scripts/generate_rss.py"])
+
+    print("\n🔥 Pipeline executed successfully\n")
