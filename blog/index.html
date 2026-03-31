@@ -3,31 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — ShovelsSale.com</title>
-  <meta name="description" content="Pick-and-shovel strategy articles for the AI era. Updated weekly.">
+
+  <title>Blog | ShovelsSale.com</title>
+  <meta name="description" content="A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://shovelssale.com/blog/">
+  <link rel="alternate" type="application/rss+xml" title="ShovelsSale Blog" href="/blog/feed.xml">
+
+  <meta property="og:title" content="Blog | ShovelsSale.com">
+  <meta property="og:description" content="A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shovelssale.com/blog/">
+  <meta property="og:site_name" content="ShovelsSale.com">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog | ShovelsSale.com">
+  <meta name="twitter:description" content="A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "ShovelsSale Blog",
+    "url": "https://shovelssale.com/blog/",
+    "description": "A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "ShovelsSale.com",
+      "url": "https://shovelssale.com/"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
   <style>
-    :root { --gold: #C9A84C; --black: #080808; --dark-2: #141414; --white: #F5F0E8; --white-dim: #9A9080; --gold-dim: #7A5F2A; }
+    :root {
+      --gold: #C9A84C;
+      --gold-dim: #7A5F2A;
+      --black: #080808;
+      --dark-2: #141414;
+      --white: #F5F0E8;
+      --white-dim: #9A9080;
+      --line: rgba(201,168,76,0.12);
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: var(--black); color: var(--white); font-family: 'Cormorant Garamond', serif; }
-    nav { padding: 1.5rem 3rem; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(201,168,76,0.1); }
-    .nav-logo { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--gold); text-decoration: none; letter-spacing: 0.15em; }
-    .back { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--white-dim); text-decoration: none; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+    }
+
+    nav {
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background: rgba(8,8,8,0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .back {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--white-dim);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
     .back:hover { color: var(--gold); }
-    .blog-header { padding: 5rem 3rem 3rem; max-width: 900px; margin: 0 auto; }
-    .blog-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); line-height: 0.9; margin-bottom: 1rem; }
+
+    .blog-header {
+      padding: 5rem 3rem 3rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .blog-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.9;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
     .blog-title span { color: var(--gold); }
-    .blog-sub { font-style: italic; color: var(--white-dim); font-size: 1.1rem; }
-    .posts-grid { max-width: 900px; margin: 0 auto; padding: 2rem 3rem 6rem; display: grid; gap: 2px; }
-    .post-card { background: var(--dark-2); padding: 2.5rem; text-decoration: none; display: block; transition: background 0.3s; border-left: 3px solid transparent; }
-    .post-card:hover { background: #1A1A1A; border-left-color: var(--gold); }
-    .post-category { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; }
-    .post-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--white); margin: 0.5rem 0; }
-    .post-card p { font-size: 1rem; color: var(--white-dim); line-height: 1.6; margin-bottom: 1rem; }
-    .post-date { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--white-dim); opacity: 0.4; }
-    footer { text-align: center; padding: 3rem; border-top: 1px solid rgba(201,168,76,0.1); }
-    footer a { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gold); text-decoration: none; }
+
+    .blog-sub {
+      font-style: italic;
+      color: var(--white-dim);
+      font-size: 1.12rem;
+      line-height: 1.8;
+      max-width: 760px;
+    }
+
+    .posts-grid {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 3rem 6rem;
+      display: grid;
+      gap: 2px;
+    }
+
+    .post-card {
+      background: var(--dark-2);
+      padding: 2.5rem;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s ease, border-left-color 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .post-card:hover {
+      background: #1A1A1A;
+      border-left-color: var(--gold);
+    }
+
+    .post-category {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .post-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--white);
+      margin: 0.55rem 0;
+      line-height: 1.2;
+    }
+
+    .post-card p {
+      font-size: 1rem;
+      color: var(--white-dim);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      max-width: 760px;
+    }
+
+    .post-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--white-dim);
+      opacity: 0.55;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .empty-state {
+      background: var(--dark-2);
+      padding: 2.5rem;
+      border-left: 3px solid var(--gold-dim);
+    }
+
+    .empty-state h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .empty-state p {
+      color: var(--white-dim);
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem;
+      border-top: 1px solid var(--line);
+    }
+
+    footer a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1.2rem 1.25rem;
+      }
+
+      .blog-header {
+        padding: 3.5rem 1.25rem 2rem;
+      }
+
+      .posts-grid {
+        padding: 1rem 1.25rem 4rem;
+      }
+
+      .post-card,
+      .empty-state {
+        padding: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -35,25 +229,29 @@
     <a href="/" class="nav-logo">ShovelsSale.com</a>
     <a href="/" class="back">← Home</a>
   </nav>
+
   <div class="blog-header">
     <h1 class="blog-title">The <span>Shovels</span><br>Chronicles.</h1>
-    <p class="blog-sub">Pick-and-shovel strategy for the AI era. Updated weekly.</p>
+    <p class="blog-sub">A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.</p>
   </div>
+
   <div class="posts-grid">
     
       <a href="/blog/pick-and-shovel-wins-2026/" class="post-card">
         <span class="post-category">Strategy</span>
         <h2>Why Pick-and-Shovel Wins in 2026</h2>
-        <p>Every gold rush has two kinds of players. Here's why the shovel sellers always win.</p>
-        <span class="post-date">2026-02-22</span>
+        <p>Why Pick-and-Shovel Wins in 2026. Pick-and-shovel strategy for the AI era.</p>
+        <span class="post-date">2026-03-31</span>
       </a>
-      <a href="/blog/top-ai-infrastructure-plays/" class="post-card">
-        <span class="post-category">Investing</span>
-        <h2>Top 10 AI Infrastructure Plays Right Now</h2>
-        <p>The undervalued picks and shovels of the AI boom that most people are ignoring.</p>
-        <span class="post-date">2026-02-22</span>
+
+      <a href="/blog/no-code-ai-stack-2026/" class="post-card">
+        <span class="post-category">Infrastructure</span>
+        <h2>The No-Code AI Stack — ShovelsSale.com</h2>
+        <p>Build a real AI product this weekend. 3 platforms, zero ML experience needed, one working product by Sunday.</p>
+        <span class="post-date">2026-03-09</span>
       </a>
   </div>
+
   <footer>
     <a href="/">ShovelsSale.com — The Philosophy of Winning Without Gambling.</a>
   </footer>

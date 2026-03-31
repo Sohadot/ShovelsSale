@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>ShovelsSale Blog</title>
+    <link>https://shovelssale.com/blog/</link>
+    <description>A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.</description>
+    <language>en</language>
+    <lastBuildDate>Tue, 31 Mar 2026 17:58:38 GMT</lastBuildDate>
+    <item>
+      <title>Why Pick-and-Shovel Wins in 2026 — ShovelsSale.com</title>
+      <link>https://shovelssale.com/blog/pick-and-shovel-wins-2026/</link>
+      <guid>https://shovelssale.com/blog/pick-and-shovel-wins-2026/</guid>
+      <pubDate>Tue, 31 Mar 2026 17:58:38 GMT</pubDate>
+      <description>Why Pick-and-Shovel Wins in 2026. Pick-and-shovel strategy for the AI era.</description>
+    </item>
+    <item>
+      <title>The No-Code AI Stack — ShovelsSale.com</title>
+      <link>https://shovelssale.com/blog/no-code-ai-stack-2026/</link>
+      <guid>https://shovelssale.com/blog/no-code-ai-stack-2026/</guid>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Build a real AI product this weekend. 3 platforms, zero ML experience needed, one working product by Sunday.</description>
+    </item>
+  </channel>
+</rss>

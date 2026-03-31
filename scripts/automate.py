@@ -19,11 +19,10 @@ Those responsibilities belong to:
 
 from __future__ import annotations
 
-import os
 import re
 import html
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, UTC
 from typing import Optional, Dict, List
 from bs4 import BeautifulSoup
 
@@ -153,7 +152,7 @@ def normalize_date(raw_date: Optional[str], file_path: Path) -> str:
         except ValueError:
             pass
 
-    return datetime.utcfromtimestamp(file_path.stat().st_mtime).date().isoformat()
+    return datetime.fromtimestamp(file_path.stat().st_mtime, UTC).date().isoformat()
 
 
 def infer_category(soup: BeautifulSoup, slug: str) -> str:
