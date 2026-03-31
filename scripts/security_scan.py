@@ -191,13 +191,12 @@ def scan_project() -> dict:
     print(f"[✓] Report saved: security_report.json")
 
     # Exit with error code if critical issues found
-    if total_issues > 0:
+if total_issues > 0:
     print(f"\n⚠ {total_issues} critical issue(s) found. Review recommended.")
 else:
     print("✓ No critical issues. Site is secure.")
 
-    return report
-
+return report
 
 if __name__ == '__main__':
     scan_project()
