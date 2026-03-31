@@ -63,6 +63,10 @@ def should_skip(path: Path) -> bool:
     if path.name in SKIP_FILES:
         return True
 
+    # 🔒 Skip ALL Google verification files (dynamic-safe)
+    if path.name.startswith("google") and path.name.endswith(".html"):
+        return True
+
     # Skip system directories
     if any(part in SKIP_DIRS for part in path.parts):
         return True
