@@ -128,23 +128,23 @@ def discover_pages() -> list[dict]:
 
     # Sort:
     # 1. homepage first
-    # 2. then higher priority
-    # 3. then URL path alphabetically
+    # 2. dispatch issues newest first
+    # 3. then higher priority
+    # 4. then URL path alphabetically
     def sort_key(p):
-    if p["url_path"] == "/":
-        return (0, 0, "")
+        if p["url_path"] == "/":
+            return (0, 0, "")
 
-    if p["url_path"].startswith("/dispatch/") and p["url_path"].endswith(".html"):
-        try:
-            num = int(p["url_path"].split("/")[-1].replace(".html", ""))
-            return (1, -num, "")
-        except ValueError:
-            pass
+        if p["url_path"].startswith("/dispatch/") and p["url_path"].endswith(".html"):
+            try:
+                num = int(p["url_path"].split("/")[-1].replace(".html", ""))
+                return (1, -num, "")
+            except ValueError:
+                pass
 
-    return (1, -float(p["priority"]), p["url_path"])
+        return (1, -float(p["priority"]), p["url_path"])
 
-
-pages.sort(key=sort_key)
+    pages.sort(key=sort_key)
 
     return pages
 
