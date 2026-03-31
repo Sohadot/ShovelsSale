@@ -1,101 +1,88 @@
 # ============================================================
 # robots.txt — ShovelsSale.com
-# Last updated: 2026-02-22
+# Production-grade: SEO + AI + Security balance
 # ============================================================
 
-# === ALLOW ALL GOOD BOTS ===
+# ============================================================
+# GLOBAL ACCESS (Open for indexing)
+# ============================================================
 User-agent: *
 Allow: /
-Allow: /manifesto/
-Allow: /about/
-Allow: /guide/
-Allow: /blog/
 
-# Block sensitive directories and files
+# ------------------------------------------------------------
+# Protect sensitive infrastructure (never meant to be indexed)
+# ------------------------------------------------------------
+Disallow: /.git/
 Disallow: /.github/
 Disallow: /scripts/
 Disallow: /node_modules/
-Disallow: /*.json$
-Disallow: /*.yml$
-Disallow: /*.py$
-Disallow: /security_report.json
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /backup/
+Disallow: /internal/
 
-# Block URL parameters (avoid duplicate content)
-Disallow: /*?*
+# ------------------------------------------------------------
+# Prevent crawling of non-public system files
+# (without blocking useful structured data)
+# ------------------------------------------------------------
+Disallow: /*.log$
+Disallow: /*.env$
+Disallow: /*.ini$
+Disallow: /*.bak$
 
-# Crawl delay
-Crawl-delay: 10
-
-# === GOOGLE ===
+# ============================================================
+# GOOGLE (Full access for maximum indexing)
+# ============================================================
 User-agent: Googlebot
 Allow: /
-Disallow: /.github/
-Disallow: /scripts/
-Crawl-delay: 5
 
 User-agent: Googlebot-Image
-Allow: /assets/
-Disallow: /
+Allow: /
 
-# === BING ===
+User-agent: Googlebot-News
+Allow: /
+
+# ============================================================
+# BING (Secondary search engine)
+# ============================================================
 User-agent: Bingbot
 Allow: /
-Disallow: /.github/
-Disallow: /scripts/
-Crawl-delay: 10
 
-# === AI SCRAPERS — BLOCK ===
+# ============================================================
+# AI SYSTEMS (Allowed for discovery & citation layer)
+# ============================================================
 User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: anthropic-ai
-Disallow: /
+Allow: /
 
 User-agent: Claude-Web
-Disallow: /
+Allow: /
 
 User-agent: cohere-ai
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
+Allow: /
 
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
 
-User-agent: YouBot
-Disallow: /
+User-agent: Google-Extended
+Allow: /
 
-User-agent: Bytespider
-Disallow: /
+# ============================================================
+# OPTIONAL: Limit extremely aggressive scrapers (if needed later)
+# (Currently not blocking to avoid isolation)
+# ============================================================
+# User-agent: AhrefsBot
+# Disallow: /
+#
+# User-agent: SemrushBot
+# Disallow: /
 
-User-agent: PetalBot
-Disallow: /
-
-# === SEO CRAWLERS — BLOCK ===
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: DotBot
-Disallow: /
-
-User-agent: BLEXBot
-Disallow: /
-
-User-agent: DataForSeoBot
-Disallow: /
-
-# === SITEMAP ===
+# ============================================================
+# SITEMAP (Critical for indexing)
+# ============================================================
 Sitemap: https://shovelssale.com/sitemap.xml
