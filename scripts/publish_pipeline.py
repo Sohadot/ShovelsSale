@@ -28,6 +28,11 @@ PYTHON_EXECUTABLE = sys.executable
 
 PIPELINE_STEPS = [
     {
+        "name": "Google Tags Sync",
+        "script": "scripts/sync_google_tags.py",
+        "required": True,
+    },
+    {
         "name": "Content Automation",
         "script": "scripts/automate.py",
         "required": True,
