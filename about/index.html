@@ -1,145 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Mission — ShovelsSale.com</title>
-  <meta name="description" content="ShovelsSale.com is the digital home of the pick-and-shovel philosophy. Not a store. A worldview. A strategy for winning without gambling in the AI era.">
-  <meta property="og:title" content="Our Mission — ShovelsSale.com">
-  <meta property="og:description" content="The philosophy of winning without gambling. Who we are and why this exists.">
-  <link rel="canonical" href="https://shovelssale.com/about/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <title>Our Mission — ShovelsSale.com</title>
+  <meta name="description" content="ShovelsSale.com is the editorial and strategic home of the pick-and-shovel philosophy in the AI era — a reference platform for those who build around infrastructure, systems, and structural advantage rather than speculation." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://shovelssale.com/about/" />
+
+  <meta property="og:title" content="Our Mission — ShovelsSale.com" />
+  <meta property="og:description" content="Not a store. Not a campaign page. ShovelsSale.com is the institutional home of the pick-and-shovel philosophy in the AI era." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shovelssale.com/about/" />
+  <meta property="og:site_name" content="ShovelsSale.com" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Mission — ShovelsSale.com" />
+  <meta name="twitter:description" content="The institutional home of the pick-and-shovel philosophy in the AI era." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Our Mission — ShovelsSale.com",
+    "url": "https://shovelssale.com/about/",
+    "description": "ShovelsSale.com is the editorial and strategic home of the pick-and-shovel philosophy in the AI era.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "ShovelsSale.com",
+      "url": "https://shovelssale.com/"
+    },
+    "about": {
+      "@type": "Organization",
+      "name": "ShovelsSale.com",
+      "url": "https://shovelssale.com/",
+      "description": "ShovelsSale.com is an editorial, strategic, and conceptual digital platform focused on the pick-and-shovel philosophy in the AI era.",
+      "sameAs": [
+        "https://shovelssale.com/manifesto/",
+        "https://shovelssale.com/guide/",
+        "https://shovelssale.com/blog/",
+        "https://shovelssale.com/framework/"
+      ]
+    },
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "ShovelsSale.com",
+      "url": "https://shovelssale.com/",
+      "description": "ShovelsSale.com is an editorial, strategic, and conceptual digital platform focused on the pick-and-shovel philosophy in the AI era."
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --gold: #C9A84C;
-      --gold-light: #E8C97A;
-      --gold-dim: #7A5F2A;
-      --black: #080808;
-      --dark: #0E0E0E;
-      --dark-2: #141414;
-      --dark-3: #1A1A1A;
-      --white: #F5F0E8;
-      --white-dim: #9A9080;
+      --gold: #c9a84c;
+      --gold-light: #ead18e;
+      --gold-dim: #7a5f2a;
+      --bg: #070707;
+      --bg-2: #0e0e0e;
+      --bg-3: #151515;
+      --bg-4: #1c1c1c;
+      --text: #f4efe6;
+      --text-soft: #c9bea9;
+      --text-dim: #9d9384;
+      --line: rgba(201, 168, 76, 0.12);
+      --line-strong: rgba(201, 168, 76, 0.24);
+      --max: 1240px;
+      --content: 820px;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
     }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      background: var(--black);
-      color: var(--white);
+      background:
+        radial-gradient(circle at top center, rgba(201,168,76,0.08), transparent 30%),
+        linear-gradient(to bottom, #090909 0%, #070707 100%);
+      color: var(--text);
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
-      line-height: 1.7;
+      line-height: 1.75;
       overflow-x: hidden;
     }
 
-    /* GRAIN */
     body::before {
-      content: '';
+      content: "";
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.45;
       z-index: 1000;
-      opacity: 0.4;
     }
 
-    /* NAV */
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: sticky;
+      top: 0;
       z-index: 100;
-      padding: 1.5rem 3rem;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(7,7,7,0.92), rgba(7,7,7,0.66));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      background: linear-gradient(to bottom, rgba(8,8,8,0.97), transparent);
+      justify-content: space-between;
+      gap: 1rem;
     }
 
     .nav-logo {
       font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       color: var(--gold);
-      letter-spacing: 0.15em;
       text-decoration: none;
-      opacity: 0.8;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
-    .nav-back {
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--white-dim);
+      font-size: 0.64rem;
+      color: var(--text-dim);
       text-decoration: none;
-      letter-spacing: 0.1em;
-      transition: color 0.3s;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.25s ease, opacity 0.25s ease;
     }
-    .nav-back:hover { color: var(--gold); }
 
-    /* HERO */
-    .page-hero {
-      padding: 12rem 3rem 6rem;
-      max-width: 1000px;
-      margin: 0 auto;
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
       position: relative;
+      padding: 8rem 2rem 4.5rem;
     }
 
-    .page-hero::after {
-      content: '';
+    .hero::after {
+      content: "";
       position: absolute;
-      bottom: 0; left: 3rem; right: 3rem;
+      left: 2rem;
+      right: 2rem;
+      bottom: 0;
       height: 1px;
       background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
-      opacity: 0.3;
+      opacity: 0.35;
     }
 
-    .page-label {
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 3rem;
+      align-items: end;
+    }
+
+    .eyebrow {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.66rem;
       color: var(--gold);
-      letter-spacing: 0.3em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 0.2s;
+      margin-bottom: 1.5rem;
+      opacity: 0.88;
     }
 
-    .page-title {
+    .hero h1 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 10vw, 9rem);
+      font-size: clamp(4rem, 10vw, 9rem);
       line-height: 0.9;
-      color: var(--white);
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 0.4s;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
     }
 
-    .page-title span { color: var(--gold); }
-
-    .page-intro {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-      font-style: italic;
-      color: var(--white-dim);
-      max-width: 680px;
-      line-height: 1.7;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 0.6s;
+    .hero h1 span {
+      color: var(--gold);
     }
 
-    /* CONTENT */
-    .content-wrap {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 6rem 3rem;
+    .hero-intro {
+      max-width: 760px;
+      font-size: clamp(1.16rem, 2.2vw, 1.46rem);
+      color: var(--text-soft);
+      line-height: 1.85;
     }
 
-    /* SECTION */
-    .mission-section {
+    .hero-intro strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-side {
+      background: linear-gradient(180deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02));
+      border: 1px solid var(--line);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-side-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-side p {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    .hero-side p + p {
+      margin-top: 1rem;
+    }
+
+    .hero-side strong {
+      color: var(--text);
+    }
+
+    main {
+      padding: 4rem 2rem 6rem;
+    }
+
+    .section {
       margin-bottom: 6rem;
+    }
+
+    .section-inner {
+      width: min(100%, var(--content));
+      margin: 0 auto;
     }
 
     .section-tag {
@@ -148,95 +271,118 @@
       color: var(--gold);
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
       gap: 1rem;
     }
 
     .section-tag::before {
-      content: '';
+      content: "";
       width: 2rem;
       height: 1px;
       background: var(--gold);
-      opacity: 0.5;
+      opacity: 0.55;
     }
 
-    .section-heading {
+    .section h2 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1;
-      color: var(--white);
-      margin-bottom: 2rem;
+      font-size: clamp(2.2rem, 5vw, 4.6rem);
+      line-height: 0.95;
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.02em;
     }
 
-    .section-heading span { color: var(--gold); }
-
-    .body-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      color: #C8BFA8;
-      line-height: 1.9;
+    .section h2 span {
+      color: var(--gold);
     }
 
-    .body-text p { margin-bottom: 1.5rem; }
+    .prose {
+      color: var(--text-soft);
+      font-size: clamp(1.08rem, 1.7vw, 1.28rem);
+      line-height: 1.95;
+    }
 
-    .body-text strong {
-      color: var(--white);
+    .prose p + p {
+      margin-top: 1.25rem;
+    }
+
+    .prose strong {
+      color: var(--text);
       font-weight: 600;
     }
 
-    .body-text em {
+    .prose em {
       color: var(--gold);
       font-style: italic;
     }
 
-    /* PULL QUOTE */
-    .pull-quote {
+    .prose a {
+      color: var(--gold-light);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,168,76,0.35);
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .prose a:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .quote-block {
+      margin: 2.4rem 0 0;
+      padding: 1.8rem 2rem;
       border-left: 2px solid var(--gold);
-      padding: 1.5rem 2.5rem;
-      margin: 3rem 0;
-      background: var(--dark-2);
+      background: var(--bg-3);
+      box-shadow: var(--shadow);
     }
 
-    .pull-quote p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    .quote-block p {
+      font-size: clamp(1.28rem, 2.4vw, 1.75rem);
       font-style: italic;
-      color: var(--white);
       line-height: 1.6;
-      margin: 0;
+      color: var(--text);
     }
 
-    .pull-quote cite {
+    .quote-block cite {
       display: block;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--gold);
-      letter-spacing: 0.15em;
       margin-top: 1rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
       font-style: normal;
     }
 
-    /* DATA POINTS */
+    .divider {
+      width: min(100%, var(--content));
+      margin: 0 auto 5.2rem;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--line-strong), transparent);
+    }
+
     .data-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 2px;
-      margin: 3rem 0;
+      margin: 2.5rem 0 0;
+      background: var(--line);
     }
 
     .data-card {
-      background: var(--dark-2);
-      padding: 2rem;
+      background: var(--bg-3);
+      padding: 1.8rem 1.5rem;
+      min-height: 190px;
       position: relative;
-      overflow: hidden;
     }
 
     .data-card::after {
-      content: '';
+      content: "";
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       height: 2px;
       background: linear-gradient(to right, var(--gold-dim), transparent);
       opacity: 0.4;
@@ -244,467 +390,586 @@
 
     .data-number {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      line-height: 0.95;
       color: var(--gold);
-      line-height: 1;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.65rem;
     }
 
     .data-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--white-dim);
-      letter-spacing: 0.1em;
-      line-height: 1.5;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: var(--text-soft);
     }
 
     .data-source {
+      margin-top: 0.85rem;
       font-family: 'DM Mono', monospace;
-      font-size: 0.5rem;
-      color: var(--gold-dim);
-      letter-spacing: 0.05em;
-      margin-top: 0.5rem;
-      opacity: 0.6;
+      font-size: 0.52rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
     }
 
-    /* WHO WE SERVE */
-    .personas {
+    .architecture {
       display: grid;
       gap: 2px;
-      margin: 3rem 0;
+      background: var(--line);
+      margin-top: 2.5rem;
     }
 
-    .persona {
-      background: var(--dark-2);
-      padding: 2rem 2.5rem;
+    .architecture-item {
+      background: var(--bg-3);
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1.5rem;
-      align-items: start;
-      transition: background 0.3s;
+      grid-template-columns: 100px 1fr;
+      gap: 1.4rem;
+      padding: 1.7rem 1.8rem;
       border-left: 3px solid transparent;
+      transition: background 0.25s ease, border-color 0.25s ease;
     }
 
-    .persona:hover {
-      background: var(--dark-3);
+    .architecture-item:hover {
+      background: var(--bg-4);
       border-left-color: var(--gold);
     }
 
-    .persona-icon {
+    .architecture-index {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: var(--gold);
+      opacity: 0.72;
       line-height: 1;
-      opacity: 0.6;
     }
 
-    .persona-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
+    .architecture-title {
+      font-size: 1.18rem;
+      color: var(--text);
       font-weight: 600;
-      color: var(--white);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
 
-    .persona-desc {
-      font-family: 'Cormorant Garamond', serif;
+    .architecture-desc {
       font-size: 1rem;
-      color: var(--white-dim);
-      line-height: 1.6;
+      color: var(--text-soft);
+      line-height: 1.7;
     }
 
-    /* VISION STATEMENT */
-    .vision-block {
-      background: var(--dark-2);
-      padding: 4rem 3rem;
+    .served-grid {
+      display: grid;
+      gap: 2px;
+      background: var(--line);
+      margin-top: 2.5rem;
+    }
+
+    .served-item {
+      background: var(--bg-3);
+      padding: 1.7rem 1.8rem;
+      border-left: 3px solid transparent;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .served-item:hover {
+      background: var(--bg-4);
+      border-left-color: var(--gold);
+    }
+
+    .served-title {
+      font-size: 1.18rem;
+      color: var(--text);
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+
+    .served-desc {
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    .vision {
+      width: min(100%, 980px);
+      margin: 0 auto 5rem;
+      padding: 4rem 2rem;
+      background:
+        linear-gradient(180deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02)),
+        var(--bg-3);
+      border-top: 1px solid var(--line-strong);
+      border-bottom: 1px solid var(--line-strong);
       text-align: center;
-      position: relative;
-      margin: 4rem 0;
-      overflow: hidden;
-    }
-
-    .vision-block::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      opacity: 0.3;
-    }
-
-    .vision-block::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      opacity: 0.3;
+      box-shadow: var(--shadow);
     }
 
     .vision-eyebrow {
       font-family: 'DM Mono', monospace;
       font-size: 0.6rem;
       color: var(--gold);
-      letter-spacing: 0.3em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
-    .vision-text {
+    .vision h2 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1.1;
-      color: var(--white);
+      font-size: clamp(2.6rem, 5.4vw, 5rem);
+      line-height: 1.02;
+      max-width: 780px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .vision h2 span {
+      color: var(--gold);
+    }
+
+    .vision p {
       max-width: 700px;
-      margin: 0 auto 1.5rem;
-    }
-
-    .vision-text span { color: var(--gold); }
-
-    .vision-sub {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: var(--white-dim);
-      max-width: 500px;
       margin: 0 auto;
+      font-size: 1.15rem;
+      color: var(--text-soft);
+      line-height: 1.85;
+      font-style: italic;
     }
 
-    /* CTA */
-    .page-cta {
+    .cta-panel {
+      width: min(100%, var(--content));
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
       display: flex;
-      gap: 1.5rem;
       align-items: center;
+      gap: 1.2rem;
       flex-wrap: wrap;
-      margin-top: 3rem;
-      padding-top: 3rem;
-      border-top: 1px solid rgba(201,168,76,0.1);
     }
 
-    .btn-gold {
+    .btn-primary,
+    .btn-secondary {
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary {
       font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--black);
+      color: #090909;
       background: var(--gold);
-      padding: 1rem 2.5rem;
-      text-decoration: none;
-      transition: background 0.3s;
+      padding: 1rem 1.8rem;
     }
 
-    .btn-gold:hover { background: var(--gold-light); }
+    .btn-primary:hover {
+      background: var(--gold-light);
+    }
 
-    .btn-ghost {
+    .btn-secondary {
       font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--white-dim);
-      text-decoration: none;
-      transition: color 0.3s;
+      color: var(--text-dim);
     }
 
-    .btn-ghost:hover { color: var(--gold); }
-
-    /* DIVIDER */
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
-      opacity: 0.2;
-      margin: 3rem 0;
+    .btn-secondary:hover {
+      color: var(--gold);
     }
 
-    /* FOOTER */
     footer {
-      padding: 3rem;
-      border-top: 1px solid rgba(201,168,76,0.08);
+      border-top: 1px solid var(--line);
+      margin-top: 6rem;
+    }
+
+    .footer-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 2rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      justify-content: space-between;
       gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .footer-logo {
       font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--gold);
-      letter-spacing: 0.15em;
-      opacity: 0.5;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.75;
     }
 
-    .footer-text {
+    .footer-copy {
       font-family: 'DM Mono', monospace;
-      font-size: 0.55rem;
-      color: var(--white-dim);
+      font-size: 0.56rem;
+      color: var(--text-dim);
       letter-spacing: 0.08em;
-      opacity: 0.3;
+      text-transform: uppercase;
     }
 
-    /* REVEAL */
     .reveal {
       opacity: 0;
-      transform: translateY(25px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      transform: translateY(24px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 1.2rem 1.5rem; }
-      .page-hero { padding: 9rem 1.5rem 4rem; }
-      .content-wrap { padding: 4rem 1.5rem; }
-      .pull-quote { padding: 1.2rem 1.5rem; }
-      .vision-block { padding: 3rem 1.5rem; }
-      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .data-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner,
+      .hero,
+      main,
+      .footer-inner {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+
+      .hero {
+        padding-top: 6.5rem;
+      }
+
+      .data-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .architecture-item {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+      }
+
+      .vision {
+        padding: 3rem 1.35rem;
+      }
     }
   </style>
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K83NSPVC');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKVL5E97G3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-VKVL5E97G3');
-    </script>
-  </head>
-<body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K83NSPVC"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    })(window,document,'script','dataLayer','GTM-K83NSPVC');
+  </script>
+  <!-- End Google Tag Manager -->
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKVL5E97G3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VKVL5E97G3');
+  </script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K83NSPVC"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <nav>
-    <a href="/" class="nav-logo">ShovelsSale.com</a>
-    <a href="/" class="nav-back">← Back to Home</a>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">ShovelsSale.com</a>
+      <div class="nav-links">
+        <a href="/manifesto/">Manifesto</a>
+        <a href="/guide/">Guide</a>
+        <a href="/blog/">Chronicles</a>
+        <a href="/">Home</a>
+      </div>
+    </div>
   </nav>
 
-  <!-- PAGE HERO -->
-  <div class="page-hero">
-    <p class="page-label">Who We Are & Why This Exists</p>
-    <h1 class="page-title">Our<br><span>Mission.</span></h1>
-    <p class="page-intro">
-      ShovelsSale.com is not a store. It is not a marketing page.
-      It is the digital home of a philosophy — one that has quietly produced
-      the greatest fortunes in every era of economic transformation.
-    </p>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="content-wrap">
-
-    <!-- SECTION 1: THE IDEA -->
-    <div class="mission-section reveal">
-      <p class="section-tag">The Core Idea</p>
-      <h2 class="section-heading">A Symbol,<br>Not a <span>Store.</span></h2>
-      <div class="body-text">
-        <p>
-          The name <em>ShovelsSale.com</em> carries a meaning far deeper than its words.
-          It is a <strong>symbol</strong> — a reference to one of the most enduring strategies
-          in economic history: the pick-and-shovel play.
-        </p>
-        <p>
-          In every gold rush, in every speculative boom, in every era of technological disruption,
-          the pattern repeats: <strong>those who supply the tools outlast those who chase the treasure.</strong>
-        </p>
-        <p>
-          The miners gamble. The shovel sellers build empires.
+  <header class="hero shell">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Who We Are · Why This Exists · What This Becomes</p>
+        <h1>Our<br><span>Mission.</span></h1>
+        <p class="hero-intro">
+          <strong>ShovelsSale.com is an editorial and strategic digital platform built around the pick-and-shovel philosophy in the AI era.</strong>
+          It is not a store. It is not a campaign page. It is not a temporary marketing surface built to harvest attention and disappear.
+          It is the institutional home of an idea that has repeatedly outperformed speculation across economic history:
+          <strong>when the world rushes toward gold, structural advantage belongs to those who supply the tools.</strong>
         </p>
       </div>
 
-      <div class="pull-quote">
-        <p>"In a gold rush, sell shovels. The miners take all the risk. The shovel seller wins regardless of who strikes gold."</p>
-        <cite>The oldest strategy in capitalism — now more relevant than ever.</cite>
-      </div>
+      <aside class="hero-side">
+        <p class="hero-side-label">Institutional Positioning</p>
+        <p>
+          ShovelsSale.com exists to transform a timeless economic principle into a
+          <strong>reference-grade digital asset</strong> for the AI era.
+        </p>
+        <p>
+          Its purpose is not merely to publish commentary, but to establish a durable intellectual, editorial, and strategic base for understanding how infrastructure captures value while speculation absorbs risk.
+        </p>
+      </aside>
     </div>
+  </header>
+
+  <main class="shell">
+    <section class="section reveal">
+      <div class="section-inner">
+        <p class="section-tag">The Foundational Idea</p>
+        <h2>A Symbol,<br>Not a <span>Store.</span></h2>
+        <div class="prose">
+          <p>
+            The phrase “shovels for sale” is more than a business metaphor. It is one of the oldest
+            and most durable strategic patterns in capitalism. In every gold rush, technological wave,
+            extraction cycle, speculative mania, or industrial transition, one reality remains constant:
+            <strong>the participants who chase the prize absorb uncertainty, while the suppliers of indispensable infrastructure build enduring advantage.</strong>
+          </p>
+          <p>
+            That is the worldview this platform is built to defend, articulate, and expand. ShovelsSale.com does not exist to celebrate hype.
+            It exists to map the systems beneath hype. It does not ask which miner will strike gold first.
+            It asks which layer every miner must depend on, pay for, and return to repeatedly.
+          </p>
+          <p>
+            In that sense, this platform is not about tools in the narrow sense. It is about
+            <em>structural necessity</em> — compute, energy, logistics, semiconductors, data infrastructure,
+            mission-critical software, digital land, and the systems that become more valuable precisely because others choose to speculate.
+          </p>
+        </div>
+
+        <div class="quote-block">
+          <p>
+            “The miners gamble on discovery. The shovel seller compounds on inevitability.”
+          </p>
+          <cite>The governing logic of ShovelsSale.com</cite>
+        </div>
+      </div>
+    </section>
 
     <div class="divider"></div>
 
-    <!-- SECTION 2: WHY NOW -->
-    <div class="mission-section reveal">
-      <p class="section-tag">The Context — February 2026</p>
-      <h2 class="section-heading">The AI Rush<br>Is <span>Happening Now.</span></h2>
-      <div class="body-text">
-        <p>
-          The world is in the middle of the largest technological gold rush in modern history.
-          Billions are flowing into AI — into building models, training data, and chasing
-          the next breakthrough.
-        </p>
-        <p>
-          Most will fail. Not because the technology isn't real —
-          but because <strong>most miners always fail.</strong>
-          That has never changed, in any gold rush, ever.
-        </p>
-        <p>
-          But the infrastructure they all depend on?
-          The compute. The energy. The data pipelines. The tools.
-          The digital real estate.
-          <em>That demand is certain.</em> Regardless of who wins the AI race.
-        </p>
-      </div>
+    <section class="section reveal">
+      <div class="section-inner">
+        <p class="section-tag">The Historical Moment</p>
+        <h2>The AI Era Is Not Just a Boom.<br>It Is an <span>Infrastructure Rush.</span></h2>
+        <div class="prose">
+          <p>
+            Much of the world still narrates the AI era as a story about models, apps, founders, launches, valuations, and headlines.
+            That framing is incomplete. The deeper reality is that artificial intelligence is producing one of the most significant infrastructure expansions of the modern age.
+            Massive demand is converging around power, GPUs, chips, data centers, cooling systems, orchestration layers, workflow systems, model access, data pipelines, storage, inference capacity, and distribution architecture.
+          </p>
+          <p>
+            In practical terms, that means the AI era is not only creating winners at the application layer. It is also forcing the construction of a far larger and more durable value layer beneath it.
+            <strong>That lower layer is where the pick-and-shovel philosophy becomes most powerful.</strong>
+          </p>
+          <p>
+            Most visible narratives still focus on who may become the next dominant AI company.
+            ShovelsSale.com is built around a more rigorous question:
+            <em>what must the entire field buy, rent, depend on, or route through regardless of who wins the race?</em>
+          </p>
+        </div>
 
-      <!-- DATA POINTS -->
-      <div class="data-grid">
-        <div class="data-card">
-          <p class="data-number">$1.4T</p>
-          <p class="data-label">Expected global AI infrastructure spend in 2026</p>
-          <p class="data-source">Gartner, 2026 Forecast</p>
-        </div>
-        <div class="data-card">
-          <p class="data-number">∞</p>
-          <p class="data-label">The value of owning the right idea at the right moment</p>
-          <p class="data-source">Every gold rush in history</p>
-        </div>
-        <div class="data-card">
-          <p class="data-number">100%</p>
-          <p class="data-label">Of AI models need GPU, compute, energy, and storage</p>
-          <p class="data-source">Fidelity 2026 Outlook</p>
-        </div>
-        <div class="data-card">
-          <p class="data-number">0</p>
-          <p class="data-label">AI models that don't need infrastructure to run</p>
-          <p class="data-source">The Laws of Physics</p>
+        <div class="data-grid">
+          <article class="data-card">
+            <div class="data-number">$1.4T</div>
+            <p class="data-label">Illustrative scale of expected global AI infrastructure spending in the years ahead.</p>
+            <p class="data-source">Positioning signal, not accounting statement</p>
+          </article>
+          <article class="data-card">
+            <div class="data-number">100%</div>
+            <p class="data-label">Of AI systems depend on underlying infrastructure to train, deploy, distribute, and scale.</p>
+            <p class="data-source">Structural principle</p>
+          </article>
+          <article class="data-card">
+            <div class="data-number">0</div>
+            <p class="data-label">AI models that operate without compute, storage, energy, network, and execution environments.</p>
+            <p class="data-source">Physical reality</p>
+          </article>
+          <article class="data-card">
+            <div class="data-number">∞</div>
+            <p class="data-label">The asymmetry created when a simple idea is attached to the correct historical moment.</p>
+            <p class="data-source">Conceptual asset logic</p>
+          </article>
         </div>
       </div>
-
-      <div class="body-text">
-        <p>
-          Leading investment analysts at <strong>Zacks, The Motley Fool, Fidelity, and Blackstone</strong>
-          now consistently recommend pick-and-shovel positions — companies like Astera Labs,
-          Vertiv, CoreWeave, and data center REITs — over direct AI model bets.
-          The reasoning is identical to 1849:
-          <em>you don't need to know who strikes gold to profit from the rush.</em>
-        </p>
-      </div>
-    </div>
+    </section>
 
     <div class="divider"></div>
 
-    <!-- SECTION 3: WHAT WE BUILD -->
-    <div class="mission-section reveal">
-      <p class="section-tag">What This Site Is</p>
-      <h2 class="section-heading">Not a Page.<br>An <span>Ecosystem.</span></h2>
-      <div class="body-text">
-        <p>
-          A landing page sells. An ecosystem grows.
-          ShovelsSale.com is built to be the latter — a living, compounding digital asset
-          that becomes more valuable with time, not less.
-        </p>
-        <p>What we are building here is four things simultaneously:</p>
-      </div>
+    <section class="section reveal">
+      <div class="section-inner">
+        <p class="section-tag">What This Platform Is Becoming</p>
+        <h2>Not a Landing Page.<br>A <span>Reference System.</span></h2>
+        <div class="prose">
+          <p>
+            ShovelsSale.com is being built as a system, not as a slogan. The long-term objective is not to create a page that performs briefly, but to establish a compounding digital structure whose authority deepens over time.
+            This requires editorial clarity, conceptual consistency, technical discipline, crawl accessibility, strategic positioning, and a coherent internal knowledge architecture.
+          </p>
+          <p>
+            The platform is therefore being developed across multiple interconnected layers:
+          </p>
+        </div>
 
-      <div class="personas">
-        <div class="persona">
-          <span class="persona-icon">I</span>
-          <div>
-            <p class="persona-title">A Philosophy</p>
-            <p class="persona-desc">A manifesto-driven worldview that attracts founders, investors, and strategic thinkers who reject speculation in favor of structural advantage.</p>
-          </div>
-        </div>
-        <div class="persona">
-          <span class="persona-icon">II</span>
-          <div>
-            <p class="persona-title">A Living Resource</p>
-            <p class="persona-desc">A weekly-updated guide to the best pick-and-shovel opportunities in AI infrastructure — curated, honest, and built on real market data.</p>
-          </div>
-        </div>
-        <div class="persona">
-          <span class="persona-icon">III</span>
-          <div>
-            <p class="persona-title">A Community</p>
-            <p class="persona-desc">A newsletter and growing audience of shovel sellers — builders who choose infrastructure over speculation, and compound quietly while the miners rush.</p>
-          </div>
-        </div>
-        <div class="persona">
-          <span class="persona-icon">IV</span>
-          <div>
-            <p class="persona-title">A Conceptual Digital Asset</p>
-            <p class="persona-desc">A domain + brand + content + audience that appreciates as the AI era deepens — a whole that is worth far more than the sum of its parts.</p>
-          </div>
+        <div class="architecture">
+          <article class="architecture-item">
+            <div class="architecture-index">I</div>
+            <div>
+              <p class="architecture-title">A Foundational Philosophy</p>
+              <p class="architecture-desc">
+                The site begins as a worldview: the belief that structural suppliers often outperform speculative participants in periods of disruption. This worldview is articulated most directly in the <a href="/manifesto/">Manifesto</a>.
+              </p>
+            </div>
+          </article>
+
+          <article class="architecture-item">
+            <div class="architecture-index">II</div>
+            <div>
+              <p class="architecture-title">A Strategic Guide Layer</p>
+              <p class="architecture-desc">
+                Through the <a href="/guide/">Guide</a>, the philosophy becomes practical. The abstract principle is translated into a framework readers can use to evaluate infrastructure opportunities, recurring demand layers, and asymmetric positions.
+              </p>
+            </div>
+          </article>
+
+          <article class="architecture-item">
+            <div class="architecture-index">III</div>
+            <div>
+              <p class="architecture-title">An Editorial Chronicle</p>
+              <p class="architecture-desc">
+                Through the <a href="/blog/">Chronicles</a>, the site becomes living analysis rather than static messaging. This layer allows the platform to respond to new developments while reinforcing a consistent intellectual center.
+              </p>
+            </div>
+          </article>
+
+          <article class="architecture-item">
+            <div class="architecture-index">IV</div>
+            <div>
+              <p class="architecture-title">A Conceptual Digital Asset</p>
+              <p class="architecture-desc">
+                Domain, narrative, architecture, discoverability, audience, and institutional framing combine to create something greater than a website: an appreciating conceptual asset whose value increases as the surrounding thesis becomes more obvious to the market.
+              </p>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
 
     <div class="divider"></div>
 
-    <!-- SECTION 4: WHO WE SERVE -->
-    <div class="mission-section reveal">
-      <p class="section-tag">Who This Is For</p>
-      <h2 class="section-heading">The <span>Shovel</span><br>Sellers.</h2>
-      <div class="body-text">
-        <p>
-          This is not for everyone. It is for a specific kind of person —
-          one who has looked at the AI boom and asked a different question
-          than the crowd.
-        </p>
-        <p>
-          Not <em>"which AI startup will win?"</em>
-          But <em>"who supplies everything they all need?"</em>
-        </p>
-        <p>
-          If that is your question, you are already thinking like a shovel seller.
-          <strong>You are already here.</strong>
-        </p>
-      </div>
-    </div>
+    <section class="section reveal">
+      <div class="section-inner">
+        <p class="section-tag">Who This Serves</p>
+        <h2>Built for the Builders of<br><span>Structural Advantage.</span></h2>
+        <div class="prose">
+          <p>
+            This platform is not built for momentum-chasing. It is built for those who think in systems, layers, dependencies, and asymmetries.
+            It is for readers who look at a technological boom and ask not only who is most visible, but which layer is most necessary.
+          </p>
+          <p>
+            It serves founders who understand infrastructure economics, investors who prefer durable advantage over narrative volatility, operators who see value in bottlenecks and dependency chains, and strategic readers who recognize that the deepest value often sits beneath the surface of the story dominating the headlines.
+          </p>
+        </div>
 
-    <!-- VISION STATEMENT -->
-    <div class="vision-block reveal">
-      <p class="vision-eyebrow">The Vision</p>
-      <h2 class="vision-text">
-        To be the permanent home of the
+        <div class="served-grid">
+          <article class="served-item">
+            <p class="served-title">Founders and Operators</p>
+            <p class="served-desc">
+              Those building in infrastructure-adjacent layers who need language, positioning, and a deeper conceptual frame for why their work matters.
+            </p>
+          </article>
+
+          <article class="served-item">
+            <p class="served-title">Investors and Capital Allocators</p>
+            <p class="served-desc">
+              Those seeking ways to think beyond visible hype and toward repeatable demand, constrained supply, and leverage over the system rather than participation within it.
+            </p>
+          </article>
+
+          <article class="served-item">
+            <p class="served-title">Strategic Readers</p>
+            <p class="served-desc">
+              Those who want more than commentary. They want frameworks, language, and durable mental models for interpreting the AI era at a structural level.
+            </p>
+          </article>
+
+          <article class="served-item">
+            <p class="served-title">The Quiet Compounders</p>
+            <p class="served-desc">
+              Those who understand that in every rush, most people compete for the visible prize while a smaller class accumulates power by owning the layer everybody depends on.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section reveal">
+      <div class="section-inner">
+        <p class="section-tag">Institutional Purpose</p>
+        <h2>Why This Exists,<br>At a <span>Higher Level.</span></h2>
+        <div class="prose">
+          <p>
+            ShovelsSale.com exists because the AI era needs not only products, not only analysts, and not only commentary, but also a stable conceptual center from which this transformation can be interpreted.
+            Its function is to become that center.
+          </p>
+          <p>
+            Not in the sense of claiming universal authority by declaration, but in the sense of building it methodically:
+            through coherence, clarity, repeatable frameworks, disciplined publication, strong technical foundations, and a point of view sharp enough to be remembered.
+          </p>
+          <p>
+            The site is therefore designed to do more than publish. It is designed to
+            <strong>name a pattern, define a position, and accumulate trust around an idea whose relevance should increase as the AI economy expands.</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="vision reveal">
+      <p class="vision-eyebrow">Long-Term Vision</p>
+      <h2>
+        To become the enduring home of the
         <span>pick-and-shovel philosophy</span>
         in the AI era.
       </h2>
-      <p class="vision-sub">
-        A reference. A community. A brand. An asset.
-        Built to grow in value as the world rushes toward gold
-        and forgets who sells the shovels.
+      <p>
+        A site that functions simultaneously as an editorial platform, a conceptual framework, a strategic lens, a discoverable knowledge base, and a digital asset whose value rises as the surrounding world becomes more dependent on the very layers it teaches readers to see.
       </p>
-    </div>
+    </section>
 
-    <!-- CTA -->
-    <div class="page-cta reveal">
-      <a href="/manifesto/" class="btn-gold">Read the Manifesto</a>
-      <a href="/#newsletter" class="btn-ghost">Join the Weekly Digest →</a>
+    <div class="cta-panel reveal">
+      <a href="/manifesto/" class="btn-primary">Read the Manifesto</a>
+      <a href="/guide/" class="btn-secondary">Explore the Guide →</a>
+      <a href="/blog/" class="btn-secondary">Enter the Chronicles →</a>
     </div>
-
-  </div>
+  </main>
 
   <footer>
-    <span class="footer-logo">ShovelsSale.com</span>
-    <span class="footer-text">© 2026 — The Philosophy of Winning Without Gambling.</span>
+    <div class="footer-inner">
+      <span class="footer-logo">ShovelsSale.com</span>
+      <span class="footer-copy">2026 · The Institutional Home of the Pick-and-Shovel Philosophy</span>
+    </div>
   </footer>
 
   <script>
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.08 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
 
+    reveals.forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
