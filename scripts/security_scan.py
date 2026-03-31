@@ -1,7 +1,7 @@
 """
 ShovelsSale.com — Security Scanner
 Scans all HTML files for common vulnerabilities and issues.
-Runs daily via GitHub Actions.
+Runs automatically via GitHub Actions.
 """
 
 import os
@@ -10,9 +10,9 @@ import re
 from datetime import datetime
 from bs4 import BeautifulSoup
 
-# ============================================================
+# =========================================================
 # CONFIG
-# ============================================================
+# =========================================================
 SCAN_TIME = datetime.now().isoformat()
 SKIP_DIRS = {'.git', 'scripts', 'node_modules', '.github'}
 
@@ -20,23 +20,23 @@ SKIP_DIRS = {'.git', 'scripts', 'node_modules', '.github'}
 DANGEROUS_PATTERNS = [
     (r'eval\s*\(', 'eval() usage detected — potential XSS risk'),
     (r'document\.write\s*\(', 'document.write() — XSS risk'),
-    (r'innerHTML\s*=\s*[^"]', 'innerHTML assignment without sanitization'),
-    (r'javascript:\s*[^"\']\w', 'javascript: URI — potential XSS'),
-    (r'on\w+\s*=\s*["\'][^"\']*\(', 'Inline event handler with function call'),
+    (r'innerHTML\s*=\s*[^;]+', 'innerHTML assignment without sanitization'),
+    (r'javascript:\s*["\']', 'javascript: URI — potential XSS'),
+    (r'on\w+\s*=\s*["\'][^"\']+["\']', 'Inline event handler with function call'),
     (r'<script[^>]*src\s*=\s*["\']http://', 'HTTP (not HTTPS) script source'),
     (r'password\s*=\s*["\'][^"\']{3,}', 'Hardcoded password detected'),
-    (r'api[_-]?key\s*=\s*["\'][^"\']{8,}', 'Hardcoded API key detected'),
+    (r'api[_-]?key\s*=\s*["\'][^"\']{6,}', 'Hardcoded API key detected'),
     (r'secret\s*=\s*["\'][^"\']{8,}', 'Hardcoded secret detected'),
-    (r'token\s*=\s*["\'][A-Za-z0-9+/]{20,}', 'Hardcoded token detected'),
+    (r'token\s*=\s*["\'][A-Za-z0-9+/=]{20,}', 'Hardcoded token detected'),
 ]
 
-# Required security meta tags
+# Required security/meta tags
 REQUIRED_META = [
     'description',
     'viewport',
 ]
 
-# External domains whitelist (allowed in CSP)
+# External domains whitelist
 ALLOWED_EXTERNAL = {
     'fonts.googleapis.com',
     'fonts.gstatic.com',
@@ -47,11 +47,9 @@ ALLOWED_EXTERNAL = {
     'assets.mailerlite.com',
 }
 
-
-# ============================================================
+# =========================================================
 # SCANNER
-# ============================================================
-
+# =========================================================
 def scan_html_file(filepath: str) -> dict:
     """Scan a single HTML file for security issues."""
     issues = []
@@ -72,30 +70,30 @@ def scan_html_file(filepath: str) -> dict:
     if not soup.find('title'):
         issues.append('Missing <title> tag')
 
-    # 3. Check for canonical
+    # 3. Check canonical
     if not soup.find('link', {'rel': 'canonical'}):
         warnings.append('Missing canonical link')
 
     # 4. Check external scripts
-for script in soup.find_all('script', src=True):
-    src = script.get('src', '')
+    for script in soup.find_all('script', src=True):
+        src = script.get('src', '')
 
-    if src.startswith('http://'):
-        issues.append(f'Insecure HTTP script: {src}')
+        if src.startswith('http://'):
+            issues.append(f'Insecure HTTP script: {src}')
 
-    if src.startswith('https://') and not any(domain in src for domain in ALLOWED_EXTERNAL):
-        warnings.append(f'External script not in whitelist: {src[:80]}')
-        
+        if src.startswith('https://') and not any(domain in src for domain in ALLOWED_EXTERNAL):
+            warnings.append(f'External script not in whitelist: {src[:80]}')
+
     # 5. Check iframes
-for iframe in soup.find_all('iframe'):
-    src = iframe.get('src', '')
+    for iframe in soup.find_all('iframe'):
+        src = iframe.get('src', '')
 
-    # Allow trusted GTM noscript iframe
-    if 'www.googletagmanager.com/ns.html' in src:
-        continue
+        # Allow trusted GTM noscript iframe
+        if 'www.googletagmanager.com/ns.html' in src:
+            continue
 
-    if src and not iframe.get('sandbox'):
-        warnings.append(f'iframe without sandbox: {src[:60]}')
+        if src and not iframe.get('sandbox'):
+            warnings.append(f'iframe without sandbox: {src[:60]}')
 
     # 6. Check forms
     for form in soup.find_all('form'):
@@ -124,12 +122,13 @@ for iframe in soup.find_all('iframe'):
         if filename != '404.html':
             warnings.append('Page has noindex — intentional?')
 
-return {
+    return {
         'file': filepath,
         'issues': issues,
         'warnings': warnings,
         'status': 'FAIL' if issues else ('WARN' if warnings else 'PASS'),
     }
+
 
 def scan_project() -> dict:
     """Scan entire project for security issues."""
@@ -142,7 +141,6 @@ def scan_project() -> dict:
     print(f"{'='*60}\n")
 
     for root, dirs, files in os.walk('.'):
-        # Skip unwanted directories
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
 
         for filename in files:
@@ -156,25 +154,22 @@ def scan_project() -> dict:
             total_issues += len(result['issues'])
             total_warnings += len(result['warnings'])
 
-            # Print result
             icon = '✓' if result['status'] == 'PASS' else ('⚠' if result['status'] == 'WARN' else '✗')
             print(f"{icon} {filepath}")
 
             for issue in result['issues']:
                 print(f"   ✗ ISSUE: {issue}")
             for warning in result['warnings']:
-                print(f"   ⚠ WARN:  {warning}")
+                print(f"   ⚠ WARN: {warning}")
 
-    # Summary
     print(f"\n{'='*60}")
-    print(f"SCAN COMPLETE")
+    print("SCAN COMPLETE")
     print(f"Files scanned: {len(results)}")
     print(f"Issues:        {total_issues}")
     print(f"Warnings:      {total_warnings}")
     print(f"Status:        {'✓ CLEAN' if total_issues == 0 else '✗ ISSUES FOUND'}")
     print(f"{'='*60}\n")
 
-    # Save report
     report = {
         'scan_time': SCAN_TIME,
         'total_files': len(results),
@@ -184,18 +179,18 @@ def scan_project() -> dict:
         'results': results,
     }
 
-    with open('security_report.json', 'w') as f:
+    with open('security_report.json', 'w', encoding='utf-8') as f:
         json.dump(report, f, indent=2)
 
-    print(f"[✓] Report saved: security_report.json")
+    print("Report saved: security_report.json")
 
-    # Exit with error code if critical issues found
-if total_issues > 0:
-    print(f"\n⚠ {total_issues} critical issue(s) found. Review recommended.")
-else:
-    print("✓ No critical issues. Site is secure.")
+    if total_issues > 0:
+        print(f"\n⚠ {total_issues} critical issue(s) found. Review recommended.")
+    else:
+        print("✓ No critical issues. Site is secure.")
 
-return report
+    return report
+
 
 if __name__ == '__main__':
     scan_project()
