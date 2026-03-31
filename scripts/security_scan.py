@@ -124,13 +124,12 @@ for iframe in soup.find_all('iframe'):
         if filename != '404.html':
             warnings.append('Page has noindex — intentional?')
 
-    return {
+return {
         'file': filepath,
         'issues': issues,
         'warnings': warnings,
         'status': 'FAIL' if issues else ('WARN' if warnings else 'PASS'),
     }
-
 
 def scan_project() -> dict:
     """Scan entire project for security issues."""
