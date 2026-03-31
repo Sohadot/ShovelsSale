@@ -1,107 +1,168 @@
 """
-ShovelsSale.com — Auto Sitemap Updater
-Discovers all HTML pages and generates fresh sitemap.xml
-Runs weekly via GitHub Actions after content update.
+ShovelsSale.com — Sitemap Generation Engine
+
+Purpose:
+- Discover all public HTML pages in the repository
+- Convert filesystem paths into clean canonical URLs
+- Generate a production-grade sitemap.xml
+- Remain compatible with Windows, GitHub Actions, and static-site deployment
 """
 
-import os
+from __future__ import annotations
+
+from pathlib import Path
 from datetime import date
 
 SITE_URL = "https://shovelssale.com"
 TODAY = date.today().isoformat()
-SKIP_DIRS = {'.git', 'scripts', 'node_modules', '.github'}
-SKIP_FILES = {'404.html', 'google-verification.html'}
+ROOT_DIR = Path(".")
 
-# Priority map by path depth and type
+SKIP_DIRS = {
+    ".git",
+    ".github",
+    "scripts",
+    "node_modules",
+    "__pycache__",
+    ".well-known",
+}
+
+SKIP_FILES = {
+    "404.html",
+    "google-verification.html",
+}
+
 PRIORITY_MAP = {
-    '/': '1.0',
-    '/about/': '0.9',
-    '/manifesto/': '0.95',
-    '/guide/': '0.9',
-    '/blog/': '0.85',
+    "/": "1.0",
+    "/about/": "0.9",
+    "/manifesto/": "0.95",
+    "/guide/": "0.9",
+    "/framework/": "0.9",
+    "/scanner/": "0.9",
+    "/dispatch/": "0.95",
+    "/blog/": "0.85",
 }
 
 FREQ_MAP = {
-    '/': 'weekly',
-    '/manifesto/': 'monthly',
-    '/about/': 'monthly',
-    '/guide/': 'weekly',
-    '/blog/': 'weekly',
+    "/": "weekly",
+    "/about/": "monthly",
+    "/manifesto/": "monthly",
+    "/guide/": "weekly",
+    "/framework/": "weekly",
+    "/scanner/": "weekly",
+    "/dispatch/": "weekly",
+    "/blog/": "weekly",
 }
 
 
+def should_skip(path: Path) -> bool:
+    """Return True if the path should be excluded from sitemap discovery."""
+    if path.name in SKIP_FILES:
+        return True
+    return any(part in SKIP_DIRS for part in path.parts)
+
+
+def path_to_url_path(path: Path) -> str:
+    """
+    Convert a filesystem path into a clean URL path.
+
+    Examples:
+    - index.html -> /
+    - about/index.html -> /about/
+    - dispatch/index.html -> /dispatch/
+    - blog/post-slug/index.html -> /blog/post-slug/
+    - dispatch/001.html -> /dispatch/001.html
+    """
+    relative = path.relative_to(ROOT_DIR).as_posix()
+
+    if relative == "index.html":
+        return "/"
+
+    if relative.endswith("/index.html"):
+        return "/" + relative[:-10].strip("/") + "/"
+
+    return "/" + relative.lstrip("/")
+
+
 def discover_pages() -> list[dict]:
-    """Walk directory and find all public HTML pages."""
-    pages = []
+    """Discover all public HTML pages and assign sitemap metadata."""
+    pages: list[dict] = []
 
-    for root, dirs, files in os.walk('.'):
-        dirs[:] = sorted([d for d in dirs if d not in SKIP_DIRS])
+    for path in sorted(ROOT_DIR.rglob("*.html")):
+        if should_skip(path):
+            continue
 
-        for filename in files:
-            if filename not in ['index.html'] or filename in SKIP_FILES:
-                continue
+        url_path = path_to_url_path(path)
 
-            filepath = os.path.join(root, filename)
+        priority = PRIORITY_MAP.get(url_path, "0.7")
+        freq = FREQ_MAP.get(url_path, "weekly")
 
-            # Convert filesystem path to URL path
-            url_path = filepath.replace('./', '/').replace('/index.html', '/')
-            if url_path == '//':
-                url_path = '/'
+        # Blog article pages
+        if url_path.startswith("/blog/") and url_path != "/blog/":
+            priority = "0.7"
+            freq = "monthly"
 
-            # Determine priority and frequency
-            priority = PRIORITY_MAP.get(url_path, '0.7')
-            freq = FREQ_MAP.get(url_path, 'weekly')
+        # Dispatch issue pages
+        if url_path.startswith("/dispatch/") and url_path != "/dispatch/":
+            priority = "0.8"
+            freq = "monthly"
 
-            # Blog posts get lower priority
-            if '/blog/' in url_path and url_path != '/blog/':
-                priority = '0.7'
-                freq = 'monthly'
+        pages.append({
+            "url": f"{SITE_URL}{url_path}",
+            "lastmod": TODAY,
+            "changefreq": freq,
+            "priority": priority,
+            "url_path": url_path,
+        })
 
-            pages.append({
-                'url': f"{SITE_URL}{url_path}",
-                'lastmod': TODAY,
-                'changefreq': freq,
-                'priority': priority,
-            })
-
-    # Sort: home first, then by priority descending
-    pages.sort(key=lambda p: (0 if p['url'] == f"{SITE_URL}/" else 1, -float(p['priority'])))
+    # Sort:
+    # 1. homepage first
+    # 2. then higher priority
+    # 3. then URL path alphabetically
+    pages.sort(
+        key=lambda p: (
+            0 if p["url_path"] == "/" else 1,
+            -float(p["priority"]),
+            p["url_path"],
+        )
+    )
 
     return pages
 
 
 def generate_sitemap(pages: list[dict]) -> None:
     """Generate sitemap.xml from discovered pages."""
-    urls = ""
+    url_blocks = []
+
     for page in pages:
-        urls += f"""  <url>
+        url_blocks.append(f"""  <url>
     <loc>{page['url']}</loc>
     <lastmod>{page['lastmod']}</lastmod>
     <changefreq>{page['changefreq']}</changefreq>
     <priority>{page['priority']}</priority>
-  </url>\n"""
+  </url>""")
 
     sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-{urls}</urlset>"""
+{chr(10).join(url_blocks)}
+</urlset>
+"""
 
-    with open('sitemap.xml', 'w') as f:
-        f.write(sitemap)
+    Path("sitemap.xml").write_text(sitemap, encoding="utf-8")
 
     print(f"[✓] sitemap.xml updated — {len(pages)} pages — {TODAY}")
-    for p in pages:
-        print(f"    {p['priority']} | {p['url']}")
+    for page in pages:
+        print(f"    {page['priority']} | {page['url']}")
 
 
-if __name__ == '__main__':
-    print(f"\n{'='*50}")
+if __name__ == "__main__":
+    print("\n" + "=" * 60)
     print(f"Sitemap Generator — {TODAY}")
-    print(f"{'='*50}\n")
+    print("=" * 60 + "\n")
 
     pages = discover_pages()
     generate_sitemap(pages)
 
-    print(f"\n[✓] Done. Push via GitHub Desktop to update live site.\n")
+    print("\n[✓] Sitemap generation complete.\n")
