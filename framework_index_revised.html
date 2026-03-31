@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Shovel Framework | ShovelsSale.com</title>
+<meta name="description" content="The Shovel Framework is the structural model used by ShovelsSale.com to classify markets through Extraction, Infrastructure, and Control.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://shovelssale.com/framework/">
+
+<meta property="og:title" content="The Shovel Framework | ShovelsSale.com">
+<meta property="og:description" content="A structural model for identifying Miner, Shovel, and Gatekeeper positions inside gold-rush markets.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shovelssale.com/framework/">
+<meta property="og:site_name" content="ShovelsSale.com">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Shovel Framework | ShovelsSale.com">
+<meta name="twitter:description" content="How ShovelsSale classifies where durable value is created, accumulated, and controlled.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Shovel Framework",
+  "description": "A structural model for identifying Miner, Shovel, and Gatekeeper positions inside gold-rush markets.",
+  "author": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ShovelsSale.com",
+    "url": "https://shovelssale.com/"
+  },
+  "mainEntityOfPage": "https://shovelssale.com/framework/"
+}
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K83NSPVC');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VKVL5E97G3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VKVL5E97G3');
+</script>
+<!-- End Google Analytics 4 -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#C9A84C;
+  --gold-light:#E8C97A;
+  --gold-dim:#7A5F2A;
+  --black:#080808;
+  --dark-2:#141414;
+  --dark-3:#1A1A1A;
+  --white:#F5F0E8;
+  --white-dim:#9A9080;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Cormorant Garamond',serif;
+  overflow-x:hidden;
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:999;
+  opacity:0.42;
+}
+#progress-bar{
+  position:fixed;
+  top:0;left:0;
+  height:2px;
+  width:0;
+  background:linear-gradient(to right,var(--gold-dim),var(--gold),var(--gold-light));
+  z-index:200;
+  transition:width .1s linear;
+}
+nav{
+  position:fixed;
+  top:2px;left:0;right:0;
+  z-index:100;
+  padding:1.5rem 3rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(to bottom,rgba(8,8,8,.97),transparent);
+}
+.nav-logo,.nav-back{
+  font-family:'DM Mono',monospace;
+  text-decoration:none;
+}
+.nav-logo{
+  font-size:.75rem;
+  color:var(--gold);
+  letter-spacing:.15em;
+  opacity:.8;
+}
+.nav-back{
+  font-size:.65rem;
+  color:var(--white-dim);
+  letter-spacing:.1em;
+  transition:color .3s;
+}
+.nav-back:hover{color:var(--gold);}
+.hero{
+  min-height:86vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:7rem 3rem 4rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-10%;
+  right:-10%;
+  width:60vw;
+  height:60vw;
+  background:radial-gradient(ellipse,rgba(201,168,76,.06) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero::after,
+.section-shell::before{
+  content:'';
+  position:absolute;
+  left:0;right:0;
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--gold-dim),transparent);
+  opacity:.35;
+}
+.hero::after{bottom:0;}
+.section-shell::before{top:0;}
+.eyebrow{
+  font-family:'DM Mono',monospace;
+  font-size:.62rem;
+  color:var(--gold);
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  margin-bottom:1.8rem;
+}
+.hero-title,.section-title{
+  font-family:'Bebas Neue',sans-serif;
+  line-height:.92;
+  letter-spacing:.02em;
+}
+.hero-title{
+  font-size:clamp(3.8rem,11vw,9rem);
+  margin-bottom:1.3rem;
+}
+.hero-title span,.section-title span{color:var(--gold);}
+.hero-subtitle,.section-copy,.card-copy,.decision-copy,.closing-copy{
+  color:var(--white-dim);
+  line-height:1.85;
+}
+.hero-subtitle{
+  max-width:760px;
+  font-size:clamp(1.1rem,2vw,1.35rem);
+  font-style:italic;
+}
+main{position:relative;z-index:1;}
+.section-shell{
+  position:relative;
+  padding:7rem 3rem;
+  background:var(--dark-2);
+}
+.section-inner{
+  max-width:1080px;
+  margin:0 auto;
+}
+.section-title{
+  font-size:clamp(2.2rem,6vw,5rem);
+  margin-bottom:1rem;
+}
+.section-copy{
+  max-width:860px;
+  font-size:1.08rem;
+}
+.grid-3,.grid-2{
+  display:grid;
+  gap:1.4rem;
+  margin-top:2rem;
+}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.grid-2{grid-template-columns:1fr 1fr;}
+.card,
+.rule-card,
+.class-card,
+.decision-card,
+.bridge-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(201,168,76,.14);
+  border-radius:22px;
+  padding:1.45rem;
+}
+.card-tag{
+  font-family:'DM Mono',monospace;
+  font-size:.58rem;
+  color:var(--gold);
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  margin-bottom:.85rem;
+}
+.card-title{
+  font-size:1.35rem;
+  color:var(--white);
+  margin-bottom:.55rem;
+  font-weight:600;
+}
+.card-copy{
+  font-size:1rem;
+}
+.rule-card{
+  border-left:3px solid var(--gold);
+}
+.rule-card strong,.decision-card strong,.bridge-card strong{color:var(--gold);}
+.statement{
+  padding:4rem 0;
+  text-align:center;
+}
+.statement-text{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,6vw,5rem);
+  line-height:1.05;
+}
+.statement-text span{color:var(--gold);}
+.cta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  margin-top:2rem;
+}
+.btn-primary,.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border-radius:999px;
+  font-family:'DM Mono',monospace;
+  font-size:.68rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  transition:all .3s;
+}
+.btn-primary{
+  color:var(--black);
+  background:var(--gold);
+  padding:1rem 1.5rem;
+}
+.btn-primary:hover{
+  background:var(--gold-light);
+  transform:translateY(-1px);
+}
+.btn-secondary{
+  color:var(--white-dim);
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  padding:1rem 1.35rem;
+}
+.btn-secondary:hover{
+  color:var(--gold);
+  border-color:rgba(201,168,76,.25);
+}
+.closing{
+  background:var(--dark-3);
+  padding:5rem 3rem;
+}
+.closing-inner{
+  max-width:980px;
+  margin:0 auto;
+}
+footer{
+  padding:3rem;
+  border-top:1px solid rgba(201,168,76,.08);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.footer-logo,.footer-text{
+  font-family:'DM Mono',monospace;
+}
+.footer-logo{
+  font-size:.7rem;
+  color:var(--gold);
+  letter-spacing:.15em;
+  opacity:.5;
+  text-decoration:none;
+}
+.footer-text{
+  font-size:.55rem;
+  color:var(--white-dim);
+  opacity:.3;
+  letter-spacing:.08em;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .9s ease,transform .9s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+@media (max-width:980px){
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+}
+@media (max-width:768px){
+  nav{padding:1.2rem 1.5rem;}
+  .hero,.section-shell,.closing{padding:5rem 1.5rem;}
+  footer{padding:2rem 1.5rem;flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+
+<body>
+<div id="progress-bar"></div>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K83NSPVC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav>
+  <a href="/" class="nav-logo">ShovelsSale.com</a>
+  <a href="/" class="nav-back">← Home</a>
+</nav>
+
+<section class="hero">
+  <div class="section-inner">
+    <p class="eyebrow">The Method Layer</p>
+    <h1 class="hero-title">The Shovel <span>Framework</span></h1>
+    <p class="hero-subtitle">
+      The framework is not a list of preferences. It is the structural model used by ShovelsSale.com
+      to classify where value is created, where dependence accumulates, and where power becomes durable
+      inside gold-rush markets.
+    </p>
+    <div class="cta-row">
+      <a href="/scanner/" class="btn-primary">Open the Scanner</a>
+      <a href="/manifesto/" class="btn-secondary">Read the Manifesto →</a>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="section-shell">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Structural Model</p>
+      <h2 class="section-title reveal">Every Market Has <span>Layers</span></h2>
+      <p class="section-copy reveal">
+        The Shovel Framework reduces every market to three layers. Most attention flows to the top layer.
+        Most durable value is usually built beneath it. Most power is retained deeper still.
+      </p>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <p class="card-tag">Layer 01</p>
+          <h3 class="card-title">Extraction Layer</h3>
+          <p class="card-copy">Where participants compete directly for visible outcomes. This is the layer of narrative, urgency, and headline competition.</p>
+        </div>
+        <div class="card reveal">
+          <p class="card-tag">Layer 02</p>
+          <h3 class="card-title">Infrastructure Layer</h3>
+          <p class="card-copy">Where tools, systems, platforms, and operational rails enable the visible competition to take place at all.</p>
+        </div>
+        <div class="card reveal">
+          <p class="card-tag">Layer 03</p>
+          <h3 class="card-title">Control Layer</h3>
+          <p class="card-copy">Where access, standards, permissions, pricing rails, and distribution rules are defined and enforced.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Classification System</p>
+      <h2 class="section-title reveal">Miner, <span>Shovel</span>, Gatekeeper</h2>
+      <p class="section-copy reveal">
+        The framework classifies any company, product, or asset according to the role it plays inside the market structure.
+      </p>
+
+      <div class="grid-3">
+        <div class="class-card reveal">
+          <p class="card-tag">Class 01</p>
+          <h3 class="card-title">Miner</h3>
+          <p class="card-copy">Competes directly for the outcome. Higher visibility, higher narrative exposure, and usually greater dependence on being right about a specific result.</p>
+        </div>
+        <div class="class-card reveal">
+          <p class="card-tag">Class 02</p>
+          <h3 class="card-title">Shovel</h3>
+          <p class="card-copy">Serves many participants across the market. Utility compounds regardless of which visible competitor wins the race.</p>
+        </div>
+        <div class="class-card reveal">
+          <p class="card-tag">Class 03</p>
+          <h3 class="card-title">Gatekeeper</h3>
+          <p class="card-copy">Defines access, permissions, distribution, rails, or standards. This is the class closest to long-term structural control.</p>
+        </div>
+      </div>
+
+      <div class="statement reveal">
+        <p class="statement-text">The framework does not ask<br><span>who is most exciting.</span><br>It asks<br><span>who the whole system depends on.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Four Laws</p>
+      <h2 class="section-title reveal">How We Identify a <span>Shovel</span></h2>
+
+      <div class="grid-2">
+        <div class="rule-card reveal">
+          <h3 class="card-title">Law 1 — Structural Demand</h3>
+          <p class="card-copy">A true shovel solves a problem many builders must solve, not merely a single participant. The broader the dependency, the stronger the position.</p>
+        </div>
+        <div class="rule-card reveal">
+          <h3 class="card-title">Law 2 — Ecosystem Dependence</h3>
+          <p class="card-copy">The more deeply a tool is embedded into workflows, supply chains, or operational stacks, the more structurally difficult it becomes to replace.</p>
+        </div>
+        <div class="rule-card reveal">
+          <h3 class="card-title">Law 3 — Recurring Need</h3>
+          <p class="card-copy">Durable shovels benefit from recurring demand. They are used repeatedly rather than purchased once and forgotten.</p>
+        </div>
+        <div class="rule-card reveal">
+          <h3 class="card-title">Law 4 — Invisible Power</h3>
+          <p class="card-copy">The strongest layers are often invisible to the public because they sit beneath narrative attention while quietly powering the system itself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Decision Engine</p>
+      <h2 class="section-title reveal">The Question That <span>Orders</span> the Market</h2>
+
+      <div class="decision-card reveal">
+        <h3 class="card-title">Core Question</h3>
+        <p class="decision-copy"><strong>Does this asset serve one participant — or all participants?</strong></p>
+        <p class="decision-copy" style="margin-top:1rem;">If it serves one, it likely sits closer to Extraction. If it serves many, it likely sits closer to Infrastructure. If it defines access, it approaches Control.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card reveal">
+          <p class="card-tag">Focus</p>
+          <h3 class="card-title">We Study Dependency</h3>
+          <p class="card-copy">Because dependency is more durable than attention.</p>
+        </div>
+        <div class="card reveal">
+          <p class="card-tag">Focus</p>
+          <h3 class="card-title">We Study Utility</h3>
+          <p class="card-copy">Because utility compounds beneath the visible race.</p>
+        </div>
+        <div class="card reveal">
+          <p class="card-tag">Focus</p>
+          <h3 class="card-title">We Study Control</h3>
+          <p class="card-copy">Because control outlasts the excitement of one market cycle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="closing-inner">
+      <p class="eyebrow reveal">Operational Bridge</p>
+      <h2 class="section-title reveal">The Framework Defines the Logic.<br><span>The Scanner Applies It.</span></h2>
+      <p class="closing-copy reveal" style="max-width:820px;">
+        ShovelsSale is not built to stop at explanation. The framework defines the classification method.
+        The Scanner turns that method into a live analytical instrument. The Dispatch then applies the system
+        to real market cases and evolving gold-rush environments.
+      </p>
+
+      <div class="cta-row reveal">
+        <a href="/scanner/" class="btn-primary">Open the Scanner</a>
+        <a href="/dispatch/" class="btn-secondary">View the Dispatch →</a>
+        <a href="/manifesto/" class="btn-secondary">Read the Doctrine →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a href="/" class="footer-logo">ShovelsSale.com</a>
+  <span class="footer-text">© 2026 — The shovel economy method layer.</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    bar.style.width = Math.min(progress, 100) + '%';
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.07 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
