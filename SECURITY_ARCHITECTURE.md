@@ -13,111 +13,132 @@ be treated as active.
 
 ---
 
-## Production Delivery Path (Current Understanding)
+## Document Status
 
-### What is confirmed
-
-- The repository is hosted on **GitHub** (`Sohadot/ShovelsSale`).
-- A `CNAME` file exists pointing to `shovelssale.com`.
-- The site appears to be served via **GitHub Pages** with a custom domain.
-- **Cloudflare** is likely operating as the DNS and edge layer in front of GitHub Pages,
-  based on typical configuration patterns for this setup.
-
-### What is unverified
-
-- The exact Cloudflare configuration (Page Rules, Security Headers, WAF settings)
-  has not been confirmed from within this repository.
-- Whether GitHub Pages alone or Cloudflare Workers/Pages is the actual origin
-  has not been verified.
-- Whether HSTS is being enforced by Cloudflare or is entirely absent from production
-  has not been confirmed.
-- Whether any `Content-Security-Policy` header is being set at the edge
-  has not been confirmed.
-
-**No security header should be assumed active unless it can be verified
-through direct HTTP response inspection or confirmed Cloudflare dashboard settings.**
+| Phase | Status | Date Confirmed |
+|---|---|---|
+| Phase 1 — Repository governance & artifact protection | Complete — merged to main | Confirmed |
+| Phase 2 — Live security header activation via Cloudflare | Complete — active in production | Confirmed |
+| CSP — Content-Security-Policy | Intentionally deferred | See rationale below |
 
 ---
 
-## Files That Are Currently Non-Authoritative
+## Production Delivery Path — Confirmed
 
-The following files exist in the repository but are **not governing production**
-under any confirmed delivery path:
+### Confirmed architecture
 
-| File | Why it is non-authoritative |
+- The repository is hosted on **GitHub** (`Sohadot/ShovelsSale`, GitHub Pages).
+- A `CNAME` file points the custom domain `shovelssale.com` to GitHub Pages.
+- **Cloudflare** is the confirmed live edge layer in front of GitHub Pages.
+- GitHub/Fastly are present in the backend delivery chain.
+- **Cloudflare is the authoritative layer for live HTTP response headers.**
+
+### Confirmed redirect behavior
+
+Verified via live testing:
+
+- `http://shovelssale.com` → `https://shovelssale.com/` ✔
+- `https://www.shovelssale.com` → `https://shovelssale.com/` ✔
+- Canonical redirect layer is correct and functioning.
+
+---
+
+## Live Security Headers — Confirmed Active
+
+The following headers are confirmed present in the live production response
+as enforced by Cloudflare Transform Rules:
+
+| Header | Value | Status |
+|---|---|---|
+| `Strict-Transport-Security` | `max-age=31536000; includeSubDomains; preload` | ✔ Active |
+| `X-Frame-Options` | `DENY` | ✔ Active |
+| `X-Content-Type-Options` | `nosniff` | ✔ Active |
+| `Referrer-Policy` | `strict-origin-when-cross-origin` | ✔ Active |
+| `Permissions-Policy` | `camera=(), microphone=(), geolocation=(), payment=()` | ✔ Active |
+| `Content-Security-Policy` | — | ⏸ Intentionally deferred |
+
+**Configuration location:** Cloudflare Dashboard → Rules → Transform Rules → HTTP Response Headers.
+
+---
+
+## Files That Are Non-Authoritative for Live Headers
+
+The following files exist in the repository but **do not govern production response headers**
+under the confirmed delivery architecture (GitHub Pages + Cloudflare edge):
+
+| File | Status |
 |---|---|
-| `_headers.txt` | `.txt` extension — not processed by Netlify, Cloudflare Pages, or any known platform |
-| `_.htaccess.txt` | Non-standard prefix `_` and `.txt` extension — not read as `.htaccess` by Apache or any platform |
-| `_redirects.txt` | `.txt` extension — not processed by Netlify or Cloudflare Pages |
+| `_headers.txt` | Non-authoritative — `.txt` extension, not processed by any platform in this stack |
+| `_.htaccess.txt` | Non-authoritative — Apache directive, not applicable to GitHub Pages or Cloudflare |
+| `_redirects.txt` | Non-authoritative — `.txt` extension, not processed by any platform in this stack |
 
-These files contain correct security intent but are currently **documentation only**.
-They produce no runtime enforcement.
+These files contain correct security intent but produce no runtime enforcement.
+They are retained as documentation of intent only.
 
-Do not reference these files as active security controls.
-Do not rename or activate them without first confirming the production delivery platform
-and testing that the platform will actually process them.
+Do not rename or activate these files without:
+1. Confirming a platform change that would process them.
+2. Testing the change against the live response.
+3. Updating this document.
 
 ---
 
-## What Is Currently Enforced
+## What Is Enforced — Full Picture
 
-### Confirmed at repository level
+### At the Cloudflare edge layer (live, confirmed)
 
-- `security_scan.py` scans HTML for common vulnerabilities on a weekly schedule.
-- `weekly-update.yml` CI permissions follow least-privilege per job (as of this commit).
-- `.gitignore` prevents `security_report.json` from being committed or deployed.
-- Security scan report is written to OS temp only — never to the repo root.
-- Security scan exits with code `1` on critical issues, making failures visible in CI.
-
-### Likely enforced at Cloudflare level (unconfirmed from this repo)
-
-- HTTPS enforcement (SSL/TLS)
+- HTTPS enforcement
+- `http → https` redirect
+- `www → non-www` redirect
 - DDoS protection
-- Possibly: security headers via Cloudflare Transform Rules
-
-### Not confirmed as enforced anywhere
-
-- `Content-Security-Policy`
-- `Strict-Transport-Security` (HSTS)
+- `Strict-Transport-Security`
 - `X-Frame-Options`
 - `X-Content-Type-Options`
 - `Referrer-Policy`
 - `Permissions-Policy`
 
----
+### At the repository / CI layer (Phase 1, merged to main)
 
-## What Must Be Resolved Before Further Security Work
-
-The following architectural questions must be answered before adding, renaming,
-or activating any security configuration file:
-
-1. **What is the actual production delivery platform?**
-   GitHub Pages only? Cloudflare Pages? A Cloudflare Worker? Some combination?
-
-2. **What security headers is Cloudflare currently setting (if any)?**
-   Inspect `curl -I https://shovelssale.com` to see live response headers.
-
-3. **Is HSTS currently active?**
-   If Cloudflare is enforcing it, adding it elsewhere may be redundant.
-   If it is absent entirely, it needs to be added at the correct layer.
-
-4. **Which file format does the production platform accept for headers?**
-   - Netlify: `_headers` (no extension)
-   - Cloudflare Pages: `_headers` (no extension)
-   - Apache: `.htaccess`
-   - GitHub Pages: none — headers must be set at Cloudflare or a CDN layer
-
-5. **Is `sync_google_tags.py` modifying HTML files?**
-   If so, the `git add` in `weekly-update.yml` may need to include those paths.
+- `.gitignore` prevents `security_report.json` from being committed or deployed.
+- `security_scan.py` writes its report to OS temp only — never to the repo root.
+- `security_scan.py` exits with code `1` on critical findings — failures are visible in CI.
+- `weekly-update.yml` uses job-level permissions (least privilege per job).
+- `security-audit` job has `contents: read` only — no write access.
+- `sitemap-ping` job has `contents: none`.
+- `git add` in `content-update` is scoped to known outputs, not `git add -A`.
 
 ---
 
-## Governance Rule
+## Content-Security-Policy — Intentionally Deferred
 
-This document must be updated before any change to the production security
-configuration is made.
+CSP is the most complex header to deploy correctly for this site.
+A premature or incomplete CSP would cause silent breakage of analytics,
+fonts, or the scanner tool without any obvious error to the user.
 
-If a change cannot be traced back to a confirmed delivery path,
-it must not be implemented.
+**CSP must not be activated until the following dependencies are fully mapped
+and validated against a tested policy:**
 
-Speculative fixes and cosmetic security theater are explicitly rejected.
+| Dependency | Required CSP directive |
+|---|---|
+| Google Tag Manager (inline script) | `script-src 'nonce-...'` or `'unsafe-inline'` |
+| GA4 external script (`googletagmanager.com`) | `script-src https://www.googletagmanager.com` |
+| Google Fonts CSS | `style-src https://fonts.googleapis.com` |
+| Google Fonts files | `font-src https://fonts.gstatic.com` |
+| GTM noscript iframe | `frame-src https://www.googletagmanager.com` |
+| Scanner external API (if active) | `connect-src https://api.exchangerate-api.com` |
+
+**CSP deployment process (when ready):**
+1. Draft full policy from dependency map above.
+2. Deploy as `Content-Security-Policy-Report-Only` first.
+3. Monitor for violations without breaking production.
+4. Promote to enforcing `Content-Security-Policy` after clean report period.
+5. Set via Cloudflare Transform Rules — same layer as all other headers.
+
+---
+
+## Governance Rules
+
+1. **Cloudflare is the production header authority.** Headers must be set there, not in repo files.
+2. **No security control may be described as active unless verified via live `curl -I` response.**
+3. **This document must be updated before any change to production security configuration.**
+4. **Speculative fixes and cosmetic security changes are explicitly rejected.**
+5. **CSP must go through Report-Only phase before enforcement.**
