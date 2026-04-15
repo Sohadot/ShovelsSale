@@ -2,11 +2,18 @@
 ShovelsSale.com — Security Scanner
 Scans all HTML files for common vulnerabilities and issues.
 Runs automatically via GitHub Actions.
+
+NOTE ON REPORT OUTPUT:
+The JSON report is written to the OS temp directory, never to the repo root.
+This prevents accidental publication to the live site.
+All findings are also printed to stdout for CI log visibility.
 """
 
 import os
+import sys
 import json
 import re
+import tempfile
 from datetime import datetime
 from bs4 import BeautifulSoup
 
@@ -98,7 +105,6 @@ def scan_html_file(filepath: str) -> dict:
     # 6. Check forms
     for form in soup.find_all('form'):
         action = form.get('action', '')
-        method = form.get('method', 'get').lower()
         if action.startswith('http://'):
             issues.append(f'Form submits to HTTP (insecure): {action}')
 
@@ -154,20 +160,20 @@ def scan_project() -> dict:
             total_issues += len(result['issues'])
             total_warnings += len(result['warnings'])
 
-            icon = '✓' if result['status'] == 'PASS' else ('⚠' if result['status'] == 'WARN' else '✗')
+            icon = '\u2713' if result['status'] == 'PASS' else ('\u26a0' if result['status'] == 'WARN' else '\u2717')
             print(f"{icon} {filepath}")
 
             for issue in result['issues']:
-                print(f"   ✗ ISSUE: {issue}")
+                print(f"   \u2717 ISSUE: {issue}")
             for warning in result['warnings']:
-                print(f"   ⚠ WARN: {warning}")
+                print(f"   \u26a0 WARN: {warning}")
 
     print(f"\n{'='*60}")
     print("SCAN COMPLETE")
     print(f"Files scanned: {len(results)}")
     print(f"Issues:        {total_issues}")
     print(f"Warnings:      {total_warnings}")
-    print(f"Status:        {'✓ CLEAN' if total_issues == 0 else '✗ ISSUES FOUND'}")
+    print(f"Status:        {'\u2713 CLEAN' if total_issues == 0 else '\u2717 ISSUES FOUND'}")
     print(f"{'='*60}\n")
 
     report = {
@@ -179,15 +185,19 @@ def scan_project() -> dict:
         'results': results,
     }
 
-    with open('security_report.json', 'w', encoding='utf-8') as f:
+    # Write report to OS temp directory — never to the repo root.
+    # This prevents the report from being committed or served publicly.
+    report_path = os.path.join(tempfile.gettempdir(), 'security_report.json')
+    with open(report_path, 'w', encoding='utf-8') as f:
         json.dump(report, f, indent=2)
-
-    print("Report saved: security_report.json")
+    print(f"Report saved to temp only: {report_path}")
+    print("(Not committed — never written to repo root)")
 
     if total_issues > 0:
-        print(f"\n⚠ {total_issues} critical issue(s) found. Review recommended.")
+        print(f"\n\u26a0 {total_issues} critical issue(s) found. Review required.")
+        sys.exit(1)
     else:
-        print("✓ No critical issues. Site is secure.")
+        print("\u2713 No critical issues. Site is secure.")
 
     return report
 

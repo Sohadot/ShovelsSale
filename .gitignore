@@ -1,0 +1,28 @@
+# ============================================================
+# .gitignore — ShovelsSale.com
+# ============================================================
+
+# Security artifacts — must never be committed or deployed
+# security_scan.py writes this file; it belongs in temp only
+security_report.json
+reports/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+*.env
+*.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+
+# Node (if ever introduced)
+node_modules/
+
+# Editor
+.vscode/
+.idea/
