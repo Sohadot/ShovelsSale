@@ -57,7 +57,7 @@ ALLOWED_EXTERNAL = {
 # =========================================================
 # SCANNER
 # =========================================================
-def scan_html_file(filepath: str) -> dict:
+def scan_html_file(filepath):
     """Scan a single HTML file for security issues."""
     issues = []
     warnings = []
@@ -71,7 +71,7 @@ def scan_html_file(filepath: str) -> dict:
     for meta_name in REQUIRED_META:
         tag = soup.find('meta', {'name': meta_name})
         if not tag:
-            warnings.append(f'Missing <meta name="{meta_name}">')
+            warnings.append('Missing <meta name="' + meta_name + '">')
 
     # 2. Check for title
     if not soup.find('title'):
@@ -84,42 +84,36 @@ def scan_html_file(filepath: str) -> dict:
     # 4. Check external scripts
     for script in soup.find_all('script', src=True):
         src = script.get('src', '')
-
         if src.startswith('http://'):
-            issues.append(f'Insecure HTTP script: {src}')
-
+            issues.append('Insecure HTTP script: ' + src)
         if src.startswith('https://') and not any(domain in src for domain in ALLOWED_EXTERNAL):
-            warnings.append(f'External script not in whitelist: {src[:80]}')
+            warnings.append('External script not in whitelist: ' + src[:80])
 
     # 5. Check iframes
     for iframe in soup.find_all('iframe'):
         src = iframe.get('src', '')
-
-        # Allow trusted GTM noscript iframe
         if 'www.googletagmanager.com/ns.html' in src:
             continue
-
         if src and not iframe.get('sandbox'):
-            warnings.append(f'iframe without sandbox: {src[:60]}')
+            warnings.append('iframe without sandbox: ' + src[:60])
 
     # 6. Check forms
     for form in soup.find_all('form'):
         action = form.get('action', '')
         if action.startswith('http://'):
-            issues.append(f'Form submits to HTTP (insecure): {action}')
+            issues.append('Form submits to HTTP (insecure): ' + action)
 
     # 7. Scan for dangerous JS patterns
-    scripts = soup.find_all('script')
-    for script in scripts:
+    for script in soup.find_all('script'):
         if script.string:
             for pattern, description in DANGEROUS_PATTERNS:
                 if re.search(pattern, script.string, re.IGNORECASE):
-                    warnings.append(f'Pattern detected: {description}')
+                    warnings.append('Pattern detected: ' + description)
 
     # 8. Check for mixed content (http images)
     for img in soup.find_all('img', src=True):
         if img['src'].startswith('http://'):
-            issues.append(f'Mixed content image: {img["src"][:60]}')
+            issues.append('Mixed content image: ' + img['src'][:60])
 
     # 9. Check for noindex on important pages
     robots_meta = soup.find('meta', {'name': 'robots'})
@@ -136,45 +130,57 @@ def scan_html_file(filepath: str) -> dict:
     }
 
 
-def scan_project() -> dict:
+def scan_project():
     """Scan entire project for security issues."""
     results = []
     total_issues = 0
     total_warnings = 0
 
-    print(f"\n{'='*60}")
-    print(f"ShovelsSale.com Security Scan — {SCAN_TIME}")
-    print(f"{'='*60}\n")
+    print('')
+    print('=' * 60)
+    print('ShovelsSale.com Security Scan — ' + SCAN_TIME)
+    print('=' * 60)
+    print('')
 
     for root, dirs, files in os.walk('.'):
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
-
         for filename in files:
             if not filename.endswith('.html'):
                 continue
-
             filepath = os.path.join(root, filename)
             result = scan_html_file(filepath)
             results.append(result)
-
             total_issues += len(result['issues'])
             total_warnings += len(result['warnings'])
 
-            icon = '\u2713' if result['status'] == 'PASS' else ('\u26a0' if result['status'] == 'WARN' else '\u2717')
-            print(f"{icon} {filepath}")
+            if result['status'] == 'PASS':
+                icon = 'OK'
+            elif result['status'] == 'WARN':
+                icon = 'WARN'
+            else:
+                icon = 'FAIL'
+            print('[' + icon + '] ' + filepath)
 
             for issue in result['issues']:
-                print(f"   \u2717 ISSUE: {issue}")
+                print('   [ISSUE] ' + issue)
             for warning in result['warnings']:
-                print(f"   \u26a0 WARN: {warning}")
+                print('   [WARN]  ' + warning)
 
-    print(f"\n{'='*60}")
-    print("SCAN COMPLETE")
-    print(f"Files scanned: {len(results)}")
-    print(f"Issues:        {total_issues}")
-    print(f"Warnings:      {total_warnings}")
-    print(f"Status:        {'\u2713 CLEAN' if total_issues == 0 else '\u2717 ISSUES FOUND'}")
-    print(f"{'='*60}\n")
+    print('')
+    print('=' * 60)
+    print('SCAN COMPLETE')
+    print('Files scanned: ' + str(len(results)))
+    print('Issues:        ' + str(total_issues))
+    print('Warnings:      ' + str(total_warnings))
+
+    # Explicit if/else — avoids backslash-in-f-string (Python 3.11 incompatible)
+    if total_issues == 0:
+        print('Status:        CLEAN')
+    else:
+        print('Status:        ISSUES FOUND')
+
+    print('=' * 60)
+    print('')
 
     report = {
         'scan_time': SCAN_TIME,
@@ -186,18 +192,18 @@ def scan_project() -> dict:
     }
 
     # Write report to OS temp directory — never to the repo root.
-    # This prevents the report from being committed or served publicly.
     report_path = os.path.join(tempfile.gettempdir(), 'security_report.json')
     with open(report_path, 'w', encoding='utf-8') as f:
         json.dump(report, f, indent=2)
-    print(f"Report saved to temp only: {report_path}")
-    print("(Not committed — never written to repo root)")
+    print('Report saved to temp only: ' + report_path)
+    print('(Not committed — never written to repo root)')
+    print('')
 
     if total_issues > 0:
-        print(f"\n\u26a0 {total_issues} critical issue(s) found. Review required.")
+        print('[!] ' + str(total_issues) + ' critical issue(s) found. Review required.')
         sys.exit(1)
     else:
-        print("\u2713 No critical issues. Site is secure.")
+        print('[OK] No critical issues. Site is secure.')
 
     return report
 

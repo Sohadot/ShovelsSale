@@ -6,13 +6,11 @@ on:
   workflow_dispatch:
 
 # No top-level permissions — each job declares only what it needs.
-# This follows the principle of least privilege.
 
 jobs:
   security-audit:
     runs-on: ubuntu-latest
     # Read-only: this job audits but never commits anything.
-    # continue-on-error is intentionally NOT set — failures must be visible.
     permissions:
       contents: read
 
@@ -33,13 +31,12 @@ jobs:
       - name: Run security scan
         run: |
           python scripts/security_scan.py
-        # Exit code 1 when critical issues are found.
-        # The workflow status will reflect failures clearly.
+        # Exits with code 1 when critical issues are found.
+        # Failures are visible in the workflow status.
 
   content-update:
     runs-on: ubuntu-latest
     # Write access required for committing generated outputs.
-    # This job runs independently of security-audit (different runner).
     permissions:
       contents: write
 
@@ -67,15 +64,16 @@ jobs:
           git config --local user.name "ShovelsSale Bot"
 
           # Stage known generated outputs explicitly.
-          # Avoid git add -A which could stage unexpected artifacts.
-          # .gitignore provides the backstop, but explicit staging is safer.
           git add blog/ sitemap.xml || true
-          git add blog/feed.xml blog/feed.rss 2>/dev/null || true
+          git add blog/feed.xml dispatch/feed.xml 2>/dev/null || true
 
           if git diff --staged --quiet; then
             echo "No generated changes to commit."
           else
             git commit -m "Weekly publishing update — $(date +%Y-%m-%d)"
+            # Rebase against any commits pushed to remote since checkout
+            # before pushing, to avoid non-fast-forward rejection.
+            git pull --rebase origin main
             git push
           fi
 
