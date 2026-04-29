@@ -144,3 +144,25 @@ Rationale:
 - move ShovelsSale.com closer to a sovereign reference system with practical classification utility
 
 Status: Accepted
+
+## 2026-04-29 — Dispatch Reference Structure Upgraded
+
+ShovelsSale.com upgraded the Dispatch section from a simple archive into a clearer analytical reference layer connected to the Shovel Economy framework and scanner methodology.
+
+This decision strengthens Dispatch as the applied record of the system: where market cases, infrastructure signals, speculation exposure, and control-layer relevance are interpreted through the asset’s core doctrine.
+
+Implemented changes:
+- added a clearer reference method to the Dispatch archive
+- connected Dispatch to the Framework and Scanner
+- added visible classification summaries to existing dispatch entries
+- preserved existing dispatch content and canonical structure
+- avoided creating new dispatch entries in this phase
+
+Rationale:
+- make Dispatch function as an applied classification archive
+- reinforce the Doctrine → Framework → Scanner → Dispatch structure
+- improve user understanding of how cases are interpreted
+- strengthen the asset’s reference authority
+- avoid treating Dispatch as ordinary news or generic blog content
+
+Status: Accepted
