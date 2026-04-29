@@ -56,3 +56,25 @@ Rationale:
 - prevent technical or non-public artifacts from entering sitemap output
 
 Status: Accepted
+
+## 2026-04-29 — Core Social Metadata Standardized
+
+ShovelsSale.com now includes standardized Open Graph and Twitter/X metadata across core public authority pages.
+
+This decision improves how the asset appears when shared across social platforms, messaging apps, and professional networks.
+
+Implemented changes:
+- added a local social preview asset
+- standardized `og:image` and `twitter:image` on core pages
+- added missing metadata to core authority pages
+- reduced SEO warnings without introducing new errors
+- preserved the scope by avoiding article-level edits in this phase
+
+Rationale:
+- strengthen social preview integrity
+- improve trust during link sharing
+- support SEO presentation quality
+- reinforce the asset’s institutional identity
+- reduce metadata inconsistency across core pages
+
+Status: Accepted
