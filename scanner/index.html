@@ -721,26 +721,37 @@
       <div class="panel-inner">
         <div class="panel-title">Operational Layer</div>
         <p class="panel-desc">
-          The Scanner translates the Shovels framework into live classification. It does not ask
+          The Scanner translates the Shovels framework into a classification workflow. It does not ask
           whether an asset is fashionable. It asks where the asset sits inside the market structure,
-          what kind of dependence it creates, and whether it behaves like a Miner, a Shovel, or a Gatekeeper.
+          what kind of dependence it creates, and whether it behaves like a Miner, a Shovel, a Gatekeeper,
+          a hybrid position, or an early signal that is not mature enough to classify with confidence.
         </p>
 
         <div class="metrics-grid">
           <div class="metric-card">
-            <div class="metric-label">Primary Class</div>
-            <div class="metric-value" id="metricPrimary">Shovel</div>
-            <div class="metric-copy">Dominant economic behavior under the ShovelsSale model.</div>
+            <div class="metric-label">Infrastructure Capture Score</div>
+            <div class="metric-value" id="metricInfrastructure">0/100</div>
+            <div class="metric-copy">How strongly the asset captures value by enabling the market rather than betting on one visible winner.</div>
           </div>
           <div class="metric-card">
-            <div class="metric-label">Structural Layer</div>
-            <div class="metric-value" id="metricLayer">Infrastructure</div>
-            <div class="metric-copy">The layer where the asset captures most of its value.</div>
+            <div class="metric-label">Speculation Exposure</div>
+            <div class="metric-value" id="metricSpeculation">0/100</div>
+            <div class="metric-copy">How exposed the asset is to a narrow outcome, hype cycle, or single winner thesis.</div>
           </div>
           <div class="metric-card">
-            <div class="metric-label">Composite Score</div>
-            <div class="metric-value" id="metricComposite">0/100</div>
-            <div class="metric-copy">Weighted structural strength across all scanner dimensions.</div>
+            <div class="metric-label">Revenue Durability</div>
+            <div class="metric-value" id="metricDurability">0/100</div>
+            <div class="metric-copy">How recurring, embedded, and operationally necessary the demand profile appears.</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Control Layer Strength</div>
+            <div class="metric-value" id="metricControl">0/100</div>
+            <div class="metric-copy">How much the asset shapes access, standards, distribution, permissions, or rails.</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Classification Confidence</div>
+            <div class="metric-value" id="metricConfidence">Mixed</div>
+            <div class="metric-copy">A qualitative confidence label based on signal strength and separation between competing classifications.</div>
           </div>
         </div>
       </div>
@@ -782,6 +793,42 @@
     Each dimension captures one part of the ShovelsSale doctrine: durable value tends to live where many participants depend on a layer regardless of who wins the visible race.
   </p>
   <div class="triple-grid" id="dimensionsGrid"></div>
+</section>
+
+<section>
+  <div class="panel uses-card">
+    <div class="panel-inner">
+      <div class="eyebrow">Methodology</div>
+      <h2 class="section-title">How The Scanner <span>Classifies</span></h2>
+      <p class="section-intro">
+        The scanner is a structured judgment aid. It compares an asset across dependency, recurrence,
+        breadth, switching cost, infrastructure density, outcome exposure, and control power. The result
+        is a strategic classification, not a valuation, recommendation, or prediction.
+      </p>
+      <div class="links-grid">
+        <div class="mini-card">
+          <div class="mini-title">1. Score Structural Signals</div>
+          <div class="mini-copy">Inputs are converted into directional scores for speculation exposure, infrastructure capture, durability, and control strength.</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-title">2. Compare Position Types</div>
+          <div class="mini-copy">The engine compares Miner, Shovel, and Gatekeeper behavior, then checks whether the spread is strong enough to avoid a hybrid or unclear label.</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-title">3. Qualify Confidence</div>
+          <div class="mini-copy">Confidence is qualitative. Narrow spreads, immature signals, or mixed structural behavior reduce confidence even when one score is highest.</div>
+        </div>
+      </div>
+      <div class="logic-card" style="margin-top:1rem;">
+        <div class="logic-title">Institutional Safeguard</div>
+        <div class="logic-copy">
+          This scanner is a strategic classification tool, not financial, investment, valuation, or legal advice.
+          Use it to discipline analysis, then compare the result with the <a href="/framework/">Shovel Framework</a>
+          and observed cases in the <a href="/dispatch/">Dispatch archive</a>.
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="two-col">
@@ -840,7 +887,7 @@
         Every market can be reduced to three structural layers. The goal is not to participate blindly. The goal is to position where structural value compounds.
       </p>
       <div class="logic-card" style="margin-bottom: 1rem;">
-        <div class="logic-title">Extraction Layer</div>
+        <div class="logic-title">Extraction Layer / Miner Position</div>
         <div class="logic-copy">Where participants compete for visible outcomes. This is the noisiest layer, the most narratively attractive, and often the most fragile.</div>
       </div>
       <div class="logic-card" style="margin-bottom: 1rem;">
@@ -875,10 +922,18 @@
           <div class="mini-title">Gatekeeper</div>
           <div class="mini-copy">Defines access, permissions, distribution, rails, or standards inside the market structure.</div>
         </div>
+        <div class="mini-card">
+          <div class="mini-title">Hybrid</div>
+          <div class="mini-copy">Shows meaningful signals across more than one position type. Useful, but not clean enough for a single dominant label.</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-title">Unclear / Early Signal</div>
+          <div class="mini-copy">Signals are too weak, immature, or contradictory to support a confident structural classification.</div>
+        </div>
       </div>
       <div class="logic-card" style="margin-top: 1rem;">
         <div class="logic-title">Interpretation Notes</div>
-        <div class="logic-copy">A scanner like this does not replace analysis. It disciplines analysis. It turns aesthetic intuition into structural judgment and converts loose market language into a repeatable classification method.</div>
+        <div class="logic-copy">A scanner like this does not replace analysis. It disciplines analysis. It turns aesthetic intuition into structural judgment and converts loose market language into a repeatable classification method. A low-confidence output should be treated as a prompt for deeper research, not as a conclusion.</div>
       </div>
     </div>
   </div>
@@ -958,10 +1013,10 @@
         },
         {
           key: 'recurrence',
-          label: 'Recurring Demand',
-          description: 'Is demand one-time, episodic, or structurally recurring?',
+          label: 'Revenue Durability',
+          description: 'Is demand one-time and campaign-driven, or recurring, embedded, and operationally durable?',
           left: 'One-time',
-          right: 'Recurring',
+          right: 'Durable',
           weight: 1.15
         },
         {
@@ -982,7 +1037,7 @@
         },
         {
           key: 'standardPower',
-          label: 'Access / Standard Power',
+          label: 'Control Layer Strength',
           description: 'Does the asset influence standards, permissions, distribution, pricing rails, or access?',
           left: 'No standard power',
           right: 'Defines access',
@@ -990,15 +1045,15 @@
         },
         {
           key: 'outcomeExposure',
-          label: 'Outcome Dependence',
+          label: 'Speculation Exposure',
           description: 'How dependent is the asset on winning one uncertain outcome versus serving many outcomes regardless of who wins?',
-          left: 'Depends on one winner',
-          right: 'Works regardless',
+          left: 'Speculative',
+          right: 'Outcome-resilient',
           weight: 1.35
         },
         {
           key: 'capitalIntensity',
-          label: 'Capital / Infrastructure Density',
+          label: 'Infrastructure Capture',
           description: 'Does the asset sit close to infrastructure, logistics, compute, energy, or heavy operational rails?',
           left: 'Light layer',
           right: 'Dense infrastructure',
@@ -1115,22 +1170,26 @@
         const bottom = data.weaknesses.map((w) => w.label).join(', ');
 
         const primaryTextMap = {
-          Extraction: 'This asset behaves primarily like an extraction-layer bet. It appears more dependent on winning a visible outcome than on quietly enabling the wider market.',
+          Miner: 'This asset currently behaves primarily like a miner. It appears more dependent on winning a visible outcome than on quietly enabling the wider market.',
           Shovel: 'This asset behaves primarily like a shovel. It captures value by serving many participants, embedding into operations, and benefiting from demand that persists regardless of who wins the visible race.',
-          Gatekeeper: 'This asset behaves primarily like a gatekeeper. Its strongest economic position comes from defining access, distribution, standards, or permissions rather than merely serving demand.'
+          Gatekeeper: 'This asset behaves primarily like a gatekeeper. Its strongest economic position comes from defining access, distribution, standards, or permissions rather than merely serving demand.',
+          Hybrid: 'This asset shows meaningful signals across more than one position type. It should be treated as a hybrid until stronger evidence separates the dominant structural behavior.',
+          'Unclear / Early Signal': 'This asset does not yet provide enough mature or consistent evidence for a confident classification. The scanner should be used here as a research prompt rather than a conclusion.'
         };
 
         const layerTextMap = {
           'Extraction Layer': 'It sits closest to the layer where participants compete directly for outcomes.',
           'Infrastructure Layer': 'It sits closest to the infrastructure layer where durable value is built beneath visible competition.',
-          'Control Layer': 'It sits closest to the control layer where durable power compounds through standards, access, and system leverage.'
+          'Control Layer': 'It sits closest to the control layer where durable power compounds through standards, access, and system leverage.',
+          'Hybrid Layer': 'Its behavior crosses structural layers, so the more useful interpretation is the tension between signals rather than a single clean label.',
+          'Early Signal': 'Its current evidence is too immature or contradictory to place it cleanly inside one layer.'
         };
 
         return {
           headline: data.primary + ' classification with ' + data.confidence.toLowerCase() + ' confidence',
-          body: primaryTextMap[data.primary] + ' ' + layerTextMap[data.layer] + ' Its composite structural score is ' + data.weightedAverage + '/100. The strongest signals are ' + top + '. The weakest signals are ' + bottom + '. In ShovelsSale terms: this is not merely a product profile — it is a position within the market structure.',
+          body: primaryTextMap[data.primary] + ' ' + layerTextMap[data.layer] + ' The scanner reads infrastructure capture at ' + data.infrastructureCaptureScore + '/100, speculation exposure at ' + data.speculationExposure + '/100, revenue durability at ' + data.revenueDurability + '/100, and control layer strength at ' + data.controlLayerStrength + '/100. The strongest signals are ' + top + '. The weakest signals are ' + bottom + '. Treat this as structured judgment, not false precision.',
           brief: [
-            { name: 'Extraction', value: data.extractionScore },
+            { name: 'Miner', value: data.minerScore },
             { name: 'Shovel', value: data.shovelScore },
             { name: 'Gatekeeper', value: data.gatekeeperScore }
           ]
@@ -1141,7 +1200,7 @@
         const totalWeight = dimensions.reduce((sum, d) => sum + d.weight, 0);
         const weightedAverage = dimensions.reduce((sum, d) => sum + values[d.key] * d.weight, 0) / totalWeight;
 
-        const extractionScore = clamp(
+        const minerScore = clamp(
           (100 - values.customerBreadth) * 0.18 +
           (100 - values.outcomeExposure) * 0.22 +
           (100 - values.standardPower) * 0.12 +
@@ -1177,25 +1236,57 @@
           100
         );
 
+        const revenueDurability = clamp(
+          values.recurrence * 0.42 +
+          values.dependencyDepth * 0.24 +
+          values.switchingCost * 0.20 +
+          values.outcomeExposure * 0.14,
+          0,
+          100
+        );
+
+        const infrastructureCaptureScore = clamp(
+          shovelScore * 0.55 +
+          values.capitalIntensity * 0.20 +
+          values.hiddenUtility * 0.15 +
+          values.customerBreadth * 0.10,
+          0,
+          100
+        );
+
+        const speculationExposure = clamp(100 - values.outcomeExposure, 0, 100);
+        const controlLayerStrength = Math.round(gatekeeperScore);
+
         const sorted = [
-          { key: 'Extraction', score: extractionScore },
+          { key: 'Miner', score: minerScore },
           { key: 'Shovel', score: shovelScore },
           { key: 'Gatekeeper', score: gatekeeperScore }
         ].sort((a, b) => b.score - a.score);
 
-        const primary = sorted[0].key;
+        let primary = sorted[0].key;
         const spread = sorted[0].score - sorted[1].score;
 
         let confidence = 'Moderate';
         if (spread >= 18) confidence = 'High';
-        if (spread >= 30) confidence = 'Very High';
+        if (spread >= 30 && sorted[0].score >= 70) confidence = 'Very High';
         if (spread <= 8) confidence = 'Mixed';
 
-        const layer = gatekeeperScore >= 74
-          ? 'Control Layer'
-          : shovelScore >= extractionScore
-            ? 'Infrastructure Layer'
-            : 'Extraction Layer';
+        if (sorted[0].score < 55) {
+          primary = 'Unclear / Early Signal';
+          confidence = 'Low';
+        } else if (spread <= 8) {
+          primary = 'Hybrid';
+        }
+
+        const layer = primary === 'Unclear / Early Signal'
+          ? 'Early Signal'
+          : primary === 'Hybrid'
+            ? 'Hybrid Layer'
+            : gatekeeperScore >= 74
+              ? 'Control Layer'
+              : shovelScore >= minerScore
+                ? 'Infrastructure Layer'
+                : 'Extraction Layer';
 
         const strengths = dimensions
           .map((d) => ({ key: d.key, label: d.label, value: values[d.key] }))
@@ -1209,9 +1300,13 @@
 
         const rounded = {
           weightedAverage: Math.round(weightedAverage),
-          extractionScore: Math.round(extractionScore),
+          minerScore: Math.round(minerScore),
           shovelScore: Math.round(shovelScore),
           gatekeeperScore: Math.round(gatekeeperScore),
+          infrastructureCaptureScore: Math.round(infrastructureCaptureScore),
+          speculationExposure: Math.round(speculationExposure),
+          revenueDurability: Math.round(revenueDurability),
+          controlLayerStrength,
           primary,
           layer,
           confidence,
@@ -1353,9 +1448,11 @@
 
         const scores = scoreModel(state.values);
 
-        $('metricPrimary').textContent = scores.primary;
-        $('metricLayer').textContent = scores.layer.replace(' Layer', '');
-        $('metricComposite').textContent = scores.weightedAverage + '/100';
+        $('metricInfrastructure').textContent = scores.infrastructureCaptureScore + '/100';
+        $('metricSpeculation').textContent = scores.speculationExposure + '/100';
+        $('metricDurability').textContent = scores.revenueDurability + '/100';
+        $('metricControl').textContent = scores.controlLayerStrength + '/100';
+        $('metricConfidence').textContent = scores.confidence;
 
         $('resultPrimaryTag').textContent = scores.primary;
         $('resultLayerTag').textContent = scores.layer;
@@ -1365,7 +1462,7 @@
         $('liveAssetSummary').textContent = state.assetName + ' | ' + state.category + '. ' + state.notes;
 
         classGrid.replaceChildren();
-        classGrid.appendChild(createBarCard('Extraction', scores.extractionScore, 'Competes directly for a visible outcome. More narratively attractive, often more fragile.'));
+        classGrid.appendChild(createBarCard('Miner', scores.minerScore, 'Competes directly for a visible outcome. More narratively attractive, often more fragile.'));
         classGrid.appendChild(createBarCard('Shovel', scores.shovelScore, 'Enables many participants across the market. Utility compounds regardless of who wins.'));
         classGrid.appendChild(createBarCard('Gatekeeper', scores.gatekeeperScore, 'Defines access, permissions, standards, rails, or structural power.'));
 
