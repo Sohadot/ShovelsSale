@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">ShovelsSale.com Social Preview</title>
+  <desc id="desc">A black and gold social preview card for the Shovel Economy reference system.</desc>
+  <rect width="1200" height="630" fill="#080808"/>
+  <rect x="48" y="48" width="1104" height="534" fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.7"/>
+  <text x="96" y="170" fill="#C9A84C" font-family="Georgia, serif" font-size="42" letter-spacing="8">SHOVELSSALE.COM</text>
+  <text x="96" y="310" fill="#F5F0E8" font-family="Georgia, serif" font-size="86">The Shovel Economy</text>
+  <text x="96" y="410" fill="#F5F0E8" font-family="Georgia, serif" font-size="86">Reference System</text>
+  <text x="96" y="500" fill="#9A9080" font-family="Georgia, serif" font-size="32">Doctrine. Framework. Scanner. Dispatch.</text>
+</svg>
