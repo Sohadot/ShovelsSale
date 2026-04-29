@@ -10,11 +10,15 @@ Purpose:
 
 from __future__ import annotations
 
+import json
+import re
+import subprocess
+from html.parser import HTMLParser
 from pathlib import Path
 from datetime import date
 
 SITE_URL = "https://shovelssale.com"
-TODAY = date.today().isoformat()
+RUN_DATE = date.today().isoformat()
 ROOT_DIR = Path(".")
 
 SKIP_DIRS = {
@@ -24,13 +28,35 @@ SKIP_DIRS = {
     "node_modules",
     "__pycache__",
     ".well-known",
+    "assets",
+    "reports",
+    "dist",
+    "build",
+    "vendor",
 }
 
 SKIP_FILES = {
     "404.html",
     "google-verification.html",
-    "google28b5398e414f820.html",
+    "google28b5398e4140f820.html",
     "schema-templates.html",
+}
+
+DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}")
+METADATA_DATE_KEYS = {
+    "dateModified",
+    "modified",
+    "uploadDate",
+}
+META_DATE_NAMES = {
+    "date",
+    "date.modified",
+    "modified",
+    "lastmod",
+}
+META_DATE_PROPERTIES = {
+    "article:modified_time",
+    "og:updated_time",
 }
 
 PRIORITY_MAP = {
@@ -56,9 +82,133 @@ FREQ_MAP = {
 }
 
 
+class SitemapMetadataParser(HTMLParser):
+    """Extract explicit page update dates from HTML metadata."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self._json_ld_depth = 0
+        self._json_ld_parts: list[str] = []
+        self.json_ld_blocks: list[str] = []
+        self.meta_dates: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        tag = tag.lower()
+        attributes = {name.lower(): value for name, value in attrs if name and value is not None}
+
+        if tag == "script" and attributes.get("type", "").lower() == "application/ld+json":
+            self._json_ld_depth += 1
+            self._json_ld_parts = []
+            return
+
+        if tag != "meta":
+            return
+
+        content = attributes.get("content", "").strip()
+        if not content:
+            return
+
+        meta_name = attributes.get("name", "").strip().lower()
+        meta_property = attributes.get("property", "").strip().lower()
+
+        if meta_name in META_DATE_NAMES or meta_property in META_DATE_PROPERTIES:
+            self.meta_dates.append(content)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() == "script" and self._json_ld_depth:
+            self._json_ld_depth -= 1
+            block = "".join(self._json_ld_parts).strip()
+            if block:
+                self.json_ld_blocks.append(block)
+            self._json_ld_parts = []
+
+    def handle_data(self, data: str) -> None:
+        if self._json_ld_depth:
+            self._json_ld_parts.append(data)
+
+
+def normalize_date(value: str | None) -> str | None:
+    """Return YYYY-MM-DD when value begins with an ISO-like date."""
+    if not value:
+        return None
+
+    match = DATE_PATTERN.match(str(value).strip())
+    if not match:
+        return None
+
+    return match.group(0)
+
+
+def iter_json_nodes(value):
+    """Yield all dictionaries inside JSON-LD objects, lists, and @graph values."""
+    if isinstance(value, dict):
+        yield value
+        graph = value.get("@graph")
+        if isinstance(graph, list):
+            for item in graph:
+                yield from iter_json_nodes(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from iter_json_nodes(item)
+
+
+def metadata_lastmod(path: Path) -> str | None:
+    """Return explicit page metadata date when present."""
+    parser = SitemapMetadataParser()
+    parser.feed(path.read_text(encoding="utf-8", errors="ignore"))
+
+    for value in parser.meta_dates:
+        parsed = normalize_date(value)
+        if parsed:
+            return parsed
+
+    for block in parser.json_ld_blocks:
+        try:
+            data = json.loads(block)
+        except json.JSONDecodeError:
+            continue
+
+        for node in iter_json_nodes(data):
+            for key in METADATA_DATE_KEYS:
+                parsed = normalize_date(node.get(key))
+                if parsed:
+                    return parsed
+
+    return None
+
+
+def git_lastmod(path: Path) -> str | None:
+    """Return the last committed date for a file, avoiding checkout-time churn."""
+    try:
+        completed = subprocess.run(
+            ["git", "log", "-1", "--format=%cs", "--", str(path)],
+            cwd=ROOT_DIR,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+    except OSError:
+        return None
+
+    if completed.returncode != 0:
+        return None
+
+    return normalize_date(completed.stdout.strip())
+
+
+def filesystem_lastmod(path: Path) -> str:
+    """Fallback for non-Git environments."""
+    return date.fromtimestamp(path.stat().st_mtime).isoformat()
+
+
+def page_lastmod(path: Path) -> str:
+    """Return the best available meaningful lastmod date for a public page."""
+    return metadata_lastmod(path) or git_lastmod(path) or filesystem_lastmod(path)
+
+
 def should_skip(path: Path) -> bool:
     """Return True if the path should be excluded from sitemap discovery."""
-    
+
     # Skip specific files
     if path.name in SKIP_FILES:
         return True
@@ -69,10 +219,6 @@ def should_skip(path: Path) -> bool:
 
     # Skip system directories
     if any(part in SKIP_DIRS for part in path.parts):
-        return True
-
-    # Skip assets completely (critical for SEO cleanliness)
-    if "assets" in path.parts:
         return True
 
     return False
@@ -124,7 +270,7 @@ def discover_pages() -> list[dict]:
 
         pages.append({
             "url": f"{SITE_URL.rstrip('/')}{url_path}",
-            "lastmod": TODAY,
+            "lastmod": page_lastmod(path),
             "changefreq": freq,
             "priority": priority,
             "url_path": url_path,
@@ -176,17 +322,17 @@ def generate_sitemap(pages: list[dict]) -> None:
 
     Path("sitemap.xml").write_text(sitemap, encoding="utf-8")
 
-    print(f"[✓] sitemap.xml updated — {len(pages)} pages — {TODAY}")
+    print(f"[OK] sitemap.xml updated - {len(pages)} pages - generated {RUN_DATE}")
     for page in pages:
-        print(f"    {page['priority']} | {page['url']}")
+        print(f"    {page['priority']} | {page['lastmod']} | {page['url']}")
 
 
 if __name__ == "__main__":
     print("\n" + "=" * 60)
-    print(f"Sitemap Generator — {TODAY}")
+    print(f"Sitemap Generator - {RUN_DATE}")
     print("=" * 60 + "\n")
 
     pages = discover_pages()
     generate_sitemap(pages)
 
-    print("\n[✓] Sitemap generation complete.\n")
+    print("\n[OK] Sitemap generation complete.\n")
