@@ -38,3 +38,21 @@ Rationale:
 - support long-term sovereign asset value
 
 Status: Accepted
+
+## 2026-04-29 — Sitemap Lastmod Accuracy Adopted
+
+ShovelsSale.com now generates `sitemap.xml` with page-specific `lastmod` values instead of assigning the same current date to every page.
+
+The sitemap generator now prioritizes meaningful modification sources:
+- explicit `dateModified` or page metadata when available
+- the latest Git commit date for the page
+- filesystem modification time as a fallback outside Git
+
+Rationale:
+- reduce artificial sitemap churn
+- improve SEO integrity
+- align sitemap behavior with `SEO_POLICY.md`
+- make sitemap dates more credible and auditable
+- prevent technical or non-public artifacts from entering sitemap output
+
+Status: Accepted
