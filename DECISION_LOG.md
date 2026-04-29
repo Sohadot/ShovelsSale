@@ -166,3 +166,26 @@ Rationale:
 - avoid treating Dispatch as ordinary news or generic blog content
 
 Status: Accepted
+
+## 2026-04-29 — Framework Internal Taxonomy Upgraded
+
+ShovelsSale.com upgraded the `/framework/` page into a clearer central taxonomy reference for the Shovel Economy system.
+
+This decision strengthens the relationship between the Framework, Scanner, and Dispatch by making the core layers, classification roles, and analytical signals more explicit.
+
+Implemented changes:
+- clarified the internal taxonomy of the three structural layers
+- added or refined classification roles including Hybrid
+- defined the analytical signals used by the Scanner and Dispatch
+- reinforced internal links to `/scanner/` and `/dispatch/`
+- preserved the existing page structure and visual identity
+- avoided creating new pages or changing URL architecture
+
+Rationale:
+- make the Framework the central taxonomy reference
+- strengthen consistency across Scanner and Dispatch
+- improve user understanding of the classification system
+- support applied reference authority
+- preserve conceptual discipline while increasing clarity
+
+Status: Accepted
