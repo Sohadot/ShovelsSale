@@ -52,6 +52,7 @@ EXCLUDED_DIRECTORIES = {
 
 EXCLUDED_FILES = {
     "google28b5398e4140f820.html",
+    "schema-templates.html",
 }
 
 GOVERNANCE_MARKDOWN_FILES = {
