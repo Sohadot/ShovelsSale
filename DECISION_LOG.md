@@ -100,3 +100,23 @@ Rationale:
 - preserve controlled, phase-based SEO improvement
 
 Status: Accepted
+
+## 2026-04-29 — Remaining SEO Metadata Warnings Reduced
+
+ShovelsSale.com completed the third phase of SEO warning reduction by addressing low-risk metadata issues while preserving layout and conceptual identity.
+
+Implemented changes:
+- shortened long meta descriptions without changing strategic positioning
+- fixed missing social metadata on the About page
+- refined title and description metadata for Dispatch 002
+- reduced SEO warnings from 18 to 9 without introducing errors
+- preserved remaining h1 warnings where fixing them would risk layout or identity changes
+
+Rationale:
+- improve SEO metadata discipline
+- reduce low-risk warning noise
+- preserve visual and conceptual integrity
+- avoid cosmetic changes that weaken the asset
+- keep the quality gate passing
+
+Status: Accepted
