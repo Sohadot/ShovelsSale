@@ -212,3 +212,24 @@ Rationale:
 - preserve the existing design while improving strategic clarity
 
 Status: Accepted
+
+## 2026-04-29 — Manifesto Sovereign Alignment Completed
+
+ShovelsSale.com lightly aligned the `/manifesto/` page with the current reference-system architecture without changing the core doctrine.
+
+This decision updates the Manifesto so it reflects the asset’s mature structure: Framework, Scanner, Dispatch, governance discipline, and quality-controlled development.
+
+Implemented changes:
+- updated outdated future-facing wording now that Framework, Scanner, and Dispatch are active
+- added lightweight internal references to the existing reference-system layers
+- reinforced the governed posture of the asset
+- preserved the original doctrine, tone, structure, and visual identity
+- avoided redesign, monetization, or conceptual rewriting
+
+Rationale:
+- keep the foundational doctrine consistent with the current asset architecture
+- prevent mismatch between Manifesto language and live system maturity
+- strengthen coherence across Homepage, Manifesto, Framework, Scanner, and Dispatch
+- preserve the Manifesto as doctrine rather than marketing copy
+
+Status: Accepted
