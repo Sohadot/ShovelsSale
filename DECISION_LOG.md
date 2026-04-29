@@ -120,3 +120,27 @@ Rationale:
 - keep the quality gate passing
 
 Status: Accepted
+
+## 2026-04-29 — Scanner Methodology Upgraded
+
+ShovelsSale.com upgraded the `/scanner/` page from a simple interactive tool into a clearer Shovel Economy classification layer.
+
+This decision strengthens the asset’s applied reference value by clarifying how the scanner interprets infrastructure, speculation, control, durability, and classification confidence.
+
+Implemented changes:
+- clarified scanner methodology
+- strengthened classification language
+- improved institutional explanation of scoring logic
+- reinforced the scanner’s relationship to the Shovel Economy framework
+- preserved the existing architecture and visual identity
+- avoided monetization, backend logic, or false precision
+
+Rationale:
+- increase applied usefulness
+- make the reference system more interactive
+- strengthen the asset’s authority beyond static content
+- support repeat usage
+- reinforce the Doctrine → Framework → Scanner → Dispatch structure
+- move ShovelsSale.com closer to a sovereign reference system with practical classification utility
+
+Status: Accepted
