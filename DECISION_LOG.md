@@ -189,3 +189,26 @@ Rationale:
 - preserve conceptual discipline while increasing clarity
 
 Status: Accepted
+
+## 2026-04-29 — Homepage Authority Alignment Completed
+
+ShovelsSale.com updated its homepage to reflect the asset’s current reference-system architecture more clearly.
+
+This decision aligns the public entry point with the mature structure now present across the asset: Doctrine, Framework, Scanner, Dispatch, Blog, governance discipline, and quality-gate enforcement.
+
+Implemented changes:
+- clarified ShovelsSale.com as a governed Shovel Economy reference system
+- reinforced the Doctrine → Framework → Scanner → Dispatch structure
+- referenced Miner, Shovel, Gatekeeper, and Hybrid classification roles
+- improved internal entry links, including the Blog
+- reflected governance and quality-gate discipline without changing the visual identity
+- preserved URL architecture and avoided redesign
+
+Rationale:
+- make the homepage accurately represent the current maturity of the asset
+- strengthen first-impression authority
+- reduce mismatch between homepage positioning and internal system depth
+- improve navigation into the reference architecture
+- preserve the existing design while improving strategic clarity
+
+Status: Accepted
