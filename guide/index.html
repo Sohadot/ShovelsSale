@@ -473,13 +473,13 @@
 <div class="filter-section">
   <p class="filter-label">Filter by category</p>
   <div class="filter-tabs">
-    <button class="filter-tab active" onclick="filterCards('all', this)">All Shovels</button>
-    <button class="filter-tab" onclick="filterCards('compute', this)">Compute</button>
-    <button class="filter-tab" onclick="filterCards('software', this)">Software</button>
-    <button class="filter-tab" onclick="filterCards('infrastructure', this)">Infrastructure</button>
-    <button class="filter-tab" onclick="filterCards('energy', this)">Energy</button>
-    <button class="filter-tab" onclick="filterCards('data', this)">Data</button>
-    <button class="filter-tab" onclick="filterCards('digital', this)">Digital Assets</button>
+    <button class="filter-tab active" data-filter="all">All Shovels</button>
+    <button class="filter-tab" data-filter="compute">Compute</button>
+    <button class="filter-tab" data-filter="software">Software</button>
+    <button class="filter-tab" data-filter="infrastructure">Infrastructure</button>
+    <button class="filter-tab" data-filter="energy">Energy</button>
+    <button class="filter-tab" data-filter="data">Data</button>
+    <button class="filter-tab" data-filter="digital">Digital Assets</button>
   </div>
 </div>
 
@@ -834,7 +834,7 @@
       </div>
     </div>
 
-    <button class="calc-btn" onclick="calculateROI()">Calculate the Difference →</button>
+    <button class="calc-btn" id="calculate-roi-btn">Calculate the Difference →</button>
 
     <div class="calc-results" id="calc-results">
       <div class="result-grid">
@@ -883,9 +883,9 @@
     <p>New shovels, updated data, and strategy — every Monday.</p>
   </div>
   <form class="newsletter-form-inline"
+    id="newsletter-form-inline"
     action="https://YOUR-BEEHIIV-FORM-URL"
-    method="POST" target="_blank"
-    onsubmit="handleInlineSubscribe(event)">
+    method="POST" target="_blank">
     <input type="email" name="email" class="newsletter-input-inline" placeholder="your@email.com" required>
     <button type="submit" class="newsletter-btn-inline">Join the Sellers</button>
   </form>
@@ -913,6 +913,10 @@
       card.style.display = show ? 'flex' : 'none';
     });
   }
+
+  document.querySelectorAll('.filter-tab[data-filter]').forEach(tab => {
+    tab.addEventListener('click', () => filterCards(tab.dataset.filter, tab));
+  });
 
   // ROI CALCULATOR
   const MINER_DATA = {
@@ -963,6 +967,8 @@
     results.classList.add('show');
   }
 
+  document.getElementById('calculate-roi-btn').addEventListener('click', calculateROI);
+
   // SCROLL REVEAL
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
@@ -975,8 +981,16 @@
   // NEWSLETTER
   function handleInlineSubscribe(e) {
     e.preventDefault();
-    e.target.innerHTML = '<span style="font-family:\'DM Mono\',monospace;font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;">✓ Welcome to the shovel sellers.</span>';
+    const message = document.createElement('span');
+    message.style.fontFamily = "'DM Mono', monospace";
+    message.style.fontSize = '0.7rem';
+    message.style.color = 'var(--gold)';
+    message.style.letterSpacing = '0.1em';
+    message.textContent = '✓ Welcome to the shovel sellers.';
+    e.target.replaceChildren(message);
   }
+
+  document.getElementById('newsletter-form-inline').addEventListener('submit', handleInlineSubscribe);
 
   // ANIMATE SUBSCRIBER COUNT
   function animateCount(el, target, duration = 1500) {

@@ -22,6 +22,7 @@ from bs4 import BeautifulSoup
 # =========================================================
 SCAN_TIME = datetime.now().isoformat()
 SKIP_DIRS = {'.git', 'scripts', 'node_modules', '.github'}
+SKIP_FILES = {'google28b5398e4140f820.html'}
 
 # Dangerous patterns to detect in HTML/JS
 DANGEROUS_PATTERNS = [
@@ -29,7 +30,7 @@ DANGEROUS_PATTERNS = [
     (r'document\.write\s*\(', 'document.write() — XSS risk'),
     (r'innerHTML\s*=\s*[^;]+', 'innerHTML assignment without sanitization'),
     (r'javascript:\s*["\']', 'javascript: URI — potential XSS'),
-    (r'on\w+\s*=\s*["\'][^"\']+["\']', 'Inline event handler with function call'),
+    (r'\bon\w+\s*=\s*["\'][^"\']+["\']', 'Inline event handler with function call'),
     (r'<script[^>]*src\s*=\s*["\']http://', 'HTTP (not HTTPS) script source'),
     (r'password\s*=\s*["\'][^"\']{3,}', 'Hardcoded password detected'),
     (r'api[_-]?key\s*=\s*["\'][^"\']{6,}', 'Hardcoded API key detected'),
@@ -146,6 +147,8 @@ def scan_project():
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
         for filename in files:
             if not filename.endswith('.html'):
+                continue
+            if filename in SKIP_FILES:
                 continue
             filepath = os.path.join(root, filename)
             result = scan_html_file(filepath)

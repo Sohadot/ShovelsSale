@@ -1092,6 +1092,19 @@
         return String(str || '').replace(/[\u0000-\u001F\u007F]/g, '').trim().slice(0, maxLen);
       }
 
+      function textElement(tagName, className, text) {
+        const element = document.createElement(tagName);
+        if (className) element.className = className;
+        element.textContent = text;
+        return element;
+      }
+
+      function divElement(className) {
+        const element = document.createElement('div');
+        if (className) element.className = className;
+        return element;
+      }
+
       function buildNarrative(data) {
         const top = data.strengths.map((s) => s.label).join(', ');
         const bottom = data.weaknesses.map((w) => w.label).join(', ');
@@ -1210,26 +1223,38 @@
         wrapper.className = 'dimension-card';
 
         const value = state.values[dimension.key];
-        wrapper.innerHTML = [
-          '<div class="dimension-header">',
-            '<div>',
-              '<div class="dimension-name">' + escapeHtml(dimension.label) + '</div>',
-              '<div class="dimension-copy">' + escapeHtml(dimension.description) + '</div>',
-            '</div>',
-            '<div class="value-badge" id="badge-' + escapeHtml(dimension.key) + '">' + value + '/100</div>',
-          '</div>',
-          '<input type="range" min="0" max="100" step="1" value="' + value + '" aria-label="' + escapeHtml(dimension.label) + '" id="range-' + escapeHtml(dimension.key) + '">',
-          '<div class="range-scale">',
-            '<span>' + escapeHtml(dimension.left) + '</span>',
-            '<span>' + escapeHtml(dimension.right) + '</span>',
-          '</div>'
-        ].join('');
+        const header = divElement('dimension-header');
+        const copyWrap = document.createElement('div');
+        copyWrap.appendChild(textElement('div', 'dimension-name', dimension.label));
+        copyWrap.appendChild(textElement('div', 'dimension-copy', dimension.description));
+
+        const badge = textElement('div', 'value-badge', value + '/100');
+        badge.id = 'badge-' + dimension.key;
+        header.appendChild(copyWrap);
+        header.appendChild(badge);
+
+        const range = document.createElement('input');
+        range.type = 'range';
+        range.min = '0';
+        range.max = '100';
+        range.step = '1';
+        range.value = value;
+        range.setAttribute('aria-label', dimension.label);
+        range.id = 'range-' + dimension.key;
+
+        const scale = divElement('range-scale');
+        scale.appendChild(textElement('span', '', dimension.left));
+        scale.appendChild(textElement('span', '', dimension.right));
+
+        wrapper.appendChild(header);
+        wrapper.appendChild(range);
+        wrapper.appendChild(scale);
 
         return wrapper;
       }
 
       function renderDimensions() {
-        dimensionsGrid.innerHTML = '';
+        dimensionsGrid.replaceChildren();
         dimensions.forEach((dimension) => {
           const card = createDimensionCard(dimension);
           dimensionsGrid.appendChild(card);
@@ -1244,7 +1269,7 @@
       }
 
       function renderPresets() {
-        presetRow.innerHTML = '';
+        presetRow.replaceChildren();
         Object.keys(presets).forEach((name) => {
           const button = document.createElement('button');
           button.type = 'button';
@@ -1270,36 +1295,48 @@
       function createBarCard(name, score, copy) {
         const card = document.createElement('div');
         card.className = 'class-card';
-        card.innerHTML = [
-          '<div class="class-name">' + escapeHtml(name) + '</div>',
-          '<div class="class-score">Structural score: ' + score + '/100</div>',
-          '<div class="bar-track"><div class="bar-fill" style="width:' + score + '%"></div></div>',
-          '<div class="class-copy">' + escapeHtml(copy) + '</div>'
-        ].join('');
+
+        const track = divElement('bar-track');
+        const fill = divElement('bar-fill');
+        fill.style.width = score + '%';
+        track.appendChild(fill);
+
+        card.appendChild(textElement('div', 'class-name', name));
+        card.appendChild(textElement('div', 'class-score', 'Structural score: ' + score + '/100'));
+        card.appendChild(track);
+        card.appendChild(textElement('div', 'class-copy', copy));
         return card;
       }
 
       function createSignalBlock(item) {
         const wrap = document.createElement('div');
         wrap.style.marginBottom = '0.95rem';
-        wrap.innerHTML = [
-          '<div class="signal-name">' + escapeHtml(item.label) + '</div>',
-          '<div class="signal-track"><div class="signal-fill" style="width:' + item.value + '%"></div></div>',
-          '<div class="signal-copy">' + item.value + '/100</div>'
-        ].join('');
+
+        const track = divElement('signal-track');
+        const fill = divElement('signal-fill');
+        fill.style.width = item.value + '%';
+        track.appendChild(fill);
+
+        wrap.appendChild(textElement('div', 'signal-name', item.label));
+        wrap.appendChild(track);
+        wrap.appendChild(textElement('div', 'signal-copy', item.value + '/100'));
         return wrap;
       }
 
       function renderRadar(values) {
-        radarGrid.innerHTML = '';
+        radarGrid.replaceChildren();
         dimensions.forEach((d) => {
           const row = document.createElement('div');
           row.className = 'radar-row';
-          row.innerHTML = [
-            '<div class="radar-label">' + escapeHtml(d.label) + '</div>',
-            '<div class="radar-bar"><div class="radar-fill" style="width:' + values[d.key] + '%"></div></div>',
-            '<div class="radar-value">' + values[d.key] + '</div>'
-          ].join('');
+
+          const bar = divElement('radar-bar');
+          const fill = divElement('radar-fill');
+          fill.style.width = values[d.key] + '%';
+          bar.appendChild(fill);
+
+          row.appendChild(textElement('div', 'radar-label', d.label));
+          row.appendChild(bar);
+          row.appendChild(textElement('div', 'radar-value', values[d.key]));
           radarGrid.appendChild(row);
         });
       }
@@ -1322,15 +1359,15 @@
         $('resultBody').textContent = scores.narrative.body;
         $('liveAssetSummary').textContent = state.assetName + ' | ' + state.category + '. ' + state.notes;
 
-        classGrid.innerHTML = '';
+        classGrid.replaceChildren();
         classGrid.appendChild(createBarCard('Extraction', scores.extractionScore, 'Competes directly for a visible outcome. More narratively attractive, often more fragile.'));
         classGrid.appendChild(createBarCard('Shovel', scores.shovelScore, 'Enables many participants across the market. Utility compounds regardless of who wins.'));
         classGrid.appendChild(createBarCard('Gatekeeper', scores.gatekeeperScore, 'Defines access, permissions, standards, rails, or structural power.'));
 
-        topSignals.innerHTML = '';
+        topSignals.replaceChildren();
         scores.strengths.forEach((item) => topSignals.appendChild(createSignalBlock(item)));
 
-        weakSignals.innerHTML = '';
+        weakSignals.replaceChildren();
         scores.weaknesses.forEach((item) => weakSignals.appendChild(createSignalBlock(item)));
 
         renderRadar(state.values);
