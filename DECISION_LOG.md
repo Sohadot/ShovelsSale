@@ -78,3 +78,25 @@ Rationale:
 - reduce metadata inconsistency across core pages
 
 Status: Accepted
+
+## 2026-04-29 — Article and Dispatch SEO Metadata Improved
+
+ShovelsSale.com now includes improved robots, Open Graph, and Twitter/X metadata across article and dispatch pages.
+
+This decision completes the second phase of SEO warning reduction by extending social and indexing metadata beyond the core authority pages into long-form and analytical archive content.
+
+Implemented changes:
+- standardized metadata for two blog articles
+- standardized metadata for two dispatch files
+- reused the existing local social preview asset
+- reduced SEO warnings without introducing new errors
+- preserved scope by avoiding unrelated page or content edits
+
+Rationale:
+- improve article-level SEO integrity
+- strengthen dispatch archive presentation
+- improve link-sharing trust for analytical content
+- reduce metadata inconsistency
+- preserve controlled, phase-based SEO improvement
+
+Status: Accepted
