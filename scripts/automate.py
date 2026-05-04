@@ -50,6 +50,11 @@ BLOG_ARCHIVE_SUBTITLE = (
     "A structured archive of market infrastructure, shovel economy strategy, "
     "and system-level analysis from ShovelsSale.com."
 )
+BLOG_ARCHIVE_INTRO = (
+    "Each chronicle connects market events to the Shovel Economy framework, showing how "
+    "infrastructure, tooling, distribution, and control layers shape durable value beneath "
+    "visible opportunity waves."
+)
 
 
 # ============================================================
@@ -285,11 +290,13 @@ def render_blog_index(posts: List[Dict[str, str]]) -> str:
   <meta property="og:description" content="A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{SITE_URL}/blog/">
+  <meta property="og:image" content="{SITE_URL}/assets/social-preview.svg">
   <meta property="og:site_name" content="ShovelsSale.com">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Blog | ShovelsSale.com">
   <meta name="twitter:description" content="A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.">
+  <meta name="twitter:image" content="{SITE_URL}/assets/social-preview.svg">
 
   <script type="application/ld+json">
   {{
@@ -386,6 +393,14 @@ def render_blog_index(posts: List[Dict[str, str]]) -> str:
       font-size: 1.12rem;
       line-height: 1.8;
       max-width: 760px;
+    }}
+
+    .blog-intro {{
+      color: var(--white-dim);
+      font-size: 1.08rem;
+      line-height: 1.85;
+      max-width: 760px;
+      margin-top: 1.15rem;
     }}
 
     .posts-grid {{
@@ -504,6 +519,7 @@ def render_blog_index(posts: List[Dict[str, str]]) -> str:
   <div class="blog-header">
     <h1 class="blog-title">{BLOG_ARCHIVE_TITLE}</h1>
     <p class="blog-sub">{BLOG_ARCHIVE_SUBTITLE}</p>
+    <p class="blog-intro">{BLOG_ARCHIVE_INTRO}</p>
   </div>
 
   <div class="posts-grid">
