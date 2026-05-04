@@ -233,3 +233,26 @@ Rationale:
 - preserve the Manifesto as doctrine rather than marketing copy
 
 Status: Accepted
+
+## 2026-05-04 — Weekly Workflow Clean-Tree Enforcement Fixed
+
+ShovelsSale.com updated the weekly publishing workflow so generated tracked-file changes are staged before rebase and push operations.
+
+This decision resolves workflow failures caused by publishing automation leaving tracked HTML files modified but unstaged after generation and tag synchronization.
+
+Implemented changes:
+- reordered the publishing pipeline so blog generation runs before Google tag synchronization
+- staged tracked generated changes with `git add -u`
+- added explicit clean-tree checks using `git status --porcelain`
+- replaced ambiguous rebase failures with clear diagnostic output
+- preserved strict workflow behavior instead of masking errors with stash-based recovery
+- confirmed the Weekly Update + Security Scan workflow passes successfully
+
+Rationale:
+- keep weekly automation compatible with sovereign quality enforcement
+- prevent generated tracked files from breaking rebase operations
+- make workflow failures auditable
+- preserve clean-tree discipline before publication
+- avoid weakening validation or hiding generated changes
+
+Status: Accepted
