@@ -1,4 +1,20 @@
-# ShovelsSale.com — Strategic Asset Dossier
+# ShovelsSale.com — Domain Dossier
+
+## Canonical Relationship
+
+This dossier is the local asset dossier for ShovelsSale.com.
+
+It exists inside the ShovelsSale repository so that any developer, reviewer, or AI agent working on the asset can understand its strategic purpose, governance posture, reference architecture, and long-term value logic.
+
+ShovelsSale.com is also registered inside the Sovereign Asset System portfolio layer:
+
+`sovereign-asset-system/portfolio/asset-dossiers/shovelssale-com/domain-dossier.md`
+
+The Sovereign Asset System remains the parent methodology and portfolio doctrine.
+
+The ShovelsSale repository remains the canonical operational repository for the live asset.
+
+---
 
 **Last Updated:** 2026-05-04
 
@@ -25,7 +41,7 @@ Its long-term role is to become a trusted reference system for classifying where
 - **Live Asset:** https://shovelssale.com
 - **Asset Repository:** https://github.com/Sohadot/ShovelsSale
 - **Parent Doctrine:** https://github.com/Sohadot/sovereign-asset-system
-- **Portfolio Dossier Location:** `portfolio/asset-dossiers/shovelssale-com/domain-dossier.md`
+- **Portfolio Dossier Location:** `sovereign-asset-system/portfolio/asset-dossiers/shovelssale-com/domain-dossier.md`
 
 ---
 
@@ -666,6 +682,7 @@ The Framework taxonomy and Scanner methodology are now documented and active. Th
 |------|--------|
 | 2026-04-29 | Constitutional framework, quality gate, SEO policy, monetization policy, sitemap accuracy, scanner methodology, dispatch structure, framework taxonomy, homepage alignment, and manifesto alignment were completed and documented in the ShovelsSale repository. |
 | 2026-05-04 | ShovelsSale.com added to the Sovereign Asset System portfolio dossier layer as a controlled sovereign reference asset. |
+| 2026-05-04 | Added repository-root `domain-dossier.md` as the local operational dossier alongside the portfolio-layer canonical record. |
 
 ---
 
@@ -675,4 +692,4 @@ This dossier should remain concise and operational.
 
 Detailed governance history belongs in the ShovelsSale repository's `DECISION_LOG.md`.
 
-This dossier records the asset's strategic position inside the Sovereign Asset System portfolio layer.
+This dossier records the asset's strategic position for operators inside this repository and is mirrored for portfolio methodology under the Sovereign Asset System path cited above.

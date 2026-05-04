@@ -63,6 +63,7 @@ GOVERNANCE_MARKDOWN_FILES = {
     "SEO_POLICY.md",
     "MONETIZATION_POLICY.md",
     "SECURITY_ARCHITECTURE.md",
+    "domain-dossier.md",
 }
 
 HTML_EXTENSIONS = {".html", ".htm"}
