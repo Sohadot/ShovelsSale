@@ -9,8 +9,9 @@ Purpose:
 
 Pipeline order:
 1. automate.py        -> rebuild derived archive pages (e.g. blog index)
-2. update_sitemap.py  -> rebuild sitemap from real discovered pages
-3. generate_rss.py    -> rebuild channel feeds from real published pages
+2. sync_google_tags.py -> ensure GTM + GA4 blocks exist on generated and static HTML
+3. update_sitemap.py  -> rebuild sitemap from real discovered pages
+4. generate_rss.py    -> rebuild channel feeds from real published pages
 """
 
 from __future__ import annotations
@@ -28,13 +29,13 @@ PYTHON_EXECUTABLE = sys.executable
 
 PIPELINE_STEPS = [
     {
-        "name": "Google Tags Sync",
-        "script": "scripts/sync_google_tags.py",
+        "name": "Content Automation",
+        "script": "scripts/automate.py",
         "required": True,
     },
     {
-        "name": "Content Automation",
-        "script": "scripts/automate.py",
+        "name": "Google Tags Sync",
+        "script": "scripts/sync_google_tags.py",
         "required": True,
     },
     {

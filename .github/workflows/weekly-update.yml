@@ -81,22 +81,10 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Stage known generated outputs explicitly.
-          if [ -d "blog" ]; then
-            git add blog/
-          fi
-
-          if [ -f "sitemap.xml" ]; then
-            git add sitemap.xml
-          fi
-
-          if [ -f "blog/feed.xml" ]; then
-            git add blog/feed.xml
-          fi
-
-          if [ -f "dispatch/feed.xml" ]; then
-            git add dispatch/feed.xml
-          fi
+          # Stage every tracked change produced by the publishing pipeline (blog HTML,
+          # sitemap, feeds, Google tag injections on any HTML page, etc.). A selective
+          # git add leaves unrelated modified files unstaged and breaks git pull --rebase.
+          git add -u
 
           if git diff --staged --quiet; then
             echo "No generated changes to commit."
@@ -107,6 +95,12 @@ jobs:
 
       - name: Rebase committed update and push
         run: |
+          set -euo pipefail
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Working tree is not clean before rebase; refusing to continue."
+            git status --short
+            exit 1
+          fi
           git pull --rebase origin main
           git push origin HEAD:main
 
