@@ -7,6 +7,10 @@ on:
 
 # No top-level permissions — each job declares only what it needs.
 
+concurrency:
+  group: weekly-update-security-scan-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   security-audit:
     runs-on: ubuntu-latest
@@ -36,13 +40,15 @@ jobs:
 
   content-update:
     runs-on: ubuntu-latest
-    # Write access required for committing generated outputs.
+    # Write access required only for committing generated outputs.
     permissions:
       contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -54,28 +60,55 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install beautifulsoup4 lxml
 
-      - name: Run publishing pipeline
-        run: |
-          python scripts/publish_pipeline.py
-
-      - name: Commit generated updates
+      - name: Configure Git identity
         run: |
           git config --local user.email "bot@shovelssale.com"
           git config --local user.name "ShovelsSale Bot"
 
+      - name: Rebase onto latest main before generation
+        run: |
+          git pull --rebase origin main
+
+      - name: Run publishing pipeline
+        run: |
+          python scripts/publish_pipeline.py
+
+      - name: Run sovereign quality gate
+        run: |
+          python scripts/quality_gate.py
+
+      - name: Commit generated updates
+        run: |
+          set -euo pipefail
+
           # Stage known generated outputs explicitly.
-          git add blog/ sitemap.xml || true
-          git add blog/feed.xml dispatch/feed.xml 2>/dev/null || true
+          if [ -d "blog" ]; then
+            git add blog/
+          fi
+
+          if [ -f "sitemap.xml" ]; then
+            git add sitemap.xml
+          fi
+
+          if [ -f "blog/feed.xml" ]; then
+            git add blog/feed.xml
+          fi
+
+          if [ -f "dispatch/feed.xml" ]; then
+            git add dispatch/feed.xml
+          fi
 
           if git diff --staged --quiet; then
             echo "No generated changes to commit."
-          else
-            git commit -m "Weekly publishing update — $(date +%Y-%m-%d)"
-            # Rebase against any commits pushed to remote since checkout
-            # before pushing, to avoid non-fast-forward rejection.
-            git pull --rebase origin main
-            git push
+            exit 0
           fi
+
+          git commit -m "Weekly publishing update — $(date +%Y-%m-%d)"
+
+      - name: Rebase committed update and push
+        run: |
+          git pull --rebase origin main
+          git push origin HEAD:main
 
   sitemap-ping:
     runs-on: ubuntu-latest
@@ -85,7 +118,7 @@ jobs:
       contents: none
 
     steps:
-      - name: Ping sitemap endpoints
+      - name: Ping Bing sitemap endpoint
         run: |
-          curl -s "https://www.google.com/ping?sitemap=https://shovelssale.com/sitemap.xml" || true
           curl -s "https://www.bing.com/ping?sitemap=https://shovelssale.com/sitemap.xml" || true
+
