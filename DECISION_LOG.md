@@ -256,3 +256,27 @@ Rationale:
 - avoid weakening validation or hiding generated changes
 
 Status: Accepted
+
+## 2026-05-04 — Dispatch Methodology Documented
+
+ShovelsSale.com now includes `DISPATCH_METHODOLOGY.md` as the governing methodology for the Dispatch archive.
+
+This decision formalizes Dispatch as an analytical record layer rather than a generic content feed, news section, opinion blog, or affiliate surface.
+
+Implemented changes:
+- defined the purpose and limits of Dispatch entries
+- established the required Dispatch structure
+- clarified metadata and classification standards
+- aligned Dispatch with the Framework and Scanner methodology
+- defined quality standards, rejection criteria, and publication workflow
+- documented how Dispatch may support future monetization without weakening trust
+- preserved institutional tone and reference-grade discipline
+
+Rationale:
+- prevent Dispatch from becoming generic content
+- strengthen the applied archive layer of the Shovel Economy system
+- make future entries structurally consistent
+- support long-term authority, reports, newsletter development, and selective monetization
+- reinforce the Doctrine → Framework → Scanner → Dispatch architecture
+
+Status: Accepted
