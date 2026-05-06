@@ -306,3 +306,26 @@ Rationale:
 - support future reports, methodology pages, and premium research products
 
 Status: Accepted
+
+## 2026-05-06 — Blog Foundation Presentation Upgraded
+
+ShovelsSale.com upgraded the visual presentation of its Blog foundation essays into a coherent sovereign reference reading layer.
+
+This decision completes the Blog presentation phase by ensuring that the individual blog articles visually align with the institutional dark/gold ShovelsSale identity instead of rendering as default browser pages.
+
+Implemented changes:
+- added a shared blog article presentation layer
+- applied the sovereign dark/gold article layout across all current blog essays
+- preserved article content, metadata, URLs, and internal links
+- maintained the distinction between Blog primers, Framework taxonomy, Scanner classification, and Dispatch Atlas records
+- kept the Blog as an educational entry layer rather than a generic publishing section
+- preserved quality gate discipline
+
+Rationale:
+- make the Blog visually consistent with the wider ShovelsSale system
+- strengthen reader trust and perceived institutional quality
+- ensure foundational essays function as serious primers into the Shovel Economy
+- support the progression from Blog to Framework, Scanner, and Dispatch Atlas
+- prevent article pages from weakening the sovereign-grade presentation of the asset
+
+Status: Accepted
