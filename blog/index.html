@@ -1,26 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Blog | ShovelsSale.com</title>
-  <meta name="description" content="A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://shovelssale.com/blog/">
-  <link rel="alternate" type="application/rss+xml" title="ShovelsSale Blog" href="/blog/feed.xml">
+  <title>ShovelsSale Blog — Shovel Economy Primers and Market Layer Essays</title>
+  <meta name="description" content="Foundational essays from ShovelsSale.com explaining the Shovel Economy, market layers, infrastructure, control, domain assets, and hype-resistant analysis." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://shovelssale.com/blog/" />
 
-  <meta property="og:title" content="Blog | ShovelsSale.com">
-  <meta property="og:description" content="A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://shovelssale.com/blog/">
-  <meta property="og:image" content="https://shovelssale.com/assets/social-preview.svg">
-  <meta property="og:site_name" content="ShovelsSale.com">
+  <meta property="og:title" content="ShovelsSale Blog — Shovel Economy Primers" />
+  <meta property="og:description" content="Foundational essays explaining the Shovel Economy, market layers, infrastructure, control, strategic domains, and hype-resistant market analysis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shovelssale.com/blog/" />
+  <meta property="og:image" content="https://shovelssale.com/assets/social-preview.svg" />
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Blog | ShovelsSale.com">
-  <meta name="twitter:description" content="A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.">
-  <meta name="twitter:image" content="https://shovelssale.com/assets/social-preview.svg">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ShovelsSale Blog — Shovel Economy Primers" />
+  <meta name="twitter:description" content="Foundational essays explaining the Shovel Economy, infrastructure layers, control layers, and strategic digital assets." />
+  <meta name="twitter:image" content="https://shovelssale.com/assets/social-preview.svg" />
+
+  <style>
+    :root {
+      --bg: #080806;
+      --panel: #11110d;
+      --panel-2: #17160f;
+      --text: #f4f1e8;
+      --muted: #c7c0aa;
+      --faint: #8d856d;
+      --gold: #d8b94f;
+      --line: rgba(216, 185, 79, 0.22);
+      --line-soft: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(216, 185, 79, 0.12), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.04), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--gold);
+    }
+
+    .site-header {
+      padding: 2rem 1.25rem;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 3.5rem 1.25rem 5rem;
+    }
+
+    .kicker {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 980px;
+      font-size: clamp(2.5rem, 8vw, 6.4rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin-top: 1.6rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .system-note {
+      margin-top: 2rem;
+      padding: 1.15rem 1.25rem;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(216, 185, 79, 0.11), rgba(255, 255, 255, 0.025));
+      border-radius: 1.2rem;
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    .section-head {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.7rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+    }
+
+    .section-head p {
+      max-width: 760px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-height: 100%;
+      padding: 1.35rem;
+      border: 1px solid var(--line-soft);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015)),
+        var(--panel);
+      border-radius: 1.4rem;
+      transition: border-color 160ms ease, transform 160ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--line);
+    }
+
+    .card.featured {
+      grid-column: 1 / -1;
+      background:
+        radial-gradient(circle at top left, rgba(216, 185, 79, 0.16), transparent 34rem),
+        var(--panel-2);
+      border-color: var(--line);
+    }
+
+    .label-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .label {
+      padding: 0.38rem 0.62rem;
+      border: 1px solid var(--line-soft);
+      border-radius: 999px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 0.64rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: clamp(1.35rem, 3vw, 2.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card .read {
+      margin-top: auto;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding-top: 0.4rem;
+    }
+
+    .system-links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .system-link {
+      border: 1px solid var(--line-soft);
+      border-radius: 1.2rem;
+      padding: 1.1rem;
+      background: rgba(255,255,255,0.025);
+    }
+
+    .system-link strong {
+      display: block;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .system-link span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line-soft);
+      color: var(--faint);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 780px) {
+      .grid,
+      .system-links {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding-top: 2.5rem;
+      }
+    }
+  </style>
 
   <script type="application/ld+json">
   {
@@ -28,266 +282,244 @@
     "@type": "CollectionPage",
     "name": "ShovelsSale Blog",
     "url": "https://shovelssale.com/blog/",
-    "description": "A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.",
+    "description": "Foundational essays from ShovelsSale.com explaining the Shovel Economy, infrastructure layers, control layers, strategic domains, and hype-resistant market analysis.",
     "publisher": {
       "@type": "Organization",
       "name": "ShovelsSale.com",
-      "url": "https://shovelssale.com/"
+      "url": "https://shovelssale.com"
+    },
+    "hasPart": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "What Is the Shovel Economy?",
+          "url": "https://shovelssale.com/blog/what-is-the-shovel-economy/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Miners, Shovels, Gatekeepers, and Hybrids",
+          "url": "https://shovelssale.com/blog/miners-shovels-gatekeepers-hybrids/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why Infrastructure Outlives Hype",
+          "url": "https://shovelssale.com/blog/why-infrastructure-outlives-hype/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "The Control Layer: Where Markets Become Governed",
+          "url": "https://shovelssale.com/blog/the-control-layer/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Why Domain Names Can Become Strategic Digital Assets",
+          "url": "https://shovelssale.com/blog/why-domain-names-can-become-strategic-digital-assets/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "How to Read a Market Wave Without Chasing Hype",
+          "url": "https://shovelssale.com/blog/how-to-read-a-market-wave-without-chasing-hype/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Pick-and-Shovel Wins 2026",
+          "url": "https://shovelssale.com/blog/pick-and-shovel-wins-2026/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "No-Code AI Stack 2026",
+          "url": "https://shovelssale.com/blog/no-code-ai-stack-2026/"
+        }
+      ]
     }
   }
   </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --gold: #C9A84C;
-      --gold-dim: #7A5F2A;
-      --black: #080808;
-      --dark-2: #141414;
-      --white: #F5F0E8;
-      --white-dim: #9A9080;
-      --line: rgba(201,168,76,0.12);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Cormorant Garamond', serif;
-      overflow-x: hidden;
-    }
-
-    nav {
-      padding: 1.5rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--line);
-      background: rgba(8,8,8,0.95);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-
-    .nav-logo {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--gold);
-      text-decoration: none;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .back {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--white-dim);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .back:hover { color: var(--gold); }
-
-    .blog-header {
-      padding: 5rem 3rem 3rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .blog-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      line-height: 0.9;
-      margin-bottom: 1rem;
-      letter-spacing: 0.02em;
-    }
-
-    .blog-title span { color: var(--gold); }
-
-    .blog-sub {
-      font-style: italic;
-      color: var(--white-dim);
-      font-size: 1.12rem;
-      line-height: 1.8;
-      max-width: 760px;
-    }
-
-    .blog-intro {
-      color: var(--white-dim);
-      font-size: 1.08rem;
-      line-height: 1.85;
-      max-width: 760px;
-      margin-top: 1.15rem;
-    }
-
-    .posts-grid {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2rem 3rem 6rem;
-      display: grid;
-      gap: 2px;
-    }
-
-    .post-card {
-      background: var(--dark-2);
-      padding: 2.5rem;
-      text-decoration: none;
-      display: block;
-      transition: background 0.3s ease, border-left-color 0.3s ease;
-      border-left: 3px solid transparent;
-    }
-
-    .post-card:hover {
-      background: #1A1A1A;
-      border-left-color: var(--gold);
-    }
-
-    .post-category {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--gold);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .post-card h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.55rem;
-      font-weight: 600;
-      color: var(--white);
-      margin: 0.55rem 0;
-      line-height: 1.2;
-    }
-
-    .post-card p {
-      font-size: 1rem;
-      color: var(--white-dim);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-      max-width: 760px;
-    }
-
-    .post-date {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--white-dim);
-      opacity: 0.55;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .empty-state {
-      background: var(--dark-2);
-      padding: 2.5rem;
-      border-left: 3px solid var(--gold-dim);
-    }
-
-    .empty-state h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .empty-state p {
-      color: var(--white-dim);
-      line-height: 1.7;
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem;
-      border-top: 1px solid var(--line);
-    }
-
-    footer a {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--gold);
-      text-decoration: none;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        padding: 1.2rem 1.25rem;
-      }
-
-      .blog-header {
-        padding: 3.5rem 1.25rem 2rem;
-      }
-
-      .posts-grid {
-        padding: 1rem 1.25rem 4rem;
-      }
-
-      .post-card,
-      .empty-state {
-        padding: 1.5rem;
-      }
-    }
-  </style>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-K83NSPVC');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKVL5E97G3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-VKVL5E97G3');
-  </script>
-  <!-- End Google Analytics 4 -->
-
 </head>
+
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K83NSPVC"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="/">ShovelsSale.com</a>
+      <div class="nav-links">
+        <a href="/manifesto/">Manifesto</a>
+        <a href="/framework/">Framework</a>
+        <a href="/scanner/">Scanner</a>
+        <a href="/dispatch/">Dispatch</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </nav>
+  </header>
 
-  <nav>
-    <a href="/" class="nav-logo">ShovelsSale.com</a>
-    <a href="/" class="back">← Home</a>
-  </nav>
+  <main>
+    <section aria-labelledby="blog-title">
+      <p class="kicker">Foundation Essays · Shovel Economy Primers</p>
+      <h1 id="blog-title">The ShovelsSale Blog</h1>
 
-  <div class="blog-header">
-    <h1 class="blog-title">The <span>Shovels</span><br>Chronicles.</h1>
-    <p class="blog-sub">A structured archive of market infrastructure, shovel economy strategy, and system-level analysis from ShovelsSale.com.</p>
-    <p class="blog-intro">Each chronicle connects market events to the Shovel Economy framework, showing how infrastructure, tooling, distribution, and control layers shape durable value beneath visible opportunity waves.</p>
-  </div>
+      <p class="hero-copy">
+        The blog is the entry layer of ShovelsSale.com. It explains the Shovel Economy in clear terms before readers move into the Framework, Scanner, and Dispatch Atlas.
+      </p>
 
-  <div class="posts-grid">
-    
-      <a href="/blog/pick-and-shovel-wins-2026/" class="post-card">
-        <span class="post-category">Strategy</span>
-        <h2>Why Pick-and-Shovel Wins in 2026 — ShovelsSale.com</h2>
-        <p>Why Pick-and-Shovel Wins in 2026. Pick-and-shovel strategy for the AI era.</p>
-        <span class="post-date">2026-05-04</span>
-      </a>
+      <div class="system-note">
+        <strong>Editorial function:</strong>
+        these essays are not news posts, trend commentary, or generic content. They are foundational primers designed to teach the beginner, orient the operator, and prepare the expert for deeper classification through the Shovel Economy system.
+      </div>
+    </section>
 
-      <a href="/blog/no-code-ai-stack-2026/" class="post-card">
-        <span class="post-category">Infrastructure</span>
-        <h2>The No-Code AI Stack — ShovelsSale.com</h2>
-        <p>Build a real AI product this weekend. 3 platforms, zero ML experience needed, one working product by Sunday.</p>
-        <span class="post-date">2026-03-09</span>
-      </a>
-  </div>
+    <section class="section-head" aria-labelledby="foundation-title">
+      <p class="kicker">Core Foundation Sequence</p>
+      <h2 id="foundation-title">Start Here</h2>
+      <p>
+        These essays define the vocabulary of the system: shovels, miners, gatekeepers, infrastructure, control layers, strategic domains, and hype-resistant market reading.
+      </p>
 
-  <footer>
-    <a href="/">ShovelsSale.com — The Philosophy of Winning Without Gambling.</a>
-  </footer>
+      <div class="grid">
+        <article class="card featured">
+          <div class="label-row">
+            <span class="label">Primer 001</span>
+            <span class="label">System Entry</span>
+          </div>
+          <h3><a href="/blog/what-is-the-shovel-economy/">What Is the Shovel Economy?</a></h3>
+          <p>
+            A clear introduction to the framework for identifying tools, rails, infrastructure, and control layers beneath visible market waves.
+          </p>
+          <a class="read" href="/blog/what-is-the-shovel-economy/">Read article</a>
+        </article>
+
+        <article class="card">
+          <div class="label-row">
+            <span class="label">Primer 002</span>
+            <span class="label">Role Taxonomy</span>
+          </div>
+          <h3><a href="/blog/miners-shovels-gatekeepers-hybrids/">Miners, Shovels, Gatekeepers, and Hybrids</a></h3>
+          <p>
+            A foundational guide to the four roles beneath every market wave: visible participants, enabling infrastructure, access controllers, and hybrid actors.
+          </p>
+          <a class="read" href="/blog/miners-shovels-gatekeepers-hybrids/">Read article</a>
+        </article>
+
+        <article class="card">
+          <div class="label-row">
+            <span class="label">Primer 003</span>
+            <span class="label">Infrastructure</span>
+          </div>
+          <h3><a href="/blog/why-infrastructure-outlives-hype/">Why Infrastructure Outlives Hype</a></h3>
+          <p>
+            Why durable infrastructure layers often survive longer than the hype cycles, products, and narratives built on top of them.
+          </p>
+          <a class="read" href="/blog/why-infrastructure-outlives-hype/">Read article</a>
+        </article>
+
+        <article class="card">
+          <div class="label-row">
+            <span class="label">Primer 004</span>
+            <span class="label">Control Layer</span>
+          </div>
+          <h3><a href="/blog/the-control-layer/">The Control Layer: Where Markets Become Governed</a></h3>
+          <p>
+            A guide to the access, routing, standards, identity, security, bottleneck, and policy systems that govern market participation.
+          </p>
+          <a class="read" href="/blog/the-control-layer/">Read article</a>
+        </article>
+
+        <article class="card">
+          <div class="label-row">
+            <span class="label">Primer 005</span>
+            <span class="label">Digital Assets</span>
+          </div>
+          <h3><a href="/blog/why-domain-names-can-become-strategic-digital-assets/">Why Domain Names Can Become Strategic Digital Assets</a></h3>
+          <p>
+            A clear guide to domain names as naming infrastructure, trust surfaces, memory layers, routing assets, and category-control positions.
+          </p>
+          <a class="read" href="/blog/why-domain-names-can-become-strategic-digital-assets/">Read article</a>
+        </article>
+
+        <article class="card">
+          <div class="label-row">
+            <span class="label">Primer 006</span>
+            <span class="label">Market Reading</span>
+          </div>
+          <h3><a href="/blog/how-to-read-a-market-wave-without-chasing-hype/">How to Read a Market Wave Without Chasing Hype</a></h3>
+          <p>
+            A practical Shovel Economy method for identifying infrastructure, rails, tools, control layers, switching costs, and structural dependency.
+          </p>
+          <a class="read" href="/blog/how-to-read-a-market-wave-without-chasing-hype/">Read article</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-head" aria-labelledby="existing-title">
+      <p class="kicker">Existing Articles · Applied Context</p>
+      <h2 id="existing-title">Additional Essays</h2>
+      <p>
+        These earlier pieces remain part of the archive and should be read as supporting essays connected to the broader Shovel Economy system.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="label-row">
+            <span class="label">Applied Essay</span>
+            <span class="label">2026</span>
+          </div>
+          <h3><a href="/blog/pick-and-shovel-wins-2026/">Pick-and-Shovel Wins 2026</a></h3>
+          <p>
+            An applied essay on why pick-and-shovel logic remains useful when evaluating market waves, infrastructure positions, and durable leverage.
+          </p>
+          <a class="read" href="/blog/pick-and-shovel-wins-2026/">Read article</a>
+        </article>
+
+        <article class="card">
+          <div class="label-row">
+            <span class="label">Applied Essay</span>
+            <span class="label">AI Stack</span>
+          </div>
+          <h3><a href="/blog/no-code-ai-stack-2026/">No-Code AI Stack 2026</a></h3>
+          <p>
+            A supporting essay on the no-code AI stack and the tools, workflows, and infrastructure layers enabling faster digital production.
+          </p>
+          <a class="read" href="/blog/no-code-ai-stack-2026/">Read article</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-head" aria-labelledby="system-title">
+      <p class="kicker">Continue Through the System</p>
+      <h2 id="system-title">From Primer to Classification</h2>
+      <p>
+        The Blog introduces the language. The Framework defines the model. The Scanner applies classification logic. The Dispatch Atlas records deep reference cases.
+      </p>
+
+      <div class="system-links">
+        <a class="system-link" href="/framework/">
+          <strong>Framework</strong>
+          <span>Study the core taxonomy behind miners, shovels, gatekeepers, hybrids, infrastructure layers, and control layers.</span>
+        </a>
+
+        <a class="system-link" href="/scanner/">
+          <strong>Scanner</strong>
+          <span>Test whether a company, product, platform, or asset behaves like a miner, shovel, gatekeeper, or hybrid.</span>
+        </a>
+
+        <a class="system-link" href="/dispatch/">
+          <strong>Dispatch Atlas</strong>
+          <span>Read applied classification records across compute, semiconductors, domains, enterprise systems, payments, commerce, and developer infrastructure.</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>
+        ShovelsSale.com Blog — foundational essays for the Shovel Economy reference system.
+      </p>
+    </footer>
+  </main>
 </body>
 </html>
