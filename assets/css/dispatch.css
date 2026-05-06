@@ -1,3 +1,9 @@
+/* ShovelsSale.com — Dispatch Presentation Stylesheet
+   Shared visual layer for all Dispatch atlas records.
+   Used by dispatch/002.html through dispatch/008.html.
+   dispatch/001.html and dispatch/index.html carry additional inline styles
+   that cascade after this file. */
+
 :root {
   --gold: #C9A84C;
   --gold-light: #E8C97A;
@@ -5,14 +11,13 @@
   --black: #080808;
   --dark: #0E0E0E;
   --dark-2: #141414;
-  --dark-3: #1A1A1A;
   --white: #F5F0E8;
   --white-dim: #9A9080;
   --line: rgba(201,168,76,0.14);
   --panel: rgba(255,255,255,0.03);
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'Cormorant Garamond', serif;
-  --font-mono: 'DM Mono', monospace;
+  --font-display: 'Bebas Neue', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'DM Mono', 'Courier New', monospace;
   --radius-lg: 20px;
 }
 
@@ -31,15 +36,16 @@ body {
 a { color: var(--gold); text-decoration: none; }
 a:hover { color: var(--gold-light); }
 
+/* ── Site Navigation ────────────────────────────────────── */
+
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 1.5rem 3rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
   background: linear-gradient(to bottom, rgba(8,8,8,.97), transparent);
   backdrop-filter: blur(10px);
   font-family: var(--font-mono);
@@ -51,6 +57,13 @@ nav {
 nav a { color: var(--white-dim); transition: color .25s ease; }
 nav a:hover { color: var(--gold); }
 
+.nav-logo { color: var(--gold); }
+.nav-logo:hover { color: var(--gold-light); }
+.nav-back { color: var(--white-dim); }
+.nav-back:hover { color: var(--gold); }
+
+/* ── Article Shell ──────────────────────────────────────── */
+
 .dispatch-content {
   width: min(860px, calc(100% - 48px));
   margin: 0 auto;
@@ -58,6 +71,8 @@ nav a:hover { color: var(--gold); }
   position: relative;
   z-index: 1;
 }
+
+/* ── Dispatch Header (article hero) ─────────────────────── */
 
 .dispatch-header {
   padding: 3rem 0 2.5rem;
@@ -81,6 +96,7 @@ nav a:hover { color: var(--gold); }
   line-height: .95;
   letter-spacing: .02em;
   margin-bottom: 1.2rem;
+  color: var(--white);
 }
 
 .dispatch-summary {
@@ -90,6 +106,8 @@ nav a:hover { color: var(--gold); }
   line-height: 1.85;
   max-width: 720px;
 }
+
+/* ── Article Sections ───────────────────────────────────── */
 
 article section {
   margin-bottom: 2.5rem;
@@ -133,6 +151,8 @@ article li strong {
   color: var(--white);
 }
 
+/* ── Classification Panel ───────────────────────────────── */
+
 .classification-panel {
   background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
   border: 1px solid var(--line);
@@ -161,6 +181,8 @@ article li strong {
   border-bottom: none;
 }
 
+/* ── Tables ─────────────────────────────────────────────── */
+
 article table {
   width: 100%;
   border-collapse: collapse;
@@ -186,6 +208,8 @@ article td {
   color: var(--white-dim);
 }
 
+/* ── Dispatch Meta Footer (inside article) ──────────────── */
+
 .dispatch-meta {
   margin-top: 3rem;
   padding-top: 2rem;
@@ -208,4 +232,24 @@ article td {
 
 .dispatch-meta a:hover {
   color: var(--gold);
+}
+
+/* ── Page Footer ────────────────────────────────────────── */
+
+footer:not(.dispatch-meta) {
+  padding: 2rem 0 1rem;
+  text-align: center;
+  color: var(--white-dim);
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .7;
+}
+
+/* ── Mobile ─────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  nav { padding: 1.2rem 1.25rem; }
+  .dispatch-content { padding-top: 7rem; }
 }
