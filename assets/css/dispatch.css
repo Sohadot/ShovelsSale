@@ -1,0 +1,211 @@
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dim: #7A5F2A;
+  --black: #080808;
+  --dark: #0E0E0E;
+  --dark-2: #141414;
+  --dark-3: #1A1A1A;
+  --white: #F5F0E8;
+  --white-dim: #9A9080;
+  --line: rgba(201,168,76,0.14);
+  --panel: rgba(255,255,255,0.03);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Cormorant Garamond', serif;
+  --font-mono: 'DM Mono', monospace;
+  --radius-lg: 20px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.78;
+  overflow-x: hidden;
+}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--gold-light); }
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(to bottom, rgba(8,8,8,.97), transparent);
+  backdrop-filter: blur(10px);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+nav a { color: var(--white-dim); transition: color .25s ease; }
+nav a:hover { color: var(--gold); }
+
+.dispatch-content {
+  width: min(860px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 8rem 0 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.dispatch-header {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+
+.dispatch-kicker {
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+}
+
+.dispatch-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: .95;
+  letter-spacing: .02em;
+  margin-bottom: 1.2rem;
+}
+
+.dispatch-summary {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--white-dim);
+  line-height: 1.85;
+  max-width: 720px;
+}
+
+article section {
+  margin-bottom: 2.5rem;
+}
+
+article h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: .02em;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+article h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: .6rem;
+  margin-top: 1.5rem;
+  color: var(--gold-light);
+}
+
+article p {
+  margin-bottom: 1rem;
+  color: var(--white-dim);
+  line-height: 1.85;
+}
+
+article ul, article ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+  color: var(--white-dim);
+  line-height: 1.85;
+}
+
+article li {
+  margin-bottom: .5rem;
+}
+
+article li strong {
+  color: var(--white);
+}
+
+.classification-panel {
+  background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.classification-panel h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.classification-panel ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.classification-panel li {
+  padding: .4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  font-size: .95rem;
+}
+
+.classification-panel li:last-child {
+  border-bottom: none;
+}
+
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: .95rem;
+}
+
+article th, article td {
+  text-align: left;
+  padding: .75rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+article th {
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+article td {
+  color: var(--white-dim);
+}
+
+.dispatch-meta {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .12em;
+  color: var(--white-dim);
+}
+
+.dispatch-meta p {
+  font-size: .7rem;
+  color: var(--white-dim);
+  margin-bottom: .5rem;
+}
+
+.dispatch-meta a {
+  color: var(--gold-dim);
+}
+
+.dispatch-meta a:hover {
+  color: var(--gold);
+}
