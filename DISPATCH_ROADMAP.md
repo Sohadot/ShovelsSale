@@ -38,7 +38,7 @@ The roadmap is the disciplined sequencing instrument that ensures each Dispatch 
 
 ## The Layered Atlas
 
-The first seven Dispatch entries form a layered atlas of the Shovel Economy:
+The first eight Dispatch entries form a layered atlas of the Shovel Economy:
 
 | # | Layer | Subject |
 |---|-------|---------|
@@ -49,8 +49,9 @@ The first seven Dispatch entries form a layered atlas of the Shovel Economy:
 | 005 | Web Control Layer / Edge | Cloudflare |
 | 006 | Payment Rails / Transaction Infrastructure | Stripe |
 | 007 | Commerce Operating System | Shopify |
+| 008 | Developer System of Record / Code Infrastructure | GitHub |
 
-Each layer reveals a distinct mechanism through which infrastructure captures durable value. Together, they begin a reference atlas: not a list of famous companies, but a structural map of where modern economies depend on shovel-layer assets.
+Each layer reveals a distinct mechanism through which infrastructure captures durable value. Together, they form a reference atlas: not a list of famous companies, but a structural map of where modern economies depend on shovel-layer assets.
 
 ---
 
@@ -170,8 +171,24 @@ The roadmap order is intentional:
 5. **Cloudflare** — introduces the role migration pattern (Shovel → Gatekeeper)
 6. **Stripe** — demonstrates pure horizontal shovel-layer logic
 7. **Shopify** — closes the first archive sequence with cross-layer integration
+8. **GitHub** — introduces the developer system-of-record layer where code, collaboration, and deployment converge
 
-Together these seven entries form an analytical atlas, not a list. Each entry establishes a structural pattern that future Dispatches can reference, build upon, or test against.
+Together these eight entries form an analytical atlas, not a list. Each entry establishes a structural pattern that future Dispatches can reference, build upon, or test against.
+
+---
+
+## Dispatch 008 — GitHub and the Developer System-of-Record Layer
+
+- **Dispatch Number:** 008
+- **Title:** GitHub and the Developer System-of-Record Layer
+- **Case Type:** Developer infrastructure and code collaboration platform
+- **Primary Layer:** Infrastructure Layer
+- **Secondary Layer:** Control Layer (repository authority, CI/CD dependency, developer identity, ecosystem lock-in)
+- **Classification Signal:** Hybrid (Shovel with strong Gatekeeper characteristics through developer ecosystem control)
+- **Strategic Purpose:** Demonstrate how a code collaboration platform becomes a developer system of record when repositories, workflows, identity, deployment, packages, and institutional memory accumulate around it.
+- **Reference Function:** Establishes the Developer System-of-Record layer as a distinct infrastructure category. Shows how developer tools can transition from utility to structural dependency.
+- **Why It Belongs in the Archive:** Software development is the substrate of every other layer in the atlas. The platform where code lives, collaboration happens, deployments trigger, and developer identity is anchored is itself a shovel-layer asset. GitHub grounds the framework in the layer that builds all other layers.
+- **How It Supports the Shovel Economy Thesis:** Proves that developer infrastructure captures durable value through repository gravity, workflow dependency, identity accumulation, and ecosystem breadth. Introduces the concept that the platform where code is stored and collaboration is organized becomes an institutional system of record for software teams and open-source communities.
 
 ---
 
@@ -202,6 +219,6 @@ Adding a Dispatch beyond entry 007 should follow the same discipline: each new e
 ## Status
 
 Status: Active roadmap  
-Coverage: First seven Dispatch entries defined  
-Next Step: Develop Dispatch entries in sequence, beginning with the next undeveloped entry  
-Last Updated: 2026-05-05
+Coverage: First eight Dispatch entries defined (001–008)  
+Next Step: Develop future Dispatch entries beyond the initial atlas as new structural layers are identified  
+Last Updated: 2026-05-06
