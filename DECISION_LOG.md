@@ -1,5 +1,26 @@
 # Decision Log
 
+## 2026-06-09 — Decision Log Coverage Audit Completed (Sprint 10B)
+
+ShovelsSale.com audited `DECISION_LOG.md` for complete governance coverage of Dispatch 009–011, source-governance audits, and Sprints 6–10 before manual Cloudflare purge and Google/Bing indexing submission.
+
+Audit result:
+- Items 2–12 confirmed present and complete: Dispatch 009–011 source-governance audits, Dispatch 010–011 publication records, Sprint 6 (Blog-to-Dispatch Reference Graph), Sprint 6B (Sitemap Generator Scope Hardening), Sprint 7 (Dispatch Briefing), Sprint 8 (Blog Layer Intelligence Series), Sprint 9 (Search Intent Control Pass), Sprint 10 (Final Indexing Readiness Pass).
+- Item 1 missing: Dispatch 009 TSMC Manufacturing Sovereignty Dossier publication record (Sprint 3) — added retrospectively below without duplicating the existing Sprint 3C source-governance audit entry.
+
+Rationale:
+- A sovereign reference system requires an auditable decision trail before search-console submission; publication and audit decisions for the same dossier must both be recorded.
+- Retrospective entry preserves append-only discipline without rewriting historical Sprint 3C audit content.
+
+Governed by:
+- DECISION_LOG.md (append-only governance practice)
+- INDEXING_SUBMISSION_CHECKLIST.md
+- QUALITY_GATE.md
+
+Indexing status: No indexing requested from code; manual submission remains steward-operated per `INDEXING_SUBMISSION_CHECKLIST.md`.
+
+Status: Accepted
+
 ## 2026-06-09 — Final Indexing Readiness Pass Completed (Sprint 10)
 
 ShovelsSale.com completed the final sitemap, robots, canonical, and indexing-readiness audit before manual Cloudflare purge and Google/Bing sitemap submission.
@@ -633,6 +654,43 @@ Rationale:
 - the specification layer sits above manufacturing (TSMC) and below compute applications (NVIDIA), completing a three-layer vertical in the atlas
 - the RISC-V comparison makes ARM the first entry where the Gatekeeper ceiling is explicitly bounded by an open-source alternative
 - publishing under the Intelligence Standard ensures source governance discipline is maintained across the second dossier
+
+Governed by:
+- DISPATCH_INTELLIGENCE_STANDARD.md
+- CLAUDE.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
+## 2026-06-09 — Dispatch 009 TSMC Manufacturing Sovereignty Dossier Published (Sprint 3)
+
+ShovelsSale.com published Dispatch 009: TSMC and the Manufacturing Sovereignty Layer, as the first full application of the Dispatch Intelligence Standard (v1.0).
+
+This decision records the publication of the dossier and the structural classification applied.
+
+Classification record:
+- Actor: Taiwan Semiconductor Manufacturing Company (TSMC)
+- Actor Type: Company — Dedicated Semiconductor Foundry
+- Market Wave: Semiconductor / AI Infrastructure / Advanced Manufacturing
+- Primary Classification: Hybrid — Shovel (primary) / Gatekeeper (strong)
+- Confidence Level: High Confidence
+- Scanner Scores: Miner: 17 · Shovel: 91 · Gatekeeper: 86
+- Replacement Difficulty: Very High
+- Source Table Entries: 10 (initial publication; expanded to 12 in Sprint 3C audit)
+- Standard Applied: Dispatch Intelligence Standard v1.0
+
+Rationale for distinct treatment vs. prior dispatches:
+- TSMC grounds the Dispatch atlas in physical manufacturing sovereignty — every prior entry described digital or software infrastructure layers.
+- The dedicated foundry model is structurally distinct from equipment (ASML, Dispatch 002), compute (NVIDIA, Dispatch 001), and downstream licensing or aggregation patterns.
+- Manufacturing sovereignty establishes the mandatory passage point for advanced silicon beneath AI, cloud, and platform infrastructure.
+
+Files created or updated:
+- dispatch/009.html (created)
+- dispatch/index.html (updated: numberOfItems 8→9, TSMC card, archive item, "Nine Markets. Nine Layers.")
+- DISPATCH_ROADMAP.md (updated: Dispatch 009 entry, coverage 001–009)
+- sitemap.xml (regenerated via `scripts/update_sitemap.py`)
+
+Quality gate status: All 5 validators pass (exit code 0).
 
 Governed by:
 - DISPATCH_INTELLIGENCE_STANDARD.md
