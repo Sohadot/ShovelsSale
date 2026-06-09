@@ -182,41 +182,48 @@
     </section>
 
     <!-- ── Result Preview ─────────────────────────────────────────────── -->
-    <div id="resultPreview" hidden>
+    <div id="resultPreview">
       <div class="eyebrow">Classification Result</div>
       <h2 class="section-title">Your <span>Classification</span></h2>
       <p class="section-intro">
         This preview reflects the current signal scores. Adjust any signal below to refine the result.
         For the full analysis including score breakdowns, derived metrics, and dispatch examples, use the
-        <a href="#dossier" style="color:var(--gold);">Result Dossier</a> below.
+        <a href="#result-dossier" style="color:var(--gold);">Result Dossier</a> below.
       </p>
-      <div class="panel result-preview-panel">
-        <div class="panel-inner">
-          <div class="result-preview-header">
-            <div class="result-preview-actor-label">Classified Actor</div>
-            <div class="result-preview-name" id="previewActorName"></div>
-            <div class="result-preview-tags">
-              <div class="classification-badge" id="previewBadge"></div>
-              <div class="dossier-tag" id="previewConfidence"></div>
+
+      <div id="previewPlaceholder" class="result-preview-placeholder">
+        <p class="result-preview-placeholder-text">Enter an actor, choose or adjust signals, then click Classify This Actor.</p>
+      </div>
+
+      <div id="previewContent" hidden>
+        <div class="panel result-preview-panel">
+          <div class="panel-inner">
+            <div class="result-preview-actor-label" id="previewContext">Classified Actor</div>
+            <div class="result-preview-header">
+              <div class="result-preview-name" id="previewActorName"></div>
+              <div class="result-preview-tags">
+                <div class="classification-badge" id="previewBadge"></div>
+                <div class="dossier-tag" id="previewConfidence"></div>
+              </div>
             </div>
-          </div>
-          <div class="result-preview-metrics">
-            <div class="result-preview-metric">
-              <div class="result-preview-metric-label">Infrastructure Density</div>
-              <div class="result-preview-metric-value" id="previewInfra">—</div>
+            <div class="result-preview-metrics">
+              <div class="result-preview-metric">
+                <div class="result-preview-metric-label">Infrastructure Density</div>
+                <div class="result-preview-metric-value" id="previewInfra">—</div>
+              </div>
+              <div class="result-preview-metric">
+                <div class="result-preview-metric-label">Control-Layer Strength</div>
+                <div class="result-preview-metric-value" id="previewControl">—</div>
+              </div>
+              <div class="result-preview-metric">
+                <div class="result-preview-metric-label">Speculation Exposure</div>
+                <div class="result-preview-metric-value" id="previewSpec">—</div>
+              </div>
             </div>
-            <div class="result-preview-metric">
-              <div class="result-preview-metric-label">Control-Layer Strength</div>
-              <div class="result-preview-metric-value" id="previewControl">—</div>
+            <p class="result-preview-body" id="previewBody"></p>
+            <div class="result-preview-actions">
+              <a href="#result-dossier" class="primary-btn">View Full Result Dossier</a>
             </div>
-            <div class="result-preview-metric">
-              <div class="result-preview-metric-label">Speculation Exposure</div>
-              <div class="result-preview-metric-value" id="previewSpec">—</div>
-            </div>
-          </div>
-          <p class="result-preview-body" id="previewBody"></p>
-          <div class="result-preview-actions">
-            <a href="#dossier" class="primary-btn">View Full Result Dossier</a>
           </div>
         </div>
       </div>
@@ -552,7 +559,7 @@
     </section>
 
     <!-- ── Section 4: Result Dossier ─────────────────────────────────── -->
-    <div id="dossier" hidden>
+    <div id="result-dossier" hidden>
       <section>
         <div class="eyebrow">Classification Output</div>
         <h2 class="section-title">Result <span>Dossier</span></h2>
