@@ -6,6 +6,7 @@ Purpose:
 - Convert filesystem paths into clean canonical URLs
 - Generate a production-grade sitemap.xml
 - Remain compatible with Windows, GitHub Actions, and static-site deployment
+- Never emit local development, Claude, worktree, or other non-public paths
 """
 
 from __future__ import annotations
@@ -13,9 +14,11 @@ from __future__ import annotations
 import json
 import re
 import subprocess
+import sys
 from html.parser import HTMLParser
 from pathlib import Path
 from datetime import date
+from urllib.parse import urlparse
 
 SITE_URL = "https://shovelssale.com"
 RUN_DATE = date.today().isoformat()
@@ -24,15 +27,23 @@ ROOT_DIR = Path(".")
 SKIP_DIRS = {
     ".git",
     ".github",
+    ".claude",
+    ".well-known",
     "scripts",
     "node_modules",
     "__pycache__",
-    ".well-known",
+    ".venv",
+    "venv",
     "assets",
     "reports",
     "dist",
     "build",
     "vendor",
+    "backup",
+    "tmp",
+    "temp",
+    "private",
+    "internal",
 }
 
 SKIP_FILES = {
@@ -41,6 +52,31 @@ SKIP_FILES = {
     "google28b5398e4140f820.html",
     "schema-templates.html",
 }
+
+PUBLIC_TOP_LEVEL_SECTIONS = {
+    "about",
+    "manifesto",
+    "framework",
+    "guide",
+    "scanner",
+    "dispatch",
+    "blog",
+}
+
+DISPATCH_ISSUE_PATTERN = re.compile(r"^\d{3}\.html$")
+BLOG_ARTICLE_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+
+PROHIBITED_URL_SUBSTRINGS = (
+    ".claude",
+    "worktree",
+    "worktrees",
+    ".git",
+    "node_modules",
+    "__pycache__",
+    "/scripts/",
+    "http://",
+    "www.shovelssale.com",
+)
 
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}")
 METADATA_DATE_KEYS = {
@@ -207,21 +243,69 @@ def page_lastmod(path: Path) -> str:
 
 
 def should_skip(path: Path) -> bool:
-    """Return True if the path should be excluded from sitemap discovery."""
-
-    # Skip specific files
+    """Return True if the filesystem path should be excluded from sitemap discovery."""
     if path.name in SKIP_FILES:
         return True
 
-    # 🔒 Skip ALL Google verification files (dynamic-safe)
     if path.name.startswith("google") and path.name.endswith(".html"):
         return True
 
-    # Skip system directories
-    if any(part in SKIP_DIRS for part in path.parts):
+    if path.suffix.lower() not in {".html", ".htm"}:
         return True
 
+    relative_parts = path.relative_to(ROOT_DIR).parts
+
+    for part in relative_parts:
+        if part in SKIP_DIRS:
+            return True
+
+        if part.startswith("."):
+            return True
+
+        part_lower = part.lower()
+        if "worktree" in part_lower or "worktrees" in part_lower:
+            return True
+
     return False
+
+
+def is_public_url_path(url_path: str) -> bool:
+    """Return True when a URL path belongs to the canonical public site architecture."""
+    if url_path == "/":
+        return True
+
+    if not url_path.startswith("/") or not url_path.endswith("/"):
+        if not (url_path.startswith("/dispatch/") and url_path.endswith(".html")):
+            return False
+
+    segments = [segment for segment in url_path.strip("/").split("/") if segment]
+
+    if not segments:
+        return url_path == "/"
+
+    section = segments[0]
+    if section not in PUBLIC_TOP_LEVEL_SECTIONS:
+        return False
+
+    if section == "dispatch":
+        if len(segments) == 1:
+            return url_path == "/dispatch/"
+        if len(segments) == 2:
+            return DISPATCH_ISSUE_PATTERN.match(segments[1]) is not None
+        return False
+
+    if section == "blog":
+        if len(segments) == 1:
+            return url_path == "/blog/"
+        if len(segments) == 2:
+            return BLOG_ARTICLE_PATTERN.match(segments[1]) is not None
+        return False
+
+    if len(segments) == 1:
+        return url_path == f"/{section}/"
+
+    return False
+
 
 def path_to_url_path(path: Path) -> str:
     """
@@ -245,6 +329,39 @@ def path_to_url_path(path: Path) -> str:
     return "/" + relative.lstrip("/")
 
 
+def validate_sitemap_urls(pages: list[dict]) -> None:
+    """Fail loudly if any generated URL violates public-route governance rules."""
+    errors: list[str] = []
+
+    for page in pages:
+        url = page["url"]
+        url_lower = url.lower()
+        url_path = page["url_path"]
+
+        if not is_public_url_path(url_path):
+            errors.append(f"Non-public route excluded from sitemap scope: {url}")
+
+        parsed = urlparse(url)
+        if parsed.scheme != "https" or parsed.netloc != "shovelssale.com":
+            errors.append(f"URL must use canonical HTTPS origin {SITE_URL}: {url}")
+
+        if parsed.query or parsed.fragment:
+            errors.append(f"URL must not contain query strings or fragments: {url}")
+
+        if parsed.path.count("//") > 0:
+            errors.append(f"URL path must not contain duplicate slashes: {url}")
+
+        for prohibited in PROHIBITED_URL_SUBSTRINGS:
+            if prohibited in url_lower:
+                errors.append(f"Prohibited substring '{prohibited}' found in URL: {url}")
+
+    if errors:
+        print("[FAIL] Sitemap URL validation failed.", file=sys.stderr)
+        for error in errors:
+            print(f"  - {error}", file=sys.stderr)
+        sys.exit(1)
+
+
 def discover_pages() -> list[dict]:
     """Discover all public HTML pages and assign sitemap metadata."""
     pages: list[dict] = []
@@ -255,15 +372,16 @@ def discover_pages() -> list[dict]:
 
         url_path = path_to_url_path(path)
 
+        if not is_public_url_path(url_path):
+            continue
+
         priority = PRIORITY_MAP.get(url_path, "0.7")
         freq = FREQ_MAP.get(url_path, "weekly")
 
-        # Blog article pages
         if url_path.startswith("/blog/") and url_path != "/blog/":
             priority = "0.7"
             freq = "monthly"
 
-        # Dispatch issue pages
         if url_path.startswith("/dispatch/") and url_path != "/dispatch/":
             priority = "0.8"
             freq = "monthly"
@@ -276,11 +394,6 @@ def discover_pages() -> list[dict]:
             "url_path": url_path,
         })
 
-    # Sort:
-    # 1. homepage first
-    # 2. dispatch issues newest first
-    # 3. then higher priority
-    # 4. then URL path alphabetically
     def sort_key(p):
         if p["url_path"] == "/":
             return (0, 0, "")
@@ -333,6 +446,7 @@ if __name__ == "__main__":
     print("=" * 60 + "\n")
 
     pages = discover_pages()
+    validate_sitemap_urls(pages)
     generate_sitemap(pages)
 
     print("\n[OK] Sitemap generation complete.\n")

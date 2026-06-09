@@ -1,5 +1,25 @@
 # Decision Log
 
+## 2026-06-09 — Sitemap Generator Scope Hardened (Sprint 6B)
+
+ShovelsSale.com hardened `scripts/update_sitemap.py` so automated sitemap generation cannot emit local Claude/worktree or other non-public filesystem paths.
+
+Changes:
+- Aligned sitemap discovery exclusions with public-route governance: `.claude/`, hidden directories, worktree paths, venv/cache/backup/temp directories, scripts, and assets.
+- Added positive public-route allow rules for homepage, core sections, `/dispatch/NNN.html`, and `/blog/[article]/` only.
+- Added final URL validation that exits non-zero when prohibited substrings or non-canonical origins appear.
+- Regenerated `sitemap.xml` via the hardened script.
+
+Rationale:
+- Sprint 6 required manual sitemap lastmod edits because local `.claude/worktrees` copies were discovered by unrestricted `rglob("*.html")` scanning.
+- A sovereign static site must not depend on manual sitemap edits when an automated generator exists.
+
+Governed by:
+- SEO_POLICY.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
 ## 2026-06-09 — Blog-to-Dispatch Reference Graph Established (Sprint 6)
 
 ShovelsSale.com connected six blog concept primers to contextually relevant Dispatch intelligence dossiers, strengthened reverse links from Dispatch 009–011 to foundational blog primers, Scanner, and Framework, and added a reference bridge on the blog index.
