@@ -977,6 +977,22 @@ input[type="range"] {
   gap: 0.75rem;
 }
 
+.result-preview-placeholder {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.result-preview-placeholder-text {
+  color: var(--white-dim);
+  font-size: 1rem;
+  line-height: 1.8;
+  font-style: italic;
+}
+
 /* ── Closing CTA ────────────────────────────────────────────────────────── */
 .closing-panel {
   border: 1px solid rgba(201,168,76,0.22);
