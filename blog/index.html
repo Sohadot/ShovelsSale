@@ -296,6 +296,43 @@
       border-color: var(--gold-dim);
     }
 
+    .series-intro {
+      max-width: 1180px;
+      margin: 0 auto 1.5rem;
+      padding: 2rem 1.5rem;
+      background: var(--dark-2);
+      border: 1px solid var(--line);
+    }
+
+    .series-intro h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+
+    .series-intro p {
+      color: var(--white-dim);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .posts-section {
+      max-width: 1180px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1.5rem;
+    }
+
+    .posts-section-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+    }
+
     footer {
       text-align: center;
       padding: 3rem;
@@ -385,7 +422,58 @@
     </div>
   </section>
 
-  <div class="posts-grid">
+  <section class="series-intro">
+    <h2>How the Blog Is Organized</h2>
+    <p>Foundation essays explain the Shovel Economy — roles, control layers, infrastructure durability, and domain strategy.</p>
+    <p>Layer Intelligence essays turn the framework into reading methods: scorecards, infrastructure signals, dependency maps, strategic digital assets, and beneath-the-winner analysis.</p>
+    <p>Dispatch dossiers apply those methods to real infrastructure cases. The Scanner lets you classify your own cases against the same structural model.</p>
+  </section>
+
+  <div class="posts-section">
+    <h2 class="posts-section-title">Layer Intelligence Series</h2>
+    <div class="posts-grid">
+
+      <a href="/blog/shovel-economy-scorecard/" class="post-card">
+        <span class="post-category">Layer Intelligence</span>
+        <h2>The Shovel Economy Scorecard</h2>
+        <p>A governed evaluative checklist for reading market positions through structural signals — not narrative excitement.</p>
+        <span class="post-date">2026-06-09</span>
+      </a>
+
+      <a href="/blog/infrastructure-signals/" class="post-card">
+        <span class="post-category">Layer Intelligence</span>
+        <h2>Infrastructure Signals: How to Know a Layer Is Becoming Necessary</h2>
+        <p>Observable signals of repeated dependency, integration depth, switching cost, and compounding adoption.</p>
+        <span class="post-date">2026-06-09</span>
+      </a>
+
+      <a href="/blog/hype-cycle-to-dependency-map/" class="post-card">
+        <span class="post-category">Layer Intelligence</span>
+        <h2>From Hype Cycle to Dependency Map</h2>
+        <p>How to trace hidden dependency structure beneath visible market waves — upstream actors, bottlenecks, and replacement difficulty.</p>
+        <span class="post-date">2026-06-09</span>
+      </a>
+
+      <a href="/blog/strategic-digital-assets-are-not-websites/" class="post-card">
+        <span class="post-category">Layer Intelligence</span>
+        <h2>Strategic Digital Assets Are Not Websites</h2>
+        <p>Why governed systems — doctrine, tools, reference value, and source discipline — define strategic digital assets.</p>
+        <span class="post-date">2026-06-09</span>
+      </a>
+
+      <a href="/blog/beneath-the-winner/" class="post-card">
+        <span class="post-category">Layer Intelligence</span>
+        <h2>Why the Best Market Position Is Often Beneath the Winner</h2>
+        <p>Why enabling layers beneath visible winners often hold the more durable structural position.</p>
+        <span class="post-date">2026-06-09</span>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="posts-section">
+    <h2 class="posts-section-title">Foundation Essays</h2>
+    <div class="posts-grid">
     
       <a href="/blog/why-infrastructure-outlives-hype/" class="post-card">
         <span class="post-category">Infrastructure</span>
@@ -442,6 +530,7 @@
         <p>Build a real AI product this weekend. 3 platforms, zero ML experience needed, one working product by Sunday.</p>
         <span class="post-date">2026-03-09</span>
       </a>
+    </div>
   </div>
 
   <footer>

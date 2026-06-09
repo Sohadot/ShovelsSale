@@ -1,5 +1,30 @@
 # Decision Log
 
+## 2026-06-09 — Blog Layer Intelligence Series Published (Sprint 8)
+
+ShovelsSale.com published five governed long-form Blog intelligence articles as the Layer Intelligence Series, strengthening conceptual search anchors for Shovel Economy reading methods.
+
+Articles:
+- `/blog/shovel-economy-scorecard/` — evaluative checklist for structural market positions
+- `/blog/infrastructure-signals/` — observable signals of infrastructure necessity
+- `/blog/hype-cycle-to-dependency-map/` — from market excitement to dependency maps
+- `/blog/strategic-digital-assets-are-not-websites/` — systems vs surfaces for strategic digital assets
+- `/blog/beneath-the-winner/` — enabling layers beneath visible winners
+
+Changes:
+- Updated `/blog/` index with Layer Intelligence Series and Foundation Essays organization.
+- Regenerated `sitemap.xml` via hardened `scripts/update_sitemap.py`.
+
+Rationale:
+- Blog is the conceptual entry layer; Layer Intelligence essays turn Framework doctrine into repeatable reading methods that connect to Scanner, Dispatch, and Briefing.
+
+Governed by:
+- SEO_POLICY.md
+- CLAUDE.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
 ## 2026-06-09 — Dispatch Briefing Signup Layer Added (Sprint 7)
 
 ShovelsSale.com added a restrained Dispatch Briefing audience capture layer using mailto-only signup, with no third-party embeds, tracking changes, or marketing funnel mechanics.

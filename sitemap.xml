@@ -124,7 +124,25 @@
     <priority>0.75</priority>
   </url>
   <url>
+    <loc>https://shovelssale.com/blog/beneath-the-winner/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://shovelssale.com/blog/how-to-read-a-market-wave-without-chasing-hype/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shovelssale.com/blog/hype-cycle-to-dependency-map/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shovelssale.com/blog/infrastructure-signals/</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -144,6 +162,18 @@
   <url>
     <loc>https://shovelssale.com/blog/pick-and-shovel-wins-2026/</loc>
     <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shovelssale.com/blog/shovel-economy-scorecard/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shovelssale.com/blog/strategic-digital-assets-are-not-websites/</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
