@@ -365,3 +365,32 @@ Affected Layers:
 
 Reversal Conditions:
 This decision should only be revisited if McAfee, another browser/security provider, or search console tools report a renewed trust or routing problem.
+DEC-2026-06-09 — Scanner Custom Actor Preset-Carryover Bug Closed
+
+Date: 2026-06-09
+Status: Closed
+Area: Scanner Engine, Runtime State, Trust Logic, UX Integrity
+
+Decision:
+ShovelsSale.com repaired the Scanner Engine’s custom actor logic so manually typed actors can no longer inherit stale preset signal values.
+
+Context:
+Live mobile testing showed that when a user typed a custom actor such as “Space x,” the Scanner could display “Custom Signal Analysis” while still reusing prior preset values such as high infrastructure density and control-layer strength. This created a trust issue because the interface appeared to generate actor-specific analysis while actually carrying forward previous preset signals.
+
+Root Cause:
+The preset-clearing condition depended on a state comparison that failed when "activePreset" was already null. In that case, typing a second custom actor did not trigger a reset because the old and new active-preset states both evaluated as null.
+
+Action Taken:
+A dedicated custom-mode path was introduced. Manual actor input now resets all ten signals to neutral 50/100, clears preset state, and marks the analysis as custom. The classify path independently recomputes the custom-neutral state, so stale event state cannot allow preset values to pass through.
+
+Result:
+Untouched custom actors now produce Unclear / Early Signal with Low Confidence until the user adjusts structural signals manually or selects a preset. Manually typing a preset name no longer silently loads preset values. Preset behavior remains explicit and user-controlled.
+
+Strategic Rationale:
+The Scanner must operate as a transparent classification instrument, not as a false automated company-research engine. This change protects trust by clearly separating preset-based structural starting profiles from manual custom analysis.
+
+Validation:
+Quality gate passed with all active checks. The page preserves one H1, SEO metadata, canonical posture, internal links, and static client-side operation.
+
+Reversal Conditions:
+This behavior should only be changed if ShovelsSale later introduces a governed, source-backed company intelligence layer capable of loading verified actor profiles intentionally.
