@@ -768,6 +768,82 @@ input[type="range"] {
   line-height: 1.68;
 }
 
+/* ── Result methodology section ─────────────────────────────────────────── */
+.result-use-note {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.20);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.75rem;
+}
+
+.result-use-label {
+  font-family: var(--font-mono);
+  font-size: 0.60rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.result-use-body {
+  color: var(--white-dim);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.result-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+  margin-top: 1.25rem;
+}
+
+.result-field-card {
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+.result-field-name {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.45rem;
+}
+
+.result-field-name span { color: var(--gold); }
+
+.result-field-body {
+  color: var(--white-dim);
+  font-size: 0.95rem;
+  line-height: 1.78;
+}
+
+.result-disclaimer {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-lg);
+  padding: 1.3rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.result-disclaimer-label {
+  font-family: var(--font-mono);
+  font-size: 0.60rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  margin-bottom: 0.55rem;
+}
+
+.result-disclaimer-body {
+  color: var(--white-dim);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
 /* ── Closing CTA ────────────────────────────────────────────────────────── */
 .closing-panel {
   border: 1px solid rgba(201,168,76,0.22);
@@ -856,6 +932,7 @@ footer {
   .dispatch-index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .methodology-grid,
+  .result-field-grid,
   .derived-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -866,8 +943,36 @@ footer {
 
   .panel-inner { padding: 1.4rem; }
 
+  /* Body text: larger and better contrast on mobile */
+  .signal-desc,
+  .method-card-body,
+  .class-card-body,
+  .result-field-body,
+  .result-use-body,
+  .result-disclaimer-body,
+  .dispatch-card-note,
+  .link-card-desc,
+  .hype-callout-body,
+  .dossier-analysis-body {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .panel-desc { font-size: 1.02rem; line-height: 1.85; }
+  .section-intro { font-size: 1.05rem; }
+
+  /* Slider readability */
+  .range-scale { font-size: 0.62rem; letter-spacing: 0.06em; }
+  .signal-badge { font-size: 0.72rem; min-width: 72px; padding: 0.55rem 0.8rem; }
+  .signal-label { font-size: 1.05rem; }
+
+  /* Ensure range inputs have a comfortable touch target */
+  input[type="range"] { min-height: 44px; padding: 10px 0; }
+
+  /* All dense grids stack to single column on mobile */
   .signals-grid,
   .methodology-grid,
+  .result-field-grid,
   .class-grid,
   .dispatch-suggestions-grid,
   .dispatch-index-grid,
@@ -878,4 +983,8 @@ footer {
   .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .score-row { grid-template-columns: 70px 1fr 50px; }
+
+  /* Dossier readability */
+  .dossier-name { font-size: 1.6rem; }
+  .dossier-body-text { font-size: 1.02rem; line-height: 1.88; }
 }
