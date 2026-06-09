@@ -1,5 +1,47 @@
 # Decision Log
 
+## 2026-06-09 — Dispatch 011 Broadcom Infrastructure Aggregation Dossier Published (Sprint 5)
+
+ShovelsSale.com published Dispatch 011: Broadcom and the Infrastructure Aggregation Layer, as the third full application of the Dispatch Intelligence Standard (v1.0).
+
+This decision records the publication of the dossier and the structural classification applied.
+
+Classification record:
+- Actor: Broadcom Inc.
+- Actor Type: Company — Semiconductor Designer and Infrastructure Software Licensor
+- Market Wave: Semiconductor / Cloud / Enterprise IT / Networking / AI Infrastructure
+- Primary Classification: Hybrid — Shovel (primary) / Gatekeeper (moderate)
+- Confidence Level: Moderate Confidence (aggregation thesis requires interpretation of portfolio combination; individual products have alternatives; hyperscaler ASIC displacement is an open Watch Signal)
+- Scanner Scores: Miner: 20 · Shovel: 80 · Gatekeeper: 65
+- Replacement Difficulty: Moderate-High
+- Source Table Entries: 14 (13 T1, 1 T3/Watch Signal)
+- Standard Applied: Dispatch Intelligence Standard v1.0
+
+Rationale for Moderate Confidence (not High):
+- Broadcom's infrastructure position is an aggregation thesis requiring interpretation of multiple product segments — more analytical judgment than a single-product classification like ARM or TSMC.
+- Each individual product category (networking ASICs, enterprise hypervisor, storage, security) has documented competitive alternatives.
+- The hyperscaler custom ASIC displacement signal (Section 9, Gate 1) is a known structural uncertainty bearing directly on the semiconductor segment classification.
+
+Rationale for distinct treatment vs. prior dispatches:
+- Broadcom is not analogous to ARM (single ISA specification), TSMC (single manufacturing layer), or NVIDIA (dominant GPU compute). It is a distinct aggregation case.
+- The Infrastructure Aggregation Pattern is added to the Dispatch atlas as a structural category not previously represented.
+
+Files created or updated:
+- dispatch/011.html (created)
+- dispatch/index.html (updated: numberOfItems 10→11, Broadcom card, archive item, "Eleven Markets. Eleven Layers.")
+- DISPATCH_ROADMAP.md (updated: Dispatch 011 entry, coverage 001-011)
+- DECISION_LOG.md (this entry)
+- sitemap.xml (regenerated)
+
+Quality gate status: All 5 validators pass (exit code 0).
+
+Governed by:
+- DISPATCH_INTELLIGENCE_STANDARD.md
+- CLAUDE.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
 ## 2026-06-09 — Dispatch 010 Source Governance Audit Completed (Sprint 4B)
 
 ShovelsSale.com performed a strict intelligence-quality audit of Dispatch 010 (ARM and the Architecture Licensing Layer) as the second full application of the Dispatch Intelligence Standard (v1.0).
