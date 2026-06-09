@@ -1,5 +1,26 @@
 # Decision Log
 
+## 2026-06-09 — Final Indexing Readiness Pass Completed (Sprint 10)
+
+ShovelsSale.com completed the final sitemap, robots, canonical, and indexing-readiness audit before manual Cloudflare purge and Google/Bing sitemap submission.
+
+Changes:
+- Regenerated `sitemap.xml` via `scripts/update_sitemap.py` — 33 URLs confirmed, homepage `lastmod` refreshed.
+- Verified `robots.txt` sitemap directive (`https://shovelssale.com/sitemap.xml`); no Disallow rules block public content.
+- Canonical spot-check passed for home, Scanner, Dispatch, Blog, Briefing, Dispatch 009–011, and Layer Intelligence articles.
+- Metadata and internal-link spot-checks passed; quality gate 0 errors, 12 non-blocking split-hero H1 warnings.
+- Created `INDEXING_SUBMISSION_CHECKLIST.md` for manual Cloudflare purge and search-console submission workflow.
+
+Rationale:
+- After Sprint 8 (Layer Intelligence), Sprint 7 (Briefing), and Sprint 9 (search-intent metadata), the reference system requires a governed handoff document for selective manual indexing — not automated submission from code.
+
+Governed by:
+- SEO_POLICY.md
+- QUALITY_GATE.md
+- INDEXING_SUBMISSION_CHECKLIST.md
+
+Status: Accepted
+
 ## 2026-06-09 — Search Intent Control Pass Completed (Sprint 9)
 
 ShovelsSale.com refined search-intent language, metadata, and internal anchor text across core reference pages without adding new content or tools.
