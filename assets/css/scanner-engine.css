@@ -901,6 +901,19 @@ input[type="range"] {
   opacity: 0.45;
 }
 
+/* ── Custom signal note ─────────────────────────────────────────────────── */
+.custom-signal-note {
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.22);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--white-dim);
+  line-height: 1.7;
+}
+
 /* ── Loading state ──────────────────────────────────────────────────────── */
 .scanner-loading {
   text-align: center;
