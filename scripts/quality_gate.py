@@ -67,6 +67,12 @@ CHECKS = [
         report_name="seo_validation.json",
         description="Detects missing metadata, canonical problems, robots issues, and sitemap coverage failures.",
     ),
+    GateCheck(
+        name="Scanner Model Integrity Gate",
+        script_name="validate_scanner_model.py",
+        report_name="scanner_model_validation.json",
+        description="Validates data/scanner-model.json for structural integrity, weight sums, signal references, and dispatch file resolution.",
+    ),
 ]
 
 
