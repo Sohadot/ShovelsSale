@@ -1,0 +1,311 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "Shovel Scanner Engine — governed classification model. Source of truth for signals, weights, presets, and dispatch mappings.",
+    "presetsNote": "Presets are structural starting points based on observable market behavior at a point in time. They are not automated research profiles. Adjust signals to match your own evidence."
+  },
+
+  "signals": [
+    {
+      "key": "enablesMany",
+      "label": "Enables many participants",
+      "description": "Does this actor enable many participants across the market, regardless of who wins the visible competition?",
+      "leftLabel": "Serves one participant",
+      "rightLabel": "Enables many participants",
+      "defaultValue": 50
+    },
+    {
+      "key": "chasesVisible",
+      "label": "Chases visible demand directly",
+      "description": "Does this actor primarily compete for visible, narratively attractive outcomes rather than serving the infrastructure beneath them?",
+      "leftLabel": "Infrastructure position",
+      "rightLabel": "Chases visible demand",
+      "defaultValue": 50
+    },
+    {
+      "key": "controlsAccess",
+      "label": "Controls access, standards, routing, or bottlenecks",
+      "description": "Does this actor define who gets access, set the rules of the market, or control critical distribution rails or permissions?",
+      "leftLabel": "No control power",
+      "rightLabel": "Defines access and standards",
+      "defaultValue": 50
+    },
+    {
+      "key": "nearCoreInfra",
+      "label": "Sits near compute, money, identity, or distribution",
+      "description": "How close is this actor to core infrastructure layers: compute, payments, identity, records, deployment, security, or distribution?",
+      "leftLabel": "Application layer",
+      "rightLabel": "Core infrastructure",
+      "defaultValue": 50
+    },
+    {
+      "key": "failureDisrupts",
+      "label": "Failure would disrupt many participants",
+      "description": "If this actor failed or disappeared, would many participants in the market be operationally disrupted?",
+      "leftLabel": "Easily absorbed",
+      "rightLabel": "System-critical",
+      "defaultValue": 50
+    },
+    {
+      "key": "hardToSwitch",
+      "label": "Switching away is operationally difficult",
+      "description": "How embedded is this actor in workflows, standards, or operations that make switching away genuinely costly?",
+      "leftLabel": "Easy to leave",
+      "rightLabel": "Deep operational lock-in",
+      "defaultValue": 50
+    },
+    {
+      "key": "dependencyGrows",
+      "label": "Dependency increases over time",
+      "description": "Does the market's reliance on this actor grow as adoption deepens, integrations accumulate, and switching costs rise?",
+      "leftLabel": "Dependency shrinks",
+      "rightLabel": "Dependency compounds",
+      "defaultValue": 50
+    },
+    {
+      "key": "necessityNotSpec",
+      "label": "Value tied to operational necessity, not speculation",
+      "description": "Is demand driven by genuine operational need, or by speculative interest in a narrative outcome?",
+      "leftLabel": "Speculation-driven",
+      "rightLabel": "Necessity-driven",
+      "defaultValue": 50
+    },
+    {
+      "key": "replaceable",
+      "label": "Replaceable by many alternatives",
+      "description": "Could this actor be replaced by many credible alternatives within a reasonable operational timeframe?",
+      "leftLabel": "Hard to replace",
+      "rightLabel": "Many alternatives exist",
+      "defaultValue": 50
+    },
+    {
+      "key": "compoundsIntegrations",
+      "label": "Compounds through integrations, workflows, standards, or trust",
+      "description": "Does this actor's value compound as more systems, workflows, records, and dependencies accumulate around it?",
+      "leftLabel": "Static value",
+      "rightLabel": "Compounds over time",
+      "defaultValue": 50
+    }
+  ],
+
+  "scoring": {
+    "miner": [
+      { "signal": "chasesVisible",    "weight": 0.30, "invert": false },
+      { "signal": "replaceable",      "weight": 0.20, "invert": false },
+      { "signal": "enablesMany",      "weight": 0.15, "invert": true  },
+      { "signal": "necessityNotSpec", "weight": 0.15, "invert": true  },
+      { "signal": "failureDisrupts",  "weight": 0.10, "invert": true  },
+      { "signal": "hardToSwitch",     "weight": 0.10, "invert": true  }
+    ],
+    "shovel": [
+      { "signal": "enablesMany",      "weight": 0.25, "invert": false },
+      { "signal": "failureDisrupts",  "weight": 0.20, "invert": false },
+      { "signal": "necessityNotSpec", "weight": 0.20, "invert": false },
+      { "signal": "nearCoreInfra",    "weight": 0.13, "invert": false },
+      { "signal": "hardToSwitch",     "weight": 0.12, "invert": false },
+      { "signal": "dependencyGrows",  "weight": 0.10, "invert": false }
+    ],
+    "gatekeeper": [
+      { "signal": "controlsAccess",        "weight": 0.35, "invert": false },
+      { "signal": "compoundsIntegrations", "weight": 0.25, "invert": false },
+      { "signal": "hardToSwitch",          "weight": 0.15, "invert": false },
+      { "signal": "failureDisrupts",       "weight": 0.15, "invert": false },
+      { "signal": "nearCoreInfra",         "weight": 0.10, "invert": false }
+    ]
+  },
+
+  "derivedMetrics": {
+    "infrastructureDensity": {
+      "formula": "avg",
+      "components": [
+        { "signal": "enablesMany",     "invert": false },
+        { "signal": "nearCoreInfra",   "invert": false },
+        { "signal": "failureDisrupts", "invert": false },
+        { "signal": "dependencyGrows", "invert": false }
+      ]
+    },
+    "controlLayerStrength": {
+      "formula": "score",
+      "source": "gatekeeper"
+    },
+    "dependencyBreadth": {
+      "formula": "avg",
+      "components": [
+        { "signal": "enablesMany",     "invert": false },
+        { "signal": "failureDisrupts", "invert": false }
+      ]
+    },
+    "switchingCost": {
+      "formula": "signal",
+      "source": "hardToSwitch",
+      "invert": false
+    },
+    "replacementDifficulty": {
+      "formula": "signal",
+      "source": "replaceable",
+      "invert": true
+    },
+    "speculationExposure": {
+      "formula": "avg",
+      "components": [
+        { "signal": "chasesVisible",    "invert": false },
+        { "signal": "necessityNotSpec", "invert": true  }
+      ]
+    },
+    "durabilitySignal": {
+      "formula": "avg",
+      "components": [
+        { "signal": "hardToSwitch",          "invert": false },
+        { "signal": "dependencyGrows",       "invert": false },
+        { "signal": "compoundsIntegrations", "invert": false }
+      ]
+    }
+  },
+
+  "confidence": {
+    "lowScoreThreshold": 50,
+    "hybridSpreadThreshold": 8,
+    "highSpreadThreshold": 25,
+    "highMinScore": 65
+  },
+
+  "layers": {
+    "Miner": "Extraction Layer",
+    "Shovel": "Infrastructure Layer",
+    "Gatekeeper": "Control Layer",
+    "Hybrid": "Hybrid Layer",
+    "Unclear / Early Signal": "Unclassified"
+  },
+
+  "narratives": {
+    "classification": {
+      "Miner": "{name} shows strongest structural alignment with the Miner position in the {wave} market. It appears to compete primarily for visible market outcomes rather than enabling the infrastructure beneath the competition. Its value is more dependent on who wins the race than on whether the race continues at all.",
+      "Shovel": "{name} shows strongest structural alignment with the Shovel position in the {wave} market. It captures value by serving many participants, embedding into operations where its utility compounds regardless of which specific players win the visible competition. This is the classic infrastructure-over-extraction dynamic.",
+      "Gatekeeper": "{name} shows strongest structural alignment with the Gatekeeper position in the {wave} market. Its dominant economic behavior is controlling access, defining standards, or shaping the permissions and rails through which others must move. Gatekeeper power tends to outlast individual market cycles.",
+      "Hybrid": "{name} shows meaningful signals across more than one structural position in the {wave} market. This is a Hybrid classification — not a failure of the model, but a structural observation. It should be studied as a tension between positions rather than resolved prematurely into one label.",
+      "Unclear / Early Signal": "{name} does not yet provide enough consistent structural evidence for a confident classification in the {wave} market. Use this output as a research prompt rather than a conclusion. Revisit when more operational evidence is available."
+    },
+    "matters": {
+      "Miner": "Miner-classified actors are most exposed to the outcome of specific market races. If the dominant narrative shifts, or if the expected winner changes, extraction-layer exposure becomes fragile quickly. This does not mean the position is wrong — it means the bet is directional.",
+      "Shovel": "Shovel-classified actors capture value regardless of which specific players win the visible competition. This structural breadth makes them more durable across market cycles, though they remain vulnerable to commodity risk if the category matures and alternatives multiply.",
+      "Gatekeeper": "Gatekeeper-classified actors derive structural power from defining access rules. This can be the most durable position — standards and permission systems often outlast the markets they govern — but it also attracts regulatory and competitive pressure that infrastructure players rarely face.",
+      "Hybrid": "Hybrid actors carry structural complexity. They may be transitioning between positions, or deliberately maintaining exposure across layers. Understanding which layer drives durable value and which introduces fragility is more useful than resolving the Hybrid label too quickly.",
+      "Unclear / Early Signal": "Early-signal actors require continued observation. Premature classification can mislead analysis. The structural signals may clarify as the market matures, as the actor's behavior compounds, or as competitive alternatives emerge and the actor's position becomes legible."
+    },
+    "limits": {
+      "Miner": "This classification reflects current structural signals, not competitive or financial outcomes. A Miner can be a successful business. Classification describes structural position, not performance or valuation. Signals are scored by the analyst and subject to interpretation bias.",
+      "Shovel": "Infrastructure breadth does not protect against commodity risk. If the category becomes commoditised, shovel-layer actors face pricing pressure regardless of structural position. Dependency breadth can erode as markets mature and credible alternatives multiply.",
+      "Gatekeeper": "Control-layer strength can erode when regulatory action, open standards movements, or platform competition undermines the gating mechanism. This classification describes current observed behavior, not permanent structural advantage.",
+      "Hybrid": "Hybrid classifications are the least predictive. They indicate structural complexity rather than structural weakness or strength. Deeper case study — using the Dispatch archive as reference — is recommended before drawing strategic conclusions.",
+      "Unclear / Early Signal": "Low-confidence classifications should not be used for strategic decisions without further primary research. They indicate insufficient structural evidence, not a negative outcome for the actor being assessed."
+    }
+  },
+
+  "presets": [
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "actorType": "company",
+      "marketWave": "AI",
+      "values": {
+        "enablesMany": 92, "chasesVisible": 22, "controlsAccess": 74,
+        "nearCoreInfra": 97, "failureDisrupts": 94, "hardToSwitch": 86,
+        "dependencyGrows": 89, "necessityNotSpec": 84, "replaceable": 18,
+        "compoundsIntegrations": 80
+      }
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe",
+      "actorType": "platform",
+      "marketWave": "payments",
+      "values": {
+        "enablesMany": 89, "chasesVisible": 18, "controlsAccess": 80,
+        "nearCoreInfra": 84, "failureDisrupts": 93, "hardToSwitch": 82,
+        "dependencyGrows": 87, "necessityNotSpec": 91, "replaceable": 28,
+        "compoundsIntegrations": 84
+      }
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "actorType": "infrastructure",
+      "marketWave": "cloud",
+      "values": {
+        "enablesMany": 86, "chasesVisible": 14, "controlsAccess": 93,
+        "nearCoreInfra": 91, "failureDisrupts": 94, "hardToSwitch": 76,
+        "dependencyGrows": 81, "necessityNotSpec": 89, "replaceable": 21,
+        "compoundsIntegrations": 86
+      }
+    },
+    {
+      "id": "vertical-ai-app",
+      "name": "Vertical AI App",
+      "actorType": "product",
+      "marketWave": "AI",
+      "values": {
+        "enablesMany": 22, "chasesVisible": 89, "controlsAccess": 11,
+        "nearCoreInfra": 16, "failureDisrupts": 14, "hardToSwitch": 28,
+        "dependencyGrows": 25, "necessityNotSpec": 20, "replaceable": 87,
+        "compoundsIntegrations": 14
+      }
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "actorType": "company",
+      "marketWave": "developer infrastructure",
+      "values": {
+        "enablesMany": 80, "chasesVisible": 42, "controlsAccess": 98,
+        "nearCoreInfra": 90, "failureDisrupts": 92, "hardToSwitch": 86,
+        "dependencyGrows": 78, "necessityNotSpec": 78, "replaceable": 22,
+        "compoundsIntegrations": 92
+      }
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "actorType": "company",
+      "marketWave": "AI",
+      "values": {
+        "enablesMany": 72, "chasesVisible": 92, "controlsAccess": 60,
+        "nearCoreInfra": 50, "failureDisrupts": 65, "hardToSwitch": 48,
+        "dependencyGrows": 55, "necessityNotSpec": 30, "replaceable": 74,
+        "compoundsIntegrations": 52
+      }
+    }
+  ],
+
+  "dispatchExamples": {
+    "Shovel": [
+      { "id": "001", "actor": "NVIDIA",       "wave": "AI",                    "note": "Compute infrastructure enabling the entire AI gold rush regardless of which model wins" },
+      { "id": "002", "actor": "ASML",         "wave": "Semiconductors",        "note": "Sole supplier of EUV lithography — every chip manufacturer depends on one tool provider" },
+      { "id": "006", "actor": "Stripe",       "wave": "Payments",              "note": "Payment infrastructure embedded into thousands of builders regardless of commerce outcome" }
+    ],
+    "Gatekeeper": [
+      { "id": "004", "actor": "Oracle",       "wave": "Enterprise",            "note": "Database standards and enterprise lock-in define decades of structural control-layer power" },
+      { "id": "005", "actor": "Cloudflare",   "wave": "Internet Infrastructure","note": "Security, access routing, and DNS at internet scale — a modern control-layer example" }
+    ],
+    "Miner": [
+      { "id": "003", "actor": "Domain Names", "wave": "Digital Assets",        "note": "Infrastructure assets that behave like extraction-layer bets when treated as speculation" }
+    ],
+    "Hybrid": [
+      { "id": "007", "actor": "Shopify",      "wave": "Commerce",              "note": "Serves merchant infrastructure while competing for consumer commerce at the extraction layer" },
+      { "id": "008", "actor": "GitHub",       "wave": "Developer Infrastructure","note": "Developer infrastructure with growing platform control-layer behavior as adoption compounds" }
+    ],
+    "Unclear / Early Signal": [
+      { "id": "003", "actor": "Domain Names", "wave": "Digital Assets",        "note": "Early-stage classification discipline helps avoid premature extraction-layer bets" },
+      { "id": "007", "actor": "Shopify",      "wave": "Commerce",              "note": "Hybrid and unclear actors often share structural complexity worth studying in case examples" }
+    ]
+  },
+
+  "waveDispatchMap": {
+    "AI":                      ["001"],
+    "semiconductors":          ["002"],
+    "payments":                ["006"],
+    "cloud":                   ["005", "008"],
+    "commerce":                ["007"],
+    "developer infrastructure":["008"],
+    "digital assets":          ["003"]
+  }
+}

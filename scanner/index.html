@@ -133,6 +133,10 @@
             <div class="panel-title">Scanner Input</div>
             <p class="panel-desc">Identify your actor and market context, then score each signal below.</p>
 
+            <div class="scanner-note">
+              The scanner does not automatically research the actor. It classifies the actor using the structural signals you set below. Choose a preset or adjust the signals to match the company, platform, product, domain, or asset you are analyzing.
+            </div>
+
             <div class="field">
               <label for="actorName">Actor Name</label>
               <input type="text" id="actorName" name="actorName" value="NVIDIA" maxlength="120" autocomplete="off">
@@ -168,11 +172,55 @@
             <div class="field">
               <label>Quick Presets</label>
               <div class="preset-row" id="presetRow"></div>
+              <p class="preset-note">Presets are structural starting points, not automated research profiles. Adjust signals to match your own evidence.</p>
             </div>
+
+            <button id="classifyBtn" type="button" class="classify-btn">Classify This Actor</button>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ── Result Preview ─────────────────────────────────────────────── -->
+    <div id="resultPreview" hidden>
+      <div class="eyebrow">Classification Result</div>
+      <h2 class="section-title">Your <span>Classification</span></h2>
+      <p class="section-intro">
+        This preview reflects the current signal scores. Adjust any signal below to refine the result.
+        For the full analysis including score breakdowns, derived metrics, and dispatch examples, use the
+        <a href="#dossier" style="color:var(--gold);">Result Dossier</a> below.
+      </p>
+      <div class="panel result-preview-panel">
+        <div class="panel-inner">
+          <div class="result-preview-header">
+            <div class="result-preview-actor-label">Classified Actor</div>
+            <div class="result-preview-name" id="previewActorName"></div>
+            <div class="result-preview-tags">
+              <div class="classification-badge" id="previewBadge"></div>
+              <div class="dossier-tag" id="previewConfidence"></div>
+            </div>
+          </div>
+          <div class="result-preview-metrics">
+            <div class="result-preview-metric">
+              <div class="result-preview-metric-label">Infrastructure Density</div>
+              <div class="result-preview-metric-value" id="previewInfra">—</div>
+            </div>
+            <div class="result-preview-metric">
+              <div class="result-preview-metric-label">Control-Layer Strength</div>
+              <div class="result-preview-metric-value" id="previewControl">—</div>
+            </div>
+            <div class="result-preview-metric">
+              <div class="result-preview-metric-label">Speculation Exposure</div>
+              <div class="result-preview-metric-value" id="previewSpec">—</div>
+            </div>
+          </div>
+          <p class="result-preview-body" id="previewBody"></p>
+          <div class="result-preview-actions">
+            <a href="#dossier" class="primary-btn">View Full Result Dossier</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ── Section 2: Crawlable Methodology ───────────────────────────── -->
     <section>
@@ -499,9 +547,8 @@
         </div>
       </noscript>
 
-      <div class="signals-grid" id="signalsGrid">
-        <!-- Built by scanner-engine.js -->
-      </div>
+      <div id="scannerLoading" class="scanner-loading">Initializing scanner model&hellip;</div>
+      <div class="signals-grid" id="signalsGrid"></div>
     </section>
 
     <!-- ── Section 4: Result Dossier ─────────────────────────────────── -->
