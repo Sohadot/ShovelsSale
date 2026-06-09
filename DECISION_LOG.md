@@ -1,5 +1,38 @@
 # Decision Log
 
+## 2026-06-09 — Dispatch 010 Source Governance Audit Completed (Sprint 4B)
+
+ShovelsSale.com performed a strict intelligence-quality audit of Dispatch 010 (ARM and the Architecture Licensing Layer) as the second full application of the Dispatch Intelligence Standard (v1.0).
+
+This decision records the audit findings and the corrections applied to bring the dossier into full compliance before any further Dispatch development.
+
+Audit findings and corrections:
+
+- Superlative removed: "the most commercially significant mobile product category in history" (iPhone 2007 paragraph) replaced with "a globally transformative mobile product category" — superlatives used as structural claims without evidence are prohibited by the Intelligence Standard.
+- Android/iOS claim softened: "entirely built on ARM architecture" changed to "predominantly built on ARM architecture" — iOS is entirely ARM, but Android has had x86 implementations, making "entirely" technically inaccurate.
+- Quantitative claim removed: "millions of lines of firmware and safety-critical code" changed to "substantial quantities of firmware and safety-critical code" — no source supported the specific quantification.
+- RISC-V Alternatives row: Western Digital and SiFive named as RISC-V adopters now explicitly labeled as "T3 — technology press reporting; analyst interpretation." China RISC-V adoption claim changed from specific national attribution to "government-motivated policy objectives" with explicit analyst interpretation label.
+- Section 9 (Gatekeeper Limit card): China RISC-V claim changed to "policy-motivated interest in domestic semiconductor alternatives — Analyst interpretation" to avoid stating geopolitical motivation as fact.
+- Source table row 3: Claim text updated to include "approximately $40 billion (per NVIDIA press release, September 2020)" — the dollar figure appeared in the body text but was absent from the source table claim.
+- Source table row 4: Removed "the IPO was among the largest technology listings of 2023" from the Claim column — this editorial characterization is not supported by the Form 20-F and is not a T1-verifiable claim.
+- Source table row 13 added: ARM's 1998 simultaneous listing on the London Stock Exchange and NASDAQ (T1, High Confidence) — this historical fact was cited inline in the body text but was absent from the source table.
+- PDF section updated: fact table count corrected from 12 to 13 following addition of row 13.
+- Qualcomm/Samsung/MediaTek historical claim (Section 4, 1998 block): Added explicit "consistent with ARM Holdings Form 20-F customer disclosures (T1); analyst interpretation for the broader ecosystem consolidation narrative" label.
+
+Quality gate status post-audit: All 5 validators pass (exit code 0).
+
+Rationale:
+- A Dispatch dossier that claims source governance must actually have source governance — not structural form without governed content.
+- Superlatives, quantitative claims without sources, and editorially framed claims in the source table Claim column all undermine the Dispatch Intelligence Standard.
+- Correcting these issues protects the archive's reference integrity and sets the standard for Sprint 5 (Dispatch 011).
+
+Governed by:
+- DISPATCH_INTELLIGENCE_STANDARD.md
+- CLAUDE.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
 ## 2026-04-29 — Constitutional Framework Adopted
 
 ShovelsSale.com now includes CLAUDE.md as its local constitutional development framework.
@@ -365,6 +398,78 @@ Affected Layers:
 
 Reversal Conditions:
 This decision should only be revisited if McAfee, another browser/security provider, or search console tools report a renewed trust or routing problem.
+
+## 2026-06-09 — Dispatch 010 ARM Architecture Licensing Dossier Published (Sprint 4)
+
+ShovelsSale.com published Dispatch 010 as the second full application of the Dispatch Intelligence Standard (v1.0), covering ARM Holdings and the Architecture Licensing Layer.
+
+This decision extends the Dispatch atlas from nine to ten entries and introduces the Architecture Licensing Layer as a distinct structural category: the processor ISA and IP infrastructure that enables chip design without chip manufacturing.
+
+Implemented changes:
+- created Dispatch 010 as a source-governed intelligence dossier (dispatch/010.html)
+- applied Dispatch Intelligence Standard v1.0 with 12 source-governed fact table rows
+- classified ARM as Hybrid — Shovel (primary) / Gatekeeper (moderate) — High Confidence
+- Scanner scores: Miner 16, Shovel 88, Gatekeeper 73
+- documented the ARM/TSMC Gatekeeper distinction: ARM moderate (73) vs. TSMC strong (86) due to RISC-V as a credible open alternative
+- included five analyst use cases, historical/current/future analysis, and dependency map
+- updated dispatch/index.html with the ARM entry (numberOfItems 9→10, new archive item, layer map card)
+- updated DISPATCH_ROADMAP.md with Dispatch 010 entry and sequencing logic
+- regenerated sitemap.xml to include dispatch/010.html
+- all five quality gate validators pass
+
+Rationale:
+- ARM's architecture licensing model is structurally distinct from every prior dispatch entry
+- the specification layer sits above manufacturing (TSMC) and below compute applications (NVIDIA), completing a three-layer vertical in the atlas
+- the RISC-V comparison makes ARM the first entry where the Gatekeeper ceiling is explicitly bounded by an open-source alternative
+- publishing under the Intelligence Standard ensures source governance discipline is maintained across the second dossier
+
+Governed by:
+- DISPATCH_INTELLIGENCE_STANDARD.md
+- CLAUDE.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
+## 2026-06-09 — Dispatch 009 Source Governance Audit Completed (Sprint 3C)
+
+ShovelsSale.com performed a strict intelligence-quality audit of Dispatch 009 (TSMC Manufacturing Sovereignty Layer) as the first full application of the Dispatch Intelligence Standard (v1.0).
+
+This decision records the audit findings and the corrections applied to bring the dossier into full compliance with DISPATCH_INTELLIGENCE_STANDARD.md before any further Dispatch development.
+
+Audit findings and corrections:
+
+- Factual error corrected: Arizona fab announcement year changed from "2022" to "2020" — the original announcement was May 2020; the CHIPS Act preliminary memorandum was April 2024.
+- Hero subtitle softened: removed "entire modern technology economy" superlative, replaced with scoped structural language referencing leading-edge chip production specifically.
+- Executive Brief softened: "most of the world's fabless chip designers" changed to "many of the world's leading fabless chip designers" — the broader claim was unsourced.
+- Control-Layer section: added explicit "Analyst interpretation — Moderate Confidence" qualifier to "only TSMC has proven high-volume manufacturing" — this claim is directionally well-supported but stated too absolutely given Samsung Foundry exists as a partial alternative.
+- Use Case 03 HTML corrected: number element was placed after content with a CSS order hack; restructured to match the consistent pattern used by use cases 01/02/04/05.
+- "Millions of gallons" water claim removed: replaced with "enormous volumes" — the specific quantity had no source.
+- Upstream dependency list annotated: added an explicit note that the supplier list represents analyst interpretation based on semiconductor industry supply chain structure, not verified primary disclosures.
+- Japan fab (JASM) second fab claim: added explicit Watch Signal label — the second fab has been reported in T3 press but not confirmed in primary sources.
+- DoD dependency claim corrected: changed from implying a direct TSMC-DoD relationship to accurately describing an indirect supply chain dependency through customers; labeled as Analyst interpretation.
+- Source table column 6 renamed from "Claim Type" to "Why It Matters" and all 12 rows updated with meaningful structural relevance descriptions.
+- Source table row 9 tier badge corrected: GlobalFoundries 2018 announcement is a T1 (official company press release), not T3.
+- Source table row 10 tier badge corrected: TSMC press releases are T1 (primary/authoritative), not T2.
+- Two new source table rows added: SMIC export controls (T1 — US DoC BIS Entity List and EUV export rules) and Apple's foundry transition from Samsung to TSMC (T3 — technology press).
+- SMIC export control claim upgraded: added explicit source reference to US Bureau of Industry and Security (BIS) — T1, High Confidence.
+- Apple-Samsung-TSMC migration claim: added source reference (T3) and dating (2014–2016); previously used in the text without a source table entry.
+- PDF section updated: fact table count corrected from 10 to 12 following addition of 2 new rows.
+
+Quality gate status post-audit: All 5 validators pass (exit code 0).
+
+Rationale:
+- A Dispatch dossier that claims source governance must actually have source governance — not structural form without governed content.
+- Factual errors, unsourced superlatives, and claims used without source table entries all undermine the Dispatch Intelligence Standard.
+- Correcting these issues before issuing Dispatch 010 protects the archive's reference integrity.
+- The audit demonstrates that the Intelligence Standard works as a governance instrument, not merely a template.
+
+Governed by:
+- DISPATCH_INTELLIGENCE_STANDARD.md
+- CLAUDE.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
 DEC-2026-06-09 — Scanner Custom Actor Preset-Carryover Bug Closed
 
 Date: 2026-06-09
@@ -394,3 +499,4 @@ Quality gate passed with all active checks. The page preserves one H1, SEO metad
 
 Reversal Conditions:
 This behavior should only be changed if ShovelsSale later introduces a governed, source-backed company intelligence layer capable of loading verified actor profiles intentionally.
+

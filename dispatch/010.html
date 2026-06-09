@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ARM: Architecture Licensing Layer | Dispatch 010 | ShovelsSale.com</title>
+  <meta name="description" content="Dispatch 010 classifies ARM Holdings as the Architecture Licensing Layer — the processor IP and ISA infrastructure beneath mobile, cloud, automotive, edge, and AI chip design.">
+  <meta name="keywords" content="ARM architecture analysis, architecture licensing, processor IP, ISA layer, shovel economy, infrastructure classification, ARM Holdings, Dispatch 010, ShovelsSale">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://shovelssale.com/dispatch/010.html">
+
+  <meta property="og:title" content="ARM: Architecture Licensing Layer | Dispatch 010 | ShovelsSale.com">
+  <meta property="og:description" content="A structural intelligence dossier classifying ARM Holdings as the processor architecture and IP licensing layer beneath mobile, cloud, embedded, automotive, and AI chip design.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://shovelssale.com/dispatch/010.html">
+  <meta property="og:image" content="https://shovelssale.com/assets/social-preview.svg">
+  <meta property="og:site_name" content="ShovelsSale.com">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ARM: Architecture Licensing Layer | Dispatch 010 | ShovelsSale.com">
+  <meta name="twitter:description" content="A structural intelligence dossier classifying ARM Holdings as the processor architecture and IP licensing layer beneath mobile, cloud, embedded, automotive, and AI chip design.">
+  <meta name="twitter:image" content="https://shovelssale.com/assets/social-preview.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ARM and the Architecture Licensing Layer",
+    "description": "A structural intelligence dossier classifying ARM Holdings as the processor architecture and IP licensing layer beneath mobile, cloud, embedded, automotive, and AI chip design.",
+    "datePublished": "2026-06-09",
+    "dateModified": "2026-06-09",
+    "author": {
+      "@type": "Organization",
+      "name": "ShovelsSale.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ShovelsSale.com",
+      "url": "https://shovelssale.com/"
+    },
+    "mainEntityOfPage": "https://shovelssale.com/dispatch/010.html",
+    "articleSection": "Dispatch",
+    "keywords": [
+      "ARM Holdings",
+      "architecture licensing",
+      "processor IP",
+      "ISA layer",
+      "shovel economy",
+      "infrastructure layer",
+      "mobile architecture"
+    ],
+    "isPartOf": {
+      "@type": "CollectionPage",
+      "name": "ShovelsSale Dispatch",
+      "url": "https://shovelssale.com/dispatch/"
+    }
+  }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-K83NSPVC');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKVL5E97G3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VKVL5E97G3');
+  </script>
+  <!-- End Google Analytics 4 -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/dispatch.css" />
+
+  <style>
+    :root{
+      --gold:#C9A84C;
+      --gold-light:#E8C97A;
+      --gold-dim:#7A5F2A;
+      --black:#080808;
+      --dark:#0E0E0E;
+      --dark-2:#141414;
+      --dark-3:#1A1A1A;
+      --white:#F5F0E8;
+      --white-dim:#9A9080;
+      --line:rgba(201,168,76,0.14);
+      --panel:rgba(255,255,255,0.03);
+      --font-display:'Bebas Neue',sans-serif;
+      --font-body:'Cormorant Garamond',serif;
+      --font-mono:'DM Mono',monospace;
+      --shadow:0 22px 60px rgba(0,0,0,0.45);
+      --radius-xl:30px;
+      --radius-lg:20px;
+    }
+
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      background:var(--black);
+      color:var(--white);
+      font-family:var(--font-body);
+      font-size:18px;
+      line-height:1.78;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:'';
+      position:fixed;
+      inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events:none;
+      z-index:1000;
+      opacity:.35;
+    }
+
+    a{color:inherit}
+
+    nav{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:100;
+      padding:1.5rem 3rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:linear-gradient(to bottom,rgba(8,8,8,.97),transparent);
+      backdrop-filter:blur(10px);
+    }
+
+    .nav-logo,.nav-back{
+      font-family:var(--font-mono);
+      font-size:.72rem;
+      letter-spacing:.14em;
+      text-decoration:none;
+      text-transform:uppercase;
+    }
+
+    .nav-logo{color:var(--gold)}
+    .nav-back{color:var(--white-dim);transition:color .25s ease}
+    .nav-back:hover{color:var(--gold)}
+
+    main{
+      width:min(1100px,calc(100% - 48px));
+      margin:0 auto;
+      padding:8rem 0 4rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero{
+      padding:4rem 0 2.5rem;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      top:-12%;
+      right:-8%;
+      width:42rem;
+      height:42rem;
+      background:radial-gradient(circle,rgba(201,168,76,.10) 0%,rgba(201,168,76,.04) 36%,transparent 70%);
+      pointer-events:none;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:.85rem;
+      font-family:var(--font-mono);
+      font-size:.65rem;
+      letter-spacing:.32em;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:1.5rem;
+    }
+
+    .eyebrow::before{
+      content:'';
+      width:2.5rem;
+      height:1px;
+      background:var(--gold-dim);
+    }
+
+    .hero-title,.section-title,.quote-text{
+      font-family:var(--font-display);
+      font-weight:400;
+      line-height:.92;
+      letter-spacing:.02em;
+    }
+
+    .hero-title{
+      font-size:clamp(3.4rem,8vw,6.6rem);
+      margin-bottom:1.2rem;
+      max-width:14ch;
+    }
+
+    .hero-title span,.section-title span,.quote-text span{color:var(--gold)}
+
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.75rem;
+      margin-bottom:1.2rem;
+    }
+
+    .meta-pill,.score-label,.card-tag,.nav-tag{
+      font-family:var(--font-mono);
+      font-size:.58rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .meta-pill{
+      padding:.65rem .9rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.04);
+      color:var(--white-dim);
+    }
+
+    .meta-pill.primary{
+      border-color:rgba(201,168,76,.22);
+      background:rgba(201,168,76,.10);
+      color:var(--gold-light);
+    }
+
+    .hero-subtitle,.section-copy,.article p,.card-copy,.summary-copy,.nav-copy{
+      color:var(--white-dim);
+      line-height:1.9;
+    }
+
+    .hero-subtitle{
+      font-size:clamp(1.12rem,2vw,1.35rem);
+      max-width:860px;
+      font-style:italic;
+      margin-bottom:1.8rem;
+    }
+
+    .summary-grid,.score-grid,.nav-grid,.grid-3{
+      display:grid;
+      gap:1rem;
+    }
+
+    .summary-grid{
+      grid-template-columns:1.2fr .8fr;
+    }
+
+    .panel{
+      background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+    }
+
+    .panel-inner{padding:1.8rem}
+
+    .panel-title{
+      font-size:1.6rem;
+      font-weight:600;
+      margin-bottom:.45rem;
+    }
+
+    .summary-copy,.card-copy,.nav-copy{
+      font-size:1rem;
+    }
+
+    .score-grid{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      margin-top:1.2rem;
+    }
+
+    .score-card{
+      border:1px solid rgba(255,255,255,.06);
+      background:var(--panel);
+      border-radius:20px;
+      padding:1.1rem;
+    }
+
+    .score-label{
+      color:var(--white-dim);
+      margin-bottom:.55rem;
+    }
+
+    .score-value{
+      font-size:1.9rem;
+      line-height:1;
+      margin-bottom:.35rem;
+    }
+
+    .score-copy{
+      color:var(--white-dim);
+      font-size:.9rem;
+      line-height:1.6;
+    }
+
+    section{margin-top:2rem}
+
+    .section-title{
+      font-size:clamp(2.2rem,5vw,4.5rem);
+      margin-bottom:1rem;
+    }
+
+    .section-copy{
+      max-width:880px;
+      font-size:1.08rem;
+      margin-bottom:1.4rem;
+    }
+
+    .article{
+      display:grid;
+      gap:1.4rem;
+    }
+
+    .article-block,.card,.quote-card,.nav-card{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius-lg);
+      padding:1.4rem;
+    }
+
+    .article-block h2,.card-title,.nav-title{
+      font-size:1.35rem;
+      font-weight:600;
+      margin-bottom:.55rem;
+    }
+
+    .article p{
+      font-size:1.08rem;
+    }
+
+    .article p + p{
+      margin-top:.95rem;
+    }
+
+    .card-tag,.nav-tag{
+      color:var(--gold);
+      margin-bottom:.75rem;
+    }
+
+    .quote-card{
+      border:1px solid rgba(201,168,76,.18);
+      background:rgba(201,168,76,.08);
+    }
+
+    .quote-text{
+      font-size:clamp(2rem,5vw,4.8rem);
+      margin-bottom:.8rem;
+    }
+
+    .score-bars{
+      display:grid;
+      gap:.9rem;
+      margin-top:1rem;
+    }
+
+    .bar-label{
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      font-family:var(--font-mono);
+      font-size:.62rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--white-dim);
+      margin-bottom:.35rem;
+    }
+
+    .bar-track{
+      width:100%;
+      height:10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      overflow:hidden;
+    }
+
+    .bar-fill{
+      height:100%;
+      border-radius:inherit;
+      background:linear-gradient(to right,var(--gold-dim),var(--gold),var(--gold-light));
+    }
+
+    .grid-3{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+
+    .nav-grid{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      margin-top:1rem;
+    }
+
+    .nav-card{
+      text-decoration:none;
+      transition:border-color .2s ease,transform .2s ease;
+    }
+
+    .nav-card:hover{
+      border-color:rgba(201,168,76,.2);
+      transform:translateY(-1px);
+    }
+
+    .nav-copy{
+      font-size:.95rem;
+      line-height:1.65;
+    }
+
+    .action-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.8rem;
+      margin-top:1.4rem;
+    }
+
+    .btn-primary,.btn-secondary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      border-radius:999px;
+      font-family:var(--font-mono);
+      font-size:.66rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      transition:all .25s ease;
+      padding:1rem 1.35rem;
+    }
+
+    .btn-primary{
+      color:var(--black);
+      background:var(--gold);
+    }
+
+    .btn-primary:hover{
+      background:var(--gold-light);
+      transform:translateY(-1px);
+    }
+
+    .btn-secondary{
+      color:var(--white);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+    }
+
+    .btn-secondary:hover{
+      border-color:rgba(201,168,76,.22);
+      color:var(--gold-light);
+    }
+
+    footer{
+      padding:2rem 0 1rem;
+      text-align:center;
+      color:var(--white-dim);
+      font-family:var(--font-mono);
+      font-size:.6rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      opacity:.7;
+    }
+
+    /* Intelligence Standard additions */
+
+    .data-table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:.92rem;
+      margin-top:.8rem;
+      overflow-x:auto;
+      display:block;
+    }
+
+    .data-table th{
+      font-family:var(--font-mono);
+      font-size:.52rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--gold);
+      padding:.55rem .75rem;
+      text-align:left;
+      border-bottom:1px solid rgba(201,168,76,.22);
+      white-space:nowrap;
+    }
+
+    .data-table td{
+      padding:.55rem .75rem;
+      border-bottom:1px solid rgba(255,255,255,.05);
+      color:var(--white-dim);
+      vertical-align:top;
+      line-height:1.65;
+      font-size:.92rem;
+    }
+
+    .data-table tr:last-child td{border-bottom:none}
+
+    .tier-badge{
+      display:inline-block;
+      padding:.18rem .42rem;
+      border-radius:4px;
+      font-family:var(--font-mono);
+      font-size:.5rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .tier-1{background:rgba(126,201,154,.10);color:#7EC99A;border:1px solid rgba(126,201,154,.22)}
+    .tier-2{background:rgba(201,168,76,.10);color:var(--gold-light);border:1px solid rgba(201,168,76,.22)}
+    .tier-3{background:rgba(255,255,255,.06);color:var(--white-dim);border:1px solid rgba(255,255,255,.10)}
+
+    .confidence-high{color:#7EC99A;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em}
+    .confidence-moderate{color:var(--gold-light);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em}
+    .confidence-watch{color:#E8A84C;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em}
+
+    .classification-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:.65rem;
+      margin-top:1rem;
+    }
+
+    .classification-row{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:10px;
+      padding:.65rem .85rem;
+    }
+
+    .classification-row-label{
+      font-family:var(--font-mono);
+      font-size:.5rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--white-dim);
+      margin-bottom:.22rem;
+    }
+
+    .classification-row-value{
+      font-size:.98rem;
+      font-weight:600;
+      color:var(--white);
+    }
+
+    .classification-row-value.gold{color:var(--gold-light)}
+
+    .not-investment-advice{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      border-left:3px solid var(--gold);
+      border-radius:12px;
+      padding:1.1rem 1.35rem;
+      font-family:var(--font-mono);
+      font-size:.62rem;
+      letter-spacing:.06em;
+      color:var(--white-dim);
+      line-height:1.75;
+      margin-top:1.2rem;
+    }
+
+    .dependency-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+      margin-top:.8rem;
+    }
+
+    .dep-block{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:14px;
+      padding:1.1rem 1.25rem;
+    }
+
+    .dep-block-label{
+      font-family:var(--font-mono);
+      font-size:.54rem;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:.65rem;
+    }
+
+    .dep-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .dep-list li{
+      font-size:.97rem;
+      color:var(--white-dim);
+      padding:.28rem 0;
+      border-bottom:1px solid rgba(255,255,255,.04);
+      line-height:1.6;
+    }
+
+    .dep-list li:last-child{border-bottom:none}
+
+    .dep-list li strong{color:var(--white)}
+
+    .difficulty-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      padding:.7rem 1.1rem;
+      border-radius:999px;
+      font-family:var(--font-mono);
+      font-size:.62rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      background:rgba(201,168,76,.10);
+      border:1px solid rgba(201,168,76,.28);
+      color:var(--gold-light);
+      margin-bottom:1rem;
+    }
+
+    .signal-row{
+      display:flex;
+      align-items:flex-start;
+      gap:1rem;
+      padding:.75rem 0;
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .signal-row:last-child{border-bottom:none}
+
+    .signal-label{
+      font-family:var(--font-mono);
+      font-size:.52rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--gold);
+      flex:0 0 140px;
+      padding-top:.15rem;
+    }
+
+    .signal-body{
+      font-size:.97rem;
+      color:var(--white-dim);
+      line-height:1.7;
+      flex:1;
+    }
+
+    .use-case-block{
+      display:grid;
+      gap:1rem;
+      margin-top:.8rem;
+    }
+
+    .use-case{
+      display:flex;
+      gap:1rem;
+      align-items:flex-start;
+      padding:.85rem 1rem;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:12px;
+    }
+
+    .use-case-num{
+      font-family:var(--font-display);
+      font-size:2.2rem;
+      line-height:1;
+      color:var(--gold-dim);
+      flex:0 0 2.4rem;
+    }
+
+    .use-case-content{font-size:.97rem}
+
+    .use-case-who{
+      font-weight:600;
+      color:var(--white);
+      margin-bottom:.2rem;
+    }
+
+    .use-case-what{color:var(--white-dim);line-height:1.65}
+
+    .limits-list{
+      list-style:none;
+      padding:0;
+      margin:.8rem 0 0;
+      display:grid;
+      gap:.6rem;
+    }
+
+    .limits-list li{
+      padding:.6rem .85rem;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.05);
+      border-radius:10px;
+      font-size:.97rem;
+      color:var(--white-dim);
+      line-height:1.65;
+    }
+
+    .limits-list li strong{color:var(--white)}
+
+    .related-list{
+      list-style:none;
+      padding:0;
+      margin:.8rem 0 0;
+      display:grid;
+      gap:.6rem;
+    }
+
+    .related-list li{
+      padding:.7rem 1rem;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:10px;
+      font-size:.97rem;
+      line-height:1.7;
+    }
+
+    .related-list li a{
+      color:var(--gold-light);
+      text-decoration:none;
+    }
+
+    .related-list li a:hover{text-decoration:underline}
+
+    .pdf-pending{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:14px;
+      padding:1.2rem 1.4rem;
+      font-size:.97rem;
+      color:var(--white-dim);
+      font-style:italic;
+      margin-top:.8rem;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+    }
+
+    @media (max-width:1100px){
+      .summary-grid,.score-grid,.grid-3,.nav-grid,.dependency-grid,.grid-2,.classification-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width:768px){
+      nav{padding:1.2rem 1.25rem}
+      .nav-back{font-size:.64rem}
+      main{width:min(100% - 24px,1100px);padding-top:7rem}
+      .hero{padding-top:2rem}
+      .panel-inner,.article-block,.card,.quote-card,.nav-card{padding:1.2rem}
+      .signal-label{flex:0 0 auto;min-width:unset}
+      .signal-row{flex-direction:column;gap:.35rem}
+    }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K83NSPVC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <nav>
+    <a href="/" class="nav-logo">ShovelsSale.com</a>
+    <a href="/dispatch/" class="nav-back">← Back to Dispatch</a>
+  </nav>
+
+  <main>
+
+    <!-- SECTION 1: EXECUTIVE INTELLIGENCE BRIEF -->
+    <section class="hero">
+      <div class="eyebrow">Dispatch 010 — Architecture Licensing</div>
+      <h1 class="hero-title">ARM and the <span>Architecture Licensing Layer</span></h1>
+
+      <div class="hero-meta">
+        <div class="meta-pill primary">Published June 9, 2026</div>
+        <div class="meta-pill">Primary Class — Shovel / Gatekeeper Hybrid</div>
+        <div class="meta-pill">Layer — Architecture Licensing Infrastructure</div>
+        <div class="meta-pill">Confidence — High</div>
+      </div>
+
+      <p class="hero-subtitle">
+        ARM does not manufacture chips. It licenses the processor architecture that chip designers
+        build against — the instruction set, the IP blocks, the compatibility framework — so that
+        software written once runs across billions of devices from different manufacturers.
+        That position is not a product. It is a structural layer beneath every mobile device,
+        embedded system, cloud server, and AI accelerator that depends on ARM-compatible processor design.
+      </p>
+
+      <div class="summary-grid">
+        <div class="panel">
+          <div class="panel-inner">
+            <div class="panel-title">Executive Intelligence Brief</div>
+            <div class="summary-copy">
+              ARM Holdings plc is classified under the Shovel Economy Framework as a
+              <strong style="color:#E8C97A;">Hybrid: Shovel (primary) / Gatekeeper (moderate)</strong>.
+              ARM operates the architecture licensing layer: it licenses processor instruction set
+              architectures (ISA) and processor IP to semiconductor companies, device makers, cloud
+              hyperscalers, and chip designers worldwide. Its structural position is Shovel-primary
+              because it enables many unrelated downstream participants — mobile SoC designers,
+              automotive chip makers, embedded developers, AI accelerator builders, and cloud
+              hyperscalers — simultaneously, regardless of which specific devices or applications win
+              their respective markets. It carries Gatekeeper characteristics because the ARM ISA
+              creates a software compatibility layer that concentrates ecosystem gravity: applications,
+              operating systems, compilers, and toolchains built on ARM's architecture create significant
+              switching costs for any actor seeking to migrate to an alternative instruction set.
+            </div>
+            <div class="summary-copy" style="margin-top:.75rem;">
+              <strong style="color:#E8C97A;">Critical distinction from TSMC and ASML:</strong>
+              ARM's Gatekeeper signal is classified as <em>moderate</em>, not strong. The existence
+              of RISC-V — an open-source, royalty-free instruction set architecture governed by
+              RISC-V International — limits ARM's absolute access-control ceiling. For new platforms
+              where software compatibility constraints are lower, RISC-V is a credible structural
+              alternative. This is the primary source of classification uncertainty in this dossier.
+            </div>
+
+            <div class="score-grid">
+              <div class="score-card">
+                <div class="score-label">Primary Layer</div>
+                <div class="score-value">Shovel</div>
+                <div class="score-copy">Enables chip designers across unrelated markets; earns royalties on aggregate volume regardless of which devices win.</div>
+              </div>
+
+              <div class="score-card">
+                <div class="score-label">Gatekeeper Signal</div>
+                <div class="score-value">Moderate</div>
+                <div class="score-copy">ISA ecosystem creates real switching costs; RISC-V limits the absolute control ceiling vs. TSMC-class structural monopoly.</div>
+              </div>
+
+              <div class="score-card">
+                <div class="score-label">Speculation Exposure</div>
+                <div class="score-value">Very Low</div>
+                <div class="score-copy">ARM earns royalties per chip shipped across all its licensees; it does not depend on any single market wave or device category winning.</div>
+              </div>
+
+              <div class="score-card">
+                <div class="score-label">Replacement Difficulty</div>
+                <div class="score-value">High</div>
+                <div class="score-copy">ISA migration requires software ecosystem rebuild, toolchain replacement, and binary compatibility breaks — year-to-decade scale. RISC-V reduces this to "High" rather than "Very High."</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-inner">
+            <div class="panel-title">Scanner Output</div>
+            <div class="summary-copy">
+              The scanner classification for ARM emphasizes four dominant signals: near-core infrastructure
+              position (processor architecture underlies all computing devices), broad enablement across
+              unrelated markets, high necessity relative to speculation, and strong dependency compounding
+              through ecosystem integrations. The Gatekeeper secondary signal reflects ISA compatibility
+              concentration, moderated by the structural existence of RISC-V as an alternative path.
+            </div>
+
+            <div class="score-bars">
+              <div>
+                <div class="bar-label"><span>Miner</span><span>16 / 100</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:16%"></div></div>
+              </div>
+
+              <div>
+                <div class="bar-label"><span>Shovel</span><span>88 / 100</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+              </div>
+
+              <div>
+                <div class="bar-label"><span>Gatekeeper</span><span>73 / 100</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:73%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CLASSIFICATION SUMMARY -->
+    <section>
+      <div class="eyebrow">Classification Summary</div>
+      <h2 class="section-title">Structural <span>Classification Record</span></h2>
+
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="summary-copy" style="margin-bottom:.75rem;">
+            This is the scanner-derived classification record for ARM Holdings plc as of the date of
+            this dossier. Classifications should be re-evaluated when ARM's market share in server
+            architecture changes materially, when RISC-V ecosystem maturity reaches parity with ARM's
+            in a major device segment, or when a structural shift in mobile SoC design alternatives occurs.
+          </div>
+
+          <div class="classification-grid">
+            <div class="classification-row">
+              <div class="classification-row-label">Actor</div>
+              <div class="classification-row-value">ARM Holdings plc</div>
+            </div>
+            <div class="classification-row">
+              <div class="classification-row-label">Actor Type</div>
+              <div class="classification-row-value">Company — Processor Architecture and IP Licensor</div>
+            </div>
+            <div class="classification-row">
+              <div class="classification-row-label">Market Wave</div>
+              <div class="classification-row-value">Semiconductor / Mobile / AI / Edge / Automotive</div>
+            </div>
+            <div class="classification-row">
+              <div class="classification-row-label">Primary Classification</div>
+              <div class="classification-row-value gold">Hybrid — Shovel (primary) / Gatekeeper (moderate)</div>
+            </div>
+            <div class="classification-row">
+              <div class="classification-row-label">Confidence Level</div>
+              <div class="classification-row-value"><span class="confidence-high">High Confidence</span></div>
+            </div>
+            <div class="classification-row">
+              <div class="classification-row-label">Scanner Scores</div>
+              <div class="classification-row-value">Miner: 16 · Shovel: 88 · Gatekeeper: 73</div>
+            </div>
+            <div class="classification-row">
+              <div class="classification-row-label">Classification Date</div>
+              <div class="classification-row-value">2026-06-09</div>
+            </div>
+            <div class="classification-row">
+              <div class="classification-row-label">Classification Version</div>
+              <div class="classification-row-value">Scanner Engine 2H-20260609</div>
+            </div>
+            <div class="classification-row">
+              <div class="classification-row-label">Signal Source</div>
+              <div class="classification-row-value">Manual analysis — ARM-specific signal calibration</div>
+            </div>
+            <div class="classification-row">
+              <div class="classification-row-label">Preset Available</div>
+              <div class="classification-row-value">No — ARM preset not yet added to scanner engine</div>
+            </div>
+          </div>
+
+          <div class="summary-copy" style="margin-top:1rem;font-size:.9rem;">
+            To reproduce or test this classification, open the <a href="/scanner/" style="color:var(--gold-light);">Shovel Scanner</a>
+            and configure signals manually using the values documented in Section 12 (Scanner Interpretation).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: WHY ARM BELONGS IN THE SHOVEL ECONOMY -->
+    <section>
+      <div class="eyebrow">Framework Position</div>
+      <h2 class="section-title">Why ARM Belongs in <span>the Shovel Economy</span></h2>
+
+      <p class="section-copy">
+        The Shovel Economy thesis holds that durable value during any market wave is often captured not
+        by the actors competing in the visible race, but by the infrastructure layer that enables
+        participation in that race. ARM's position is a precise instance of this pattern — but it
+        operates at a layer that is more abstract, and therefore easier to misread, than physical
+        infrastructure like TSMC's fabs or ASML's lithography machines.
+      </p>
+
+      <div class="article">
+        <div class="article-block">
+          <h2>The Architecture Layer Is Infrastructure</h2>
+          <p>A processor architecture is not a product. It is a specification — a defined language that
+          describes how a processor interprets instructions and how software communicates with hardware.
+          When ARM licenses its instruction set architecture (ISA) to chip designers, those designers
+          can build processors that are compatible with any software compiled for ARM-based systems.
+          The architecture is the invisible infrastructure beneath the chip, beneath the device, and
+          beneath the application.</p>
+          <p>Without an architecture layer, no chip design can begin. A chip that cannot execute
+          software intelligibly is not a processor — it is a pattern on silicon. The architecture
+          layer converts hardware into computation. ARM holds the licensing position over that layer
+          for the majority of mobile devices, the growing majority of embedded systems and automotive
+          controllers, and an expanding portion of cloud server infrastructure.
+          That makes ARM a shovel-layer asset: it supplies the enabling layer to chip designers across
+          all downstream markets without competing for any of those markets itself.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>ARM Earns From the Rush, Not From a Winner</h2>
+          <p>ARM's revenue structure is defined by two streams: upfront licensing fees paid when a
+          company licenses ARM's architecture or processor IP, and royalties paid per chip shipped.
+          Source: ARM Holdings Form 20-F (SEC filing, 2023) — T1. The royalty stream is the
+          structural signal: ARM earns from every ARM-architecture chip produced, regardless of
+          whether that chip is in a phone that outsells its competitors, a wearable that fails
+          commercially, or a server that displaces incumbent x86 infrastructure.</p>
+          <p>This is the definitional shovel-layer economic structure. The gold rush — whether it
+          is mobile computing, edge AI, automotive electrification, or cloud infrastructure expansion
+          — does not determine ARM's royalty income by picking a winner. It determines ARM's
+          royalty income by expanding the total volume of ARM-architecture chips produced.
+          That is not speculation exposure. That is infrastructure capture. See the
+          <a href="/framework/" style="color:var(--gold-light);">Shovel Economy Framework</a> for
+          the structural framework that classifies this pattern.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE BREAK -->
+    <section>
+      <div class="quote-card">
+        <div class="quote-text">ARM does not build<br><span>the processors.</span><br>It licenses the architecture<br><span>all processors speak.</span></div>
+        <div class="quote-copy" style="color:var(--white-dim);line-height:1.9;">
+          That position — creating the shared specification language that chip designers depend on to
+          maintain software compatibility — is a structural layer distinct from manufacturing,
+          equipment, and application development. It is the architecture licensing layer: a position
+          that compounds as more devices are built on ARM-compatible designs.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: HISTORICAL POSITION -->
+    <section>
+      <div class="eyebrow">Historical Position</div>
+      <h2 class="section-title">From Architecture Design<br><span>to Licensing Layer</span></h2>
+
+      <p class="section-copy">
+        ARM's structural position did not emerge suddenly. It was built through three decades of
+        sustained licensing expansion across successive computing waves. Understanding the history
+        is necessary to understand why the current position is durable rather than contingent
+        on any single product cycle.
+      </p>
+
+      <div class="article">
+        <div class="article-block">
+          <h2>1990 — The Dedicated Architecture Licensing Model Is Founded <span style="font-size:.75rem;font-weight:400;color:var(--white-dim);margin-left:.5rem;">[High Confidence — T1]</span></h2>
+          <p>ARM Holdings was founded in November 1990 as Advanced RISC Machines Ltd., a joint venture
+          between Acorn Computers, Apple Computer, and VLSI Technology. Source: ARM corporate history
+          (ARM official investor relations, T1). The founding thesis was structural: instead of building
+          complete processors for sale, ARM would license the processor architecture and IP to other
+          companies, allowing them to integrate ARM-designed or ARM-compatible processors into their
+          own chips and devices. ARM itself would not manufacture silicon.</p>
+          <p>This was a direct analogy to the foundry model that TSMC was demonstrating in the same
+          period: separate the design or specification layer from the manufacturing layer. ARM's
+          version was even further upstream — it separated the architecture specification layer from
+          both chip design and manufacturing. Every participant in the chain (chip designer, foundry,
+          device maker) could specialize, while ARM earned from the aggregate volume of all of them.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>1998 — Public Listing; Architecture Becomes Market Infrastructure <span style="font-size:.75rem;font-weight:400;color:var(--white-dim);margin-left:.5rem;">[High Confidence — T1]</span></h2>
+          <p>ARM Holdings plc listed simultaneously on the London Stock Exchange and NASDAQ in April 1998.
+          Source: Company and exchange records (T1). By this point, the ARM architecture had been adopted
+          by a substantial number of embedded and mobile semiconductor companies. The mobile computing
+          wave — initially personal digital assistants, then increasingly mobile phones — was creating
+          a demand for low-power processor architectures that ARM's RISC design principles were
+          well-suited to serve.</p>
+          <p>The 1998 IPO made ARM's licensing model visible as a public business. But the more
+          structurally significant development of this period was the gradual convergence of the
+          mobile semiconductor ecosystem around a small number of ARM-compatible designs. Qualcomm,
+          Samsung, and subsequently MediaTek were building mobile SoCs on ARM architecture —
+          consistent with ARM Holdings Form 20-F customer disclosures (T1); analyst interpretation
+          for the broader ecosystem consolidation narrative.
+          The ecosystem was consolidating around ARM's ISA — not because any single actor mandated
+          it, but because software compatibility across devices created a gravitational pull that
+          favored architectural standardization.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>2007–2016 — Mobile Wave Cements the Architecture Layer <span style="font-size:.75rem;font-weight:400;color:var(--white-dim);margin-left:.5rem;">[High Confidence — T1/T3]</span></h2>
+          <p>The smartphone era transformed ARM from a broadly-adopted embedded architecture into the
+          infrastructure layer of global mobile computing. Apple's introduction of the iPhone in 2007
+          placed an ARM-architecture processor at the center of a globally transformative mobile
+          product category. Apple licensed ARM's architecture and designed its own
+          custom processor microarchitecture — the approach that would eventually produce the A-series
+          chips in iPhone and the M-series chips in Mac. Source: Apple official product announcements
+          (T1) for Apple Silicon transition; ARM corporate history for architecture license (T1).</p>
+          <p>SoftBank Group acquired ARM Holdings in 2016 for approximately £23.4 billion. Source:
+          regulatory approval records and public company disclosures (T1). The acquisition reflected
+          SoftBank's thesis that ARM's architecture licensing layer would compound in value as the
+          number of connected devices expanded beyond mobile into IoT, automotive, and industrial
+          computing. The acquisition did not change ARM's licensing model — it changed ARM's ownership
+          while the structural position remained intact.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>2020–2022 — NVIDIA Acquisition Attempt Collapses; Neutrality Protected <span style="font-size:.75rem;font-weight:400;color:var(--white-dim);margin-left:.5rem;">[High Confidence — T1]</span></h2>
+          <p>NVIDIA announced the acquisition of ARM from SoftBank in September 2020 for approximately
+          $40 billion. The deal was abandoned in February 2022 following opposition from the UK
+          Competition and Markets Authority (CMA), the European Commission, and the US Federal Trade
+          Commission (FTC). Source: Regulatory body announcements and company disclosures (T1).</p>
+          <p>The regulatory blocking of this transaction is itself a structural signal. Multiple
+          competition regulators determined that NVIDIA's ownership of ARM would create structural
+          conflicts of interest for ARM's role as a neutral architecture licensor. ARM licenses its
+          architecture to companies that compete directly with each other — including companies that
+          compete with NVIDIA. Regulators assessed that this neutrality was the foundation of ARM's
+          structural position: customers would accept architectural dependency on ARM because ARM
+          was not a competitor. NVIDIA ownership would eliminate that assurance. Analyst interpretation:
+          the regulatory outcome preserved a structural feature — ARM's neutrality — that is itself
+          a precondition for the depth of ARM's licensing position.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>2023 — Re-IPO and Cloud Architecture Expansion <span style="font-size:.75rem;font-weight:400;color:var(--white-dim);margin-left:.5rem;">[High Confidence — T1]</span></h2>
+          <p>ARM Holdings re-listed on NASDAQ in September 2023. Source: ARM Holdings Form 20-F
+          (SEC filing, 2023) — T1. The re-IPO coincided with a structural expansion of ARM's
+          market position into cloud server infrastructure, where ARM-architecture processors had
+          previously had limited penetration against Intel and AMD's x86 architecture dominance.
+          Amazon Web Services (AWS) Graviton, Google Axion, and Microsoft Azure Cobalt — all
+          ARM architecture-based custom server processors — represented a structural migration
+          of cloud computing infrastructure toward ARM architecture. Each of these represents a
+          T1-backed product announcement from the respective company; AWS Graviton first announced
+          in 2018 with successive generations, Google Axion announced in 2024, Microsoft Cobalt
+          100 announced in 2023. These represent public confirmations of architectural migration
+          at scale in cloud infrastructure — a market that was previously dominated by x86.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CURRENT STRUCTURAL POSITION -->
+    <section>
+      <div class="eyebrow">Current Structural Position</div>
+      <h2 class="section-title">Five Dimensions of <span>Structural Authority</span></h2>
+
+      <div class="article">
+        <div class="article-block">
+          <h2>Infrastructure Capture</h2>
+          <p>ARM operates the architecture licensing layer for processor design. Its products divide
+          into two principal license types: (1) Architecture Licenses, which allow licensees to design
+          custom processor microarchitectures compatible with the ARM ISA (used by Apple, Amazon,
+          Qualcomm, Google, NVIDIA, and others for custom CPU designs), and (2) IP/Processor Licenses,
+          which provide pre-designed CPU cores — Cortex-A for mobile/server, Cortex-M for
+          microcontrollers, Cortex-R for real-time embedded, Neoverse for cloud and infrastructure
+          — for integration into SoC designs. Source: ARM Holdings Form 20-F (2023), T1.</p>
+          <p>The architecture layer sits beneath chip manufacturing, beneath chip design, and beneath
+          all software: it is the lowest-level commercial infrastructure in computing after the physics
+          of transistors. ARM's position at this layer is what produces the classification as a
+          shovel-layer asset: it is closer to core infrastructure than any application, platform,
+          or even most physical manufacturing participants.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>Control Mechanisms — The Software Compatibility Layer</h2>
+          <p>ARM's primary control mechanism is not contractual. It is ecological. The ARM ISA has
+          accumulated decades of software compatibility — applications, operating system kernels,
+          compilers, toolchains, debuggers, and developer workflows built to target ARM architecture.
+          This compatibility layer means that a device shipping an ARM-architecture processor can
+          run any software compiled for ARM without modification. A device that migrates to a different
+          ISA must rebuild or recompile this entire software stack.</p>
+          <p>In mobile computing, the Android and iOS ecosystems are built predominantly on ARM architecture.
+          In embedded systems, substantial quantities of firmware and safety-critical code are compiled for
+          ARM Cortex-M and Cortex-R targets. In cloud computing, the migration of AWS Graviton,
+          Google Axion, and Microsoft Cobalt represents deliberate investment in ARM-architecture
+          compatibility for cloud workloads — investment that deepens the ecosystem lock-in over time.
+          Analyst interpretation: these cumulative software ecosystem investments are the dominant
+          switching cost, not ARM's licensing contracts themselves.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>Switching Cost Architecture and Dependency Compounding</h2>
+          <p>Switching from ARM architecture to an alternative ISA (RISC-V, x86, or a proprietary
+          ISA) requires: (1) full software stack recompilation or rewriting for workloads that
+          cannot be automatically compiled cross-architecture, (2) toolchain and developer environment
+          migration, (3) binary compatibility breaks affecting third-party software and libraries,
+          (4) re-certification for safety-critical applications in automotive and industrial contexts,
+          and (5) ecosystem rebuild for partner IP, design tools, and reference designs aligned to
+          ARM's AMBA bus protocol and other architectural standards. Analyst interpretation.</p>
+          <p>Dependency compounding follows from ARM's multi-market position: as AI inference moves
+          to edge devices, automotive electrification adds compute requirements to vehicles, IoT
+          expansion adds more microcontroller-class ARM implementations, and cloud server adoption
+          of ARM Neoverse grows — all of these trends increase the aggregate volume of ARM-compatible
+          chips shipped and deepen the software ecosystem built around the ARM ISA. This is the
+          compounding dynamic described in the <a href="/blog/why-infrastructure-outlives-hype/" style="color:var(--gold-light);">durability analysis</a>:
+          infrastructure that grows more valuable as adoption expands across more independent
+          market segments.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: THE ARCHITECTURE LICENSING LAYER -->
+    <section>
+      <div class="eyebrow">Architecture Licensing Layer</div>
+      <h2 class="section-title">What Makes <span>This Layer Distinct</span></h2>
+
+      <p class="section-copy">
+        The architecture licensing layer is structurally distinct from manufacturing infrastructure,
+        equipment infrastructure, and application-layer platforms. Understanding the distinction is
+        necessary to classify ARM accurately within the Shovel Economy and to avoid
+        misreading its structural position.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-tag">Architecture License</div>
+          <div class="card-title">The Custom CPU Path</div>
+          <div class="card-copy">An architecture license grants the licensee the right to design a custom processor microarchitecture that implements the ARM ISA — the internal pipeline, cache hierarchy, branch predictor, power management — while producing a processor that is software-compatible with any ARM ISA compliant system. Apple's M-series and A-series chips, Amazon's Graviton series, Qualcomm's Oryon processor, and Google's Axion are all built on ARM architecture licenses. The licensee owns the microarchitecture; ARM owns the ISA specification they build against. Royalties are paid per chip shipped.</div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">IP / Processor License</div>
+          <div class="card-title">The Pre-Designed Core Path</div>
+          <div class="card-copy">A processor IP license provides a pre-designed CPU core — Cortex-M0 through Cortex-M85 for microcontrollers, Cortex-A series for mobile and server applications, Cortex-R for real-time embedded — that the licensee integrates into their SoC alongside memory controllers, interconnects, accelerators, and peripheral logic. The licensee designs the system around the ARM core; ARM designs the core itself. This path serves the majority of ARM's license count: hundreds of semiconductor companies building products for IoT, industrial, automotive, and consumer electronics markets. Royalties are paid per chip shipped.</div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">What ARM Controls</div>
+          <div class="card-title">The ISA Specification</div>
+          <div class="card-copy">ARM controls the specification of the instruction set: the binary encoding of instructions, the defined behavior of the processor state machine, the calling conventions, the memory model, and the privileged architecture that operating systems depend on. This specification is the compatibility layer. Software compiled to target AArch64 (ARM's 64-bit ISA) runs on any processor — Apple silicon, AWS Graviton, Qualcomm Snapdragon — that correctly implements AArch64. The specification is ARM's structural asset; the compilers, OS kernels, and applications that target it are the ecosystem that creates the switching cost.</div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">What ARM Does Not Control</div>
+          <div class="card-title">Manufacturing and Microarchitecture</div>
+          <div class="card-copy">ARM does not manufacture chips, does not operate fabs, does not own equipment, and does not compete for chip design wins in any end market. The physical manufacturing of every ARM-architecture chip depends on TSMC, Samsung Foundry, or other fabs. The specific performance of a given ARM-architecture processor depends on the microarchitecture decisions of the licensee. ARM's structural position is defined by what it does control — the ISA layer — and is not weakened by what it does not control. This separation is the same logic that makes the foundry model structurally powerful: specialization at a layer creates compounding depth within that layer.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: DEPENDENCY MAP -->
+    <section>
+      <div class="eyebrow">Dependency Map</div>
+      <h2 class="section-title">What Depends on ARM.<br><span>What ARM Depends On.</span></h2>
+
+      <p class="section-copy">
+        ARM sits at the architecture layer: dependent on a set of upstream technical and commercial
+        infrastructure providers, while being the primary architecture dependency for chip designers
+        across mobile, embedded, server, automotive, and AI hardware markets. This two-directional
+        dependency structure defines ARM's structural node position in the global computing supply chain.
+      </p>
+
+      <div class="dependency-grid">
+        <div class="dep-block">
+          <div class="dep-block-label">Upstream — What ARM Depends On</div>
+          <p style="font-size:.85rem;color:var(--white-dim);margin-bottom:.65rem;font-style:italic;">Analyst interpretation based on semiconductor industry structure. ARM's upstream dependencies are less physical than TSMC's or ASML's — they are primarily commercial, technical, and ecosystem-based.</p>
+          <ul class="dep-list">
+            <li><strong>EDA Tool Vendors (Synopsys, Cadence, Siemens EDA)</strong> — Electronic design automation tools are required for chip designers to synthesize, simulate, and verify ARM IP against target foundry processes. ARM's IP must be compatible with the major EDA flows. Analyst interpretation.</li>
+            <li><strong>Semiconductor Foundries (TSMC, Samsung Foundry, others)</strong> — ARM's IP must be characterized and validated against foundry process design kits (PDKs) to be usable by licensees. When a licensee uses an ARM Cortex core, they need ARM's IP qualified for the specific foundry node they are using. See <a href="/dispatch/009.html" style="color:var(--gold-light);">Dispatch 009 (TSMC)</a> for the manufacturing layer classification.</li>
+            <li><strong>Standards Bodies (AMBA, ISA governance)</strong> — ARM's AMBA (Advanced Microcontroller Bus Architecture) bus protocol is an industry standard for SoC interconnect design. ARM contributes to and depends on ecosystem-level standards adoption for its IP to remain the default design substrate.</li>
+            <li><strong>Compiler Toolchains (GCC, LLVM/Clang, MSVC)</strong> — ARM architecture value depends on compiler support. The GCC and LLVM projects provide open-source compilers that target ARM architecture; without compiler support, the ISA's software compatibility value would not exist. ARM contributes engineering to these projects. Analyst interpretation.</li>
+            <li><strong>Operating System Kernels (Linux, Android, iOS, RTOS vendors)</strong> — ARM architecture requires OS kernel ports that implement the privileged architecture specification. The Linux kernel, Android, iOS, and major RTOS (real-time operating system) vendors maintain ARM architecture support. This is not a dependency ARM controls, but it is a precondition for the ecosystem value of ARM's ISA.</li>
+          </ul>
+        </div>
+
+        <div class="dep-block">
+          <div class="dep-block-label">Downstream — What Depends on ARM</div>
+          <ul class="dep-list">
+            <li><strong>Apple</strong> — A-series processors (iPhone, iPad) and M-series processors (Mac, iPad Pro) are designed on ARM architecture licenses. Apple's entire device silicon portfolio is ARM ISA-compatible. Source: Apple official product announcements (T1).</li>
+            <li><strong>Qualcomm</strong> — Snapdragon mobile SoCs and Oryon custom CPU cores for Windows on ARM PCs are designed on ARM architecture. Source: Qualcomm official product announcements and ARM licensing documentation (T1). Customer relationship consistent with ARM Form 20-F disclosures.</li>
+            <li><strong>MediaTek</strong> — Mobile SoCs for a large portion of global smartphone production use ARM Cortex IP. ARM's Form 20-F (2023) identifies MediaTek as a significant customer. Source: ARM Holdings Form 20-F (2023), T1.</li>
+            <li><strong>Amazon Web Services (AWS)</strong> — Graviton processor series (Graviton, Graviton2, Graviton3, Graviton4) are ARM Neoverse architecture-based. Source: AWS official press releases (T1).</li>
+            <li><strong>Google</strong> — Axion processor for Google Cloud infrastructure is ARM-based (announced 2024). Source: Google Cloud official announcements (T1).</li>
+            <li><strong>Microsoft</strong> — Azure Cobalt 100 processor for Azure infrastructure is ARM Neoverse-based. Source: Microsoft Azure official announcements (T1).</li>
+            <li><strong>NVIDIA</strong> — NVIDIA Grace CPU (Hopper architecture server platform) uses ARM Neoverse V2 architecture. Source: NVIDIA official product announcements (T1).</li>
+            <li><strong>Automotive chip suppliers (NXP, Renesas, STMicroelectronics)</strong> — ARM Cortex-R and Cortex-A cores are used in automotive microcontrollers and SoCs for ADAS, powertrain, and body electronics. Analyst interpretation; consistent with ARM's automotive market materials.</li>
+            <li><strong>Embedded and IoT suppliers (Nordic Semiconductor, Microchip, Silicon Labs)</strong> — ARM Cortex-M microcontrollers are the dominant processor architecture for IoT, wearable, and embedded applications. Analyst interpretation; consistent with ARM Form 20-F market segment disclosures.</li>
+            <li><strong>Samsung Semiconductor</strong> — Exynos mobile processors are designed on ARM architecture. Customer relationship consistent with ARM Form 20-F disclosures (T1).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: REPLACEMENT DIFFICULTY -->
+    <section>
+      <div class="eyebrow">Replacement Difficulty</div>
+      <h2 class="section-title">Why Replacing ARM<br><span>Takes Years, Not Months</span></h2>
+
+      <div class="article-block" style="margin-bottom:1rem;">
+        <div class="difficulty-badge">Replacement Difficulty: High</div>
+        <div class="summary-copy" style="font-size:.88rem;margin-bottom:1rem;">
+          ARM's replacement difficulty is assessed as <strong>High</strong> — one level below TSMC's
+          <em>Very High</em> — because RISC-V constitutes a credible structural alternative path,
+          especially for new platforms where software compatibility is less constraining. The distinction
+          matters: TSMC's replacement difficulty is Very High because there is no alternative provider
+          of leading-edge fabrication. ARM's replacement difficulty is High because there is an
+          alternative ISA; the migration cost is real and substantial, but not physically impossible
+          the way replacing TSMC's unique process capability would be.
+        </div>
+
+        <div class="article">
+          <div>
+            <div class="signal-row">
+              <div class="signal-label">Alternatives</div>
+              <div class="signal-body">RISC-V is a credible and growing alternative ISA governed by RISC-V International (T2 — standards body). It is open-source, royalty-free, and has documented adoption in embedded controllers and initial data center applications. Companies including Western Digital and SiFive have publicly adopted RISC-V for specific applications (T3 — technology press reporting; analyst interpretation). In some regions, government-motivated policy objectives are accelerating RISC-V adoption as an alternative to licensed architecture IP — analyst interpretation; specific penetration figures are not sourced in this dossier with High Confidence. x86 (Intel/AMD) remains dominant in desktop and traditional server markets but is not a credible substitute for ARM's mobile, embedded, and automotive footprint. No single alternative matches ARM's combination of ecosystem maturity, software compatibility, and multi-market breadth at time of writing. Analyst interpretation.</div>
+            </div>
+            <div class="signal-row">
+              <div class="signal-label">Migration Cost Type</div>
+              <div class="signal-body">Software ecosystem migration (recompilation or rewriting of applications, OS kernels, firmware), toolchain migration (compiler targets, debuggers, profilers), binary compatibility breaks (existing compiled software will not run on a different ISA without recompilation or emulation), safety recertification for automotive and industrial applications (ARM Cortex-R and Cortex-A have accumulated functional safety certifications), and design ecosystem migration (AMBA bus protocols, reference IP, partner ecosystem). Analyst interpretation: all cost types must be absorbed simultaneously for a full platform migration.</div>
+            </div>
+            <div class="signal-row">
+              <div class="signal-label">Migration Timeline</div>
+              <div class="signal-body">Years to decade-scale for established platforms with large accumulated software ecosystems. New platforms (a purpose-built AI accelerator with no prior software compatibility requirement, for example) could adopt RISC-V or a custom ISA without the full migration cost. This asymmetry — high migration cost for established platforms, lower for greenfield — is the structural reason ARM's replacement difficulty is classified as High rather than Very High. Analyst interpretation.</div>
+            </div>
+            <div class="signal-row">
+              <div class="signal-label">Historical Evidence</div>
+              <div class="signal-body">Apple's transition from Intel x86 to Apple Silicon (ARM architecture) in 2020–2021 demonstrates that ISA migration for a major platform is achievable — but required multiple years of preparation, Rosetta 2 binary translation software, developer toolchain updates, and a coordinated multi-release migration strategy. Source: Apple official announcements (T1). The evidence cuts both ways: it proves ISA migration is possible (supporting RISC-V as a long-run alternative), and it demonstrates that even a well-resourced and technically capable company requires multiple years of preparation for a platform-scale ISA transition.</div>
+            </div>
+            <div class="signal-row">
+              <div class="signal-label">Fragility Factors</div>
+              <div class="signal-body">ARM's two structural fragility factors are: (1) RISC-V trajectory — if RISC-V achieves ecosystem maturity parity with ARM in a major segment (most likely: AI accelerators, then embedded, then cloud), the gatekeeper signal will diminish. This is the primary long-term structural risk to ARM's classification. (2) Geopolitical fragility — ARM is headquartered in the UK with operations in the US and globally; significant restriction on ARM's licensing to specific regions (as has occurred in related semiconductor policy contexts) could accelerate alternative ISA adoption in those regions. Watch Signal — neither fragility factor is assessed as near-term by available evidence.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: CONTROL-LAYER VS SHOVEL-LAYER TENSION -->
+    <section>
+      <div class="eyebrow">Control-Layer and Shovel-Layer Analysis</div>
+      <h2 class="section-title">Structural Authority <span>Decomposed</span></h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-tag">Shovel-Layer Signals</div>
+          <div class="card-title">Enabling Many Participants</div>
+          <div class="card-copy">ARM enables Apple, Qualcomm, MediaTek, Samsung, Amazon, Google, Microsoft, NVIDIA, NXP, Renesas, and hundreds of smaller chip designers simultaneously. These companies compete directly with each other in mobile, cloud, and embedded markets. ARM's structural position improves as all of them grow — it captures aggregate chip volume, not outcome-specific revenue. The definition of a shovel-layer asset: benefit from the race without needing a specific winner. ARM's royalty income is determined by total ARM-architecture chip production volume across all its licensees — a structurally diversified position that would survive the commercial failure of any individual licensee.</div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Gatekeeper-Layer Signals</div>
+          <div class="card-title">ISA Ecosystem as Access Control</div>
+          <div class="card-copy">The ARM ISA is the software compatibility layer around which decades of applications, operating systems, compilers, and developer workflows have been built. Any device or platform that seeks to be software-compatible with existing ARM-based systems must either implement ARM's ISA (paying royalties) or maintain binary translation/emulation layers (adding cost and performance overhead). This creates a de facto access control: to participate in the ARM ecosystem without ARM's license, the cost is either paying ARM or accepting incompatibility. The gatekeeper signal is real, but its strength is moderated by RISC-V as an exit path for new platforms. See the <a href="/blog/the-control-layer/" style="color:var(--gold-light);">Control Layer analysis</a>.</div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Compounding Dynamics</div>
+          <div class="card-title">Ecosystem Deepens With Adoption</div>
+          <div class="card-copy">Each new device category that adopts ARM architecture adds software ecosystem depth. Mobile computing built the Android and iOS software layers on ARM. Edge AI adoption extends neural network inference frameworks to ARM-architecture targets. Automotive safety certification creates decades-long commitments to ARM-certified IP. Cloud infrastructure migration (Graviton, Axion, Cobalt) extends datacenter workloads to ARM-compiled software. Each of these transitions deepens the ecosystem value of ARM's ISA — the more software is built against ARM architecture, the higher the migration cost for any actor considering an alternative. This is the compounding dynamic described in the <a href="/framework/" style="color:var(--gold-light);">Shovel Economy Framework</a>.</div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Where Gatekeeper Strength Is Limited</div>
+          <div class="card-title">RISC-V and Greenfield Platforms</div>
+          <div class="card-copy">ARM's gatekeeper position weakens at the boundaries of its existing ecosystem: (1) Greenfield AI accelerators designed without software compatibility requirements can choose RISC-V for non-application-processor control cores without incurring ecosystem migration costs. (2) In some regions, policy-motivated interest in domestic semiconductor alternatives has been associated with accelerated RISC-V adoption in specific markets — Analyst interpretation. (3) Any new computing category that does not need to be software-compatible with existing ARM systems faces a lower barrier to RISC-V adoption. The key structural question for future classification reviews: if RISC-V achieves dominant adoption in one major segment, does the precedent reduce ARM's gatekeeper signal in adjacent segments? Analyst interpretation — Watch Signal.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: FUTURE PROJECTS / FORWARD WATCH LAYER -->
+    <section>
+      <div class="eyebrow">Future Projects and Forward Watch Layer</div>
+      <h2 class="section-title">Publicly Announced <span>Forward Initiatives</span></h2>
+
+      <p class="section-copy">
+        The following projects meet the Intelligence Standard's four-gate requirement: publicly
+        announced by the actor or a government body, source-backed with a citable reference,
+        date-checked, and clearly distinguished from analyst inference. Items not meeting all
+        four gates are labeled Watch Signal.
+      </p>
+
+      <div class="article">
+        <div class="article-block">
+          <h2>ARM Neoverse Platform — Cloud and Infrastructure Expansion <span style="font-size:.75rem;font-weight:400;color:var(--white-dim);margin-left:.5rem;">[High Confidence — T1]</span></h2>
+          <p>ARM publicly announced and has continued to develop the Neoverse platform — a family of
+          processor IP products targeting cloud, infrastructure, and edge computing. The Neoverse N
+          series targets balanced workloads; the Neoverse V series targets high-performance computing
+          and AI inference workloads. Successive generations (N1, N2, V1, V2) have been announced and
+          are in production. Source: ARM official product announcements and investor relations materials
+          (T1). AWS Graviton, Google Axion, Microsoft Azure Cobalt 100, and NVIDIA Grace are all
+          documented implementations of ARM Neoverse-based designs — confirmed by official announcements
+          from each company (T1).</p>
+          <p>Structural implication: the Neoverse platform represents ARM's entry into server and
+          cloud infrastructure — a market previously dominated by x86 (Intel Xeon, AMD EPYC). Confirmed
+          adoption by three of the largest cloud infrastructure operators (AWS, Google, Microsoft) is
+          a T1-supported signal of structural migration in cloud compute architecture. The depth and
+          trajectory of this migration is a Watch Signal — current adoption is confirmed but future
+          market share trajectory in server infrastructure is not deterministic.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>ARM Compute Subsystems (CSS) — System-Level IP <span style="font-size:.75rem;font-weight:400;color:var(--white-dim);margin-left:.5rem;">[High Confidence — T1]</span></h2>
+          <p>ARM announced its Compute Subsystems (CSS) program as a system-level IP offering providing
+          validated, pre-integrated subsystem designs — combining ARM CPU cores with AMBA interconnects,
+          memory interfaces, and system infrastructure — to accelerate SoC design. CSS extends ARM's
+          IP licensing model beyond individual CPU cores to integrated system-level building blocks.
+          Source: ARM official product documentation and press releases (T1).</p>
+          <p>Structural implication: CSS represents an expansion of ARM's IP capture depth — instead
+          of licensing a CPU core, ARM licenses a validated multi-component system. This increases
+          the value of each license and deepens the per-chip integration of ARM IP into SoC designs,
+          which compounds both the royalty revenue per chip and the switching cost for licensees.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>ARM Total Design Ecosystem — Custom Silicon Acceleration <span style="font-size:.75rem;font-weight:400;color:var(--white-dim);margin-left:.5rem;">[High Confidence — T1]</span></h2>
+          <p>ARM announced the Arm Total Design ecosystem in October 2022, a program designed to
+          accelerate the development of custom silicon using ARM IP, partner IP, EDA tools, and
+          foundry process libraries. The program includes participation from major cloud companies,
+          EDA vendors, and foundry partners. Source: ARM official press release (October 2022), T1.</p>
+          <p>Structural implication: Total Design extends ARM's position from an IP licensor to an
+          ecosystem orchestrator for custom chip development — reducing the time-to-tape-out for
+          companies building custom silicon on ARM architecture. This lowers the technical barrier
+          for companies to adopt ARM architecture for custom chips, which expands ARM's potential
+          licensee base, but also potentially accelerates RISC-V competition for the same custom
+          silicon segment. Analyst interpretation.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>Automotive Safety Certification Expansion — Watch Signal <span style="font-size:.75rem;font-weight:400;color:var(--white-dim);margin-left:.5rem;">[Watch Signal — T3]</span></h2>
+          <p>ARM has publicized ongoing work to achieve functional safety certifications (ISO 26262
+          for automotive) for its Cortex-R and Cortex-A series products targeting automotive ADAS
+          and powertrain applications. Source: ARM official product documentation (T1) for the
+          existence of these efforts. Specific new certification completions and customer adoption
+          timelines in automotive are not fully confirmed in primary sources at the date of this
+          dossier — Watch Signal. Structural implication: automotive functional safety certification
+          creates decade-scale commitments to certified IP; once automotive supply chains adopt
+          ARM Cortex-R/A with ISO 26262 certification, replacement difficulty in that segment
+          becomes very high. Analyst interpretation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: SOURCE-GOVERNED FACT TABLE -->
+    <section>
+      <div class="eyebrow">Source-Governed Fact Table</div>
+      <h2 class="section-title">Factual Claims <span>With Source Attribution</span></h2>
+
+      <p class="section-copy">
+        All factual claims used in this dossier are recorded in the following table. Claims not
+        appearing here are explicitly analyst interpretation. Source tier definitions follow the
+        Dispatch Intelligence Standard: T1 (primary/authoritative), T2 (recognized institutional),
+        T3 (reputable secondary).
+      </p>
+
+      <div class="panel">
+        <div class="panel-inner" style="overflow-x:auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Claim</th>
+                <th>Source / Reference</th>
+                <th>Tier</th>
+                <th>Date Checked</th>
+                <th>Confidence</th>
+                <th>Why It Matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ARM Holdings founded November 1990 as Advanced RISC Machines Ltd., a joint venture of Acorn Computers, Apple Computer, and VLSI Technology</td>
+                <td>ARM corporate history — ARM official investor relations (arm.com)</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>Establishes the founding premise of the architecture licensing model — the structural separation of architecture specification from chip manufacturing that defines ARM's shovel-layer position.</td>
+              </tr>
+              <tr>
+                <td>SoftBank Group acquired ARM Holdings in 2016 for approximately £23.4 billion</td>
+                <td>Regulatory approval records — UK FCA and public company disclosures; reported in financial and technology press</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>Documents the ownership transition that preceded the NVIDIA acquisition attempt; relevant to the governance and neutrality analysis in Section 4 (Historical Position) and Section 8 (Replacement Difficulty).</td>
+              </tr>
+              <tr>
+                <td>NVIDIA announced acquisition of ARM Holdings from SoftBank in September 2020 for approximately $40 billion (per NVIDIA press release, September 2020); deal abandoned February 2022 following regulatory opposition from UK CMA, European Commission, and US FTC</td>
+                <td>UK Competition and Markets Authority (CMA) investigation announcement; European Commission competition review; US Federal Trade Commission administrative proceedings; NVIDIA and SoftBank company statements</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>The regulatory blocking is itself a structural signal: competition regulators from three major jurisdictions assessed ARM's neutrality as a structural precondition for its licensing position. This is the clearest external validation that regulators treat ARM as infrastructure-layer rather than competitive product.</td>
+              </tr>
+              <tr>
+                <td>ARM Holdings re-listed on NASDAQ in September 2023, trading under the ticker ARM; SEC Form 20-F filed as primary disclosure document</td>
+                <td>ARM Holdings Form 20-F (SEC filing, 2023) — NASDAQ and SEC records</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>Re-establishes ARM as a public company with SEC disclosure requirements; the 20-F filing is a primary source for ARM's business model, revenue structure, and customer concentration disclosures used throughout this dossier.</td>
+              </tr>
+              <tr>
+                <td>ARM's primary revenue model consists of upfront licensing fees and per-chip royalties; license types include Architecture Licenses (custom CPU design) and IP/Processor Licenses (pre-designed CPU cores)</td>
+                <td>ARM Holdings Form 20-F (SEC filing, 2023) — business description and revenue recognition sections</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>Foundational structural fact: the per-chip royalty model is the mechanism by which ARM captures aggregate chip production volume regardless of which downstream applications or devices win. This is the primary basis for the Shovel classification.</td>
+              </tr>
+              <tr>
+                <td>Apple's transition from Intel x86 to Apple Silicon (ARM architecture) was announced at WWDC June 2020; the M1 launched November 2020; transition completed across Mac lineup by 2023</td>
+                <td>Apple official WWDC 2020 announcements and subsequent product announcements — Apple Newsroom (T1)</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>Documents the largest ISA migration in recent personal computing history; Apple's multi-year preparation confirms that platform-scale ISA migration requires significant lead time even for the world's most technically capable device company — primary support for the "High" replacement difficulty assessment.</td>
+              </tr>
+              <tr>
+                <td>Amazon Web Services (AWS) Graviton processors use ARM architecture; Graviton first announced 2018 with successive generations (Graviton2, Graviton3, Graviton4)</td>
+                <td>AWS official press releases and AWS re:Invent announcements (T1)</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>AWS Graviton is the first major public cloud provider's confirmed ARM-architecture server processor program; documents the structural migration of cloud infrastructure workloads toward ARM architecture and extends ARM's shovel position into the cloud server market.</td>
+              </tr>
+              <tr>
+                <td>Google announced Axion processor (ARM-based, targeting Google Cloud infrastructure) in 2024; Microsoft announced Azure Cobalt 100 (ARM Neoverse-based) in 2023</td>
+                <td>Google Cloud official Next '24 announcement (T1); Microsoft Azure official announcement (T1)</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>Confirms that all three of the largest public cloud providers (AWS, Google, Microsoft) have publicly committed to ARM-architecture custom processors for cloud infrastructure — a structural migration signal that ARM's shovel position now extends to server and cloud compute, not only mobile and embedded.</td>
+              </tr>
+              <tr>
+                <td>NVIDIA Grace CPU (used in Grace Hopper superchip) uses ARM Neoverse V2 architecture</td>
+                <td>NVIDIA official GTC and product announcements — NVIDIA Newsroom (T1)</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>NVIDIA — ARM's primary competitor during the failed 2020-2022 acquisition — became an ARM architecture licensee for its server CPU product, confirming that the commercial logic of ARM architecture adoption extends even to companies with the technical capability to build alternative ISA implementations. Relevant to the Shovel-layer breadth argument.</td>
+              </tr>
+              <tr>
+                <td>RISC-V is an open-source instruction set architecture governed by RISC-V International, a non-profit standards and governance body</td>
+                <td>RISC-V International (riscv.org) — governance documentation and ISA specification</td>
+                <td><span class="tier-badge tier-2">T2</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>RISC-V is the primary structural alternative to ARM architecture and the reason ARM's Gatekeeper signal is classified as "moderate" rather than "strong." Its existence as an open, royalty-free standard maintained by a recognized standards body gives it structural credibility as an alternative path, especially for new platforms without legacy software compatibility requirements.</td>
+              </tr>
+              <tr>
+                <td>ARM announced Arm Total Design ecosystem in October 2022 to accelerate custom silicon development using ARM IP in partnership with EDA vendors, foundries, and cloud companies</td>
+                <td>ARM official press release, October 2022 (T1)</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>Confirms ARM's deliberate expansion from IP licensor to ecosystem orchestrator for custom silicon; documents the strategic initiative to lower the barrier to ARM architecture adoption for new custom chip programs — relevant to the Compounding Dynamics section and to future classification of ARM's ecosystem depth.</td>
+              </tr>
+              <tr>
+                <td>ARM states in its investor and marketing materials that its technology is present in the substantial majority of smartphones globally; this is a self-reported figure and is not independently verified in this dossier</td>
+                <td>ARM Holdings investor materials and official marketing (T1 for the claim's existence as ARM's public statement; Moderate Confidence for precision of specific percentage figures)</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-moderate">Moderate</span></td>
+                <td>ARM's self-reported smartphone penetration is the primary quantitative basis for the mobile market dominance claim. Confidence labeled Moderate rather than High because the specific percentage is self-reported marketing data; the structural claim that ARM architecture dominates mobile computing is directionally consistent with the independently-confirmed customer list (Apple, Qualcomm, MediaTek, Samsung) above.</td>
+              </tr>
+              <tr>
+                <td>ARM Holdings plc listed simultaneously on the London Stock Exchange and NASDAQ in April 1998</td>
+                <td>Company and exchange historical records — London Stock Exchange and NASDAQ filings; ARM corporate history (arm.com investor relations)</td>
+                <td><span class="tier-badge tier-1">T1</span></td>
+                <td>2026-06-09</td>
+                <td><span class="confidence-high">High</span></td>
+                <td>Establishes the 1998 public listing as the point at which ARM's architecture licensing model became a public market structure and the mobile semiconductor ecosystem began consolidating around ARM's ISA — relevant to the historical narrative in Section 4.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: SCANNER INTERPRETATION -->
+    <section>
+      <div class="eyebrow">Scanner Interpretation</div>
+      <h2 class="section-title">Reading the <span>Signal Scores</span></h2>
+
+      <p class="section-copy">
+        This section explains how the ten scanner signals translate into ARM's classification.
+        The goal is to make the classification legible, auditable, and reproducible using the
+        <a href="/scanner/" style="color:var(--gold-light);">Shovel Scanner</a>. The key structural
+        contrast with other dossier cases is explained explicitly: ARM's Gatekeeper signal is lower
+        than TSMC's or ASML's because of the RISC-V alternative, which no manufacturing or equipment
+        layer has an equivalent for.
+      </p>
+
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="panel-title">Signal Values Used in Classification</div>
+
+          <div class="score-bars" style="margin-top:.8rem;">
+            <div>
+              <div class="bar-label"><span>Enables Many (enablesMany)</span><span>89 / 100</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:89%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Chases Visible (chasesVisible)</span><span>16 / 100</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:16%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Controls Access (controlsAccess)</span><span>72 / 100</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Near Core Infra (nearCoreInfra)</span><span>94 / 100</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:94%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Failure Disrupts (failureDisrupts)</span><span>82 / 100</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Hard to Switch (hardToSwitch)</span><span>82 / 100</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Dependency Grows (dependencyGrows)</span><span>86 / 100</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:86%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Necessity Not Spec (necessityNotSpec)</span><span>88 / 100</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Replaceable (replaceable)</span><span>34 / 100</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:34%"></div></div>
+            </div>
+            <div>
+              <div class="bar-label"><span>Compounds Integrations (compoundsIntegrations)</span><span>80 / 100</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="article" style="margin-top:1rem;">
+        <div class="article-block">
+          <h2>Signals Driving the Primary Classification</h2>
+          <p>Four signals produce the dominant Shovel classification force: <strong>nearCoreInfra (94)</strong> —
+          processor architecture is the foundational layer beneath every computing device, more upstream
+          than any application, platform, or even most manufacturing infrastructure.
+          <strong>necessityNotSpec (88)</strong> — chip designers cannot begin a processor design program
+          without choosing an ISA; this is architectural necessity, not market speculation.
+          <strong>enablesMany (89)</strong> — ARM licenses architecture and IP to Apple, Amazon,
+          Google, Microsoft, Qualcomm, MediaTek, Samsung, NVIDIA, NXP, and hundreds of other chip
+          designers simultaneously across unrelated markets.
+          <strong>dependencyGrows (86)</strong> — IoT expansion, automotive electrification, cloud
+          infrastructure migration, and AI edge inference all add ARM-architecture chip volume.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>The Structural Contrast: Why ARM Differs From TSMC and ASML</h2>
+          <p>The most important signal comparison in this dossier is <strong>replaceable</strong>:
+          ARM scores 34, compared to TSMC's score of 8 and ASML's effectively equivalent position.
+          TSMC and ASML have no credible alternatives at leading-edge — no other company makes
+          EUV lithography machines (ASML), and no other foundry produces advanced node chips at
+          comparable yield and volume (TSMC). ARM has RISC-V: an open-source, royalty-free ISA with
+          genuine and growing adoption in embedded systems, AI accelerators, and early cloud
+          implementations.</p>
+          <p>This difference directly drives the Gatekeeper score: ARM's <strong>controlsAccess (72)</strong>
+          reflects real ISA compatibility lock-in, but not monopoly-class access control.
+          Analysts calibrating ARM against TSMC or ASML should hold this distinction explicitly:
+          ARM's structural position is strong and durable, but is contestable in a way that TSMC's
+          manufacturing position is not. The Shovel primary classification, however, is not sensitive
+          to this difference — the dominant Shovel signals (nearCoreInfra, enablesMany, necessityNotSpec,
+          dependencyGrows) do not depend on the absence of RISC-V. Analyst interpretation.</p>
+        </div>
+
+        <div class="article-block">
+          <h2>How Signal Changes Would Affect Classification</h2>
+          <p>If RISC-V achieves dominant adoption in a major device segment — for example, if a major
+          smartphone SoC vendor ships at volume on a RISC-V-primary architecture — <strong>replaceable</strong>
+          would rise toward 50–60 and <strong>controlsAccess</strong> would fall toward 55–60. This
+          would reduce the Gatekeeper secondary score from 73 to approximately 60–65, weakening the
+          Hybrid classification toward "Shovel with limited Gatekeeper characteristics." The Shovel
+          primary classification (88) would not change materially: even in a world where RISC-V
+          captures 30–40% of new chip design starts, ARM would still enable a large and growing
+          base of chip volume. Analyst interpretation: the Shovel primary is more durable than the
+          Gatekeeper secondary in ARM's structural position — an important distinction for long-horizon
+          classification analysis.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 13: ANALYST USE CASES -->
+    <section>
+      <div class="eyebrow">Analyst Use Cases</div>
+      <h2 class="section-title">Who Uses This <span>Dossier and For What</span></h2>
+
+      <div class="use-case-block">
+        <div class="use-case">
+          <div class="use-case-num">01</div>
+          <div class="use-case-content">
+            <div class="use-case-who">Technology Sector Analyst — Mapping Semiconductor IP Infrastructure</div>
+            <div class="use-case-what">An analyst building a map of the semiconductor supply chain uses this dossier to understand where ARM sits relative to TSMC (manufacturing), ASML (equipment), and chip designers (fabless). The dossier places the architecture licensing layer structurally: upstream of chip design, downstream of ISA specification standards, orthogonal to manufacturing. This placement is necessary to avoid misclassifying ARM as a chip company, a software company, or an equipment company — it is none of these.</div>
+          </div>
+        </div>
+
+        <div class="use-case">
+          <div class="use-case-num">02</div>
+          <div class="use-case-content">
+            <div class="use-case-who">Platform Builder — Evaluating ISA Commitment Before Chip Design</div>
+            <div class="use-case-what">An engineer or product leader evaluating whether to build a custom chip on ARM architecture, RISC-V, or x86 uses this dossier to understand the full switching cost structure before committing to an ISA. The analysis of software ecosystem lock-in (Section 5), the Architecture License vs. IP License distinction (Section 6), and the replacement difficulty assessment (Section 8) provide structured inputs for an architectural decision that will constrain the product for years.</div>
+          </div>
+        </div>
+
+        <div class="use-case">
+          <div class="use-case-num">03</div>
+          <div class="use-case-content">
+            <div class="use-case-who">Supply Chain Researcher — Understanding the Architecture Layer in Computing</div>
+            <div class="use-case-what">A researcher building a dependency map of modern computing infrastructure uses this dossier to establish where the architecture licensing layer sits and what it connects to. The dependency map (Section 7) provides structured upstream and downstream nodes. The dossier explicitly connects ARM to TSMC (manufacturing), ASML (equipment through TSMC), NVIDIA, Apple, and cloud hyperscalers — establishing ARM's position as one of several critical IP layers that must function for modern computing to operate.</div>
+          </div>
+        </div>
+
+        <div class="use-case">
+          <div class="use-case-num">04</div>
+          <div class="use-case-content">
+            <div class="use-case-who">Policy Analyst — Understanding Open vs. Licensed Architecture Standards</div>
+            <div class="use-case-what">A policy researcher examining semiconductor supply chain governance uses this dossier to understand the structural difference between ARM (a licensed, proprietary ISA with commercial royalties) and RISC-V (an open-source, royalty-free ISA governed by a non-profit international body). The dossier's treatment of the NVIDIA acquisition collapse — and its regulatory interpretation — provides structural context for why semiconductor architecture licensing is treated as infrastructure policy, not merely commercial IP.</div>
+          </div>
+        </div>
+
+        <div class="use-case">
+          <div class="use-case-num">05</div>
+          <div class="use-case-content">
+            <div class="use-case-who">Framework Student — Understanding Shovel-Gatekeeper Classification at the IP Layer</div>
+            <div class="use-case-what">A reader learning the <a href="/framework/" style="color:var(--gold-light);">Shovel Economy Framework</a> uses ARM as a reference case for how IP licensing creates a shovel-layer position: ARM earns from aggregate chip volume without competing in any chip market. The Gatekeeper secondary signal — ISA compatibility lock-in moderated by RISC-V — demonstrates why "moderate" and "strong" gatekeeper classifications are structurally distinct, and why the presence of a credible alternative changes the classification meaningfully.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 14: LIMITS AND UNCERTAINTY -->
+    <section>
+      <div class="eyebrow">Limits and Uncertainty</div>
+      <h2 class="section-title">What This Dossier <span>Does Not Claim</span></h2>
+
+      <div class="article-block">
+        <p>Explicit statement of dossier limits. A dossier with clearly stated uncertainty is more
+        valuable than one with false confidence. Analysts should weigh these limits before applying
+        this dossier to any consequential decision.</p>
+      </div>
+
+      <ul class="limits-list">
+        <li><strong>Data limitation:</strong> ARM does not publicly disclose precise royalty revenue by customer, market segment, or product line in sufficient detail to independently verify specific claims about revenue concentration. The dossier relies on ARM's Form 20-F (T1) for business model structure and on the disclosed customer list. Claims about specific customer revenue contributions are not made in this dossier to avoid unsourced precision.</li>
+        <li><strong>Data limitation:</strong> ARM's self-reported figures for smartphone architecture penetration are labeled Moderate Confidence (source table row 12) because they are marketing-grade claims rather than independently audited data. The directional claim — that ARM architecture dominates mobile computing — is structurally consistent with the documented customer list (Apple, Qualcomm, MediaTek, Samsung) but the specific percentage is not independently verified here.</li>
+        <li><strong>Classification limit:</strong> The RISC-V trajectory is the most significant source of classification uncertainty. RISC-V adoption data at the time of this dossier is incomplete. If RISC-V achieves dominant adoption in embedded or AI accelerator markets before this dossier is next reviewed, the Gatekeeper secondary signal (currently 73) should be re-calibrated downward. This dossier does not have sufficient primary source data to assess RISC-V's current market penetration with High Confidence.</li>
+        <li><strong>Temporal limit:</strong> This dossier reflects the structural position as of 2026-06-09. ARM's server/cloud position (Neoverse, Graviton, Axion, Cobalt) is the most time-sensitive structural development — it should be re-evaluated annually as cloud providers publish infrastructure roadmaps. ARM's mobile position is more stable but should also be re-evaluated if a major mobile SoC supplier announces a platform-scale shift to RISC-V.</li>
+        <li><strong>Scope limit:</strong> This dossier does not assess ARM's financial performance, valuation, royalty rate structures, or investment characteristics. It does not evaluate ARM's competitive dynamics in server architecture against x86 (Intel/AMD) in quantitative terms. It does not cover ARM's specific presence in FPGA architecture or custom instruction set extensions. These are intentional scope limits.</li>
+        <li><strong>Scope limit:</strong> This dossier does not cover the China market ARM dynamics in the depth they warrant. ARM licensing to Chinese semiconductor companies (HiSilicon/Huawei, Chinese EV chip designers, and others) has been affected by US export controls and geopolitical constraints that are outside this dossier's scope. These regional dynamics may materially accelerate RISC-V adoption in ways that affect ARM's future classification. Watch Signal.</li>
+      </ul>
+
+      <div class="not-investment-advice">
+        This Dispatch dossier is a structural classification record. It is not investment advice, a financial
+        recommendation, or a valuation. No claim in this document should be used as the sole basis for any
+        financial decision. The classification of ARM as a Hybrid Shovel/Gatekeeper asset describes structural
+        market-layer position, not financial performance, future revenue, or shareholder returns.
+      </div>
+    </section>
+
+    <!-- SECTION 15: RELATED DISPATCH CASES -->
+    <section>
+      <div class="eyebrow">Related Dispatch Cases</div>
+      <h2 class="section-title">Structural <span>Cross-References</span></h2>
+
+      <ul class="related-list">
+        <li>
+          <a href="/dispatch/001.html">Dispatch 001 — NVIDIA and the Compute Layer</a>: NVIDIA is both a downstream beneficiary of ARM's architecture licensing (the Grace CPU uses ARM Neoverse V2) and ARM's most significant corporate antagonist of the past decade (the failed 2020-2022 acquisition attempt). The compute layer (Dispatch 001) sits above the architecture licensing layer (Dispatch 010) — NVIDIA's AI accelerators depend on the ARM-architecture processor IP in their Grace CPUs, which depends on ARM's licensing position, which depends on TSMC's manufacturing, which depends on ASML's equipment.
+        </li>
+        <li>
+          <a href="/dispatch/002.html">Dispatch 002 — ASML and the Infrastructure of Irreplaceability</a>: ASML sits at the physical manufacturing bottleneck — it makes the EUV lithography machines that TSMC uses to produce the chips designed on ARM architecture. ARM's architecture licensing layer is structurally upstream of TSMC and ASML in terms of logical design, but physically downstream in terms of what must happen for an ARM-architecture processor to exist as a physical chip. These three dossiers together describe three consecutive layers of the semiconductor supply chain: architecture specification (ARM), physical manufacturing (TSMC), and equipment for manufacturing (ASML).
+        </li>
+        <li>
+          <a href="/dispatch/009.html">Dispatch 009 — TSMC and the Manufacturing Sovereignty Layer</a>: TSMC manufactures the chips designed on ARM architectures. Every ARM-architecture processor — Apple M-series, AWS Graviton, Qualcomm Snapdragon at leading-edge nodes — is physically fabricated using TSMC processes. ARM's architecture licensing layer and TSMC's manufacturing sovereignty layer are adjacent but distinct: ARM captures value from the architectural specification; TSMC captures value from the physical fabrication. A chip design on ARM architecture without a manufacturing partner is not a product. ARM's licensing does not depend on which foundry produces the chip, but most advanced ARM-architecture designs are produced at TSMC.
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECTION 16: RELATED BLOG PRIMERS -->
+    <section>
+      <div class="eyebrow">Related Blog Primers</div>
+      <h2 class="section-title">Foundational <span>Reading</span></h2>
+
+      <ul class="related-list">
+        <li>
+          <a href="/blog/what-is-the-shovel-economy/">What Is the Shovel Economy?</a> — A foundational explanation of why infrastructure assets that enable market participation are structurally distinct from the visible winners in any market wave. Explains the core framework that classifies ARM's architecture licensing position as a shovel-layer asset: ARM earns from the mobile rush, the cloud migration, and the AI expansion — without needing to win any of them.
+        </li>
+        <li>
+          <a href="/blog/the-control-layer/">The Control Layer</a> — An analysis of how infrastructure assets develop gatekeeper characteristics as they accumulate control over access, standards, and routing. Directly relevant to ARM's Gatekeeper secondary signal: the ARM ISA creates an access control layer through software compatibility concentration, with RISC-V representing the structural constraint on how absolute that control can become.
+        </li>
+        <li>
+          <a href="/blog/why-infrastructure-outlives-hype/">Why Infrastructure Outlives Hype</a> — Examines why durable infrastructure positions compound over time while visible market-wave winners often decline as competition normalizes. Relevant to understanding why ARM's architecture licensing position has compounded through four decades of computing market cycles — from embedded to mobile to cloud to AI — outlasting any single market wave.
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECTION 17: PDF DOSSIER AVAILABILITY -->
+    <section>
+      <div class="eyebrow">PDF Dossier</div>
+      <h2 class="section-title">Dossier <span>Format Status</span></h2>
+
+      <div class="pdf-pending">
+        PDF version pending. This dossier currently meets the content requirements of the Dispatch
+        Intelligence Standard but has not yet been formatted for the PDF dossier standard described
+        in Section 6 of DISPATCH_INTELLIGENCE_STANDARD.md. PDF production requires a minimum of 10
+        source-governed fact table entries (current fact table: 13 entries) and a completed language
+        and classification accuracy review. PDF will be issued in a subsequent governance cycle once
+        a print-safe layout is prepared. No PDF is available at the time of publication. Do not link
+        to a PDF version of this dossier from external sources — no such file exists.
+      </div>
+    </section>
+
+    <!-- SECTION 18: SYSTEM NAVIGATION -->
+    <section>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="eyebrow">System Navigation</div>
+          <h2 class="section-title">From Architecture Layer<br><span>To Full System</span></h2>
+          <p class="section-copy" style="margin-bottom:0;max-width:none;">
+            Dispatch 010 is a node in the full ShovelsSale analytical system. The
+            <a href="/framework/" style="color:var(--gold-light);">Shovel Economy Framework</a> provides
+            the structural model used to classify ARM's layer position. The <a href="/scanner/" style="color:var(--gold-light);">Shovel
+            Scanner</a> allows analysts to reproduce or challenge the classification by adjusting individual
+            signal values. The <a href="/dispatch/" style="color:var(--gold-light);">Dispatch archive</a>
+            contains the full layered atlas of which this dossier is one node.
+          </p>
+
+          <div class="nav-grid">
+            <a href="/framework/" class="nav-card">
+              <div class="nav-tag">Method</div>
+              <div class="nav-title">Framework</div>
+              <div class="nav-copy">Read the structural model that classifies Miner, Shovel, Gatekeeper, and Hybrid positions.</div>
+            </a>
+
+            <a href="/scanner/" class="nav-card">
+              <div class="nav-tag">Instrument</div>
+              <div class="nav-title">Scanner</div>
+              <div class="nav-copy">Reproduce this classification or test ARM against alternative signal configurations.</div>
+            </a>
+
+            <a href="/dispatch/" class="nav-card">
+              <div class="nav-tag">Archive</div>
+              <div class="nav-title">Dispatch Index</div>
+              <div class="nav-copy">Browse all issued dossiers in the sovereign analytical archive.</div>
+            </a>
+          </div>
+
+          <div class="action-row">
+            <a href="/dispatch/" class="btn-secondary">Back to Dispatch</a>
+            <a href="/scanner/" class="btn-primary">Open the Scanner</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      ShovelsSale.com — Dispatch 010 — ARM and the Architecture Licensing Layer — Issued 2026-06-09
+    </footer>
+  </main>
+</body>
+</html>
