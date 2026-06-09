@@ -239,6 +239,63 @@
       color: var(--white);
     }
 
+    .briefing-cta {
+      max-width: 1180px;
+      margin: 0 auto 2rem;
+      padding: 2rem 1.5rem;
+      background: var(--dark-3);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--gold);
+    }
+
+    .briefing-cta h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+
+    .briefing-cta p {
+      color: var(--white-dim);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .briefing-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .briefing-cta-actions a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 1.25rem;
+      border: 1px solid var(--line);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .briefing-cta-actions .primary {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+
+    .briefing-cta-actions .primary:hover {
+      background: var(--gold-light);
+    }
+
+    .briefing-cta-actions .secondary {
+      color: var(--gold);
+    }
+
+    .briefing-cta-actions .secondary:hover {
+      color: var(--white);
+      border-color: var(--gold-dim);
+    }
+
     footer {
       text-align: center;
       padding: 3rem;
@@ -317,6 +374,15 @@
       <li><a href="/scanner/">Shovel Scanner</a> — operational classification across extraction, infrastructure, and control positions.</li>
       <li><a href="/framework/">Shovel Economy Framework</a> — doctrine and taxonomy that connects blog primers to dispatch evidence.</li>
     </ul>
+  </section>
+
+  <section class="briefing-cta">
+    <h2>Request the Dispatch Briefing</h2>
+    <p>Receive low-frequency notes on infrastructure layers, control positions, Shovel Economy cases, Scanner updates, and new source-governed Dispatch dossiers.</p>
+    <div class="briefing-cta-actions">
+      <a href="mailto:agent@sohadot.com?subject=ShovelsSale%20Dispatch%20Briefing" class="primary">Request the Briefing</a>
+      <a href="/briefing/" class="secondary">About the Briefing</a>
+    </div>
   </section>
 
   <div class="posts-grid">

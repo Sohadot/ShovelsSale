@@ -55,6 +55,7 @@ SKIP_FILES = {
 
 PUBLIC_TOP_LEVEL_SECTIONS = {
     "about",
+    "briefing",
     "manifesto",
     "framework",
     "guide",
@@ -98,6 +99,7 @@ META_DATE_PROPERTIES = {
 PRIORITY_MAP = {
     "/": "1.0",
     "/about/": "0.9",
+    "/briefing/": "0.75",
     "/manifesto/": "0.95",
     "/guide/": "0.9",
     "/framework/": "0.9",
@@ -109,6 +111,7 @@ PRIORITY_MAP = {
 FREQ_MAP = {
     "/": "weekly",
     "/about/": "monthly",
+    "/briefing/": "monthly",
     "/manifesto/": "monthly",
     "/guide/": "weekly",
     "/framework/": "weekly",

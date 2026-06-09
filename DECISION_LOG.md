@@ -1,5 +1,26 @@
 # Decision Log
 
+## 2026-06-09 — Dispatch Briefing Signup Layer Added (Sprint 7)
+
+ShovelsSale.com added a restrained Dispatch Briefing audience capture layer using mailto-only signup, with no third-party embeds, tracking changes, or marketing funnel mechanics.
+
+Changes:
+- Created `/briefing/` as a crawlable static page explaining scope, audience, exclusions, and request method.
+- Added contextual CTA blocks to `/dispatch/`, `/blog/`, and Dispatch 009–011.
+- Extended sitemap public-route rules to include `/briefing/`.
+- Regenerated `sitemap.xml` via hardened `scripts/update_sitemap.py`.
+
+Rationale:
+- Readers who follow source-governed Dispatch dossiers need a low-friction way to request low-frequency updates without compromising sovereign reference-system posture.
+- Mailto-only preserves static-site discipline: no backend forms, no external signup services, no cookie or tracking expansion.
+
+Governed by:
+- CLAUDE.md
+- SEO_POLICY.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
 ## 2026-06-09 — Sitemap Generator Scope Hardened (Sprint 6B)
 
 ShovelsSale.com hardened `scripts/update_sitemap.py` so automated sitemap generation cannot emit local Claude/worktree or other non-public filesystem paths.
