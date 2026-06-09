@@ -867,7 +867,8 @@ input[type="range"] {
 }
 
 /* ── Classify button ────────────────────────────────────────────────────── */
-.classify-btn {
+.classify-btn,
+.scanner-classify-button {
   display: block;
   width: 100%;
   padding: 1.1rem;
@@ -886,8 +887,19 @@ input[type="range"] {
   min-height: 48px;
 }
 
-.classify-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
-.classify-btn:active { transform: translateY(0); }
+.classify-btn:hover,
+.scanner-classify-button:hover { background: var(--gold-light); transform: translateY(-1px); }
+.classify-btn:active,
+.scanner-classify-button:active { transform: translateY(0); }
+
+/* ── Build marker ───────────────────────────────────────────────────────── */
+.build-marker {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  opacity: 0.45;
+}
 
 /* ── Loading state ──────────────────────────────────────────────────────── */
 .scanner-loading {
