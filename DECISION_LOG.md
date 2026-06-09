@@ -1,5 +1,46 @@
 # Decision Log
 
+## 2026-06-09 — Dispatch 011 Source Governance Audit Completed (Sprint 5B)
+
+ShovelsSale.com performed a strict intelligence-quality audit of Dispatch 011 (Broadcom and the Infrastructure Aggregation Layer) as the third full application of the Dispatch Intelligence Standard (v1.0).
+
+This decision records the audit findings and the corrections applied to bring the dossier into full compliance before any further Dispatch or content development.
+
+Audit findings and corrections:
+
+- Source table: Added required "Date Checked" column (2026-06-09 for all rows) — previously absent, required by DISPATCH_INTELLIGENCE_STANDARD.md Section 2.10.
+- Source table: Added required "Why It Matters" column for all rows — previously absent, required by repository practice established in Dispatch 009 and 010 audits.
+- Source table: Renamed "Source Type" column to "Source / Reference Label" — aligned with sprint audit requirements and standard terminology.
+- Source table rows 5–6: Differentiated CA Technologies and Symantec Form 8-K source labels to distinguish the two acquisition records.
+- Source table row 15 (new): Added T3 / Moderate Confidence row for Arista Networks and Cisco Systems merchant silicon claim — this specific OEM dependency claim appeared in the Dependency Map as stated fact without a source table entry.
+- Dependency Map: Arista/Cisco merchant silicon claim labeled as "per technology press; analyst interpretation; see Source Table row 15" — unsourced specific vendor claim made auditable.
+- Dependency Map: "a large share of enterprise data center deployments globally" softened to "enterprise data center deployments globally" — "large share" is an unquantified market claim not supported by a primary source.
+- Dependency Map: MSP VMware embedding claim labeled as "analyst interpretation based on VMware ecosystem structure."
+- Replacement Difficulty: All four competitor lists (networking, hypervisor, storage, security) labeled "per technology press and analyst reports" — these lists were stated as fact without source attribution.
+- Replacement Difficulty: "often 3–5 years" hardware refresh claim replaced with "multi-year timelines are typical based on industry analyst estimates" — specific figure had no source.
+- Section 12 (Scanner Interpretation): Added contested signals paragraph identifying Replaceable (42/100) as the most analytically contested signal and explaining the distinction between individual-product and aggregate portfolio replaceability.
+- Section 12: Added classification sensitivity paragraph identifying which gates (Gate 1 ASIC displacement, Gate 2 VMware migration) would shift the Shovel and Gatekeeper scores, and in what direction.
+- Section 12: Added explicit note that no Broadcom preset exists in the scanner engine.
+- Section 13 (Related Dispatch Cases): Added structural distinction paragraph for Cloudflare (Dispatch 005, web edge routing/security control layer) and GitHub (Dispatch 008, developer system-of-record layer) — sprint audit required confirming Broadcom is distinguished from all seven prior cases, including these two.
+- PDF record: Updated "Source Table Entries" from "14 entries" to "15 entries (13 T1, 1 T3 / Watch Signal, 1 T3 / Moderate)" following addition of row 15.
+- sitemap.xml: Regenerated; dispatch/011.html confirmed present.
+
+Quality gate status post-audit: All 5 validators pass (exit code 0).
+
+Rationale:
+- A Dispatch dossier that claims source governance must actually have source governance — not structural form without governed content.
+- The "Date Checked" and "Why It Matters" columns are required by the Dispatch Intelligence Standard and by repository practice established in the Dispatch 009 and 010 audits.
+- Specific vendor claims (Arista/Cisco), market size characterizations ("large share"), and quantitative estimates ("3–5 years") require source attribution or analyst interpretation labels per the Intelligence Standard's strict no-unsourced-fact rule.
+- The Cloudflare and GitHub structural distinctions are required to ensure the Broadcom classification is clearly positioned within the full Dispatch atlas.
+- Contested signal analysis in Section 12 satisfies DISPATCH_INTELLIGENCE_STANDARD.md Section 2.9 requirements that were previously absent.
+
+Governed by:
+- DISPATCH_INTELLIGENCE_STANDARD.md
+- CLAUDE.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
 ## 2026-06-09 — Dispatch 011 Broadcom Infrastructure Aggregation Dossier Published (Sprint 5)
 
 ShovelsSale.com published Dispatch 011: Broadcom and the Infrastructure Aggregation Layer, as the third full application of the Dispatch Intelligence Standard (v1.0).
