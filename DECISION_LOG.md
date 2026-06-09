@@ -366,6 +366,37 @@ Affected Layers:
 Reversal Conditions:
 This decision should only be revisited if McAfee, another browser/security provider, or search console tools report a renewed trust or routing problem.
 
+## 2026-06-09 — Dispatch 010 ARM Architecture Licensing Dossier Published (Sprint 4)
+
+ShovelsSale.com published Dispatch 010 as the second full application of the Dispatch Intelligence Standard (v1.0), covering ARM Holdings and the Architecture Licensing Layer.
+
+This decision extends the Dispatch atlas from nine to ten entries and introduces the Architecture Licensing Layer as a distinct structural category: the processor ISA and IP infrastructure that enables chip design without chip manufacturing.
+
+Implemented changes:
+- created Dispatch 010 as a source-governed intelligence dossier (dispatch/010.html)
+- applied Dispatch Intelligence Standard v1.0 with 12 source-governed fact table rows
+- classified ARM as Hybrid — Shovel (primary) / Gatekeeper (moderate) — High Confidence
+- Scanner scores: Miner 16, Shovel 88, Gatekeeper 73
+- documented the ARM/TSMC Gatekeeper distinction: ARM moderate (73) vs. TSMC strong (86) due to RISC-V as a credible open alternative
+- included five analyst use cases, historical/current/future analysis, and dependency map
+- updated dispatch/index.html with the ARM entry (numberOfItems 9→10, new archive item, layer map card)
+- updated DISPATCH_ROADMAP.md with Dispatch 010 entry and sequencing logic
+- regenerated sitemap.xml to include dispatch/010.html
+- all five quality gate validators pass
+
+Rationale:
+- ARM's architecture licensing model is structurally distinct from every prior dispatch entry
+- the specification layer sits above manufacturing (TSMC) and below compute applications (NVIDIA), completing a three-layer vertical in the atlas
+- the RISC-V comparison makes ARM the first entry where the Gatekeeper ceiling is explicitly bounded by an open-source alternative
+- publishing under the Intelligence Standard ensures source governance discipline is maintained across the second dossier
+
+Governed by:
+- DISPATCH_INTELLIGENCE_STANDARD.md
+- CLAUDE.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
 ## 2026-06-09 — Dispatch 009 Source Governance Audit Completed (Sprint 3C)
 
 ShovelsSale.com performed a strict intelligence-quality audit of Dispatch 009 (TSMC Manufacturing Sovereignty Layer) as the first full application of the Dispatch Intelligence Standard (v1.0).

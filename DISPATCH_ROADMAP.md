@@ -173,8 +173,9 @@ The roadmap order is intentional:
 7. **Shopify** — closes the first archive sequence with cross-layer integration
 8. **GitHub** — introduces the developer system-of-record layer where code, collaboration, and deployment converge
 9. **TSMC** — establishes the manufacturing sovereignty layer: the physical fabrication infrastructure beneath every actor in the digital economy
+10. **ARM** — introduces the architecture licensing layer: the processor ISA and IP infrastructure that enables chip design without chip manufacturing
 
-Together these nine entries form an analytical atlas, not a list. Each entry establishes a structural pattern that future Dispatches can reference, build upon, or test against.
+Together these ten entries form an analytical atlas, not a list. Each entry establishes a structural pattern that future Dispatches can reference, build upon, or test against.
 
 ---
 
@@ -212,6 +213,23 @@ Together these nine entries form an analytical atlas, not a list. Each entry est
 
 ---
 
+## Dispatch 010 — ARM and the Architecture Licensing Layer
+
+- **Dispatch Number:** 010
+- **Title:** ARM and the Architecture Licensing Layer
+- **Case Type:** Processor architecture licensor — IP licensing infrastructure for the semiconductor industry
+- **Primary Layer:** Infrastructure Layer (Architecture Licensing)
+- **Secondary Layer:** Control Layer (ISA ecosystem compatibility, switching cost, platform standardization) — moderate, constrained by RISC-V
+- **Classification Signal:** Hybrid — Shovel (primary) / Gatekeeper (moderate)
+- **Strategic Purpose:** Demonstrate how a processor architecture licensor captures structural value without manufacturing chips, by enabling billions of chip designs across mobile, cloud, automotive, edge, and AI hardware to build against a shared instruction-set architecture.
+- **Reference Function:** Establishes the Architecture Licensing Layer as a distinct infrastructure category — the specification layer that sits above manufacturing (TSMC, Dispatch 009) and equipment (ASML, Dispatch 002) but below the compute applications it enables (NVIDIA, Dispatch 001). Introduces the architecture license / IP license distinction as a structural pattern.
+- **Why It Belongs in the Archive:** ARM's position is analytically distinct from every prior dispatch: it captures value from the specification of computation itself rather than its execution, distribution, or coordination. The architecture licensing model — royalty per chip shipped, across an entire ecosystem of independent designers — is a structural pattern not represented elsewhere in the atlas.
+- **How It Supports the Shovel Economy Thesis:** Proves that the Shovel Economy framework applies to IP and specification infrastructure, not only physical or software infrastructure. Establishes that an architecture licensor can achieve near-universal penetration in a device category while remaining structurally neutral — serving every competing chip designer simultaneously. Introduces the RISC-V comparison as a structural limit on ARM's Gatekeeper ceiling, demonstrating that open-source ISA alternatives represent a real ceiling on access control even when switching costs remain high.
+- **Standard Applied:** Dispatch Intelligence Standard v1.0 (DISPATCH_INTELLIGENCE_STANDARD.md) — second full application of the Intelligence Standard to a new dispatch entry.
+- **Published:** 2026-06-09
+
+---
+
 ## Tone and Discipline
 
 Every Dispatch on this roadmap must remain:
@@ -239,6 +257,6 @@ Adding a Dispatch beyond entry 007 should follow the same discipline: each new e
 ## Status
 
 Status: Active roadmap  
-Coverage: First nine Dispatch entries defined (001–009)  
+Coverage: First ten Dispatch entries defined (001–010)  
 Next Step: Develop future Dispatch entries beyond the initial atlas as new structural layers are identified  
 Last Updated: 2026-06-09
