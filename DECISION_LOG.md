@@ -1,5 +1,26 @@
 # Decision Log
 
+## 2026-06-09 — Blog-to-Dispatch Reference Graph Established (Sprint 6)
+
+ShovelsSale.com connected six blog concept primers to contextually relevant Dispatch intelligence dossiers, strengthened reverse links from Dispatch 009–011 to foundational blog primers, Scanner, and Framework, and added a reference bridge on the blog index.
+
+Changes:
+- Added governed "Related Dispatch Cases" sections to six blog primers with 3–6 contextual dossier links and one-sentence explanations per mapping.
+- Updated `/blog/index.html` with a "Read the Concepts, Then Study the Cases" bridge linking Dispatch, Scanner, and Framework.
+- Strengthened Dispatch 009, 010, and 011 reverse links to blog primers, Scanner, and Framework with dossier-specific rationale.
+- Updated `sitemap.xml` lastmod dates for edited blog pages (2026-06-09); full script regeneration skipped locally because `.claude/worktrees` paths would pollute the sitemap.
+
+Rationale:
+- Blog articles are the conceptual entry layer; Dispatch dossiers are the source-governed evidence layer; Scanner is the operational bridge; Framework is the doctrine and taxonomy layer.
+- Internal links must be contextual and editorial, not mechanical link-farm patterns across every page.
+
+Governed by:
+- CLAUDE.md
+- SEO_POLICY.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
 ## 2026-06-09 — Dispatch 011 Source Governance Audit Completed (Sprint 5B)
 
 ShovelsSale.com performed a strict intelligence-quality audit of Dispatch 011 (Broadcom and the Infrastructure Aggregation Layer) as the third full application of the Dispatch Intelligence Standard (v1.0).
