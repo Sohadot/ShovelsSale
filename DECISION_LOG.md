@@ -329,3 +329,39 @@ Rationale:
 - prevent article pages from weakening the sovereign-grade presentation of the asset
 
 Status: Accepted
+
+DEC-2026-06-09 — McAfee False Positive and Canonical Redirect Hygiene Resolved
+
+Date: 2026-06-09
+Status: Closed
+Area: Trust, Security, Canonical Routing, External Reputation
+
+Decision:
+ShovelsSale.com corrected its canonical redirect behavior and resolved the McAfee false-positive warning that previously marked "http://www.shovelssale.com/" as suspicious / potentially unwanted content.
+
+Context:
+McAfee had shown a warning for the "http://www" version of the domain. Investigation showed that the site required cleaner canonical routing from "http://www.shovelssale.com/" and "https://www.shovelssale.com/" toward the official non-www HTTPS root.
+
+Action Taken:
+A Cloudflare Redirect Rule was deployed to redirect "www.shovelssale.com" traffic to the canonical root:
+
+"https://shovelssale.com/"
+
+The rule preserves paths and supports cleaner canonical routing across the site.
+
+Result:
+The McAfee warning no longer appears, and the site now opens normally. This restores a critical trust layer for visitors, search engines, social sharing, and future strategic buyer review.
+
+Strategic Rationale:
+A sovereign-grade digital asset cannot carry unresolved browser/security reputation warnings. Resolving this issue strengthens trust posture, canonical discipline, public accessibility, and acquisition-readiness.
+
+Affected Layers:
+
+- Cloudflare canonical routing
+- External reputation hygiene
+- Search trust posture
+- Social sharing confidence
+- Strategic asset credibility
+
+Reversal Conditions:
+This decision should only be revisited if McAfee, another browser/security provider, or search console tools report a renewed trust or routing problem.
