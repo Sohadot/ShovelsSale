@@ -212,6 +212,10 @@
       {
         id: 'openai', name: 'OpenAI', actorType: 'company', marketWave: 'AI',
         values: { enablesMany:72, chasesVisible:92, controlsAccess:60, nearCoreInfra:50, failureDisrupts:65, hardToSwitch:48, dependencyGrows:55, necessityNotSpec:30, replaceable:74, compoundsIntegrations:52 }
+      },
+      {
+        id: 'microsoft', name: 'Microsoft', actorType: 'company', marketWave: 'cloud',
+        values: { enablesMany:88, chasesVisible:42, controlsAccess:60, nearCoreInfra:94, failureDisrupts:93, hardToSwitch:90, dependencyGrows:88, necessityNotSpec:88, replaceable:22, compoundsIntegrations:86 }
       }
     ],
 
@@ -394,12 +398,13 @@
 
   /* ── Application state ── */
   var state = {
-    actorName:    MODEL.presets[0].name,
-    actorType:    MODEL.presets[0].actorType,
-    marketWave:   MODEL.presets[0].marketWave,
-    values:       Object.assign({}, MODEL.presets[0].values),
-    activePreset: MODEL.presets[0].name,
-    classified:   false
+    actorName:       MODEL.presets[0].name,
+    actorType:       MODEL.presets[0].actorType,
+    marketWave:      MODEL.presets[0].marketWave,
+    values:          Object.assign({}, MODEL.presets[0].values),
+    activePreset:    MODEL.presets[0].name,
+    classified:      false,
+    isCustomNeutral: false
   };
 
   /* ── DOM reads ── */
@@ -434,10 +439,12 @@
     var name      = currentName();
     var waveLabel = currentWaveLabel();
 
-    /* Context label: preset name or Custom Signal Analysis */
+    /* Signal source label */
     var ctxEl = $('previewContext');
     if (ctxEl) {
-      ctxEl.textContent = state.activePreset ? 'Preset: ' + state.activePreset : 'Custom Signal Analysis';
+      ctxEl.textContent = state.activePreset
+        ? 'Signal Source: ' + state.activePreset + ' preset'
+        : 'Signal Source: Custom signal analysis';
     }
 
     var e;
@@ -447,7 +454,11 @@
     if ((e = $('previewInfra')))    e.textContent = r.infrastructureDensity + '/100';
     if ((e = $('previewControl')))  e.textContent = r.controlLayerStrength  + '/100';
     if ((e = $('previewSpec')))     e.textContent = r.speculationExposure   + '/100';
-    if ((e = $('previewBody')))     e.textContent = getNarrative('classification', r.primary, name, waveLabel);
+    if ((e = $('previewBody'))) {
+      e.textContent = r.isNeutralOverride
+        ? 'Adjust the structural signals below before treating this classification as meaningful.'
+        : getNarrative('classification', r.primary, name, waveLabel);
+    }
   }
 
   /* ── Update full result dossier ── */
@@ -463,7 +474,11 @@
     if ((e = $('dossierPrimaryLayer')))  e.textContent = r.primaryLayer;
     if ((e = $('dossierSecondaryLayer'))) e.textContent = r.secondaryLayer || '—';
     if ((e = $('dossierConfidence')))    e.textContent = r.confidence + ' Confidence';
-    if ((e = $('dossierBody')))          e.textContent = getNarrative('classification', r.primary, name, waveLabel);
+    if ((e = $('dossierBody'))) {
+      e.textContent = r.isNeutralOverride
+        ? 'Adjust the structural signals below before treating this classification as meaningful.'
+        : getNarrative('classification', r.primary, name, waveLabel);
+    }
     if ((e = $('dossierMatters')))       e.textContent = getNarrative('matters',         r.primary, name, waveLabel);
     if ((e = $('dossierLimits')))        e.textContent = getNarrative('limits',          r.primary, name, waveLabel);
 
@@ -541,7 +556,14 @@
     state.marketWave = $('marketWave').value || 'other';
     state.classified = true;
 
-    var r = scoreModel(state.values);
+    var r = (!state.activePreset && state.isCustomNeutral)
+      ? { primary: 'Unclear / Early Signal', confidence: 'Low', primaryLayer: 'Unclassified',
+          secondaryLayer: null, minerScore: 50, shovelScore: 50, gatekeeperScore: 50, spread: 0,
+          infrastructureDensity: 50, controlLayerStrength: 50, dependencyBreadth: 50,
+          switchingCost: 50, replacementDifficulty: 50, speculationExposure: 50,
+          durabilitySignal: 50, isNeutralOverride: true }
+      : scoreModel(state.values);
+
     updateLiveMetrics(r);
     showResultPreview(r);
     showDossier(r);
@@ -579,6 +601,7 @@
       range.id    = 'range-' + signal.key;
       range.addEventListener('input', function () {
         state.values[signal.key] = parseInt(this.value, 10);
+        state.isCustomNeutral = false;
         var b = $('badge-' + signal.key);
         if (b) b.textContent = this.value + '/100';
         updateAllOutputs();
@@ -606,11 +629,14 @@
       btn.className = 'pill' + (state.activePreset === preset.name ? ' active' : '');
       btn.textContent = preset.name;
       btn.addEventListener('click', function () {
-        state.actorName    = preset.name;
-        state.actorType    = preset.actorType;
-        state.marketWave   = preset.marketWave;
-        state.values       = Object.assign({}, preset.values);
-        state.activePreset = preset.name;
+        state.actorName       = preset.name;
+        state.actorType       = preset.actorType;
+        state.marketWave      = preset.marketWave;
+        state.values          = Object.assign({}, preset.values);
+        state.activePreset    = preset.name;
+        state.isCustomNeutral = false;
+        var note = $('customSignalNote');
+        if (note) note.setAttribute('hidden', '');
         syncInputs();
         buildPresets();
         buildSignals();
@@ -620,16 +646,38 @@
     });
   }
 
-  /* ── Actor name: clear preset state on manual edit ── */
+  /* ── Actor name: enter custom mode or re-activate matching preset ── */
   var nameInput = $('actorName');
   if (nameInput) {
     nameInput.addEventListener('input', function () {
-      var typed    = sanitize(this.value, 120);
-      var matched  = MODEL.presets.filter(function (p) { return p.name === typed; })[0];
+      var typed     = sanitize(this.value, 120);
+      var matched   = MODEL.presets.filter(function (p) { return p.name === typed; })[0];
       var newActive = matched ? matched.name : null;
       if (newActive !== state.activePreset) {
+        var note = $('customSignalNote');
         state.activePreset = newActive;
         buildPresets();
+        if (!newActive) {
+          /* Entering custom mode: reset all signals to neutral 50 */
+          MODEL.signals.forEach(function (s) { state.values[s.key] = 50; });
+          state.isCustomNeutral = true;
+          state.classified = false;
+          buildSignals();
+          var placeholder = $('previewPlaceholder');
+          var content     = $('previewContent');
+          if (placeholder) placeholder.style.display = '';
+          if (content) content.setAttribute('hidden', '');
+          if (note) note.removeAttribute('hidden');
+        } else {
+          /* Name exactly matches a preset — load its values */
+          state.actorType       = matched.actorType;
+          state.marketWave      = matched.marketWave;
+          state.values          = Object.assign({}, matched.values);
+          state.isCustomNeutral = false;
+          syncInputs();
+          buildSignals();
+          if (note) note.setAttribute('hidden', '');
+        }
       }
       updateAllOutputs();
     });

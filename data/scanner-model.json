@@ -273,6 +273,18 @@
         "dependencyGrows": 55, "necessityNotSpec": 30, "replaceable": 74,
         "compoundsIntegrations": 52
       }
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "actorType": "company",
+      "marketWave": "cloud",
+      "values": {
+        "enablesMany": 88, "chasesVisible": 42, "controlsAccess": 60,
+        "nearCoreInfra": 94, "failureDisrupts": 93, "hardToSwitch": 90,
+        "dependencyGrows": 88, "necessityNotSpec": 88, "replaceable": 22,
+        "compoundsIntegrations": 86
+      }
     }
   ],
 
