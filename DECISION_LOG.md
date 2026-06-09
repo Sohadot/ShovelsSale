@@ -365,3 +365,43 @@ Affected Layers:
 
 Reversal Conditions:
 This decision should only be revisited if McAfee, another browser/security provider, or search console tools report a renewed trust or routing problem.
+
+## 2026-06-09 — Dispatch 009 Source Governance Audit Completed (Sprint 3C)
+
+ShovelsSale.com performed a strict intelligence-quality audit of Dispatch 009 (TSMC Manufacturing Sovereignty Layer) as the first full application of the Dispatch Intelligence Standard (v1.0).
+
+This decision records the audit findings and the corrections applied to bring the dossier into full compliance with DISPATCH_INTELLIGENCE_STANDARD.md before any further Dispatch development.
+
+Audit findings and corrections:
+
+- Factual error corrected: Arizona fab announcement year changed from "2022" to "2020" — the original announcement was May 2020; the CHIPS Act preliminary memorandum was April 2024.
+- Hero subtitle softened: removed "entire modern technology economy" superlative, replaced with scoped structural language referencing leading-edge chip production specifically.
+- Executive Brief softened: "most of the world's fabless chip designers" changed to "many of the world's leading fabless chip designers" — the broader claim was unsourced.
+- Control-Layer section: added explicit "Analyst interpretation — Moderate Confidence" qualifier to "only TSMC has proven high-volume manufacturing" — this claim is directionally well-supported but stated too absolutely given Samsung Foundry exists as a partial alternative.
+- Use Case 03 HTML corrected: number element was placed after content with a CSS order hack; restructured to match the consistent pattern used by use cases 01/02/04/05.
+- "Millions of gallons" water claim removed: replaced with "enormous volumes" — the specific quantity had no source.
+- Upstream dependency list annotated: added an explicit note that the supplier list represents analyst interpretation based on semiconductor industry supply chain structure, not verified primary disclosures.
+- Japan fab (JASM) second fab claim: added explicit Watch Signal label — the second fab has been reported in T3 press but not confirmed in primary sources.
+- DoD dependency claim corrected: changed from implying a direct TSMC-DoD relationship to accurately describing an indirect supply chain dependency through customers; labeled as Analyst interpretation.
+- Source table column 6 renamed from "Claim Type" to "Why It Matters" and all 12 rows updated with meaningful structural relevance descriptions.
+- Source table row 9 tier badge corrected: GlobalFoundries 2018 announcement is a T1 (official company press release), not T3.
+- Source table row 10 tier badge corrected: TSMC press releases are T1 (primary/authoritative), not T2.
+- Two new source table rows added: SMIC export controls (T1 — US DoC BIS Entity List and EUV export rules) and Apple's foundry transition from Samsung to TSMC (T3 — technology press).
+- SMIC export control claim upgraded: added explicit source reference to US Bureau of Industry and Security (BIS) — T1, High Confidence.
+- Apple-Samsung-TSMC migration claim: added source reference (T3) and dating (2014–2016); previously used in the text without a source table entry.
+- PDF section updated: fact table count corrected from 10 to 12 following addition of 2 new rows.
+
+Quality gate status post-audit: All 5 validators pass (exit code 0).
+
+Rationale:
+- A Dispatch dossier that claims source governance must actually have source governance — not structural form without governed content.
+- Factual errors, unsourced superlatives, and claims used without source table entries all undermine the Dispatch Intelligence Standard.
+- Correcting these issues before issuing Dispatch 010 protects the archive's reference integrity.
+- The audit demonstrates that the Intelligence Standard works as a governance instrument, not merely a template.
+
+Governed by:
+- DISPATCH_INTELLIGENCE_STANDARD.md
+- CLAUDE.md
+- QUALITY_GATE.md
+
+Status: Accepted
