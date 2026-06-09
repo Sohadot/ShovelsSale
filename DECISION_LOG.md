@@ -1,5 +1,38 @@
 # Decision Log
 
+## 2026-06-09 — Dispatch 010 Source Governance Audit Completed (Sprint 4B)
+
+ShovelsSale.com performed a strict intelligence-quality audit of Dispatch 010 (ARM and the Architecture Licensing Layer) as the second full application of the Dispatch Intelligence Standard (v1.0).
+
+This decision records the audit findings and the corrections applied to bring the dossier into full compliance before any further Dispatch development.
+
+Audit findings and corrections:
+
+- Superlative removed: "the most commercially significant mobile product category in history" (iPhone 2007 paragraph) replaced with "a globally transformative mobile product category" — superlatives used as structural claims without evidence are prohibited by the Intelligence Standard.
+- Android/iOS claim softened: "entirely built on ARM architecture" changed to "predominantly built on ARM architecture" — iOS is entirely ARM, but Android has had x86 implementations, making "entirely" technically inaccurate.
+- Quantitative claim removed: "millions of lines of firmware and safety-critical code" changed to "substantial quantities of firmware and safety-critical code" — no source supported the specific quantification.
+- RISC-V Alternatives row: Western Digital and SiFive named as RISC-V adopters now explicitly labeled as "T3 — technology press reporting; analyst interpretation." China RISC-V adoption claim changed from specific national attribution to "government-motivated policy objectives" with explicit analyst interpretation label.
+- Section 9 (Gatekeeper Limit card): China RISC-V claim changed to "policy-motivated interest in domestic semiconductor alternatives — Analyst interpretation" to avoid stating geopolitical motivation as fact.
+- Source table row 3: Claim text updated to include "approximately $40 billion (per NVIDIA press release, September 2020)" — the dollar figure appeared in the body text but was absent from the source table claim.
+- Source table row 4: Removed "the IPO was among the largest technology listings of 2023" from the Claim column — this editorial characterization is not supported by the Form 20-F and is not a T1-verifiable claim.
+- Source table row 13 added: ARM's 1998 simultaneous listing on the London Stock Exchange and NASDAQ (T1, High Confidence) — this historical fact was cited inline in the body text but was absent from the source table.
+- PDF section updated: fact table count corrected from 12 to 13 following addition of row 13.
+- Qualcomm/Samsung/MediaTek historical claim (Section 4, 1998 block): Added explicit "consistent with ARM Holdings Form 20-F customer disclosures (T1); analyst interpretation for the broader ecosystem consolidation narrative" label.
+
+Quality gate status post-audit: All 5 validators pass (exit code 0).
+
+Rationale:
+- A Dispatch dossier that claims source governance must actually have source governance — not structural form without governed content.
+- Superlatives, quantitative claims without sources, and editorially framed claims in the source table Claim column all undermine the Dispatch Intelligence Standard.
+- Correcting these issues protects the archive's reference integrity and sets the standard for Sprint 5 (Dispatch 011).
+
+Governed by:
+- DISPATCH_INTELLIGENCE_STANDARD.md
+- CLAUDE.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
 ## 2026-04-29 — Constitutional Framework Adopted
 
 ShovelsSale.com now includes CLAUDE.md as its local constitutional development framework.
