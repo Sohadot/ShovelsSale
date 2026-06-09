@@ -1,5 +1,25 @@
 # Decision Log
 
+## 2026-06-09 — Search Intent Control Pass Completed (Sprint 9)
+
+ShovelsSale.com refined search-intent language, metadata, and internal anchor text across core reference pages without adding new content or tools.
+
+Changes:
+- Tightened title tags and meta descriptions on home, Scanner, Dispatch Atlas, Blog, Briefing, Dispatch 004–011, and Layer Intelligence articles.
+- Differentiated Dispatch 009 (Manufacturing Sovereignty), 010 (Architecture Licensing), and 011 (Infrastructure Aggregation) metadata.
+- Improved internal anchor language from generic labels to descriptive Shovel Economy vocabulary.
+- Regenerated `sitemap.xml` via hardened `scripts/update_sitemap.py`.
+
+Rationale:
+- After Scanner, Dispatch, Blog Layer Intelligence, Briefing, and Blog-to-Dispatch graph expansion, the site needed a metadata control pass so search identity matches the governed reference-system architecture.
+- Multiple-H1 warnings from split hero typography remain non-blocking; no indexing request in this sprint.
+
+Governed by:
+- SEO_POLICY.md
+- QUALITY_GATE.md
+
+Status: Accepted
+
 ## 2026-06-09 — Blog Layer Intelligence Series Published (Sprint 8)
 
 ShovelsSale.com published five governed long-form Blog intelligence articles as the Layer Intelligence Series, strengthening conceptual search anchors for Shovel Economy reading methods.
