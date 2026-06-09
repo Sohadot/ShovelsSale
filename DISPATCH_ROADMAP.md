@@ -230,6 +230,23 @@ Together these ten entries form an analytical atlas, not a list. Each entry esta
 
 ---
 
+## Dispatch 011 — Broadcom and the Infrastructure Aggregation Layer
+
+- **Dispatch Number:** 011
+- **Title:** Broadcom and the Infrastructure Aggregation Layer
+- **Case Type:** Fabless semiconductor designer and enterprise infrastructure software licensor
+- **Primary Layer:** Infrastructure Layer (Aggregation — Networking Silicon + Enterprise Hypervisor + Storage + Security)
+- **Secondary Layer:** Control Layer (VMware and networking ASIC switching costs) — moderate, individual products have alternatives
+- **Classification Signal:** Hybrid — Shovel (primary) / Gatekeeper (moderate)
+- **Strategic Purpose:** Demonstrate how infrastructure position can be constructed through acquisition-led portfolio aggregation rather than single-product structural monopoly. Broadcom's structural thesis is that the combination of networking silicon, enterprise hypervisor software, storage controllers, and enterprise security software creates aggregate switching costs that exceed what any individual product line would justify in isolation.
+- **Reference Function:** Establishes the Infrastructure Aggregation Layer as a distinct pattern in the atlas — complementary to but distinct from single-product infrastructure monopolies like TSMC (manufacturing) or ARM (ISA specification). Connects to TSMC (Dispatch 009) as Broadcom's foundry dependency, NVIDIA (Dispatch 001) as a compute layer that runs on Broadcom networking fabric, ARM (Dispatch 010) as adjacent architecture layer, and ASML (Dispatch 002) as two upstream layers in the manufacturing chain.
+- **Why It Belongs in the Archive:** The aggregation pattern is one of the most common but most analytically underspecified infrastructure strategies in enterprise technology. Broadcom is the canonical case of a company that assembles durable infrastructure position through portfolio accumulation rather than organic monopoly construction. This structural pattern recurs across industrial conglomerates, enterprise software roll-ups, and platform aggregators — making Broadcom a reference case for the broader pattern.
+- **How It Supports the Shovel Economy Thesis:** Proves that the Shovel Economy framework must account for aggregate infrastructure positions, not only single-product monopolies. Establishes that switching costs can compound across a multi-product portfolio even when no individual product commands absolute structural control. Introduces the Moderate Confidence classification as appropriate when the structural thesis requires interpreting a portfolio combination rather than a single-product position with directly verifiable market structure.
+- **Standard Applied:** Dispatch Intelligence Standard v1.0 (DISPATCH_INTELLIGENCE_STANDARD.md) — third full application of the Intelligence Standard to a new dispatch entry.
+- **Published:** 2026-06-09
+
+---
+
 ## Tone and Discipline
 
 Every Dispatch on this roadmap must remain:
@@ -257,6 +274,6 @@ Adding a Dispatch beyond entry 007 should follow the same discipline: each new e
 ## Status
 
 Status: Active roadmap  
-Coverage: First ten Dispatch entries defined (001–010)  
+Coverage: First eleven Dispatch entries defined (001–011)  
 Next Step: Develop future Dispatch entries beyond the initial atlas as new structural layers are identified  
 Last Updated: 2026-06-09
