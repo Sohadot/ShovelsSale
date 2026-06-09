@@ -398,14 +398,40 @@
 
   /* ── Application state ── */
   var state = {
-    actorName:       MODEL.presets[0].name,
-    actorType:       MODEL.presets[0].actorType,
-    marketWave:      MODEL.presets[0].marketWave,
-    values:          Object.assign({}, MODEL.presets[0].values),
-    activePreset:    MODEL.presets[0].name,
-    classified:      false,
-    isCustomNeutral: false
+    actorName:            MODEL.presets[0].name,
+    actorType:            MODEL.presets[0].actorType,
+    marketWave:           MODEL.presets[0].marketWave,
+    values:               Object.assign({}, MODEL.presets[0].values),
+    activePresetKey:      MODEL.presets[0].id,   /* null = custom mode */
+    customSignalsTouched: false,                  /* slider moved since entering custom mode */
+    classified:           false
   };
+
+  /* ── Preset lookup helpers ── */
+  function getActivePreset() {
+    if (!state.activePresetKey) return null;
+    return MODEL.presets.filter(function (p) { return p.id === state.activePresetKey; })[0] || null;
+  }
+  function getActivePresetName() {
+    var p = getActivePreset();
+    return p ? p.name : null;
+  }
+
+  /* ── Enter custom mode: clear preset, reset signals to neutral 50 ── */
+  function enterCustomMode() {
+    state.activePresetKey      = null;
+    state.customSignalsTouched = false;
+    MODEL.signals.forEach(function (s) { state.values[s.key] = 50; });
+    state.classified = false;
+    buildPresets();
+    buildSignals();
+    var placeholder = $('previewPlaceholder');
+    var content     = $('previewContent');
+    if (placeholder) placeholder.style.display = '';
+    if (content)     content.setAttribute('hidden', '');
+    var note = $('customSignalNote');
+    if (note) note.removeAttribute('hidden');
+  }
 
   /* ── DOM reads ── */
   function currentName()      { return sanitize($('actorName').value, 120) || 'Unnamed Actor'; }
@@ -442,9 +468,20 @@
     /* Signal source label */
     var ctxEl = $('previewContext');
     if (ctxEl) {
-      ctxEl.textContent = state.activePreset
-        ? 'Signal Source: ' + state.activePreset + ' preset'
+      var presetName = getActivePresetName();
+      ctxEl.textContent = presetName
+        ? 'Signal Source: ' + presetName + ' preset'
         : 'Signal Source: Custom signal analysis';
+    }
+
+    /* Neutral custom warning */
+    var neutralWarning = $('neutralCustomWarning');
+    if (neutralWarning) {
+      if (r.isNeutralOverride) {
+        neutralWarning.removeAttribute('hidden');
+      } else {
+        neutralWarning.setAttribute('hidden', '');
+      }
     }
 
     var e;
@@ -556,7 +593,14 @@
     state.marketWave = $('marketWave').value || 'other';
     state.classified = true;
 
-    var r = (!state.activePreset && state.isCustomNeutral)
+    /* Enforce custom-neutral: no preset + no manual slider adjustment = force neutral */
+    var isCustomNeutral = (!state.activePresetKey && !state.customSignalsTouched);
+    if (isCustomNeutral) {
+      MODEL.signals.forEach(function (s) { state.values[s.key] = 50; });
+      buildSignals();
+    }
+
+    var r = isCustomNeutral
       ? { primary: 'Unclear / Early Signal', confidence: 'Low', primaryLayer: 'Unclassified',
           secondaryLayer: null, minerScore: 50, shovelScore: 50, gatekeeperScore: 50, spread: 0,
           infrastructureDensity: 50, controlLayerStrength: 50, dependencyBreadth: 50,
@@ -601,7 +645,7 @@
       range.id    = 'range-' + signal.key;
       range.addEventListener('input', function () {
         state.values[signal.key] = parseInt(this.value, 10);
-        state.isCustomNeutral = false;
+        if (!state.activePresetKey) state.customSignalsTouched = true;
         var b = $('badge-' + signal.key);
         if (b) b.textContent = this.value + '/100';
         updateAllOutputs();
@@ -626,15 +670,15 @@
     MODEL.presets.forEach(function (preset) {
       var btn       = document.createElement('button');
       btn.type      = 'button';
-      btn.className = 'pill' + (state.activePreset === preset.name ? ' active' : '');
+      btn.className = 'pill' + (state.activePresetKey === preset.id ? ' active' : '');
       btn.textContent = preset.name;
       btn.addEventListener('click', function () {
-        state.actorName       = preset.name;
-        state.actorType       = preset.actorType;
-        state.marketWave      = preset.marketWave;
-        state.values          = Object.assign({}, preset.values);
-        state.activePreset    = preset.name;
-        state.isCustomNeutral = false;
+        state.actorName            = preset.name;
+        state.actorType            = preset.actorType;
+        state.marketWave           = preset.marketWave;
+        state.values               = Object.assign({}, preset.values);
+        state.activePresetKey      = preset.id;
+        state.customSignalsTouched = false;
         var note = $('customSignalNote');
         if (note) note.setAttribute('hidden', '');
         syncInputs();
@@ -646,39 +690,31 @@
     });
   }
 
-  /* ── Actor name: enter custom mode or re-activate matching preset ── */
+  /* ── Actor name: detect preset departure or custom name change ── */
   var nameInput = $('actorName');
   if (nameInput) {
     nameInput.addEventListener('input', function () {
-      var typed     = sanitize(this.value, 120);
-      var matched   = MODEL.presets.filter(function (p) { return p.name === typed; })[0];
-      var newActive = matched ? matched.name : null;
-      if (newActive !== state.activePreset) {
-        var note = $('customSignalNote');
-        state.activePreset = newActive;
-        buildPresets();
-        if (!newActive) {
-          /* Entering custom mode: reset all signals to neutral 50 */
+      var typed = sanitize(this.value, 120);
+      if (state.activePresetKey !== null) {
+        /* In preset mode — if name no longer matches the active preset, enter custom mode */
+        var activePresetObj = getActivePreset();
+        if (!activePresetObj || activePresetObj.name !== typed) {
+          enterCustomMode();
+        }
+      } else {
+        /* Already in custom mode — reset signals when actor name changes */
+        if (typed !== state.actorName) {
+          state.customSignalsTouched = false;
           MODEL.signals.forEach(function (s) { state.values[s.key] = 50; });
-          state.isCustomNeutral = true;
-          state.classified = false;
           buildSignals();
+          state.classified = false;
           var placeholder = $('previewPlaceholder');
           var content     = $('previewContent');
           if (placeholder) placeholder.style.display = '';
-          if (content) content.setAttribute('hidden', '');
-          if (note) note.removeAttribute('hidden');
-        } else {
-          /* Name exactly matches a preset — load its values */
-          state.actorType       = matched.actorType;
-          state.marketWave      = matched.marketWave;
-          state.values          = Object.assign({}, matched.values);
-          state.isCustomNeutral = false;
-          syncInputs();
-          buildSignals();
-          if (note) note.setAttribute('hidden', '');
+          if (content)     content.setAttribute('hidden', '');
         }
       }
+      state.actorName = typed;
       updateAllOutputs();
     });
   }

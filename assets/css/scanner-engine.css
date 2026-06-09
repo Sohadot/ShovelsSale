@@ -1002,6 +1002,18 @@ input[type="range"] {
   gap: 0.75rem;
 }
 
+.neutral-custom-warning {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.35);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--white);
+  line-height: 1.65;
+}
+
 .result-preview-placeholder {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.07);
