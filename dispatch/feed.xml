@@ -5,9 +5,30 @@
     <link>https://shovelssale.com/dispatch/</link>
     <description>The analytical publication layer of ShovelsSale.com — structured releases on classification, infrastructure, dependency, and control.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 06 May 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 GMT</lastBuildDate>
     <item>
-      <title>Dispatch 008 — GitHub and the Developer System-of-Record Layer</title>
+      <title>TSMC: Manufacturing Sovereignty Layer | Dispatch 009</title>
+      <link>https://shovelssale.com/dispatch/009.html</link>
+      <guid>https://shovelssale.com/dispatch/009.html</guid>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Dispatch 009: TSMC as the Manufacturing Sovereignty Layer — dedicated foundry infrastructure beneath advanced chips, AI systems, and semiconductor design.</description>
+    </item>
+    <item>
+      <title>ARM: Architecture Licensing Layer | Dispatch 010</title>
+      <link>https://shovelssale.com/dispatch/010.html</link>
+      <guid>https://shovelssale.com/dispatch/010.html</guid>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Dispatch 010: ARM as the Architecture Licensing Layer — processor IP and ISA infrastructure beneath mobile, cloud, edge, and AI chip design.</description>
+    </item>
+    <item>
+      <title>Broadcom: Infrastructure Aggregation Layer | Dispatch 011</title>
+      <link>https://shovelssale.com/dispatch/011.html</link>
+      <guid>https://shovelssale.com/dispatch/011.html</guid>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Dispatch 011: Broadcom as the Infrastructure Aggregation Layer — networking silicon and enterprise software depth beneath data centers and IT.</description>
+    </item>
+    <item>
+      <title>Dispatch 008 — GitHub Developer System-of-Record</title>
       <link>https://shovelssale.com/dispatch/008.html</link>
       <guid>https://shovelssale.com/dispatch/008.html</guid>
       <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
@@ -21,21 +42,21 @@
       <description>Dispatch 003 classifies domain names as strategic digital shovels through naming infrastructure, trust, routing, memory, and category control.</description>
     </item>
     <item>
-      <title>Dispatch 004 — Oracle and the Enterprise System-of-Record Layer</title>
+      <title>Dispatch 004 — Oracle System-of-Record Layer</title>
       <link>https://shovelssale.com/dispatch/004.html</link>
       <guid>https://shovelssale.com/dispatch/004.html</guid>
       <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
       <description>Dispatch 004 classifies Oracle as enterprise system-of-record infrastructure: database, ERP, operational memory, and control-layer dependency.</description>
     </item>
     <item>
-      <title>Dispatch 005 — Cloudflare and the Control Layer of the Modern Web</title>
+      <title>Dispatch 005 — Cloudflare Web Control Layer</title>
       <link>https://shovelssale.com/dispatch/005.html</link>
       <guid>https://shovelssale.com/dispatch/005.html</guid>
       <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
       <description>Dispatch 005 classifies Cloudflare as a web control-layer hybrid across DNS, security, access, edge execution, and developer infrastructure.</description>
     </item>
     <item>
-      <title>Dispatch 006 — Stripe and the Payment Rails Beneath Internet Commerce</title>
+      <title>Dispatch 006 — Stripe Payment Rails Layer</title>
       <link>https://shovelssale.com/dispatch/006.html</link>
       <guid>https://shovelssale.com/dispatch/006.html</guid>
       <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
